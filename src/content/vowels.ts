@@ -1,0 +1,68 @@
+import type { VowelPair } from "@/types";
+
+export const vowels: VowelPair[] = [
+  {
+    id: "a",
+    telugu: "అ",
+    transliteration: "a",
+    englishHint: "Like 'u' in 'cup'",
+    mnemonic: "Think of saying 'Ah!' when surprised",
+    audioUrl: "/audio/vowels/a.mp3",
+  },
+  {
+    id: "aa",
+    telugu: "ఆ",
+    transliteration: "aa",
+    englishHint: "Like 'a' in 'father'",
+    mnemonic: "Longer 'Aaa' like at the doctor",
+    audioUrl: "/audio/vowels/aa.mp3",
+  },
+  {
+    id: "i",
+    telugu: "ఇ",
+    transliteration: "i",
+    englishHint: "Like 'i' in 'bit'",
+    mnemonic: "Short 'i' like 'is'",
+    audioUrl: "/audio/vowels/i.mp3",
+  },
+  {
+    id: "ii",
+    telugu: "ఈ",
+    transliteration: "ii",
+    englishHint: "Like 'ee' in 'feet'",
+    mnemonic: "Long 'ee' like 'cheese'",
+    audioUrl: "/audio/vowels/ii.mp3",
+  },
+  {
+    id: "u",
+    telugu: "ఉ",
+    transliteration: "u",
+    englishHint: "Like 'u' in 'put'",
+    mnemonic: "Short 'oo' like 'book'",
+    audioUrl: "/audio/vowels/u.mp3",
+  },
+  {
+    id: "uu",
+    telugu: "ఊ",
+    transliteration: "uu",
+    englishHint: "Like 'oo' in 'boot'",
+    mnemonic: "Long 'oo' like 'moon'",
+    audioUrl: "/audio/vowels/uu.mp3",
+  },
+  {
+    id: "e",
+    telugu: "ఎ",
+    transliteration: "e",
+    englishHint: "Like 'e' in 'get'",
+    mnemonic: "Short 'e' like 'bed'",
+    audioUrl: "/audio/vowels/e.mp3",
+  },
+  {
+    id: "ee",
+    telugu: "ఏ",
+    transliteration: "ee",
+    englishHint: "Like 'a' in 'cake'",
+    mnemonic: "Long 'ay' like 'day'",
+    audioUrl: "/audio/vowels/ee.mp3",
+  },
+];

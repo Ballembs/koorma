@@ -1,0 +1,88 @@
+import type { GameConfig } from "@/types";
+
+export const games: GameConfig[] = [
+  {
+    id: "listen-tap",
+    name: "Listen & Tap",
+    teluguName: "వినండి & నొక్కండి",
+    description: "Hear a sound and tap the matching letter",
+    type: "audio-match",
+    minLevel: 1,
+    xpReward: 10,
+    settings: {
+      options: 4,
+      timeLimit: null,
+      allowRetry: true,
+    },
+  },
+  {
+    id: "match-pairs",
+    name: "Match Pairs",
+    teluguName: "జతలు కలపండి",
+    description: "Match Telugu letters with their sounds",
+    type: "memory-match",
+    minLevel: 1,
+    xpReward: 15,
+    settings: {
+      pairs: 6,
+      timeLimit: 60,
+      allowRetry: false,
+    },
+  },
+  {
+    id: "trace-letter",
+    name: "Trace the Letter",
+    teluguName: "అక్షరం గీయండి",
+    description: "Trace Telugu letters with your finger",
+    type: "tracing",
+    minLevel: 2,
+    xpReward: 20,
+    settings: {
+      accuracy: 0.7,
+      showGuide: true,
+      allowRetry: true,
+    },
+  },
+  {
+    id: "word-builder",
+    name: "Word Builder",
+    teluguName: "పదాల నిర్మాత",
+    description: "Build words by combining letters",
+    type: "word-construction",
+    minLevel: 3,
+    xpReward: 25,
+    settings: {
+      syllables: true,
+      hints: 2,
+      allowRetry: true,
+    },
+  },
+  {
+    id: "speed-read",
+    name: "Speed Read",
+    teluguName: "వేగంగా చదవండి",
+    description: "Read as many letters as you can in time",
+    type: "speed-challenge",
+    minLevel: 4,
+    xpReward: 30,
+    settings: {
+      timeLimit: 30,
+      minCorrect: 5,
+      allowRetry: false,
+    },
+  },
+  {
+    id: "story-read",
+    name: "Story Time",
+    teluguName: "కథా సమయం",
+    description: "Read along with animated stories",
+    type: "guided-reading",
+    minLevel: 5,
+    xpReward: 50,
+    settings: {
+      scaffoldLevel: "partial-scaffold",
+      audioSupport: true,
+      allowRetry: true,
+    },
+  },
+];
