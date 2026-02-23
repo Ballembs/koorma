@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { useKoormaStore } from "@/lib/store";
@@ -11,7 +11,7 @@ import { Ring } from "@/components/ui/Ring";
 import { XPPill, StreakPill } from "@/components/ui/Pill";
 import { Chintu } from "@/components/characters/Chintu";
 import { ChintuSays } from "@/components/characters/ChintuSays";
-import { GaddiBubble } from "@/components/characters/GaddiBubble";
+import { ChintuMistake } from "@/components/characters/ChintuMistake";
 import { TeluguText } from "@/components/transliteration/TeluguText";
 import { colors } from "@/lib/tokens";
 import { vowels } from "@/content/vowels";
@@ -568,14 +568,14 @@ function CompareStep({
         Tap each card to hear the difference!
       </motion.p>
 
-      {/* Gaddi mistake bubble */}
+      {/* Chintu mistake bubble */}
       <motion.div
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.5 }}
         className="mb-8"
       >
-        <GaddiBubble
+        <ChintuMistake
           text={`Is "${pair.transliteration}" like in "apple"?`}
           correction={pair.englishHint}
         />
@@ -795,6 +795,15 @@ function PracticeStep({
   );
 }
 
+// Speech recognition state type
+type SpeakState =
+  | "ready"      // Initial state, show mic button
+  | "listening"  // Recording speech
+  | "correct"    // Speech matched
+  | "incorrect"  // Speech didn't match
+  | "noSpeech"   // No speech detected
+  | "manual";    // Fallback manual confirmation
+
 // Step 6: Speak
 function SpeakStep({
   pair,
@@ -803,22 +812,158 @@ function SpeakStep({
   pair: typeof vowels[0];
   onNext: () => void;
 }) {
-  const [state, setState] = useState<"ready" | "listening" | "done">("ready");
+  const [state, setState] = useState<SpeakState>("ready");
+  const [attemptCount, setAttemptCount] = useState(0);
+  const [heardText, setHeardText] = useState<string>("");
+  const recognitionRef = useRef<SpeechRecognition | null>(null);
+
+  // Check if Speech Recognition is available
+  const hasSpeechRecognition = typeof window !== "undefined" &&
+    (window.SpeechRecognition || (window as unknown as { webkitSpeechRecognition: typeof SpeechRecognition }).webkitSpeechRecognition);
 
   const handleHear = () => {
     speak(pair.telugu, { lang: "te-IN" });
   };
 
   const handleMic = () => {
-    // Play the word first
+    // Play the correct pronunciation first
     speak(pair.telugu, { lang: "te-IN" });
+
+    // Delay to let TTS finish before listening
+    setTimeout(() => {
+      startListening();
+    }, 1000);
+  };
+
+  const startListening = () => {
+    if (!hasSpeechRecognition) {
+      // No speech recognition available - use manual fallback
+      setState("manual");
+      return;
+    }
+
+    const SpeechRecognitionAPI = window.SpeechRecognition ||
+      (window as unknown as { webkitSpeechRecognition: typeof SpeechRecognition }).webkitSpeechRecognition;
+
+    const recognition = new SpeechRecognitionAPI();
+    recognitionRef.current = recognition;
+
+    // Try Telugu first, fallback to English
+    recognition.lang = "te-IN";
+    recognition.continuous = false;
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 5;
 
     setState("listening");
 
-    // Simulate listening (in real app, use Web Speech API for recognition)
-    setTimeout(() => {
-      setState("done");
-    }, 2500);
+    recognition.onresult = (event: SpeechRecognitionEvent) => {
+      const results = Array.from(event.results[0]);
+      const transcripts = results.map((r) => r.transcript.toLowerCase().trim());
+      setHeardText(transcripts[0] || "");
+
+      // Check if any alternative matches or is close
+      const expectedWord = pair.telugu.toLowerCase();
+      const expectedTrans = pair.transliteration.toLowerCase();
+
+      const isCorrect = transcripts.some((t) => {
+        // Exact match
+        if (t === expectedWord || t === expectedTrans) return true;
+        // Contains match (fuzzy)
+        if (t.includes(expectedTrans) || expectedTrans.includes(t)) return true;
+        // First character match (very forgiving for kids)
+        if (t.length > 0 && expectedTrans.length > 0 && t[0] === expectedTrans[0]) return true;
+        return false;
+      });
+
+      const newAttemptCount = attemptCount + 1;
+      setAttemptCount(newAttemptCount);
+
+      if (isCorrect) {
+        setState("correct");
+      } else {
+        // After 3 incorrect attempts, be more forgiving
+        if (newAttemptCount >= 3) {
+          setState("correct"); // Accept after 3 tries
+        } else {
+          setState("incorrect");
+        }
+      }
+    };
+
+    recognition.onerror = (event: SpeechRecognitionErrorEvent) => {
+      if (event.error === "no-speech") {
+        setState("noSpeech");
+      } else if (event.error === "not-allowed") {
+        // Microphone permission denied
+        setState("manual");
+      } else {
+        // Other errors - fallback to manual
+        setState("manual");
+      }
+    };
+
+    recognition.onend = () => {
+      // If still in listening state when recognition ends, no speech was detected
+      if (state === "listening") {
+        setState("noSpeech");
+      }
+    };
+
+    try {
+      recognition.start();
+
+      // Timeout after 5 seconds
+      setTimeout(() => {
+        if (recognitionRef.current) {
+          recognitionRef.current.stop();
+        }
+      }, 5000);
+    } catch {
+      setState("manual");
+    }
+  };
+
+  const handleTryAgain = () => {
+    setHeardText("");
+    setState("ready");
+  };
+
+  const handleManualYes = () => {
+    setState("correct");
+  };
+
+  const handleManualNo = () => {
+    // Play it again and let them try
+    speak(pair.telugu, { lang: "te-IN" });
+    setState("ready");
+  };
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      if (recognitionRef.current) {
+        recognitionRef.current.abort();
+      }
+    };
+  }, []);
+
+  const getChintuMood = () => {
+    switch (state) {
+      case "correct": return "celebrating";
+      case "incorrect": return "encouraging";
+      case "noSpeech": return "thinking";
+      default: return "encouraging";
+    }
+  };
+
+  const getTitle = () => {
+    switch (state) {
+      case "correct": return "బాగుంది! Great pronunciation!";
+      case "incorrect": return "Almost! Let's try again";
+      case "noSpeech": return "We didn't hear you";
+      case "manual": return "Did you say it?";
+      default: return "Now YOU say it!";
+    }
   };
 
   return (
@@ -826,21 +971,18 @@ function SpeakStep({
       <motion.div
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
-        className="mb-8"
+        className="mb-6"
       >
-        <Chintu
-          mood={state === "done" ? "celebrating" : "encouraging"}
-          size={120}
-        />
+        <Chintu mood={getChintuMood()} size={100} />
       </motion.div>
 
       <motion.h2
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        className="text-2xl md:text-3xl font-bold mb-8"
+        className="text-xl md:text-2xl font-bold mb-6"
         style={{ color: colors.dark, fontFamily: "var(--font-nunito)" }}
       >
-        {state === "done" ? "Great pronunciation!" : "Now YOU say it!"}
+        {getTitle()}
       </motion.h2>
 
       {/* Word display */}
@@ -848,15 +990,15 @@ function SpeakStep({
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.2 }}
-        className="mb-8"
+        className="mb-6"
       >
-        <Card variant="highlight" padding="lg" className="text-center px-10 py-8 md:px-14 md:py-10">
+        <Card variant="highlight" padding="lg" className="text-center px-8 py-6 md:px-12 md:py-8">
           <span
             style={{
               fontFamily: "var(--font-noto-sans-telugu)",
               fontWeight: 800,
               color: colors.kolam,
-              fontSize: "clamp(64px, 15vw, 96px)",
+              fontSize: "clamp(56px, 12vw, 80px)",
               lineHeight: 1.1,
               display: "block",
             }}
@@ -864,7 +1006,7 @@ function SpeakStep({
             {pair.telugu}
           </span>
           <p
-            className="text-2xl md:text-3xl mt-4 font-bold"
+            className="text-xl md:text-2xl mt-3 font-bold"
             style={{ color: colors.turmeric, fontFamily: "var(--font-nunito)" }}
           >
             {pair.transliteration}
@@ -872,14 +1014,14 @@ function SpeakStep({
         </Card>
       </motion.div>
 
+      {/* Ready state */}
       {state === "ready" && (
         <>
-          {/* Hear it first button */}
           <motion.div
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.3 }}
-            className="mb-8"
+            className="mb-6"
           >
             <Button
               onClick={handleHear}
@@ -893,24 +1035,23 @@ function SpeakStep({
             </Button>
           </motion.div>
 
-          {/* Mic button */}
           <motion.button
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ delay: 0.4, type: "spring" }}
             onClick={handleMic}
-            className="w-28 h-28 md:w-32 md:h-32 rounded-full flex items-center justify-center mb-6"
+            className="w-24 h-24 md:w-28 md:h-28 rounded-full flex items-center justify-center mb-4"
             style={{
               background: colors.terra,
               boxShadow: `0 10px 30px ${colors.terra}40`,
             }}
             whileTap={{ scale: 0.9 }}
           >
-            <span className="text-5xl">🎤</span>
+            <span className="text-4xl">🎤</span>
           </motion.button>
 
           <p
-            className="text-base md:text-lg"
+            className="text-base"
             style={{ color: colors.darkMuted, fontFamily: "var(--font-nunito)" }}
           >
             Tap the mic and say it!
@@ -918,6 +1059,7 @@ function SpeakStep({
         </>
       )}
 
+      {/* Listening state */}
       {state === "listening" && (
         <motion.div
           initial={{ scale: 0 }}
@@ -927,41 +1069,108 @@ function SpeakStep({
           <motion.div
             animate={{ scale: [1, 1.2, 1] }}
             transition={{ duration: 1, repeat: Infinity }}
-            className="w-28 h-28 rounded-full flex items-center justify-center mb-5 mx-auto"
+            className="w-24 h-24 rounded-full flex items-center justify-center mb-4 mx-auto"
             style={{ background: `${colors.terra}30` }}
           >
-            <span className="text-5xl">👂</span>
+            <span className="text-4xl">👂</span>
           </motion.div>
-          <p
-            className="text-xl font-semibold"
-            style={{ color: colors.terra }}
-          >
+          <p className="text-lg font-semibold" style={{ color: colors.terra }}>
             Listening...
+          </p>
+          <p className="text-sm mt-1" style={{ color: colors.darkMuted }}>
+            Speak clearly into the microphone
           </p>
         </motion.div>
       )}
 
-      {state === "done" && (
+      {/* Correct state */}
+      {state === "correct" && (
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           className="text-center w-full max-w-sm"
         >
-          <span className="text-6xl mb-5 block">⭐</span>
+          <span className="text-5xl mb-4 block">🎉</span>
           <Button onClick={onNext} size="lg">
             Continue
           </Button>
         </motion.div>
       )}
 
-      {/* Skip option */}
-      {state === "ready" && (
+      {/* Incorrect state */}
+      {state === "incorrect" && (
+        <motion.div
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          className="text-center w-full max-w-sm"
+        >
+          {heardText && (
+            <p className="text-sm mb-3" style={{ color: colors.darkMuted }}>
+              We heard: "<span style={{ color: colors.terra }}>{heardText}</span>"
+            </p>
+          )}
+          <p className="text-base mb-4" style={{ color: colors.dark }}>
+            The word is: <strong style={{ color: colors.kolam }}>{pair.transliteration}</strong>
+          </p>
+          <div className="flex gap-3">
+            <Button onClick={handleHear} variant="outline" fullWidth leftIcon="🔊">
+              Hear it
+            </Button>
+            <Button onClick={handleTryAgain} fullWidth leftIcon="🎤">
+              Try again
+            </Button>
+          </div>
+        </motion.div>
+      )}
+
+      {/* No speech detected */}
+      {state === "noSpeech" && (
+        <motion.div
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          className="text-center w-full max-w-sm"
+        >
+          <p className="text-base mb-4" style={{ color: colors.darkMuted }}>
+            Tap the mic and speak clearly!
+          </p>
+          <Button onClick={handleTryAgain} fullWidth leftIcon="🎤">
+            Try again
+          </Button>
+        </motion.div>
+      )}
+
+      {/* Manual fallback (no Speech API) */}
+      {state === "manual" && (
+        <motion.div
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          className="text-center w-full max-w-sm"
+        >
+          <p className="text-base mb-4" style={{ color: colors.dark }}>
+            Say "<strong style={{ color: colors.kolam }}>{pair.transliteration}</strong>" out loud!
+          </p>
+          <p className="text-sm mb-4" style={{ color: colors.darkMuted }}>
+            Did you say it correctly?
+          </p>
+          <div className="flex gap-3">
+            <Button onClick={handleManualNo} variant="outline" fullWidth>
+              Try again
+            </Button>
+            <Button onClick={handleManualYes} fullWidth leftIcon="👍">
+              Yes, I did!
+            </Button>
+          </div>
+        </motion.div>
+      )}
+
+      {/* Skip option - always visible except when correct */}
+      {state !== "correct" && (
         <motion.button
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1 }}
           onClick={onNext}
-          className="mt-10 text-base"
+          className="mt-8 text-base"
           style={{ color: colors.darkMuted, fontFamily: "var(--font-nunito)" }}
         >
           Skip for now →
