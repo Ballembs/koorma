@@ -67,11 +67,11 @@ export default function LessonPage() {
   const nextPair = pairIndex < vowels.length - 1 ? vowels[pairIndex + 1] : null;
 
   // Calculate total steps - filter out steps that aren't applicable
-  // If no stroke data, skip watch-tap, trace-letter, write-letter
+  // Only watch-tap requires stroke data; trace/write use pixel masks (work for all letters)
   const letterHasStrokeData = pair ? hasStrokeData(pair.telugu) : false;
   const activeSteps = STEP_NAMES.filter((step) => {
-    // Skip the 3-step mastery if no stroke data available
-    if (!letterHasStrokeData && (step === "watch-tap" || step === "trace-letter" || step === "write-letter")) {
+    // Only skip watch-tap if no stroke data (trace/write use pixel masks)
+    if (!letterHasStrokeData && step === "watch-tap") {
       return false;
     }
     return true;

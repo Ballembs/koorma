@@ -5,7 +5,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { Chintu } from "@/components/characters/Chintu";
 import { colors } from "@/lib/tokens";
-import { getLetterStrokes, type StrokePoint } from "@/content/letterStrokes";
+import {
+  createLetterMask,
+  validateTrace,
+  type LetterMask,
+  type TraceResult,
+} from "@/lib/letterMask";
 
 interface WriteLetterProps {
   letter: string;
@@ -19,7 +24,7 @@ interface Point {
   y: number;
 }
 
-type WriteState = "ready" | "writing" | "checking" | "success" | "failed";
+type WriteState = "ready" | "writing" | "success" | "failed";
 
 export function WriteLetter({
   letter,
@@ -28,206 +33,192 @@ export function WriteLetter({
   onSkip,
 }: WriteLetterProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const strokePointsRef = useRef<Point[]>([]);
+  const allPointsRef = useRef<Point[]>([]);
+  const currentStrokeRef = useRef<Point[]>([]);
+  const maskRef = useRef<LetterMask | null>(null);
 
   const [writeState, setWriteState] = useState<WriteState>("ready");
   const [isDrawing, setIsDrawing] = useState(false);
   const [hasDrawn, setHasDrawn] = useState(false);
   const [attemptCount, setAttemptCount] = useState(0);
-  const [showHintLetter, setShowHintLetter] = useState(false);
+  const [showHint, setShowHint] = useState(false);
+  const [lastResult, setLastResult] = useState<TraceResult | null>(null);
 
-  const canvasSize = 280;
-  const strokeData = getLetterStrokes(letter);
+  const canvasSize = 300;
 
-  // Initialize canvas
+  // Initialize
   useEffect(() => {
+    const timer = setTimeout(() => {
+      const mask = createLetterMask(letter, canvasSize, 30);
+      maskRef.current = mask;
+
+      const canvas = canvasRef.current;
+      if (!canvas) return;
+      const ctx = canvas.getContext("2d");
+      if (!ctx) return;
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = canvasSize * dpr;
+      canvas.height = canvasSize * dpr;
+      ctx.scale(dpr, dpr);
+      canvas.style.width = canvasSize + "px";
+      canvas.style.height = canvasSize + "px";
+
+      drawCanvas();
+    }, 100);
+    return () => clearTimeout(timer);
+  }, [letter]);
+
+  // Draw canvas (hint letter if enabled)
+  const drawCanvas = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
-
     const dpr = window.devicePixelRatio || 1;
-    canvas.width = canvasSize * dpr;
-    canvas.height = canvasSize * dpr;
-    ctx.scale(dpr, dpr);
-    canvas.style.width = canvasSize + "px";
-    canvas.style.height = canvasSize + "px";
 
-    // Draw hint letter if enabled
-    if (showHintLetter) {
-      ctx.font = `800 180px "Noto Sans Telugu", sans-serif`;
-      ctx.textAlign = "center";
-      ctx.textBaseline = "middle";
-      ctx.fillStyle = "#F3F4F6";
-      ctx.fillText(letter, canvasSize / 2, canvasSize / 2);
-    }
-
-    // Set up drawing style
-    ctx.strokeStyle = colors.kolam;
-    ctx.lineWidth = 8;
-    ctx.lineCap = "round";
-    ctx.lineJoin = "round";
-  }, [letter, showHintLetter]);
-
-  // Validate the written letter against stroke paths
-  const validateWriting = useCallback((userPoints: Point[]): boolean => {
-    if (!strokeData) return true; // Accept if no stroke data
-
-    // Combine all stroke paths for validation
-    const fullPath: StrokePoint[] = strokeData.fullPath;
-    const pathPoints = fullPath.map(p => ({
-      x: (p.x / 100) * canvasSize,
-      y: (p.y / 100) * canvasSize,
-    }));
-
-    const tolerancePx = (20 / 100) * canvasSize; // 20% tolerance for free writing
-
-    // Track which path points were hit
-    let pathIndex = 0;
-    const pathHits: boolean[] = new Array(pathPoints.length).fill(false);
-
-    for (const userPoint of userPoints) {
-      // Check a wider range for free writing
-      for (let i = Math.max(0, pathIndex - 2); i < Math.min(pathIndex + 5, pathPoints.length); i++) {
-        const pathPoint = pathPoints[i];
-        const dist = Math.sqrt(
-          (userPoint.x - pathPoint.x) ** 2 + (userPoint.y - pathPoint.y) ** 2
-        );
-
-        if (dist <= tolerancePx) {
-          pathHits[i] = true;
-          if (i > pathIndex) {
-            pathIndex = i;
-          }
-        }
-      }
-    }
-
-    // Calculate coverage
-    const hitsCount = pathHits.filter(Boolean).length;
-    const coverage = hitsCount / pathPoints.length;
-
-    // More lenient for free writing - 50% coverage is acceptable
-    return coverage >= 0.5;
-  }, [strokeData, canvasSize]);
-
-  // Get position from event
-  const getPos = useCallback((e: React.TouchEvent | React.MouseEvent): Point => {
-    const canvas = canvasRef.current;
-    if (!canvas) return { x: 0, y: 0 };
-    const rect = canvas.getBoundingClientRect();
-
-    if ("touches" in e && e.touches.length > 0) {
-      return {
-        x: e.touches[0].clientX - rect.left,
-        y: e.touches[0].clientY - rect.top,
-      };
-    }
-    return {
-      x: (e as React.MouseEvent).clientX - rect.left,
-      y: (e as React.MouseEvent).clientY - rect.top,
-    };
-  }, []);
-
-  const startDraw = useCallback((e: React.TouchEvent | React.MouseEvent) => {
-    e.preventDefault();
-    const canvas = canvasRef.current;
-    const ctx = canvas?.getContext("2d");
-    if (!ctx) return;
-
-    setIsDrawing(true);
-    setWriteState("writing");
-    const pos = getPos(e);
-    strokePointsRef.current = [pos];
-
-    const dpr = window.devicePixelRatio || 1;
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.scale(dpr, dpr);
+    ctx.clearRect(0, 0, canvasSize, canvasSize);
 
-    ctx.strokeStyle = colors.kolam;
-    ctx.lineWidth = 8;
-    ctx.lineCap = "round";
-    ctx.lineJoin = "round";
+    if (showHint) {
+      // Show very faint letter as hint
+      ctx.font = `800 ${Math.round(canvasSize * 0.64)}px "Noto Sans Telugu", sans-serif`;
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillStyle = "rgba(200, 185, 165, 0.2)";
+      ctx.fillText(letter, canvasSize / 2, canvasSize / 2);
+    }
+  }, [letter, showHint, canvasSize]);
 
-    ctx.beginPath();
-    ctx.moveTo(pos.x, pos.y);
-  }, [getPos]);
+  useEffect(() => {
+    drawCanvas();
+  }, [showHint, drawCanvas]);
 
-  const draw = useCallback((e: React.TouchEvent | React.MouseEvent) => {
-    e.preventDefault();
-    if (!isDrawing) return;
+  const getPos = useCallback(
+    (e: React.TouchEvent | React.MouseEvent): Point => {
+      const canvas = canvasRef.current;
+      if (!canvas) return { x: 0, y: 0 };
+      const rect = canvas.getBoundingClientRect();
+      const scaleX = canvasSize / rect.width;
+      const scaleY = canvasSize / rect.height;
 
-    const canvas = canvasRef.current;
-    const ctx = canvas?.getContext("2d");
-    if (!ctx) return;
+      if ("touches" in e && e.touches.length > 0) {
+        return {
+          x: (e.touches[0].clientX - rect.left) * scaleX,
+          y: (e.touches[0].clientY - rect.top) * scaleY,
+        };
+      }
+      return {
+        x: ((e as React.MouseEvent).clientX - rect.left) * scaleX,
+        y: ((e as React.MouseEvent).clientY - rect.top) * scaleY,
+      };
+    },
+    [canvasSize]
+  );
 
-    const pos = getPos(e);
-    strokePointsRef.current.push(pos);
+  const startDraw = useCallback(
+    (e: React.TouchEvent | React.MouseEvent) => {
+      e.preventDefault();
+      if (writeState === "success") return;
 
-    ctx.lineTo(pos.x, pos.y);
-    ctx.stroke();
-  }, [isDrawing, getPos]);
+      const canvas = canvasRef.current;
+      const ctx = canvas?.getContext("2d");
+      if (!ctx) return;
+
+      setIsDrawing(true);
+      setHasDrawn(true);
+      if (writeState !== "writing") setWriteState("writing");
+
+      const pos = getPos(e);
+      currentStrokeRef.current = [pos];
+
+      const dpr = window.devicePixelRatio || 1;
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.scale(dpr, dpr);
+      ctx.strokeStyle = colors.kolam;
+      ctx.lineWidth = 7;
+      ctx.lineCap = "round";
+      ctx.lineJoin = "round";
+      ctx.beginPath();
+      ctx.moveTo(pos.x, pos.y);
+    },
+    [getPos, writeState]
+  );
+
+  const draw = useCallback(
+    (e: React.TouchEvent | React.MouseEvent) => {
+      e.preventDefault();
+      if (!isDrawing) return;
+
+      const canvas = canvasRef.current;
+      const ctx = canvas?.getContext("2d");
+      if (!ctx) return;
+
+      const pos = getPos(e);
+      currentStrokeRef.current.push(pos);
+
+      const dpr = window.devicePixelRatio || 1;
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.scale(dpr, dpr);
+      ctx.strokeStyle = colors.kolam;
+      ctx.lineWidth = 7;
+      ctx.lineCap = "round";
+      ctx.lineJoin = "round";
+      ctx.lineTo(pos.x, pos.y);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(pos.x, pos.y);
+    },
+    [isDrawing, getPos]
+  );
 
   const endDraw = useCallback(() => {
     if (!isDrawing) return;
     setIsDrawing(false);
-    setHasDrawn(true);
-    setWriteState("checking");
+    allPointsRef.current = [...allPointsRef.current, ...currentStrokeRef.current];
+    currentStrokeRef.current = [];
   }, [isDrawing]);
 
-  const clearCanvas = useCallback(() => {
+  const handleCheck = useCallback(() => {
+    const mask = maskRef.current;
+    if (!mask) return;
+
+    // Write mode is stricter on coverage but more lenient on accuracy
+    const result = validateTrace(allPointsRef.current, mask, {
+      minAccuracy: 0.35, // More lenient — writing from memory is harder
+      minCoverage: 0.20, // Must cover at least 20% of the letter
+      tolerancePx: 14,   // Slightly more tolerance for free writing
+    });
+
+    setLastResult(result);
+    const newAttempt = attemptCount + 1;
+    setAttemptCount(newAttempt);
+
+    if (result.pass) {
+      setWriteState("success");
+    } else {
+      setWriteState("failed");
+      if (newAttempt >= 2) setShowHint(true);
+    }
+  }, [attemptCount]);
+
+  const clearDrawing = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
-
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    const dpr = window.devicePixelRatio || 1;
-    ctx.setTransform(1, 0, 0, 1, 0, 0);
-    ctx.scale(dpr, dpr);
-
-    // Redraw hint letter if enabled
-    if (showHintLetter) {
-      ctx.font = `800 180px "Noto Sans Telugu", sans-serif`;
-      ctx.textAlign = "center";
-      ctx.textBaseline = "middle";
-      ctx.fillStyle = "#F3F4F6";
-      ctx.fillText(letter, canvasSize / 2, canvasSize / 2);
-    }
-
-    ctx.strokeStyle = colors.kolam;
-    ctx.lineWidth = 8;
-    ctx.lineCap = "round";
-    ctx.lineJoin = "round";
-
-    strokePointsRef.current = [];
+    allPointsRef.current = [];
+    currentStrokeRef.current = [];
     setHasDrawn(false);
+    drawCanvas();
+  }, [drawCanvas]);
+
+  const handleTryAgain = useCallback(() => {
+    clearDrawing();
     setWriteState("ready");
-  }, [letter, showHintLetter]);
-
-  const handleCheck = () => {
-    const points = strokePointsRef.current;
-    const isValid = validateWriting(points);
-    const newAttemptCount = attemptCount + 1;
-    setAttemptCount(newAttemptCount);
-
-    console.log(`Free write check: ${points.length} points, valid: ${isValid}`);
-
-    if (isValid) {
-      setWriteState("success");
-    } else {
-      setWriteState("failed");
-      // Show hint after 2 failed attempts
-      if (newAttemptCount >= 2) {
-        setShowHintLetter(true);
-      }
-    }
-  };
-
-  const handleTryAgain = () => {
-    clearCanvas();
-  };
+    setLastResult(null);
+  }, [clearDrawing]);
 
   return (
     <div className="flex-1 flex flex-col items-center justify-center max-w-lg mx-auto w-full">
@@ -235,7 +226,7 @@ export function WriteLetter({
       <motion.div
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        className="flex items-center gap-3 mb-6"
+        className="flex items-center gap-3 mb-4"
       >
         <Chintu
           mood={
@@ -243,9 +234,9 @@ export function WriteLetter({
               ? "celebrating"
               : writeState === "failed"
               ? "encouraging"
-              : "happy"
+              : "thinking"
           }
-          size={72}
+          size={64}
         />
         <div>
           <h2
@@ -255,7 +246,7 @@ export function WriteLetter({
             Write it yourself!
           </h2>
           <p
-            className="text-base md:text-lg mt-1"
+            className="text-sm md:text-base mt-1"
             style={{ color: colors.darkMuted, fontFamily: "var(--font-nunito)" }}
           >
             Write{" "}
@@ -264,6 +255,7 @@ export function WriteLetter({
                 color: colors.kolam,
                 fontFamily: "var(--font-noto-sans-telugu)",
                 fontWeight: 700,
+                fontSize: "1.1em",
               }}
             >
               {letter}
@@ -273,54 +265,55 @@ export function WriteLetter({
         </div>
       </motion.div>
 
-      {/* Reference letter (small) */}
-      <motion.div
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        className="mb-4 px-4 py-2 rounded-full"
-        style={{ backgroundColor: `${colors.kolam}15` }}
-      >
-        <span
-          className="text-4xl font-bold"
+      {/* Reference letter (tiny, top corner) */}
+      <div className="w-full max-w-sm flex justify-end mb-2 pr-2">
+        <div
+          className="px-3 py-1 rounded-lg"
           style={{
-            color: colors.kolam,
-            fontFamily: "var(--font-noto-sans-telugu)",
+            backgroundColor: "#F5F0EB",
+            border: "1px solid #E0D5C8",
           }}
         >
-          {letter}
-        </span>
-        <span className="text-lg ml-2" style={{ color: colors.darkMuted }}>
-          = {transliteration}
-        </span>
-      </motion.div>
+          <span
+            style={{
+              fontFamily: "var(--font-noto-sans-telugu)",
+              fontWeight: 700,
+              fontSize: "1.2rem",
+              color: colors.darkMuted,
+            }}
+          >
+            {letter}
+          </span>
+          <span className="text-xs ml-1" style={{ color: colors.darkMuted }}>
+            ({transliteration})
+          </span>
+        </div>
+      </div>
 
-      {/* Canvas Container */}
+      {/* Canvas */}
       <motion.div
-        initial={{ scale: 0.9, opacity: 0 }}
+        initial={{ scale: 0.95, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        transition={{ delay: 0.2 }}
-        className="relative rounded-3xl overflow-hidden mb-6"
+        transition={{ delay: 0.1 }}
+        className="relative rounded-2xl overflow-hidden mb-4"
         style={{
           width: canvasSize,
           height: canvasSize,
-          border: `4px ${writeState === "success" ? "solid" : "dashed"} ${
+          border: `3px ${writeState === "success" ? "solid" : "dashed"} ${
             writeState === "success"
               ? colors.mango
               : writeState === "failed"
               ? colors.terra
-              : colors.kolam
-          }40`,
-          backgroundColor: "white",
-          boxShadow: "0 8px 32px rgba(0,0,0,0.1)",
+              : "#D4C5B0"
+          }`,
+          backgroundColor: "#FFFCF8",
+          boxShadow: "0 4px 20px rgba(0,0,0,0.06)",
         }}
       >
         <canvas
           ref={canvasRef}
-          style={{
-            touchAction: "none",
-            cursor: "crosshair",
-            display: "block",
-          }}
+          className="absolute inset-0"
+          style={{ touchAction: "none", cursor: "crosshair" }}
           onMouseDown={startDraw}
           onMouseMove={draw}
           onMouseUp={endDraw}
@@ -330,7 +323,7 @@ export function WriteLetter({
           onTouchEnd={endDraw}
         />
 
-        {/* Ready state instruction */}
+        {/* Instruction */}
         <AnimatePresence>
           {writeState === "ready" && !hasDrawn && (
             <motion.div
@@ -340,71 +333,53 @@ export function WriteLetter({
               className="absolute inset-0 flex items-center justify-center pointer-events-none"
             >
               <motion.div
-                animate={{ scale: [1, 1.1, 1] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
+                animate={{ scale: [1, 1.05, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
                 className="text-center"
               >
-                <span className="text-5xl">✏️</span>
+                <span className="text-4xl">✏️</span>
                 <p className="text-sm font-semibold mt-2" style={{ color: colors.darkMuted }}>
-                  Write from memory!
+                  {showHint ? "Follow the faint letter!" : "Write from memory!"}
                 </p>
               </motion.div>
             </motion.div>
           )}
         </AnimatePresence>
-
-        {/* Hint indicator */}
-        {showHintLetter && (
-          <div className="absolute top-2 right-2 px-2 py-1 rounded bg-yellow-100 text-yellow-700 text-xs">
-            Hint shown
-          </div>
-        )}
       </motion.div>
 
-      {/* Feedback messages */}
+      {/* Feedback */}
       <AnimatePresence mode="wait">
         {writeState === "success" && (
           <motion.div
             key="success"
-            initial={{ scale: 0, opacity: 0 }}
+            initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0, opacity: 0 }}
-            className="text-center mb-6"
+            exit={{ scale: 0.8, opacity: 0 }}
+            className="text-center mb-4"
           >
-            <span className="text-5xl">🎉</span>
-            <p className="text-xl font-bold mt-2" style={{ color: colors.mango }}>
-              You did it!
-            </p>
-            <p
-              className="text-lg mt-1"
-              style={{
-                color: colors.kolam,
-                fontFamily: "var(--font-noto-sans-telugu)",
-                fontWeight: 700,
-              }}
-            >
-              You can write {letter}!
+            <span className="text-3xl">🌟</span>
+            <p className="text-lg font-bold mt-1" style={{ color: colors.mango }}>
+              You can write {letter}! Amazing!
             </p>
           </motion.div>
         )}
-
-        {writeState === "failed" && (
+        {writeState === "failed" && lastResult && (
           <motion.div
             key="failed"
-            initial={{ scale: 0, opacity: 0 }}
+            initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0, opacity: 0 }}
-            className="text-center mb-6"
+            exit={{ scale: 0.8, opacity: 0 }}
+            className="text-center mb-4"
           >
-            <span className="text-3xl">🤔</span>
-            <p className="text-lg font-bold mt-2" style={{ color: colors.terra }}>
-              Not quite right
+            <span className="text-2xl">🐢</span>
+            <p className="text-base font-bold mt-1" style={{ color: colors.terra }}>
+              {lastResult.feedback}
             </p>
-            <p className="text-sm mt-1" style={{ color: colors.darkMuted }}>
-              {showHintLetter
-                ? "Look at the faint letter for help"
-                : "Try to match the shape above"}
-            </p>
+            {showHint && (
+              <p className="text-xs mt-1" style={{ color: colors.darkMuted }}>
+                Hint: the faint letter is now visible!
+              </p>
+            )}
           </motion.div>
         )}
       </AnimatePresence>
@@ -413,49 +388,59 @@ export function WriteLetter({
       <motion.div
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.3 }}
-        className="flex gap-4 w-full max-w-sm"
+        transition={{ delay: 0.2 }}
+        className="flex gap-3 w-full max-w-sm"
       >
-        {writeState === "failed" ? (
-          <Button onClick={handleTryAgain} fullWidth size="lg" leftIcon="🔄">
-            Try again
-          </Button>
-        ) : writeState === "success" ? (
+        {writeState === "success" ? (
           <Button onClick={onComplete} fullWidth size="lg">
-            Complete!
+            Next Step →
           </Button>
-        ) : writeState === "checking" ? (
+        ) : writeState === "failed" ? (
           <>
-            <Button onClick={clearCanvas} variant="outline" fullWidth size="lg" leftIcon="🔄">
-              Clear
+            <Button onClick={handleTryAgain} variant="outline" fullWidth size="lg" leftIcon="🔄">
+              Try again
             </Button>
-            <Button onClick={handleCheck} fullWidth size="lg">
-              Check ✓
-            </Button>
+            {attemptCount >= 4 && (
+              <Button onClick={onComplete} fullWidth size="lg">
+                Continue →
+              </Button>
+            )}
           </>
         ) : (
           <>
-            <Button onClick={clearCanvas} variant="outline" fullWidth size="lg" leftIcon="🔄">
+            <Button
+              onClick={() => { clearDrawing(); setWriteState("ready"); }}
+              variant="outline"
+              fullWidth
+              size="lg"
+              leftIcon="🔄"
+            >
               Clear
             </Button>
-            <Button onClick={handleCheck} fullWidth size="lg" disabled={!hasDrawn} variant="outline">
-              Write first
+            <Button
+              onClick={handleCheck}
+              fullWidth
+              size="lg"
+              disabled={!hasDrawn}
+              style={{ opacity: hasDrawn ? 1 : 0.5 }}
+            >
+              Check ✓
             </Button>
           </>
         )}
       </motion.div>
 
-      {/* Skip option */}
+      {/* Skip */}
       {onSkip && (
         <motion.button
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1 }}
+          transition={{ delay: 1.2 }}
           onClick={onSkip}
-          className="mt-6 text-base"
+          className="mt-5 text-sm"
           style={{ color: colors.darkMuted, fontFamily: "var(--font-nunito)" }}
         >
-          Skip this step
+          Skip writing
         </motion.button>
       )}
     </div>

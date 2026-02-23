@@ -5,7 +5,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { Chintu } from "@/components/characters/Chintu";
 import { colors } from "@/lib/tokens";
-import { getLetterStrokes, type LetterStrokeData, type StrokePoint } from "@/content/letterStrokes";
+import {
+  createLetterMask,
+  validateTrace,
+  type LetterMask,
+  type TraceResult,
+} from "@/lib/letterMask";
 
 interface TraceLetterProps {
   letter: string;
@@ -27,358 +32,261 @@ export function TraceLetter({
   onComplete,
   onSkip,
 }: TraceLetterProps) {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const drawCanvasRef = useRef<HTMLCanvasElement>(null);
   const guideCanvasRef = useRef<HTMLCanvasElement>(null);
-  const strokePointsRef = useRef<Point[]>([]);
+  const allPointsRef = useRef<Point[]>([]);
+  const currentStrokeRef = useRef<Point[]>([]);
+  const maskRef = useRef<LetterMask | null>(null);
 
   const [traceState, setTraceState] = useState<TraceState>("ready");
   const [isDrawing, setIsDrawing] = useState(false);
-  const [currentStrokeIndex, setCurrentStrokeIndex] = useState(0);
-  const [completedStrokes, setCompletedStrokes] = useState<number[]>([]);
-  const [currentProgress, setCurrentProgress] = useState(0);
+  const [hasDrawn, setHasDrawn] = useState(false);
   const [attemptCount, setAttemptCount] = useState(0);
   const [showHint, setShowHint] = useState(false);
-  const [guidePosition, setGuidePosition] = useState<StrokePoint | null>(null);
+  const [lastResult, setLastResult] = useState<TraceResult | null>(null);
+  const [liveAccuracy, setLiveAccuracy] = useState(0);
 
-  const canvasSize = 280;
-  const strokeData = getLetterStrokes(letter);
+  const canvasSize = 300;
 
-  // Initialize canvases
+  // Initialize mask and guide canvas
   useEffect(() => {
-    [canvasRef, guideCanvasRef].forEach(ref => {
-      const canvas = ref.current;
+    // Small delay to ensure fonts are loaded
+    const timer = setTimeout(() => {
+      const mask = createLetterMask(letter, canvasSize, 30);
+      maskRef.current = mask;
+
+      [drawCanvasRef, guideCanvasRef].forEach((ref) => {
+        const canvas = ref.current;
+        if (!canvas) return;
+        const ctx = canvas.getContext("2d");
+        if (!ctx) return;
+        const dpr = window.devicePixelRatio || 1;
+        canvas.width = canvasSize * dpr;
+        canvas.height = canvasSize * dpr;
+        ctx.scale(dpr, dpr);
+        canvas.style.width = canvasSize + "px";
+        canvas.style.height = canvasSize + "px";
+      });
+
+      drawGuide(mask);
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, [letter]);
+
+  // Draw the guide layer
+  const drawGuide = useCallback(
+    (mask: LetterMask) => {
+      const canvas = guideCanvasRef.current;
       if (!canvas) return;
       const ctx = canvas.getContext("2d");
       if (!ctx) return;
-
       const dpr = window.devicePixelRatio || 1;
-      canvas.width = canvasSize * dpr;
-      canvas.height = canvasSize * dpr;
+
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
       ctx.scale(dpr, dpr);
-      canvas.style.width = canvasSize + "px";
-      canvas.style.height = canvasSize + "px";
-    });
+      ctx.clearRect(0, 0, canvasSize, canvasSize);
 
-    drawGuideCanvas();
-  }, [letter, currentStrokeIndex, completedStrokes, showHint]);
-
-  // Draw the guide canvas (background letter + guide dots)
-  const drawGuideCanvas = useCallback(() => {
-    const canvas = guideCanvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    const dpr = window.devicePixelRatio || 1;
-    ctx.setTransform(1, 0, 0, 1, 0, 0);
-    ctx.scale(dpr, dpr);
-    ctx.clearRect(0, 0, canvasSize, canvasSize);
-
-    // Draw background letter
-    ctx.font = `800 180px "Noto Sans Telugu", sans-serif`;
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
-    ctx.fillStyle = "#E8DFD4";
-    ctx.fillText(letter, canvasSize / 2, canvasSize / 2);
-
-    // Draw completed strokes (in success color)
-    if (strokeData) {
-      completedStrokes.forEach(strokeIdx => {
-        const stroke = strokeData.strokes[strokeIdx];
-        if (stroke) {
-          ctx.beginPath();
-          ctx.strokeStyle = colors.mango;
-          ctx.lineWidth = 6;
-          ctx.lineCap = "round";
-          ctx.lineJoin = "round";
-
-          const firstPt = stroke.path[0];
-          ctx.moveTo((firstPt.x / 100) * canvasSize, (firstPt.y / 100) * canvasSize);
-
-          for (let i = 1; i < stroke.path.length; i++) {
-            const pt = stroke.path[i];
-            ctx.lineTo((pt.x / 100) * canvasSize, (pt.y / 100) * canvasSize);
-          }
-          ctx.stroke();
-        }
-      });
-    }
-
-    // Draw guide path for current stroke (if hint mode or always for guidance)
-    if (strokeData && currentStrokeIndex < strokeData.strokes.length) {
-      const currentStroke = strokeData.strokes[currentStrokeIndex];
-
-      // Draw dotted guide path
-      ctx.save();
-      ctx.strokeStyle = showHint ? colors.turmeric : "#CBD5E1";
-      ctx.lineWidth = showHint ? 4 : 3;
-      ctx.setLineDash([6, 6]);
-      ctx.lineCap = "round";
-
-      ctx.beginPath();
-      const firstPt = currentStroke.path[0];
-      ctx.moveTo((firstPt.x / 100) * canvasSize, (firstPt.y / 100) * canvasSize);
-
-      for (let i = 1; i < currentStroke.path.length; i++) {
-        const pt = currentStroke.path[i];
-        ctx.lineTo((pt.x / 100) * canvasSize, (pt.y / 100) * canvasSize);
-      }
-      ctx.stroke();
-      ctx.restore();
-
-      // Draw start dot
-      ctx.fillStyle = colors.mango;
-      ctx.beginPath();
-      ctx.arc(
-        (currentStroke.startDot.x / 100) * canvasSize,
-        (currentStroke.startDot.y / 100) * canvasSize,
-        12,
-        0,
-        Math.PI * 2
-      );
-      ctx.fill();
-
-      // Draw number on start dot
-      ctx.fillStyle = "white";
-      ctx.font = "bold 14px var(--font-nunito)";
+      // 1. Faint filled letter (the target shape)
+      ctx.font = `800 ${Math.round(canvasSize * 0.64)}px "Noto Sans Telugu", sans-serif`;
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
-      ctx.fillText(
-        String(currentStrokeIndex + 1),
-        (currentStroke.startDot.x / 100) * canvasSize,
-        (currentStroke.startDot.y / 100) * canvasSize
-      );
-    }
-  }, [letter, strokeData, currentStrokeIndex, completedStrokes, showHint, canvasSize]);
+      ctx.fillStyle = showHint ? "rgba(212, 148, 12, 0.15)" : "#EAE0D4";
+      ctx.fillText(letter, canvasSize / 2, canvasSize / 2);
 
-  // Validate tracing against current stroke path
-  const validateStroke = useCallback((userPoints: Point[]): { valid: boolean; progress: number } => {
-    if (!strokeData || currentStrokeIndex >= strokeData.strokes.length) {
-      return { valid: true, progress: 1 };
-    }
+      // 2. Dashed outline of the letter (using the FONT's actual shape)
+      ctx.save();
+      ctx.font = `800 ${Math.round(canvasSize * 0.64)}px "Noto Sans Telugu", sans-serif`;
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.strokeStyle = showHint ? colors.turmeric : "#C4B5A0";
+      ctx.lineWidth = showHint ? 2.5 : 1.5;
+      ctx.setLineDash(showHint ? [4, 3] : [5, 6]);
+      ctx.strokeText(letter, canvasSize / 2, canvasSize / 2);
+      ctx.restore();
 
-    const currentStroke = strokeData.strokes[currentStrokeIndex];
-    const pathPoints = currentStroke.path.map(p => ({
-      x: (p.x / 100) * canvasSize,
-      y: (p.y / 100) * canvasSize,
-    }));
+      // 3. Start dot (green circle at topmost point of the letter)
+      const sp = mask.startPoint;
+      ctx.beginPath();
+      ctx.arc(sp.x, sp.y, 9, 0, Math.PI * 2);
+      ctx.fillStyle = "#4CAF50";
+      ctx.fill();
+      ctx.strokeStyle = "white";
+      ctx.lineWidth = 2;
+      ctx.stroke();
 
-    const tolerancePx = (15 / 100) * canvasSize; // 15% tolerance
+      // Small arrow pointing down from start
+      ctx.beginPath();
+      ctx.strokeStyle = "#4CAF50";
+      ctx.lineWidth = 2;
+      ctx.setLineDash([]);
+      const arrowTop = sp.y + 11;
+      const arrowBot = sp.y + 26;
+      ctx.moveTo(sp.x, arrowTop);
+      ctx.lineTo(sp.x, arrowBot);
+      ctx.moveTo(sp.x - 4, arrowBot - 5);
+      ctx.lineTo(sp.x, arrowBot);
+      ctx.lineTo(sp.x + 4, arrowBot - 5);
+      ctx.stroke();
+    },
+    [letter, showHint, canvasSize]
+  );
 
-    // Track which path points were hit in order
-    let pathIndex = 0;
-    const pathHits: boolean[] = new Array(pathPoints.length).fill(false);
+  // Redraw guide when hint changes
+  useEffect(() => {
+    if (maskRef.current) drawGuide(maskRef.current);
+  }, [showHint, drawGuide]);
 
-    for (const userPoint of userPoints) {
-      // Check current and next few path points (allow some flexibility)
-      for (let i = pathIndex; i < Math.min(pathIndex + 3, pathPoints.length); i++) {
-        const pathPoint = pathPoints[i];
-        const dist = Math.sqrt(
-          (userPoint.x - pathPoint.x) ** 2 + (userPoint.y - pathPoint.y) ** 2
-        );
+  // Get canvas-relative position from event
+  const getPos = useCallback(
+    (e: React.TouchEvent | React.MouseEvent): Point => {
+      const canvas = drawCanvasRef.current;
+      if (!canvas) return { x: 0, y: 0 };
+      const rect = canvas.getBoundingClientRect();
+      const scaleX = canvasSize / rect.width;
+      const scaleY = canvasSize / rect.height;
 
-        if (dist <= tolerancePx) {
-          pathHits[i] = true;
-          if (i >= pathIndex) {
-            pathIndex = i;
-          }
-        }
+      if ("touches" in e && e.touches.length > 0) {
+        return {
+          x: (e.touches[0].clientX - rect.left) * scaleX,
+          y: (e.touches[0].clientY - rect.top) * scaleY,
+        };
       }
-    }
-
-    // Calculate progress
-    const hitsCount = pathHits.filter(Boolean).length;
-    const progress = hitsCount / pathPoints.length;
-
-    // Check sequential progress
-    let maxConsecutive = 0;
-    let currentConsecutive = 0;
-    for (const hit of pathHits) {
-      if (hit) {
-        currentConsecutive++;
-        maxConsecutive = Math.max(maxConsecutive, currentConsecutive);
-      } else {
-        currentConsecutive = 0;
-      }
-    }
-
-    const sequentialRatio = maxConsecutive / pathPoints.length;
-    const valid = progress >= 0.6 && sequentialRatio >= 0.4;
-
-    return { valid, progress };
-  }, [strokeData, currentStrokeIndex, canvasSize]);
-
-  // Get position from event
-  const getPos = useCallback((e: React.TouchEvent | React.MouseEvent): Point => {
-    const canvas = canvasRef.current;
-    if (!canvas) return { x: 0, y: 0 };
-    const rect = canvas.getBoundingClientRect();
-
-    if ("touches" in e && e.touches.length > 0) {
       return {
-        x: e.touches[0].clientX - rect.left,
-        y: e.touches[0].clientY - rect.top,
+        x: ((e as React.MouseEvent).clientX - rect.left) * scaleX,
+        y: ((e as React.MouseEvent).clientY - rect.top) * scaleY,
       };
-    }
-    return {
-      x: (e as React.MouseEvent).clientX - rect.left,
-      y: (e as React.MouseEvent).clientY - rect.top,
-    };
-  }, []);
+    },
+    [canvasSize]
+  );
 
-  // Update guide position during tracing
-  const updateGuidePosition = useCallback((userPoint: Point) => {
-    if (!strokeData || currentStrokeIndex >= strokeData.strokes.length) return;
+  const startDraw = useCallback(
+    (e: React.TouchEvent | React.MouseEvent) => {
+      e.preventDefault();
+      if (traceState === "success") return;
 
-    const currentStroke = strokeData.strokes[currentStrokeIndex];
-    const pathPoints = currentStroke.path;
+      const canvas = drawCanvasRef.current;
+      const ctx = canvas?.getContext("2d");
+      if (!ctx || !canvas) return;
 
-    // Find the nearest upcoming path point
-    let nearestIdx = 0;
-    let nearestDist = Infinity;
+      setIsDrawing(true);
+      setHasDrawn(true);
+      if (traceState !== "tracing") setTraceState("tracing");
 
-    for (let i = 0; i < pathPoints.length; i++) {
-      const pt = pathPoints[i];
-      const dist = Math.sqrt(
-        ((pt.x / 100) * canvasSize - userPoint.x) ** 2 +
-        ((pt.y / 100) * canvasSize - userPoint.y) ** 2
-      );
-      if (dist < nearestDist) {
-        nearestDist = dist;
-        nearestIdx = i;
+      const pos = getPos(e);
+      currentStrokeRef.current = [pos];
+
+      const dpr = window.devicePixelRatio || 1;
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.scale(dpr, dpr);
+      ctx.strokeStyle = colors.terra;
+      ctx.lineWidth = 7;
+      ctx.lineCap = "round";
+      ctx.lineJoin = "round";
+      ctx.beginPath();
+      ctx.moveTo(pos.x, pos.y);
+    },
+    [getPos, traceState]
+  );
+
+  const draw = useCallback(
+    (e: React.TouchEvent | React.MouseEvent) => {
+      e.preventDefault();
+      if (!isDrawing) return;
+
+      const canvas = drawCanvasRef.current;
+      const ctx = canvas?.getContext("2d");
+      if (!ctx) return;
+
+      const pos = getPos(e);
+      currentStrokeRef.current.push(pos);
+
+      const dpr = window.devicePixelRatio || 1;
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.scale(dpr, dpr);
+      ctx.strokeStyle = colors.terra;
+      ctx.lineWidth = 7;
+      ctx.lineCap = "round";
+      ctx.lineJoin = "round";
+      ctx.lineTo(pos.x, pos.y);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(pos.x, pos.y);
+
+      // Live accuracy feedback every 12 points
+      const totalPts = allPointsRef.current.length + currentStrokeRef.current.length;
+      if (totalPts % 12 === 0 && maskRef.current) {
+        const combined = [...allPointsRef.current, ...currentStrokeRef.current];
+        const result = validateTrace(combined, maskRef.current, {
+          minAccuracy: 0.45,
+          minCoverage: 0.2,
+          tolerancePx: 12,
+        });
+        setLiveAccuracy(Math.round(result.accuracy * 100));
       }
-    }
-
-    // Show the next point as guide
-    const nextIdx = Math.min(nearestIdx + 1, pathPoints.length - 1);
-    setGuidePosition(pathPoints[nextIdx]);
-    setCurrentProgress(Math.round((nearestIdx / pathPoints.length) * 100));
-  }, [strokeData, currentStrokeIndex, canvasSize]);
-
-  const startDraw = useCallback((e: React.TouchEvent | React.MouseEvent) => {
-    e.preventDefault();
-    const canvas = canvasRef.current;
-    const ctx = canvas?.getContext("2d");
-    if (!ctx) return;
-
-    setIsDrawing(true);
-    setTraceState("tracing");
-    const pos = getPos(e);
-    strokePointsRef.current = [pos];
-
-    const dpr = window.devicePixelRatio || 1;
-    ctx.setTransform(1, 0, 0, 1, 0, 0);
-    ctx.scale(dpr, dpr);
-
-    ctx.strokeStyle = colors.terra;
-    ctx.lineWidth = 8;
-    ctx.lineCap = "round";
-    ctx.lineJoin = "round";
-
-    ctx.beginPath();
-    ctx.moveTo(pos.x, pos.y);
-
-    updateGuidePosition(pos);
-  }, [getPos, updateGuidePosition]);
-
-  const draw = useCallback((e: React.TouchEvent | React.MouseEvent) => {
-    e.preventDefault();
-    if (!isDrawing) return;
-
-    const canvas = canvasRef.current;
-    const ctx = canvas?.getContext("2d");
-    if (!ctx) return;
-
-    const pos = getPos(e);
-    strokePointsRef.current.push(pos);
-
-    ctx.lineTo(pos.x, pos.y);
-    ctx.stroke();
-
-    updateGuidePosition(pos);
-  }, [isDrawing, getPos, updateGuidePosition]);
+    },
+    [isDrawing, getPos]
+  );
 
   const endDraw = useCallback(() => {
     if (!isDrawing) return;
     setIsDrawing(false);
-    setGuidePosition(null);
+    // Accumulate this stroke's points
+    allPointsRef.current = [
+      ...allPointsRef.current,
+      ...currentStrokeRef.current,
+    ];
+    currentStrokeRef.current = [];
+  }, [isDrawing]);
 
-    const points = strokePointsRef.current;
-    const { valid, progress } = validateStroke(points);
-    const newAttemptCount = attemptCount + 1;
-    setAttemptCount(newAttemptCount);
-    setCurrentProgress(Math.round(progress * 100));
+  const handleCheck = useCallback(() => {
+    const mask = maskRef.current;
+    if (!mask) return;
 
-    console.log(`Stroke ${currentStrokeIndex + 1}: ${points.length} pts, ${Math.round(progress * 100)}% progress, valid: ${valid}`);
+    const points = allPointsRef.current;
+    const result = validateTrace(points, mask, {
+      minAccuracy: 0.45,
+      minCoverage: 0.25,
+      tolerancePx: 12,
+    });
 
-    if (valid) {
-      // Mark this stroke as completed
-      const newCompleted = [...completedStrokes, currentStrokeIndex];
-      setCompletedStrokes(newCompleted);
+    setLastResult(result);
+    const newAttempt = attemptCount + 1;
+    setAttemptCount(newAttempt);
 
-      // Check if all strokes are done
-      if (strokeData && newCompleted.length >= strokeData.strokes.length) {
-        setTraceState("success");
-      } else {
-        // Move to next stroke
-        setCurrentStrokeIndex(currentStrokeIndex + 1);
-        setTraceState("ready");
-        setAttemptCount(0);
-        clearDrawingCanvas();
-      }
+    if (result.pass) {
+      setTraceState("success");
     } else {
       setTraceState("failed");
-      // Show hint after 2 failed attempts
-      if (newAttemptCount >= 2) {
-        setShowHint(true);
-      }
+      if (newAttempt >= 2) setShowHint(true);
     }
-  }, [isDrawing, validateStroke, attemptCount, currentStrokeIndex, completedStrokes, strokeData]);
+  }, [attemptCount]);
 
-  const clearDrawingCanvas = useCallback(() => {
-    const canvas = canvasRef.current;
+  const clearDrawing = useCallback(() => {
+    const canvas = drawCanvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
-
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    strokePointsRef.current = [];
+    allPointsRef.current = [];
+    currentStrokeRef.current = [];
+    setLiveAccuracy(0);
+    setHasDrawn(false);
   }, []);
 
-  const handleTryAgain = () => {
-    clearDrawingCanvas();
+  const handleTryAgain = useCallback(() => {
+    clearDrawing();
     setTraceState("ready");
-    setCurrentProgress(0);
-  };
+    setLastResult(null);
+  }, [clearDrawing]);
 
-  const handleReset = () => {
-    clearDrawingCanvas();
-    setCompletedStrokes([]);
-    setCurrentStrokeIndex(0);
+  const handleReset = useCallback(() => {
+    clearDrawing();
     setTraceState("ready");
     setAttemptCount(0);
     setShowHint(false);
-    setCurrentProgress(0);
-  };
-
-  // Fallback for letters without stroke data
-  if (!strokeData) {
-    return (
-      <div className="flex-1 flex flex-col items-center justify-center max-w-lg mx-auto w-full p-4">
-        <div className="text-center mb-6">
-          <span className="text-8xl font-bold" style={{ fontFamily: "var(--font-noto-sans-telugu)" }}>
-            {letter}
-          </span>
-          <p className="text-lg mt-4" style={{ color: colors.darkMuted }}>
-            Stroke data not available for this letter
-          </p>
-        </div>
-        <Button onClick={onComplete} size="lg">
-          Continue
-        </Button>
-      </div>
-    );
-  }
+    setLastResult(null);
+  }, [clearDrawing]);
 
   return (
     <div className="flex-1 flex flex-col items-center justify-center max-w-lg mx-auto w-full">
@@ -386,7 +294,7 @@ export function TraceLetter({
       <motion.div
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        className="flex items-center gap-3 mb-6"
+        className="flex items-center gap-3 mb-4"
       >
         <Chintu
           mood={
@@ -396,7 +304,7 @@ export function TraceLetter({
               ? "encouraging"
               : "happy"
           }
-          size={72}
+          size={64}
         />
         <div>
           <h2
@@ -406,15 +314,16 @@ export function TraceLetter({
             Trace the letter!
           </h2>
           <p
-            className="text-base md:text-lg mt-1"
+            className="text-sm md:text-base mt-1"
             style={{ color: colors.darkMuted, fontFamily: "var(--font-nunito)" }}
           >
-            Stroke {currentStrokeIndex + 1} of {strokeData.totalStrokes} -{" "}
+            Draw over{" "}
             <span
               style={{
                 color: colors.kolam,
                 fontFamily: "var(--font-noto-sans-telugu)",
                 fontWeight: 700,
+                fontSize: "1.1em",
               }}
             >
               {letter}
@@ -424,41 +333,35 @@ export function TraceLetter({
         </div>
       </motion.div>
 
-      {/* Canvas Container */}
+      {/* Canvas */}
       <motion.div
-        initial={{ scale: 0.9, opacity: 0 }}
+        initial={{ scale: 0.95, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        transition={{ delay: 0.2 }}
-        className="relative rounded-3xl overflow-hidden mb-6"
+        transition={{ delay: 0.1 }}
+        className="relative rounded-2xl overflow-hidden mb-4"
         style={{
           width: canvasSize,
           height: canvasSize,
-          border: `4px dashed ${
+          border: `3px ${traceState === "success" ? "solid" : "dashed"} ${
             traceState === "success"
               ? colors.mango
               : traceState === "failed"
               ? colors.terra
-              : colors.turmeric
-          }40`,
-          backgroundColor: "white",
-          boxShadow: "0 8px 32px rgba(0,0,0,0.1)",
+              : "#D4C5B0"
+          }`,
+          backgroundColor: "#FFFCF8",
+          boxShadow: "0 4px 20px rgba(0,0,0,0.06)",
         }}
       >
-        {/* Guide canvas (background) */}
         <canvas
           ref={guideCanvasRef}
           className="absolute inset-0"
           style={{ pointerEvents: "none" }}
         />
-
-        {/* Drawing canvas (foreground) */}
         <canvas
-          ref={canvasRef}
+          ref={drawCanvasRef}
           className="absolute inset-0"
-          style={{
-            touchAction: "none",
-            cursor: "crosshair",
-          }}
+          style={{ touchAction: "none", cursor: "crosshair" }}
           onMouseDown={startDraw}
           onMouseMove={draw}
           onMouseUp={endDraw}
@@ -468,41 +371,22 @@ export function TraceLetter({
           onTouchEnd={endDraw}
         />
 
-        {/* Moving guide indicator */}
+        {/* Instruction overlay */}
         <AnimatePresence>
-          {guidePosition && isDrawing && (
-            <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              exit={{ scale: 0 }}
-              className="absolute w-6 h-6 rounded-full border-4 border-green-500 pointer-events-none"
-              style={{
-                left: `${guidePosition.x}%`,
-                top: `${guidePosition.y}%`,
-                transform: "translate(-50%, -50%)",
-                backgroundColor: "rgba(34, 197, 94, 0.3)",
-              }}
-            />
-          )}
-        </AnimatePresence>
-
-        {/* Ready state instruction */}
-        <AnimatePresence>
-          {traceState === "ready" && !isDrawing && (
+          {traceState === "ready" && !hasDrawn && (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="absolute inset-0 flex items-center justify-center pointer-events-none"
+              className="absolute inset-0 flex items-end justify-center pb-5 pointer-events-none"
             >
               <motion.div
-                animate={{ scale: [1, 1.1, 1] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-                className="text-center"
+                animate={{ y: [0, -3, 0] }}
+                transition={{ duration: 1.3, repeat: Infinity }}
+                className="bg-white/90 backdrop-blur-sm rounded-full px-4 py-2 shadow-md"
               >
-                <span className="text-4xl">👆</span>
-                <p className="text-sm font-semibold mt-2" style={{ color: colors.darkMuted }}>
-                  Start from the orange dot!
+                <p className="text-sm font-semibold" style={{ color: colors.darkMuted }}>
+                  ✏️ Draw over the letter!
                 </p>
               </motion.div>
             </motion.div>
@@ -510,66 +394,74 @@ export function TraceLetter({
         </AnimatePresence>
       </motion.div>
 
-      {/* Progress bar */}
-      <div className="w-full max-w-sm mb-4">
-        <div className="flex justify-between text-sm mb-1">
-          <span style={{ color: colors.darkMuted }}>Progress</span>
-          <span style={{ color: colors.terra, fontWeight: 600 }}>{currentProgress}%</span>
-        </div>
-        <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
-          <motion.div
-            className="h-full rounded-full"
-            style={{ backgroundColor: colors.terra }}
-            initial={{ width: 0 }}
-            animate={{ width: `${currentProgress}%` }}
-          />
-        </div>
-      </div>
+      {/* Live accuracy bar */}
+      {traceState === "tracing" && hasDrawn && (
+        <motion.div
+          initial={{ opacity: 0, y: 5 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="w-full max-w-xs mb-3"
+        >
+          <div className="flex justify-between text-xs mb-1">
+            <span style={{ color: colors.darkMuted, fontFamily: "var(--font-nunito)" }}>
+              Accuracy
+            </span>
+            <span
+              style={{
+                color: liveAccuracy >= 50 ? colors.mango : colors.terra,
+                fontWeight: 600,
+                fontFamily: "var(--font-nunito)",
+              }}
+            >
+              {liveAccuracy}%
+            </span>
+          </div>
+          <div className="h-1.5 bg-gray-200 rounded-full overflow-hidden">
+            <motion.div
+              className="h-full rounded-full transition-colors"
+              style={{
+                backgroundColor: liveAccuracy >= 50 ? colors.mango : colors.terra,
+              }}
+              animate={{ width: `${Math.min(liveAccuracy, 100)}%` }}
+              transition={{ duration: 0.3 }}
+            />
+          </div>
+        </motion.div>
+      )}
 
-      {/* Feedback messages */}
+      {/* Feedback */}
       <AnimatePresence mode="wait">
         {traceState === "success" && (
           <motion.div
             key="success"
-            initial={{ scale: 0, opacity: 0 }}
+            initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0, opacity: 0 }}
-            className="text-center mb-6"
+            exit={{ scale: 0.8, opacity: 0 }}
+            className="text-center mb-4"
           >
-            <span className="text-4xl">✨</span>
-            <p className="text-xl font-bold mt-2" style={{ color: colors.mango }}>
-              Perfect tracing!
-            </p>
-            <p
-              className="text-base mt-1"
-              style={{
-                color: colors.kolam,
-                fontFamily: "var(--font-noto-sans-telugu)",
-                fontWeight: 700,
-              }}
-            >
-              {letter} looks wonderful!
+            <span className="text-3xl">✨</span>
+            <p className="text-lg font-bold mt-1" style={{ color: colors.mango }}>
+              {lastResult?.feedback || "Great tracing!"}
             </p>
           </motion.div>
         )}
 
-        {traceState === "failed" && (
+        {traceState === "failed" && lastResult && (
           <motion.div
             key="failed"
-            initial={{ scale: 0, opacity: 0 }}
+            initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0, opacity: 0 }}
-            className="text-center mb-6"
+            exit={{ scale: 0.8, opacity: 0 }}
+            className="text-center mb-4"
           >
-            <span className="text-3xl">🐢</span>
-            <p className="text-lg font-bold mt-2" style={{ color: colors.terra }}>
-              {showHint ? "Follow the dotted line!" : "Almost there! Try again"}
+            <span className="text-2xl">🐢</span>
+            <p className="text-base font-bold mt-1" style={{ color: colors.terra }}>
+              {lastResult.feedback}
             </p>
-            <p className="text-sm mt-1" style={{ color: colors.darkMuted }}>
-              {showHint
-                ? "Start from the orange dot and follow the path"
-                : `You traced ${currentProgress}% of the stroke`}
-            </p>
+            {showHint && (
+              <p className="text-xs mt-1" style={{ color: colors.darkMuted }}>
+                Follow the dashed outline closely!
+              </p>
+            )}
           </motion.div>
         )}
       </AnimatePresence>
@@ -578,37 +470,50 @@ export function TraceLetter({
       <motion.div
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.3 }}
-        className="flex gap-4 w-full max-w-sm"
+        transition={{ delay: 0.2 }}
+        className="flex gap-3 w-full max-w-sm"
       >
-        {traceState === "failed" ? (
-          <Button onClick={handleTryAgain} fullWidth size="lg" leftIcon="🔄">
-            Try again
-          </Button>
-        ) : traceState === "success" ? (
+        {traceState === "success" ? (
           <Button onClick={onComplete} fullWidth size="lg">
-            Next Step
+            Next Step →
           </Button>
+        ) : traceState === "failed" ? (
+          <>
+            <Button onClick={handleTryAgain} variant="outline" fullWidth size="lg" leftIcon="🔄">
+              Try again
+            </Button>
+            {attemptCount >= 4 && (
+              <Button onClick={onComplete} fullWidth size="lg">
+                Continue →
+              </Button>
+            )}
+          </>
         ) : (
           <>
             <Button onClick={handleReset} variant="outline" fullWidth size="lg" leftIcon="🔄">
-              Reset
+              Clear
             </Button>
-            <Button onClick={onComplete} fullWidth size="lg" disabled variant="outline">
-              Trace to continue
+            <Button
+              onClick={handleCheck}
+              fullWidth
+              size="lg"
+              disabled={!hasDrawn}
+              style={{ opacity: hasDrawn ? 1 : 0.5 }}
+            >
+              Check ✓
             </Button>
           </>
         )}
       </motion.div>
 
-      {/* Skip option */}
+      {/* Skip */}
       {onSkip && (
         <motion.button
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1 }}
+          transition={{ delay: 1.2 }}
           onClick={onSkip}
-          className="mt-6 text-base"
+          className="mt-5 text-sm"
           style={{ color: colors.darkMuted, fontFamily: "var(--font-nunito)" }}
         >
           Skip tracing
