@@ -19,96 +19,151 @@ interface Point {
   y: number;
 }
 
-interface CheckpointZone {
-  x: number; // percentage (0-100)
-  y: number; // percentage (0-100)
-  r: number; // radius as percentage
+// Stroke path definition - array of points defining the ideal trace path
+// Points are percentages (0-100) of canvas size
+interface StrokePath {
+  points: Point[];
+  tolerance: number; // How far off-path is allowed (percentage)
+  minProgress: number; // Minimum % of path that must be traced (0-1)
 }
 
-interface LetterCheckpoints {
-  zones: CheckpointZone[];
-  minHits: number;
-}
-
-// Checkpoint zones for each Telugu vowel letter
-// These are percentage-based regions that the stroke must pass through
-// Zones are generous (20% radius) to be forgiving for kids on touch screens
-const LETTER_CHECKPOINTS: Record<string, LetterCheckpoints> = {
-  // అ (a) - curved shape
+// Define stroke paths for Telugu vowels
+// These paths represent the ideal tracing route for each letter
+const LETTER_PATHS: Record<string, StrokePath> = {
+  // అ (a) - starts top-left, curves right, then down-left
   "అ": {
-    zones: [
-      { x: 35, y: 25, r: 20 }, // top left curve
-      { x: 55, y: 45, r: 20 }, // middle
-      { x: 40, y: 70, r: 20 }, // bottom curve
+    points: [
+      { x: 30, y: 35 },
+      { x: 35, y: 30 },
+      { x: 45, y: 28 },
+      { x: 55, y: 32 },
+      { x: 60, y: 40 },
+      { x: 58, y: 50 },
+      { x: 50, y: 58 },
+      { x: 42, y: 62 },
+      { x: 38, y: 68 },
+      { x: 40, y: 75 },
+      { x: 48, y: 78 },
     ],
-    minHits: 2,
+    tolerance: 18, // 18% of canvas = ~50px tolerance
+    minProgress: 0.6, // Must trace at least 60% of path
   },
-  // ఆ (aa) - అ with extension
+  // ఆ (aa)
   "ఆ": {
-    zones: [
-      { x: 30, y: 25, r: 18 }, // top left curve
-      { x: 45, y: 50, r: 18 }, // middle
-      { x: 35, y: 70, r: 18 }, // bottom curve
-      { x: 70, y: 50, r: 18 }, // right extension
+    points: [
+      { x: 25, y: 35 },
+      { x: 30, y: 28 },
+      { x: 40, y: 26 },
+      { x: 48, y: 32 },
+      { x: 50, y: 42 },
+      { x: 45, y: 52 },
+      { x: 38, y: 58 },
+      { x: 35, y: 68 },
+      { x: 40, y: 76 },
+      // Right extension
+      { x: 55, y: 50 },
+      { x: 65, y: 45 },
+      { x: 72, y: 50 },
     ],
-    minHits: 3,
+    tolerance: 18,
+    minProgress: 0.55,
   },
-  // ఇ (i) - complex shape
+  // ఇ (i)
   "ఇ": {
-    zones: [
-      { x: 40, y: 20, r: 20 }, // top
-      { x: 50, y: 45, r: 20 }, // middle
-      { x: 45, y: 75, r: 20 }, // bottom
+    points: [
+      { x: 45, y: 25 },
+      { x: 50, y: 30 },
+      { x: 55, y: 38 },
+      { x: 52, y: 48 },
+      { x: 45, y: 55 },
+      { x: 42, y: 65 },
+      { x: 45, y: 72 },
+      { x: 50, y: 75 },
     ],
-    minHits: 2,
+    tolerance: 18,
+    minProgress: 0.6,
   },
-  // ఈ (ii) - ఇ with extension
+  // ఈ (ii)
   "ఈ": {
-    zones: [
-      { x: 35, y: 20, r: 18 }, // top
-      { x: 45, y: 45, r: 18 }, // middle
-      { x: 40, y: 70, r: 18 }, // bottom
-      { x: 65, y: 35, r: 18 }, // right curve
+    points: [
+      { x: 35, y: 28 },
+      { x: 42, y: 25 },
+      { x: 50, y: 30 },
+      { x: 52, y: 42 },
+      { x: 48, y: 52 },
+      { x: 42, y: 60 },
+      { x: 40, y: 70 },
+      { x: 45, y: 76 },
+      // Right extension
+      { x: 58, y: 35 },
+      { x: 68, y: 38 },
     ],
-    minHits: 3,
+    tolerance: 18,
+    minProgress: 0.55,
   },
   // ఉ (u)
   "ఉ": {
-    zones: [
-      { x: 45, y: 25, r: 20 }, // top
-      { x: 50, y: 50, r: 20 }, // middle
-      { x: 45, y: 75, r: 20 }, // bottom
+    points: [
+      { x: 38, y: 30 },
+      { x: 45, y: 26 },
+      { x: 55, y: 30 },
+      { x: 58, y: 42 },
+      { x: 52, y: 52 },
+      { x: 45, y: 60 },
+      { x: 42, y: 70 },
+      { x: 48, y: 76 },
     ],
-    minHits: 2,
+    tolerance: 18,
+    minProgress: 0.6,
   },
-  // ఊ (uu) - ఉ with extension
+  // ఊ (uu)
   "ఊ": {
-    zones: [
-      { x: 35, y: 25, r: 18 }, // top
-      { x: 45, y: 50, r: 18 }, // middle
-      { x: 40, y: 70, r: 18 }, // bottom
-      { x: 65, y: 50, r: 18 }, // right extension
+    points: [
+      { x: 30, y: 32 },
+      { x: 38, y: 26 },
+      { x: 48, y: 30 },
+      { x: 52, y: 42 },
+      { x: 45, y: 55 },
+      { x: 40, y: 65 },
+      { x: 45, y: 75 },
+      // Right extension
+      { x: 60, y: 48 },
+      { x: 70, y: 52 },
     ],
-    minHits: 3,
+    tolerance: 18,
+    minProgress: 0.55,
   },
   // ఎ (e)
   "ఎ": {
-    zones: [
-      { x: 50, y: 20, r: 20 }, // top
-      { x: 45, y: 50, r: 20 }, // middle
-      { x: 50, y: 75, r: 20 }, // bottom
+    points: [
+      { x: 55, y: 28 },
+      { x: 48, y: 25 },
+      { x: 40, y: 30 },
+      { x: 38, y: 42 },
+      { x: 45, y: 52 },
+      { x: 50, y: 60 },
+      { x: 48, y: 70 },
+      { x: 45, y: 76 },
     ],
-    minHits: 2,
+    tolerance: 18,
+    minProgress: 0.6,
   },
-  // ఏ (ee) - ఎ with extension
+  // ఏ (ee)
   "ఏ": {
-    zones: [
-      { x: 40, y: 20, r: 18 }, // top
-      { x: 45, y: 50, r: 18 }, // middle
-      { x: 40, y: 70, r: 18 }, // bottom
-      { x: 60, y: 20, r: 18 }, // top right extension
+    points: [
+      { x: 50, y: 30 },
+      { x: 42, y: 26 },
+      { x: 35, y: 32 },
+      { x: 35, y: 45 },
+      { x: 42, y: 55 },
+      { x: 48, y: 65 },
+      { x: 45, y: 75 },
+      // Top extension
+      { x: 58, y: 22 },
+      { x: 68, y: 25 },
     ],
-    minHits: 3,
+    tolerance: 18,
+    minProgress: 0.55,
   },
 };
 
@@ -122,12 +177,13 @@ export function LetterTrace({
   onSkip,
 }: LetterTraceProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const strokePointsRef = useRef<Point[]>([]);
   const [isDrawing, setIsDrawing] = useState(false);
   const [hasDrawn, setHasDrawn] = useState(false);
-  const [strokePoints, setStrokePoints] = useState<Point[]>([]);
   const [traceState, setTraceState] = useState<TraceState>("drawing");
   const [attemptCount, setAttemptCount] = useState(0);
-  const [showHintZones, setShowHintZones] = useState(false);
+  const [showGuidePath, setShowGuidePath] = useState(false);
+  const [traceProgress, setTraceProgress] = useState(0);
 
   const canvasSize = 280;
 
@@ -153,9 +209,9 @@ export function LetterTrace({
     ctx.fillStyle = "#E8DFD4";
     ctx.fillText(letter, canvasSize / 2, canvasSize / 2);
 
-    // Draw hint zones if enabled
-    if (showHintZones) {
-      drawHintZones(ctx);
+    // Draw guide path if enabled
+    if (showGuidePath) {
+      drawGuidePath(ctx);
     }
 
     // Set up drawing style
@@ -163,64 +219,107 @@ export function LetterTrace({
     ctx.lineWidth = 8;
     ctx.lineCap = "round";
     ctx.lineJoin = "round";
-  }, [letter, color, showHintZones]);
+  }, [letter, color, showGuidePath]);
 
-  // Draw hint zones to help the child
-  const drawHintZones = (ctx: CanvasRenderingContext2D) => {
-    const checkpoints = LETTER_CHECKPOINTS[letter];
-    if (!checkpoints) return;
+  // Draw the guide path (dotted line showing where to trace)
+  const drawGuidePath = (ctx: CanvasRenderingContext2D) => {
+    const pathDef = LETTER_PATHS[letter];
+    if (!pathDef || pathDef.points.length < 2) return;
 
     ctx.save();
-    checkpoints.zones.forEach((zone, index) => {
-      const zoneX = (zone.x / 100) * canvasSize;
-      const zoneY = (zone.y / 100) * canvasSize;
-      const zoneR = (zone.r / 100) * canvasSize;
+    ctx.strokeStyle = colors.turmeric;
+    ctx.lineWidth = 3;
+    ctx.setLineDash([8, 8]);
+    ctx.lineCap = "round";
 
-      // Draw a subtle circle
-      ctx.beginPath();
-      ctx.arc(zoneX, zoneY, zoneR, 0, Math.PI * 2);
-      ctx.fillStyle = `${colors.turmeric}30`;
-      ctx.fill();
-      ctx.strokeStyle = colors.turmeric;
-      ctx.lineWidth = 2;
-      ctx.setLineDash([5, 5]);
-      ctx.stroke();
-      ctx.setLineDash([]);
+    ctx.beginPath();
+    const firstPoint = pathDef.points[0];
+    ctx.moveTo((firstPoint.x / 100) * canvasSize, (firstPoint.y / 100) * canvasSize);
 
-      // Draw number
-      ctx.font = "bold 16px var(--font-nunito)";
-      ctx.fillStyle = colors.turmeric;
-      ctx.textAlign = "center";
-      ctx.textBaseline = "middle";
-      ctx.fillText(String(index + 1), zoneX, zoneY);
-    });
+    for (let i = 1; i < pathDef.points.length; i++) {
+      const point = pathDef.points[i];
+      ctx.lineTo((point.x / 100) * canvasSize, (point.y / 100) * canvasSize);
+    }
+    ctx.stroke();
+
+    // Draw start indicator
+    ctx.setLineDash([]);
+    ctx.fillStyle = colors.mango;
+    ctx.beginPath();
+    ctx.arc(
+      (firstPoint.x / 100) * canvasSize,
+      (firstPoint.y / 100) * canvasSize,
+      10,
+      0,
+      Math.PI * 2
+    );
+    ctx.fill();
+    ctx.fillStyle = "white";
+    ctx.font = "bold 12px var(--font-nunito)";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText("1", (firstPoint.x / 100) * canvasSize, (firstPoint.y / 100) * canvasSize);
+
     ctx.restore();
   };
 
-  // Validate the trace against checkpoints
+  // Validate trace against the path
   const validateTrace = useCallback(
-    (points: Point[]): boolean => {
-      const checkpoints = LETTER_CHECKPOINTS[letter];
-      if (!checkpoints) return true; // Accept if no checkpoints defined
+    (userPoints: Point[]): { valid: boolean; progress: number } => {
+      const pathDef = LETTER_PATHS[letter];
+      if (!pathDef) return { valid: true, progress: 1 }; // Accept if no path defined
 
-      let hits = 0;
-      for (const zone of checkpoints.zones) {
-        const zoneX = (zone.x / 100) * canvasSize;
-        const zoneY = (zone.y / 100) * canvasSize;
-        const zoneR = (zone.r / 100) * canvasSize;
+      const pathPoints = pathDef.points.map((p) => ({
+        x: (p.x / 100) * canvasSize,
+        y: (p.y / 100) * canvasSize,
+      }));
+      const tolerancePx = (pathDef.tolerance / 100) * canvasSize;
 
-        // Check if any stroke point falls within this zone
-        const hit = points.some((point) => {
-          const dx = point.x - zoneX;
-          const dy = point.y - zoneY;
-          return Math.sqrt(dx * dx + dy * dy) <= zoneR;
-        });
-        if (hit) hits++;
+      // For each path point, check if user traced near it (in order)
+      let pathIndex = 0;
+      const pathHits: boolean[] = new Array(pathPoints.length).fill(false);
+
+      for (const userPoint of userPoints) {
+        // Check current and next few path points (allow some flexibility in order)
+        for (let i = pathIndex; i < Math.min(pathIndex + 3, pathPoints.length); i++) {
+          const pathPoint = pathPoints[i];
+          const dist = Math.sqrt(
+            (userPoint.x - pathPoint.x) ** 2 + (userPoint.y - pathPoint.y) ** 2
+          );
+
+          if (dist <= tolerancePx) {
+            pathHits[i] = true;
+            // Advance pathIndex to prevent going backwards
+            if (i >= pathIndex) {
+              pathIndex = i;
+            }
+          }
+        }
       }
 
-      return hits >= checkpoints.minHits;
+      // Calculate how much of the path was traced
+      const hitsCount = pathHits.filter(Boolean).length;
+      const progress = hitsCount / pathPoints.length;
+
+      // Check for sequential progress (should hit points roughly in order)
+      let maxConsecutive = 0;
+      let currentConsecutive = 0;
+      for (const hit of pathHits) {
+        if (hit) {
+          currentConsecutive++;
+          maxConsecutive = Math.max(maxConsecutive, currentConsecutive);
+        } else {
+          currentConsecutive = 0;
+        }
+      }
+
+      // Valid if: enough progress AND mostly sequential
+      const sequentialRatio = maxConsecutive / pathPoints.length;
+      const valid = progress >= pathDef.minProgress && sequentialRatio >= 0.4;
+
+      return { valid, progress };
     },
-    [letter]
+    [letter, canvasSize]
   );
 
   // Get position from touch or mouse event
@@ -254,13 +353,13 @@ export function LetterTrace({
       setIsDrawing(true);
       setTraceState("drawing");
       const pos = getPos(e);
-      setStrokePoints([pos]);
+      strokePointsRef.current = [pos];
 
-      // Reset stroke style
       ctx.strokeStyle = color;
       ctx.lineWidth = 8;
       ctx.lineCap = "round";
       ctx.lineJoin = "round";
+      ctx.setLineDash([]);
 
       ctx.beginPath();
       ctx.moveTo(pos.x, pos.y);
@@ -278,7 +377,7 @@ export function LetterTrace({
       if (!ctx) return;
 
       const pos = getPos(e);
-      setStrokePoints((prev) => [...prev, pos]);
+      strokePointsRef.current.push(pos);
 
       ctx.lineTo(pos.x, pos.y);
       ctx.stroke();
@@ -291,22 +390,25 @@ export function LetterTrace({
     setIsDrawing(false);
     setHasDrawn(true);
 
-    // Validate the trace
-    const isValid = validateTrace(strokePoints);
+    const points = strokePointsRef.current;
+    const { valid, progress } = validateTrace(points);
     const newAttemptCount = attemptCount + 1;
     setAttemptCount(newAttemptCount);
+    setTraceProgress(Math.round(progress * 100));
 
-    if (isValid) {
+    console.log(`Trace: ${points.length} pts, progress: ${Math.round(progress * 100)}%, valid: ${valid}`);
+
+    if (valid) {
       setTraceState("success");
     } else {
       setTraceState("failed");
-      // After 3 failed attempts, show hints
+      // After 3 failed attempts, show guide path
       if (newAttemptCount >= 3) {
-        setShowHintZones(true);
+        setShowGuidePath(true);
         setTraceState("hint");
       }
     }
-  }, [isDrawing, strokePoints, validateTrace, attemptCount]);
+  }, [isDrawing, validateTrace, attemptCount]);
 
   const clearCanvas = useCallback(() => {
     const canvas = canvasRef.current;
@@ -316,7 +418,6 @@ export function LetterTrace({
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Reset scale for retina
     const dpr = window.devicePixelRatio || 1;
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.scale(dpr, dpr);
@@ -328,21 +429,21 @@ export function LetterTrace({
     ctx.fillStyle = "#E8DFD4";
     ctx.fillText(letter, canvasSize / 2, canvasSize / 2);
 
-    // Draw hint zones if enabled
-    if (showHintZones) {
-      drawHintZones(ctx);
+    // Draw guide path if enabled
+    if (showGuidePath) {
+      drawGuidePath(ctx);
     }
 
-    // Reset drawing style
     ctx.strokeStyle = color;
     ctx.lineWidth = 8;
     ctx.lineCap = "round";
     ctx.lineJoin = "round";
 
     setHasDrawn(false);
-    setStrokePoints([]);
+    strokePointsRef.current = [];
     setTraceState("drawing");
-  }, [letter, color, showHintZones]);
+    setTraceProgress(0);
+  }, [letter, color, showGuidePath]);
 
   const handleTryAgain = () => {
     clearCanvas();
@@ -377,7 +478,7 @@ export function LetterTrace({
             className="text-base md:text-lg mt-1"
             style={{ color: colors.darkMuted, fontFamily: "var(--font-nunito)" }}
           >
-            Draw over{" "}
+            Follow the shape of{" "}
             <span
               style={{
                 color: colors.kolam,
@@ -412,7 +513,7 @@ export function LetterTrace({
       >
         {/* Guide instruction overlay */}
         <AnimatePresence>
-          {!hasDrawn && strokePoints.length === 0 && (
+          {!hasDrawn && traceState === "drawing" && (
             <motion.div
               initial={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -428,7 +529,7 @@ export function LetterTrace({
                   className="text-sm font-semibold mt-2"
                   style={{ color: colors.darkMuted }}
                 >
-                  Touch & trace!
+                  Trace the letter!
                 </p>
               </motion.div>
             </motion.div>
@@ -495,13 +596,13 @@ export function LetterTrace({
               className="text-lg font-bold mt-2"
               style={{ color: colors.terra }}
             >
-              Almost! Try to follow the letter shape
+              Almost! Follow the letter shape
             </p>
             <p
               className="text-sm mt-1"
               style={{ color: colors.darkMuted }}
             >
-              Trace over the gray letter carefully
+              You traced {traceProgress}% of the path
             </p>
           </motion.div>
         )}
@@ -519,13 +620,13 @@ export function LetterTrace({
               className="text-lg font-bold mt-2"
               style={{ color: colors.turmeric }}
             >
-              Keep practicing!
+              Follow the dotted line!
             </p>
             <p
               className="text-sm mt-1"
               style={{ color: colors.darkMuted }}
             >
-              Try to touch the numbered circles as you trace
+              Start from the green circle
             </p>
           </motion.div>
         )}
@@ -539,12 +640,7 @@ export function LetterTrace({
         className="flex gap-4 w-full max-w-sm"
       >
         {traceState === "failed" || traceState === "hint" ? (
-          <Button
-            onClick={handleTryAgain}
-            fullWidth
-            size="lg"
-            leftIcon="🔄"
-          >
+          <Button onClick={handleTryAgain} fullWidth size="lg" leftIcon="🔄">
             Try again
           </Button>
         ) : (
@@ -567,7 +663,7 @@ export function LetterTrace({
                 opacity: traceState === "success" ? 1 : 0.5,
               }}
             >
-              {traceState === "success" ? "Next →" : "Draw first!"}
+              {traceState === "success" ? "Next →" : "Trace first!"}
             </Button>
           </>
         )}

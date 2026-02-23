@@ -16,15 +16,18 @@ import { TeluguText } from "@/components/transliteration/TeluguText";
 import { colors } from "@/lib/tokens";
 import { vowels } from "@/content/vowels";
 import { speak } from "@/lib/audio";
-import { LetterTrace } from "@/components/lesson/LetterTrace";
+import { WatchAndTap } from "@/components/lesson/WatchAndTap";
+import { TraceLetter } from "@/components/lesson/TraceLetter";
+import { WriteLetter } from "@/components/lesson/WriteLetter";
+import { hasStrokeData } from "@/content/letterStrokes";
 
-// Step names for progress tracking
+// Step names for progress tracking - includes 3-step letter mastery
 const STEP_NAMES = [
   "intro",
   "learn-short",
-  "trace-short",
-  "learn-long",
-  "trace-long",
+  "watch-tap",      // Step 1: Watch & Tap
+  "trace-letter",   // Step 2: Trace
+  "write-letter",   // Step 3: Write
   "compare",
   "practice",
   "speak",
@@ -63,11 +66,16 @@ export default function LessonPage() {
   const pairIndex = vowels.findIndex((v) => v.id === pairId);
   const nextPair = pairIndex < vowels.length - 1 ? vowels[pairIndex + 1] : null;
 
-  // Calculate total steps (skip learn-long and trace-long if no long vowel exists)
-  const hasLongVowel = pair && pair.id.length === 1; // Simple pairs have long versions
-  const activeSteps = STEP_NAMES.filter(
-    (step) => (step !== "learn-long" && step !== "trace-long") || hasLongVowel
-  );
+  // Calculate total steps - filter out steps that aren't applicable
+  // If no stroke data, skip watch-tap, trace-letter, write-letter
+  const letterHasStrokeData = pair ? hasStrokeData(pair.telugu) : false;
+  const activeSteps = STEP_NAMES.filter((step) => {
+    // Skip the 3-step mastery if no stroke data available
+    if (!letterHasStrokeData && (step === "watch-tap" || step === "trace-letter" || step === "write-letter")) {
+      return false;
+    }
+    return true;
+  });
   const totalSteps = activeSteps.length;
   const currentStepIndex = activeSteps.indexOf(currentStep);
   const progress = ((currentStepIndex + 1) / totalSteps) * 100;
@@ -196,37 +204,28 @@ export default function LessonPage() {
               />
             )}
 
-            {currentStep === "trace-short" && (
-              <LetterTrace
+            {/* 3-Step Letter Mastery System */}
+            {currentStep === "watch-tap" && (
+              <WatchAndTapStep
                 letter={pair.telugu}
                 transliteration={pair.transliteration}
-                color={colors.kolam}
+                onComplete={goNext}
+              />
+            )}
+
+            {currentStep === "trace-letter" && (
+              <TraceLetter
+                letter={pair.telugu}
+                transliteration={pair.transliteration}
                 onComplete={goNext}
                 onSkip={goNext}
               />
             )}
 
-            {currentStep === "learn-long" && hasLongVowel && (
-              <LearnStep
+            {currentStep === "write-letter" && (
+              <WriteLetter
                 letter={pair.telugu}
                 transliteration={pair.transliteration}
-                soundLike={pair.englishHint}
-                word={pair.telugu}
-                wordTrans={pair.transliteration}
-                wordMeaning="Example"
-                emoji="🔤"
-                funFact={pair.mnemonic}
-                scaffoldLevel={scaffoldLevel}
-                onNext={goNext}
-                nextLabel="Now trace it! ✏️"
-              />
-            )}
-
-            {currentStep === "trace-long" && hasLongVowel && (
-              <LetterTrace
-                letter={pair.telugu}
-                transliteration={pair.transliteration}
-                color={colors.turmeric}
                 onComplete={goNext}
                 onSkip={goNext}
               />
@@ -487,6 +486,64 @@ function LearnStep({
           {nextLabel}
         </Button>
       </div>
+    </div>
+  );
+}
+
+// Step 2a: Watch & Tap (Letter Mastery Step 1)
+function WatchAndTapStep({
+  letter,
+  transliteration,
+  onComplete,
+}: {
+  letter: string;
+  transliteration: string;
+  onComplete: () => void;
+}) {
+  return (
+    <div className="flex-1 flex flex-col items-center justify-center max-w-lg mx-auto w-full">
+      {/* Header */}
+      <motion.div
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        className="flex items-center gap-3 mb-6"
+      >
+        <Chintu mood="excited" size={72} />
+        <div>
+          <h2
+            className="text-2xl md:text-3xl font-bold"
+            style={{ color: colors.dark, fontFamily: "var(--font-nunito)" }}
+          >
+            Watch & Tap
+          </h2>
+          <p
+            className="text-base md:text-lg mt-1"
+            style={{ color: colors.darkMuted, fontFamily: "var(--font-nunito)" }}
+          >
+            Learn how to write{" "}
+            <span
+              style={{
+                color: colors.kolam,
+                fontFamily: "var(--font-noto-sans-telugu)",
+                fontWeight: 700,
+              }}
+            >
+              {letter}
+            </span>{" "}
+            ({transliteration})
+          </p>
+        </div>
+      </motion.div>
+
+      {/* Watch and Tap Component */}
+      <motion.div
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ delay: 0.2 }}
+        className="w-full"
+      >
+        <WatchAndTap letter={letter} onComplete={onComplete} />
+      </motion.div>
     </div>
   );
 }
