@@ -29,7 +29,12 @@ export function useTeluguAudio() {
           resolve(); // silently continue if no audio
         }
       };
-      audio.play().catch((err) => reject(err));
+      audio.play().catch((err) => {
+        if (err.name !== 'NotAllowedError' && err.name !== 'AbortError') {
+          console.warn(`Audio playback failed for ${clipName}:`, err);
+        }
+        resolve();
+      });
     });
   }, [stop]);
 

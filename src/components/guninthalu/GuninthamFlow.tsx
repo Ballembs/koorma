@@ -37,10 +37,10 @@ export default function GuninthamFlow({
       >
         <div className="text-8xl mb-6">🎉</div>
         <h2 className="text-4xl font-bold text-[#E6C287] mb-4 font-nunito">
-          Mastered {baseConsonant.letter}!
+          Mastered {baseConsonant.telugu}!
         </h2>
         <p className="text-xl text-[#8D6E63] font-nunito mb-8">
-          You learned all 16 magical sounds of {baseConsonant.letter}.
+          You learned all 16 magical sounds of {baseConsonant.telugu}.
         </p>
         <Button
           onClick={() => {
@@ -109,7 +109,7 @@ function ReadAlongPhase({ baseConsonant, onComplete }: any) {
     // Some base consonants have 'a' suffix, remove it to glue the new vowel
     const baseT = baseConsonant.transliteration.endsWith("a") ? baseConsonant.transliteration.slice(0, -1) : baseConsonant.transliteration;
     const finalTrans = idx === 0 ? baseConsonant.transliteration : `${baseT}${ts}`;
-    const finalTelugu = `${baseConsonant.letter}${mark.mark || ""}`;
+    const finalTelugu = `${baseConsonant.telugu}${mark.mark || ""}`;
     return { finalTelugu, finalTrans };
   };
 
@@ -140,7 +140,7 @@ function ReadAlongPhase({ baseConsonant, onComplete }: any) {
 
       <div className="flex items-center gap-8 justify-center mb-12">
         {/* Base Consonant */}
-        <div className="text-6xl font-telugu text-[#C1553B] opacity-50">{baseConsonant.letter}</div>
+        <div className="text-6xl font-telugu text-[#C1553B] opacity-50">{baseConsonant.telugu}</div>
         <div className="text-3xl text-gray-300">+</div>
         <div className="text-6xl font-telugu text-[#7B1FA2] opacity-50">{currentMark.mark || "—"}</div>
         <div className="text-3xl text-gray-300">=</div>
@@ -200,7 +200,7 @@ function IdentifyPhase({ baseConsonant, onComplete }: any) {
     if (idx === 1) ts = "aa"; if (idx === 2) ts = "i"; if (idx === 3) ts = "ee"; if (idx === 4) ts = "u"; if (idx === 5) ts = "oo"; if (idx === 6) ts = "ru"; if (idx === 7) ts = "roo"; if (idx === 8) ts = "e"; if (idx === 9) ts = "ay"; if (idx === 10) ts = "ai"; if (idx === 11) ts = "o"; if (idx === 12) ts = "oh"; if (idx === 13) ts = "ow"; if (idx === 14) ts = "am"; if (idx === 15) ts = "aha";
     const baseT = baseConsonant.transliteration.endsWith("a") ? baseConsonant.transliteration.slice(0, -1) : baseConsonant.transliteration;
     const finalTrans = idx === 0 ? baseConsonant.transliteration : `${baseT}${ts}`;
-    const finalTelugu = `${baseConsonant.letter}${mark.mark || ""}`;
+    const finalTelugu = `${baseConsonant.telugu}${mark.mark || ""}`;
     return { finalTelugu, finalTrans };
   };
 
@@ -343,7 +343,7 @@ function BuildPhase({ baseConsonant, onComplete }: any) {
       <p className="text-gray-600 mb-8 font-nunito">Which mark makes <strong>{targetData.finalTrans}</strong>?</p>
 
       <div className="flex items-end gap-2 text-7xl font-telugu text-[#C1553B] mb-12">
-        <span>{baseConsonant.letter}</span>
+        <span>{baseConsonant.telugu}</span>
         <span className="text-4xl text-gray-300 mx-4">+</span>
         <span className="text-8xl text-purple-300 border-b-8 border-dashed border-purple-200 w-24 h-24 flex items-center justify-center shadow-inner rounded-xl">?</span>
         <span className="text-4xl text-gray-300 mx-4">=</span>

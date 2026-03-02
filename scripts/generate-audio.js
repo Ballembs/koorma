@@ -196,37 +196,62 @@ async function generateAll() {
   await synthesize("అద్భుతం!", "celebrate-amazing");
   await synthesize("బాగుంది!", "celebrate-good");
 
-  // ─── PART 4: ADVANCED SECTIONS ───
-
   console.log("Generating Guninthalu 576 Combinations...");
 
-  // Need the logic to combine base consonant + vowel mark
-  // Vowel Mark sounds (transliteration suffixes)
   const VOWEL_MARKS = [
-    { transSuffix: "a", mark: "" }, // Base consonant itself (e.g. క)
-    { transSuffix: "aa", mark: "ా" },
-    { transSuffix: "i", mark: "ి" },
-    { transSuffix: "ee", mark: "ీ" },
-    { transSuffix: "u", mark: "ు" },
-    { transSuffix: "oo", mark: "ూ" },
-    { transSuffix: "ru", mark: "ృ" },
-    { transSuffix: "roo", mark: "ౄ" },
-    { transSuffix: "e", mark: "ె" },
-    { transSuffix: "ay", mark: "ే" },
-    { transSuffix: "ai", mark: "ై" },
-    { transSuffix: "o", mark: "ొ" },
-    { transSuffix: "oh", mark: "ో" },
-    { transSuffix: "ow", mark: "ౌ" },
-    { transSuffix: "am", mark: "ం" },
-    { transSuffix: "aha", mark: "ః" },
+    { mark: null, sound: "ka" },
+    { mark: "ా", sound: "kaa" },
+    { mark: "ి", sound: "ki" },
+    { mark: "ీ", sound: "kee" },
+    { mark: "ు", sound: "ku" },
+    { mark: "ూ", sound: "koo" },
+    { mark: "ృ", sound: "kru" },
+    { mark: "ౄ", sound: "kroo" },
+    { mark: "ె", sound: "ke" },
+    { mark: "ే", sound: "kay" },
+    { mark: "ై", sound: "kai" },
+    { mark: "ొ", sound: "ko" },
+    { mark: "ో", sound: "koh" },
+    { mark: "ౌ", sound: "kow" },
+    { mark: "ం", sound: "kam" },
+    { mark: "ః", sound: "kaha" },
   ];
 
   for (const c of consonants) {
     for (const v of VOWEL_MARKS) {
-      const combinedTrans = `${c.trans}${v.transSuffix === "a" ? "" : v.transSuffix}`;
-      const combinedTelugu = `${c.letter}${v.mark}`;
-      // Note: for "a" suffix (base consonant) we already generated `ka-letter`, but for Guninthalu flow,
-      // it might be cleaner to generate e.g. `gunintham-ka`, `gunintham-kaa`, etc.
+      if (!c.trans) continue;
+
+      let ts = "a";
+      if (v.sound.endsWith("aa") && v.sound !== "kaa") ts = "aa";
+      else if (v.sound.endsWith("ee")) ts = "ee";
+      else if (v.sound.endsWith("i") && v.sound !== "ki" && v.sound !== "kai") ts = "i";
+      else if (v.sound.endsWith("oo")) ts = "oo";
+      else if (v.sound.endsWith("u") && v.sound !== "ku") ts = "u";
+      else if (v.sound.endsWith("roo")) ts = "roo";
+      else if (v.sound.endsWith("ru")) ts = "ru";
+      else if (v.sound.endsWith("ay")) ts = "ay";
+      else if (v.sound.endsWith("ai")) ts = "ai";
+      else if (v.sound.endsWith("e")) ts = "e";
+      else if (v.sound.endsWith("oh")) ts = "oh";
+      else if (v.sound.endsWith("ow")) ts = "ow";
+      else if (v.sound.endsWith("o")) ts = "o";
+      else if (v.sound.endsWith("am")) ts = "am";
+      else if (v.sound.endsWith("aha")) ts = "aha";
+      // Fallbacks
+      if (v.sound === "kaa") ts = "aa";
+      if (v.sound === "ki") ts = "i";
+      if (v.sound === "ku") ts = "u";
+      if (v.sound === "kai") ts = "ai";
+
+      const baseT = c.trans.endsWith("a") ? c.trans.slice(0, -1) : c.trans;
+      const combinedTrans = ts === "a" ? c.trans : `${baseT}${ts}`;
+      const combinedTelugu = `${c.letter}${v.mark || ""}`;
+
+      if (!combinedTelugu) {
+        console.warn(`Skipping empty text for consonant ${c.trans}`);
+        continue;
+      }
+
       await synthesize(combinedTelugu, `gunintham-${combinedTrans}`, SLOW_CONFIG);
     }
   }

@@ -172,7 +172,7 @@ export default function GuninthaluHubPage() {
                       : "bg-white border-transparent text-[#C1553B] hover:border-[#FFCC80]"
                       }`}
                   >
-                    <span className="text-3xl font-telugu">{c.letter}</span>
+                    <span className="text-3xl font-telugu">{c.telugu}</span>
                     {isCompleted && (
                       <div className="absolute -top-2 -right-2 bg-green-500 text-white text-[10px] w-5 h-5 flex items-center justify-center rounded-full border-2 border-white">
                         ✓
