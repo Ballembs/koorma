@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useAudio } from "@/hooks/useAudio";
+import { useTeluguAudio } from "@/hooks/useTeluguAudio";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import type { VowelPair } from "@/types";
@@ -12,10 +12,10 @@ interface LearnCardProps {
 }
 
 export function LearnCard({ pair, onComplete }: LearnCardProps) {
-  const { speak } = useAudio();
+  const { playLetter } = useTeluguAudio();
 
   const handlePlaySound = () => {
-    speak(pair.telugu, { lang: "te-IN" });
+    playLetter(pair.transliteration);
   };
 
   return (

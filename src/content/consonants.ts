@@ -1,94 +1,53 @@
 import type { ConsonantData } from "@/types";
 
 export const consonants: ConsonantData[] = [
-  {
-    id: "ka",
-    telugu: "క",
-    transliteration: "ka",
-    englishHint: "Like 'k' in 'kite'",
-    mnemonic: "Think of a 'kite' flying",
-    audioUrl: "/audio/consonants/ka.mp3",
-    group: "ka-group",
-  },
-  {
-    id: "kha",
-    telugu: "ఖ",
-    transliteration: "kha",
-    englishHint: "Like 'kh' with extra breath",
-    mnemonic: "Aspirated 'k' - like breathing out",
-    audioUrl: "/audio/consonants/kha.mp3",
-    group: "ka-group",
-  },
-  {
-    id: "ga",
-    telugu: "గ",
-    transliteration: "ga",
-    englishHint: "Like 'g' in 'go'",
-    mnemonic: "Think of 'go' or 'game'",
-    audioUrl: "/audio/consonants/ga.mp3",
-    group: "ka-group",
-  },
-  {
-    id: "gha",
-    telugu: "ఘ",
-    transliteration: "gha",
-    englishHint: "Like 'gh' with extra breath",
-    mnemonic: "Aspirated 'g' - heavier sound",
-    audioUrl: "/audio/consonants/gha.mp3",
-    group: "ka-group",
-  },
-  {
-    id: "nga",
-    telugu: "ఙ",
-    transliteration: "nga",
-    englishHint: "Like 'ng' in 'ring'",
-    mnemonic: "Nasal 'ng' sound",
-    audioUrl: "/audio/consonants/nga.mp3",
-    group: "ka-group",
-  },
-  {
-    id: "cha",
-    telugu: "చ",
-    transliteration: "cha",
-    englishHint: "Like 'ch' in 'chair'",
-    mnemonic: "Think of 'chair' or 'cheese'",
-    audioUrl: "/audio/consonants/cha.mp3",
-    group: "cha-group",
-  },
-  {
-    id: "chha",
-    telugu: "ఛ",
-    transliteration: "chha",
-    englishHint: "Like 'chh' with extra breath",
-    mnemonic: "Aspirated 'ch' sound",
-    audioUrl: "/audio/consonants/chha.mp3",
-    group: "cha-group",
-  },
-  {
-    id: "ja",
-    telugu: "జ",
-    transliteration: "ja",
-    englishHint: "Like 'j' in 'jump'",
-    mnemonic: "Think of 'jump' or 'joy'",
-    audioUrl: "/audio/consonants/ja.mp3",
-    group: "cha-group",
-  },
-  {
-    id: "jha",
-    telugu: "ఝ",
-    transliteration: "jha",
-    englishHint: "Like 'jh' with extra breath",
-    mnemonic: "Aspirated 'j' sound",
-    audioUrl: "/audio/consonants/jha.mp3",
-    group: "cha-group",
-  },
-  {
-    id: "nya",
-    telugu: "ఞ",
-    transliteration: "nya",
-    englishHint: "Like 'ny' in 'canyon'",
-    mnemonic: "Nasal 'ny' sound",
-    audioUrl: "/audio/consonants/nya.mp3",
-    group: "cha-group",
-  },
+  // ── ka-group (క వర్గం) ──
+  { id: "ka", telugu: "క", transliteration: "ka", englishHint: "Like 'k' in 'kite'", mnemonic: "Think of a 'kite' flying", audioUrl: "/audio/consonants/ka.mp3", group: "ka-group", anchorWord: "కమలం", anchorTransliteration: "KAMALAM", anchorMeaning: "Lotus", anchorEmoji: "🪷" , anchorImage: "/images/anchors/ka.png" },
+  { id: "kha", telugu: "ఖ", transliteration: "kha", englishHint: "Like 'kh' with extra breath", mnemonic: "Aspirated 'k' — like breathing out", audioUrl: "/audio/consonants/kha.mp3", group: "ka-group", anchorWord: "ఖడ్గం", anchorTransliteration: "KHADGAM", anchorMeaning: "Sword", anchorEmoji: "⚔️" , anchorImage: "/images/anchors/kha.png" },
+  { id: "ga", telugu: "గ", transliteration: "ga", englishHint: "Like 'g' in 'go'", mnemonic: "Think of 'go' or 'game'", audioUrl: "/audio/consonants/ga.mp3", group: "ka-group", anchorWord: "గడియారం", anchorTransliteration: "GADIYAARAM", anchorMeaning: "Clock", anchorEmoji: "🕐" , anchorImage: "/images/anchors/ga.png" },
+  { id: "gha", telugu: "ఘ", transliteration: "gha", englishHint: "Like 'gh' with extra breath", mnemonic: "Aspirated 'g' — heavier sound", audioUrl: "/audio/consonants/gha.mp3", group: "ka-group", anchorWord: "ఘంట", anchorTransliteration: "GHANTA", anchorMeaning: "Bell", anchorEmoji: "🔔" , anchorImage: "/images/anchors/gha.png" },
+  { id: "nga", telugu: "ఙ", transliteration: "nga", englishHint: "Like 'ng' in 'ring'", mnemonic: "Nasal 'ng' sound", audioUrl: "/audio/consonants/nga.mp3", group: "ka-group", anchorWord: "వంగ", anchorTransliteration: "VANGA", anchorMeaning: "Brinjal", anchorEmoji: "🍆" , anchorImage: "/images/anchors/nga.png" },
+
+  // ── cha-group (చ వర్గం) ──
+  { id: "cha", telugu: "చ", transliteration: "cha", englishHint: "Like 'ch' in 'chair'", mnemonic: "Think of 'chair' or 'cheese'", audioUrl: "/audio/consonants/cha.mp3", group: "cha-group", anchorWord: "చెట్టు", anchorTransliteration: "CHETTU", anchorMeaning: "Tree", anchorEmoji: "🌳" , anchorImage: "/images/anchors/cha.png" },
+  { id: "chha", telugu: "ఛ", transliteration: "chha", englishHint: "Like 'chh' with extra breath", mnemonic: "Aspirated 'ch' sound", audioUrl: "/audio/consonants/chha.mp3", group: "cha-group", anchorWord: "ఛత్రం", anchorTransliteration: "CHATRAM", anchorMeaning: "Umbrella", anchorEmoji: "☂️" , anchorImage: "/images/anchors/chha.png" },
+  { id: "ja", telugu: "జ", transliteration: "ja", englishHint: "Like 'j' in 'jump'", mnemonic: "Think of 'jump' or 'joy'", audioUrl: "/audio/consonants/ja.mp3", group: "cha-group", anchorWord: "జెండా", anchorTransliteration: "JENDA", anchorMeaning: "Flag", anchorEmoji: "🚩" , anchorImage: "/images/anchors/ja.png" },
+  { id: "jha", telugu: "ఝ", transliteration: "jha", englishHint: "Like 'jh' with extra breath", mnemonic: "Aspirated 'j' sound", audioUrl: "/audio/consonants/jha.mp3", group: "cha-group", anchorWord: "ఝరి", anchorTransliteration: "JHARI", anchorMeaning: "Waterfall", anchorEmoji: "💧" , anchorImage: "/images/anchors/jha.png" },
+  { id: "nya", telugu: "ఞ", transliteration: "nya", englishHint: "Like 'ny' in 'canyon'", mnemonic: "Nasal 'ny' sound", audioUrl: "/audio/consonants/nya.mp3", group: "cha-group", anchorWord: "జ్ఞానం", anchorTransliteration: "GNAANAM", anchorMeaning: "Wisdom", anchorEmoji: "📖" , anchorImage: "/images/anchors/nya.png" },
+
+  // ── ta-group (ట వర్గం) — retroflex ──
+  { id: "ta", telugu: "ట", transliteration: "ta", englishHint: "Like 't' in 'top' (tongue curled)", mnemonic: "Curl your tongue back for retroflex 't'", audioUrl: "/audio/consonants/ta.mp3", group: "ta-group", anchorWord: "టమాట", anchorTransliteration: "TAMAATA", anchorMeaning: "Tomato", anchorEmoji: "🍅" , anchorImage: "/images/anchors/ta.png" },
+  { id: "tha", telugu: "ఠ", transliteration: "tha", englishHint: "Like 'th' with tongue curled", mnemonic: "Aspirated retroflex 't'", audioUrl: "/audio/consonants/tha.mp3", group: "ta-group", anchorWord: "ఠీవి", anchorTransliteration: "THEEVI", anchorMeaning: "Style", anchorEmoji: "✨" , anchorImage: "/images/anchors/tha.png" },
+  { id: "da", telugu: "డ", transliteration: "da", englishHint: "Like 'd' in 'dog' (tongue curled)", mnemonic: "Retroflex 'd' — tongue touches roof", audioUrl: "/audio/consonants/da.mp3", group: "ta-group", anchorWord: "డప్పు", anchorTransliteration: "DAPPU", anchorMeaning: "Drum", anchorEmoji: "🥁" , anchorImage: "/images/anchors/da.png" },
+  { id: "dha", telugu: "ఢ", transliteration: "dha", englishHint: "Like 'dh' with tongue curled", mnemonic: "Aspirated retroflex 'd'", audioUrl: "/audio/consonants/dha.mp3", group: "ta-group", anchorWord: "ఢంకా", anchorTransliteration: "DHANKA", anchorMeaning: "Gong", anchorEmoji: "🔔" , anchorImage: "/images/anchors/dha.png" },
+  { id: "na1", telugu: "ణ", transliteration: "na1", englishHint: "Like 'n' with tongue curled", mnemonic: "Retroflex nasal 'n'", audioUrl: "/audio/consonants/na1.mp3", group: "ta-group", anchorWord: "బాణం", anchorTransliteration: "BAANAM", anchorMeaning: "Arrow", anchorEmoji: "🏹" , anchorImage: "/images/anchors/na1.png" },
+
+  // ── tha-group (త వర్గం) — dental ──
+  { id: "tha2", telugu: "త", transliteration: "tha2", englishHint: "Like 'th' in 'think' (soft)", mnemonic: "Dental 't' — tongue touches teeth", audioUrl: "/audio/consonants/tha2.mp3", group: "tha-group", anchorWord: "తామర", anchorTransliteration: "TAAMARA", anchorMeaning: "Lotus", anchorEmoji: "🌸" , anchorImage: "/images/anchors/tha2.png" },
+  { id: "tha3", telugu: "థ", transliteration: "tha3", englishHint: "Like 'th' with extra breath (dental)", mnemonic: "Aspirated dental 'th'", audioUrl: "/audio/consonants/tha3.mp3", group: "tha-group", anchorWord: "థర్మస్", anchorTransliteration: "THERMAS", anchorMeaning: "Thermos", anchorEmoji: "🫗" , anchorImage: "/images/anchors/tha3.png" },
+  { id: "da2", telugu: "ద", transliteration: "da2", englishHint: "Like 'd' with tongue on teeth", mnemonic: "Dental 'd' — softer than డ", audioUrl: "/audio/consonants/da2.mp3", group: "tha-group", anchorWord: "దీపం", anchorTransliteration: "DEEPAM", anchorMeaning: "Lamp", anchorEmoji: "🪔" , anchorImage: "/images/anchors/da2.png" },
+  { id: "dha2", telugu: "ధ", transliteration: "dha2", englishHint: "Like 'dh' with tongue on teeth", mnemonic: "Aspirated dental 'dh'", audioUrl: "/audio/consonants/dha2.mp3", group: "tha-group", anchorWord: "ధనుస్సు", anchorTransliteration: "DHANUSSU", anchorMeaning: "Bow", anchorEmoji: "🏹" , anchorImage: "/images/anchors/dha2.png" },
+  { id: "na", telugu: "న", transliteration: "na", englishHint: "Like 'n' in 'no'", mnemonic: "Regular 'n' — the common one!", audioUrl: "/audio/consonants/na.mp3", group: "tha-group", anchorWord: "నక్క", anchorTransliteration: "NAKKA", anchorMeaning: "Fox", anchorEmoji: "🦊" , anchorImage: "/images/anchors/na.png" },
+
+  // ── pa-group (ప వర్గం) ──
+  { id: "pa", telugu: "ప", transliteration: "pa", englishHint: "Like 'p' in 'pen'", mnemonic: "Think of 'pen' or 'papa'", audioUrl: "/audio/consonants/pa.mp3", group: "pa-group", anchorWord: "పువ్వు", anchorTransliteration: "PUVVU", anchorMeaning: "Flower", anchorEmoji: "🌺" , anchorImage: "/images/anchors/pa.png" },
+  { id: "pha", telugu: "ఫ", transliteration: "pha", englishHint: "Like 'ph' in 'phone'", mnemonic: "Aspirated 'p' — like 'photo'", audioUrl: "/audio/consonants/pha.mp3", group: "pa-group", anchorWord: "ఫలం", anchorTransliteration: "PHALAM", anchorMeaning: "Fruit", anchorEmoji: "🍎" , anchorImage: "/images/anchors/pha.png" },
+  { id: "ba", telugu: "బ", transliteration: "ba", englishHint: "Like 'b' in 'bat'", mnemonic: "Think of 'bat' or 'ball'", audioUrl: "/audio/consonants/ba.mp3", group: "pa-group", anchorWord: "బంతి", anchorTransliteration: "BANTHI", anchorMeaning: "Ball", anchorEmoji: "⚽" , anchorImage: "/images/anchors/ba.png" },
+  { id: "bha", telugu: "భ", transliteration: "bha", englishHint: "Like 'bh' with extra breath", mnemonic: "Aspirated 'b' — 'Bharat'", audioUrl: "/audio/consonants/bha.mp3", group: "pa-group", anchorWord: "భూమి", anchorTransliteration: "BHOOMI", anchorMeaning: "Earth", anchorEmoji: "🌍" , anchorImage: "/images/anchors/bha.png" },
+  { id: "ma", telugu: "మ", transliteration: "ma", englishHint: "Like 'm' in 'mom'", mnemonic: "Think of 'mom' or 'mango' 🥭", audioUrl: "/audio/consonants/ma.mp3", group: "pa-group", anchorWord: "మామిడి", anchorTransliteration: "MAAMIDI", anchorMeaning: "Mango", anchorEmoji: "🥭" , anchorImage: "/images/anchors/ma.png" },
+
+  // ── ya-group (య వర్గం) — semivowels ──
+  { id: "ya", telugu: "య", transliteration: "ya", englishHint: "Like 'y' in 'yes'", mnemonic: "Think of 'yes' or 'yoga' 🧘", audioUrl: "/audio/consonants/ya.mp3", group: "ya-group", anchorWord: "యంత్రం", anchorTransliteration: "YANTRAM", anchorMeaning: "Machine", anchorEmoji: "⚙️" , anchorImage: "/images/anchors/ya.png" },
+  { id: "ra", telugu: "ర", transliteration: "ra", englishHint: "Like 'r' in 'run'", mnemonic: "Think of 'rain' or 'Rama'", audioUrl: "/audio/consonants/ra.mp3", group: "ya-group", anchorWord: "రథం", anchorTransliteration: "RATHAM", anchorMeaning: "Chariot", anchorEmoji: "🛞" , anchorImage: "/images/anchors/ra.png" },
+  { id: "la", telugu: "ల", transliteration: "la", englishHint: "Like 'l' in 'lake'", mnemonic: "Think of 'lake' or 'lion' 🦁", audioUrl: "/audio/consonants/la.mp3", group: "ya-group", anchorWord: "లడ్డు", anchorTransliteration: "LADDU", anchorMeaning: "Laddu", anchorEmoji: "🍬" , anchorImage: "/images/anchors/la.png" },
+  { id: "va", telugu: "వ", transliteration: "va", englishHint: "Like 'v' in 'van'", mnemonic: "Think of 'van' or 'vivid'", audioUrl: "/audio/consonants/va.mp3", group: "ya-group", anchorWord: "వంతెన", anchorTransliteration: "VANTHENA", anchorMeaning: "Bridge", anchorEmoji: "🌉" , anchorImage: "/images/anchors/va.png" },
+
+  // ── sha-group (శ వర్గం) — sibilants & others ──
+  { id: "sha", telugu: "శ", transliteration: "sha", englishHint: "Like 'sh' in 'ship'", mnemonic: "Think of 'ship' or 'shine' ✨", audioUrl: "/audio/consonants/sha.mp3", group: "sha-group", anchorWord: "శంఖం", anchorTransliteration: "SHANKHAM", anchorMeaning: "Conch", anchorEmoji: "🐚" , anchorImage: "/images/anchors/sha.png" },
+  { id: "sha2", telugu: "ష", transliteration: "sha2", englishHint: "Like 'sh' (tongue curled)", mnemonic: "Retroflex 'sh' — tongue curled back", audioUrl: "/audio/consonants/sha2.mp3", group: "sha-group", anchorWord: "షడ్రుచులు", anchorTransliteration: "SHADRUCHULU", anchorMeaning: "Six tastes", anchorEmoji: "🍽️" , anchorImage: "/images/anchors/sha2.png" },
+  { id: "sa", telugu: "స", transliteration: "sa", englishHint: "Like 's' in 'sun'", mnemonic: "Think of 'sun' or 'star' ⭐", audioUrl: "/audio/consonants/sa.mp3", group: "sha-group", anchorWord: "సూర్యుడు", anchorTransliteration: "SOORYUDU", anchorMeaning: "Sun", anchorEmoji: "☀️" , anchorImage: "/images/anchors/sa.png" },
+  { id: "ha", telugu: "హ", transliteration: "ha", englishHint: "Like 'h' in 'hat'", mnemonic: "Think of 'happy' or 'hello' 👋", audioUrl: "/audio/consonants/ha.mp3", group: "sha-group", anchorWord: "హంస", anchorTransliteration: "HAMSA", anchorMeaning: "Swan", anchorEmoji: "🦢" , anchorImage: "/images/anchors/ha.png" },
+  { id: "la2", telugu: "ళ", transliteration: "la2", englishHint: "Like 'l' (tongue curled)", mnemonic: "Retroflex 'l' — unique to Telugu!", audioUrl: "/audio/consonants/la2.mp3", group: "sha-group", anchorWord: "బాళ", anchorTransliteration: "BAALA", anchorMeaning: "Pot", anchorEmoji: "🏺" , anchorImage: "/images/anchors/la2.png" },
+  { id: "ksha", telugu: "క్ష", transliteration: "ksha", englishHint: "Like 'ksh' combined", mnemonic: "Combo letter: క + ష = క్ష", audioUrl: "/audio/consonants/ksha.mp3", group: "sha-group", anchorWord: "క్షీరం", anchorTransliteration: "KSHEERAM", anchorMeaning: "Milk", anchorEmoji: "🥛" , anchorImage: "/images/anchors/ksha.png" },
+  { id: "ra2", telugu: "ఱ", transliteration: "ra2", englishHint: "Like a rolled 'rr'", mnemonic: "Old Telugu rolled 'r' — like Spanish!", audioUrl: "/audio/consonants/ra2.mp3", group: "sha-group", anchorWord: "ఱాయి", anchorTransliteration: "RAAYI", anchorMeaning: "Stone", anchorEmoji: "🪨" , anchorImage: "/images/anchors/ra2.png" },
 ];

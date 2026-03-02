@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useAudio } from "@/hooks/useAudio";
+import { useTeluguAudio } from "@/hooks/useTeluguAudio";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import type { VowelPair } from "@/types";
@@ -12,7 +12,7 @@ interface CompareCardProps {
 }
 
 export function CompareCard({ pair, onComplete }: CompareCardProps) {
-  const { speak } = useAudio();
+  const { playLetter } = useTeluguAudio();
 
   return (
     <div className="flex flex-col items-center">
@@ -28,7 +28,7 @@ export function CompareCard({ pair, onComplete }: CompareCardProps) {
           <Card
             variant="highlight"
             className="p-6 text-center cursor-pointer hover:shadow-lg transition-shadow"
-            onClick={() => speak(pair.telugu, { lang: "te-IN" })}
+            onClick={() => playLetter(pair.transliteration)}
           >
             <p className="telugu-display text-5xl text-kolam mb-2">
               {pair.telugu}
@@ -45,7 +45,11 @@ export function CompareCard({ pair, onComplete }: CompareCardProps) {
           <Card
             variant="highlight"
             className="p-6 text-center cursor-pointer hover:shadow-lg transition-shadow"
-            onClick={() => speak(pair.transliteration, { lang: "en-US" })}
+            onClick={() => {
+              const u = new SpeechSynthesisUtterance(pair.transliteration);
+              u.lang = "en-US";
+              window.speechSynthesis.speak(u);
+            }}
           >
             <p className="text-5xl font-bold text-mango mb-2">
               {pair.transliteration.charAt(0).toUpperCase()}

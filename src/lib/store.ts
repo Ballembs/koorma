@@ -40,6 +40,7 @@ interface KoormaState {
   currentPhase: LearningPhase;
   currentPairIndex: number;
   completedPairs: string[];
+  completedSections: string[];
 
   // Scaffold system
   scaffoldLevel: ScaffoldLevel;
@@ -50,6 +51,38 @@ interface KoormaState {
   streak: number;
   lastActiveDate: string;
   achievements: string[];
+
+  // Review scores (spaced repetition)
+  reviewScores: Record<string, { attempts: number; passes: number; lastReview: string }>;
+
+  // UI state
+  seenDemo: boolean;
+
+  // Advanced Section Progress
+  guninthaluProgress: {
+    stage: number;
+    marksLearned: string[];
+    consonantsPracticed: string[];
+    completedGuninthalu: string[];
+    rapidFireBest: number;
+    wordsRead: string[];
+  };
+  wordProgress: {
+    categoriesCompleted: string[];
+    currentCategory: string | null;
+    wordsLearned: string[];
+    totalWordsLearned: number;
+  };
+  sentenceProgress: {
+    currentLevel: number;
+    sentencesRead: number;
+    sentencesBuilt: number;
+  };
+  storyProgress: {
+    tier1: Record<string, { read: boolean; stars: number }>;
+    tier2Generated: number;
+    totalStoriesRead: number;
+  };
 
   // Settings
   audioEnabled: boolean;
@@ -71,6 +104,7 @@ interface KoormaState {
   setCurrentPhase: (phase: LearningPhase) => void;
   setCurrentPairIndex: (index: number) => void;
   completePair: (pairId: string) => void;
+  completeSection: (sectionId: string) => void;
   advanceToNextPair: () => void;
 
   // Scaffold actions
@@ -86,6 +120,16 @@ interface KoormaState {
   addXP: (amount: number) => void;
   updateStreak: () => void;
   unlockAchievement: (achievementId: string) => void;
+  updateReviewScore: (letterId: string, passed: boolean) => void;
+
+  // UI actions
+  setSeenDemo: (seen: boolean) => void;
+
+  // Advanced Section Actions
+  updateGuninthaluProgress: (progress: Partial<KoormaState["guninthaluProgress"]>) => void;
+  updateWordProgress: (progress: Partial<KoormaState["wordProgress"]>) => void;
+  updateSentenceProgress: (progress: Partial<KoormaState["sentenceProgress"]>) => void;
+  updateStoryProgress: (progress: Partial<KoormaState["storyProgress"]>) => void;
 
   // Settings actions
   setAudioEnabled: (enabled: boolean) => void;
@@ -138,6 +182,7 @@ export const useKoormaStore = create<KoormaState>()(
       currentPhase: "vowels",
       currentPairIndex: 0,
       completedPairs: [],
+      completedSections: [],
 
       // Scaffold system
       scaffoldLevel: 1,
@@ -148,6 +193,38 @@ export const useKoormaStore = create<KoormaState>()(
       streak: 0,
       lastActiveDate: "",
       achievements: [],
+
+      // Review scores
+      reviewScores: {},
+
+      // UI state
+      seenDemo: false,
+
+      // Advanced Section Progress
+      guninthaluProgress: {
+        stage: 1,
+        marksLearned: [],
+        consonantsPracticed: [],
+        completedGuninthalu: [],
+        rapidFireBest: 0,
+        wordsRead: [],
+      },
+      wordProgress: {
+        categoriesCompleted: [],
+        currentCategory: null,
+        wordsLearned: [],
+        totalWordsLearned: 0,
+      },
+      sentenceProgress: {
+        currentLevel: 1,
+        sentencesRead: 0,
+        sentencesBuilt: 0,
+      },
+      storyProgress: {
+        tier1: {},
+        tier2Generated: 0,
+        totalStoriesRead: 0,
+      },
 
       // Settings
       audioEnabled: true,
@@ -180,6 +257,15 @@ export const useKoormaStore = create<KoormaState>()(
         if (!completedPairs.includes(pairId)) {
           set({
             completedPairs: [...completedPairs, pairId],
+          });
+        }
+      },
+
+      completeSection: (sectionId) => {
+        const { completedSections } = get();
+        if (!completedSections.includes(sectionId)) {
+          set({
+            completedSections: [...completedSections, sectionId],
           });
         }
       },
@@ -271,11 +357,36 @@ export const useKoormaStore = create<KoormaState>()(
       unlockAchievement: (achievementId) => {
         const { achievements } = get();
         if (!achievements.includes(achievementId)) {
-          set({
-            achievements: [...achievements, achievementId],
-          });
+          set({ achievements: [...achievements, achievementId] });
         }
       },
+
+      updateReviewScore: (letterId, passed) => {
+        const { reviewScores } = get();
+        const prev = reviewScores[letterId] || { attempts: 0, passes: 0, lastReview: "" };
+        set({
+          reviewScores: {
+            ...reviewScores,
+            [letterId]: {
+              attempts: prev.attempts + 1,
+              passes: prev.passes + (passed ? 1 : 0),
+              lastReview: new Date().toISOString().split("T")[0],
+            },
+          },
+        });
+      },
+
+      setSeenDemo: (seen) => set({ seenDemo: seen }),
+
+      // Advanced Section Actions
+      updateGuninthaluProgress: (progress) =>
+        set((state) => ({ guninthaluProgress: { ...state.guninthaluProgress, ...progress } })),
+      updateWordProgress: (progress) =>
+        set((state) => ({ wordProgress: { ...state.wordProgress, ...progress } })),
+      updateSentenceProgress: (progress) =>
+        set((state) => ({ sentenceProgress: { ...state.sentenceProgress, ...progress } })),
+      updateStoryProgress: (progress) =>
+        set((state) => ({ storyProgress: { ...state.storyProgress, ...progress } })),
 
       // Settings actions
       setAudioEnabled: (enabled) => set({ audioEnabled: enabled }),
@@ -287,12 +398,17 @@ export const useKoormaStore = create<KoormaState>()(
           currentPhase: "vowels",
           currentPairIndex: 0,
           completedPairs: [],
+          completedSections: [],
           scaffoldLevel: 1,
           wordScaffolds: {},
           xp: 0,
           streak: 0,
           lastActiveDate: "",
           achievements: [],
+          guninthaluProgress: { stage: 1, marksLearned: [], consonantsPracticed: [], rapidFireBest: 0, wordsRead: [] },
+          wordProgress: { categoriesCompleted: [], currentCategory: null, wordsLearned: [], totalWordsLearned: 0 },
+          sentenceProgress: { currentLevel: 1, sentencesRead: 0, sentencesBuilt: 0 },
+          storyProgress: { tier1: {}, tier2Generated: 0, totalStoriesRead: 0 },
         }),
 
       resetAll: () =>
@@ -308,6 +424,7 @@ export const useKoormaStore = create<KoormaState>()(
           currentPhase: "vowels",
           currentPairIndex: 0,
           completedPairs: [],
+          completedSections: [],
           scaffoldLevel: 1,
           wordScaffolds: {},
           xp: 0,
@@ -316,6 +433,10 @@ export const useKoormaStore = create<KoormaState>()(
           achievements: [],
           audioEnabled: true,
           speechRate: 0.8,
+          guninthaluProgress: { stage: 1, marksLearned: [], consonantsPracticed: [], rapidFireBest: 0, wordsRead: [] },
+          wordProgress: { categoriesCompleted: [], currentCategory: null, wordsLearned: [], totalWordsLearned: 0 },
+          sentenceProgress: { currentLevel: 1, sentencesRead: 0, sentencesBuilt: 0 },
+          storyProgress: { tier1: {}, tier2Generated: 0, totalStoriesRead: 0 },
         }),
     }),
     {

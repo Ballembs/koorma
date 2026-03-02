@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useAudio } from "@/hooks/useAudio";
+import { useTeluguAudio } from "@/hooks/useTeluguAudio";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { Chintu } from "@/components/characters/Chintu";
@@ -16,7 +17,8 @@ interface PracticeGameProps {
 }
 
 export function PracticeGame({ pair, onComplete }: PracticeGameProps) {
-  const { speak, playSound } = useAudio();
+  const { playSound } = useAudio();
+  const { playLetter } = useTeluguAudio();
   const [round, setRound] = useState(0);
   const [options, setOptions] = useState<VowelPair[]>([]);
   const [selectedId, setSelectedId] = useState<string | null>(null);
@@ -39,7 +41,7 @@ export function PracticeGame({ pair, onComplete }: PracticeGameProps) {
 
     // Play the sound for the target letter
     setTimeout(() => {
-      speak(pair.telugu, { lang: "te-IN" });
+      playLetter(pair.transliteration);
     }, 500);
   };
 
@@ -100,7 +102,7 @@ export function PracticeGame({ pair, onComplete }: PracticeGameProps) {
 
       {/* Hear it again button - bigger and prominent */}
       <Button
-        onClick={() => speak(pair.telugu, { lang: "te-IN" })}
+        onClick={() => playLetter(pair.transliteration)}
         variant="outline"
         fullWidth={false}
         size="lg"
@@ -137,10 +139,10 @@ export function PracticeGame({ pair, onComplete }: PracticeGameProps) {
                   backgroundColor: showHighlight
                     ? colors.turmeric
                     : showCorrect
-                    ? colors.mango
-                    : showWrong
-                    ? colors.terra
-                    : "white",
+                      ? colors.mango
+                      : showWrong
+                        ? colors.terra
+                        : "white",
                   boxShadow: isSelected
                     ? "0 8px 24px rgba(0,0,0,0.2)"
                     : "0 6px 20px rgba(0,0,0,0.12)",

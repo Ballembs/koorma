@@ -1,0 +1,8 @@
+<svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="30" cy="30" r="30" fill="#2E5090" opacity="0.1"/>
+    <!-- Brain -->
+    <path d="M20 30C15 25 20 15 30 20C40 15 45 25 40 30C45 35 40 45 30 40C20 45 15 35 20 30Z" fill="#D4940C" opacity="0.8"/>
+    <!-- Pencil -->
+    <path d="M35 15 l15 -15 l8 8 l-15 15 z" fill="#C1553B"/>
+    <path d="M35 15 l-8 8 l10 5 z" fill="#2E5090"/>
+  </svg>

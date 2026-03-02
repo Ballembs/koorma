@@ -6,6 +6,11 @@ export interface VowelPair {
   englishHint: string;
   mnemonic: string;
   audioUrl: string;
+  anchorWord: string;
+  anchorTransliteration: string;
+  anchorMeaning: string;
+  anchorEmoji: string;
+  anchorImage?: string;
 }
 
 export interface ConsonantData {
@@ -16,6 +21,11 @@ export interface ConsonantData {
   mnemonic: string;
   audioUrl: string;
   group: string;
+  anchorWord: string;
+  anchorTransliteration: string;
+  anchorMeaning: string;
+  anchorEmoji: string;
+  anchorImage?: string;
 }
 
 // Word and sentence types
@@ -58,14 +68,14 @@ export interface Story {
 // Achievement types
 export interface AchievementCondition {
   type:
-    | "letters_learned"
-    | "vowels_complete"
-    | "consonants_learned"
-    | "words_read"
-    | "streak"
-    | "lessons_complete"
-    | "stories_read"
-    | "perfect_lesson";
+  | "letters_learned"
+  | "vowels_complete"
+  | "consonants_learned"
+  | "words_read"
+  | "streak"
+  | "lessons_complete"
+  | "stories_read"
+  | "perfect_lesson";
   count: number;
 }
 
@@ -100,12 +110,12 @@ export interface GameConfig {
   teluguName: string;
   description: string;
   type:
-    | "audio-match"
-    | "memory-match"
-    | "tracing"
-    | "word-construction"
-    | "speed-challenge"
-    | "guided-reading";
+  | "audio-match"
+  | "memory-match"
+  | "tracing"
+  | "word-construction"
+  | "speed-challenge"
+  | "guided-reading";
   minLevel: number;
   xpReward: number;
   settings: GameSettings;
