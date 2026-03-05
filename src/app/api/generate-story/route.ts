@@ -7,7 +7,7 @@ export async function POST(req: Request) {
   const { learnedLetters, childName, theme } = await req.json();
 
   const model = genAI.getGenerativeModel({
-    model: 'gemini-3.1-pro',
+    model: 'gemini-2.5-flash',
     systemInstruction: TELUGU_SYSTEM_PROMPT,
   });
 
@@ -68,8 +68,30 @@ Return ONLY valid JSON:
 
   try {
     const data = JSON.parse(text);
-    return Response.json(data);
+    const validated = validateTeluguOutput(data);
+    return Response.json(validated);
   } catch {
     return Response.json({ error: 'Parse failed', raw: text }, { status: 500 });
   }
+}
+
+// Backend validation — catch any literary Telugu that slipped through
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function validateTeluguOutput(data: any) {
+  const LITERARY_PATTERNS = [
+    /చున్నాడు/, /చున్నది/, /చున్నారు/, /యొక్క/, /భోజనము/, /జలము/,
+    /పాఠశాల/, /బాలుడు/, /బాలిక/, /గృహము/, /శునకము/, /మార్జాలము/, /ఇల్లు\s+లో/
+  ];
+
+  const itemsToCheck = [data.title, data.moral, ...(data.sentences || [])].filter(Boolean);
+  for (const item of itemsToCheck) {
+    if (!item.telugu) continue;
+    for (const pattern of LITERARY_PATTERNS) {
+      if (pattern.test(item.telugu)) {
+        console.warn(`⚠️ Literary Telugu detected in story: "${item.telugu}" matches ${pattern}`);
+        item.warning = 'May contain literary Telugu — review needed';
+      }
+    }
+  }
+  return data;
 }

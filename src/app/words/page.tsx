@@ -55,7 +55,7 @@ export default function WordsPage() {
               color: colors.mango,
             }}
           >
-            {wordProgress?.unlockedCategories?.length || 0}/{WORD_CATEGORIES.length} Unlocked
+            {wordProgress?.categoriesCompleted?.length || 0}/{WORD_CATEGORIES.length} Unlocked
           </span>
         </div>
       </header>
@@ -78,7 +78,7 @@ export default function WordsPage() {
 
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                   {WORD_CATEGORIES.map((cat, idx) => {
-                    const isUnlocked = idx < 2 || (wordProgress?.unlockedCategories?.includes(cat.id) || false);
+                    const isUnlocked = idx < 2 || (wordProgress?.categoriesCompleted?.includes(cat.id) || false);
                     return (
                       <motion.button
                         key={cat.id}

@@ -45,7 +45,7 @@ export default function LearnMarksPhase({ onComplete }: { onComplete: () => void
       className="flex flex-col items-center justify-center p-6 min-h-[600px]"
     >
       <div className="text-center mb-8">
-        <Chintu mood="explaining" size={80} />
+        <Chintu mood="happy" size={80} />
         <h2 className="text-2xl font-bold text-[#7B1FA2] mt-4 font-nunito">
           Vowel Marks
         </h2>

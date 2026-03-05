@@ -42,3 +42,5 @@ next-env.d.ts
 
 # secrets
 src/service-account.json
+koorma-488912-e21c7c01c40f.json
+service-account.json

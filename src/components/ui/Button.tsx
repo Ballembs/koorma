@@ -4,7 +4,7 @@ import { forwardRef, ButtonHTMLAttributes } from "react";
 import { motion, HTMLMotionProps } from "framer-motion";
 import { colors, gradients, shadows, spacing } from "@/lib/tokens";
 
-type ButtonVariant = "primary" | "outline" | "ghost";
+type ButtonVariant = "primary" | "secondary" | "outline" | "ghost";
 type ButtonSize = "sm" | "md" | "lg";
 
 interface ButtonProps extends Omit<HTMLMotionProps<"button">, "ref"> {
@@ -19,6 +19,12 @@ interface ButtonProps extends Omit<HTMLMotionProps<"button">, "ref"> {
 const variantStyles: Record<ButtonVariant, React.CSSProperties> = {
   primary: {
     background: gradients.turmeric,
+    color: "white",
+    border: "none",
+    boxShadow: shadows.md,
+  },
+  secondary: {
+    background: colors.mango,
     color: "white",
     border: "none",
     boxShadow: shadows.md,

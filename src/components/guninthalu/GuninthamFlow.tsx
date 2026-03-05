@@ -206,7 +206,7 @@ function IdentifyPhase({ baseConsonant, onComplete }: any) {
 
   useEffect(() => {
     // Pick 3 random test indices from 1 to 15
-    const q = [];
+    const q: number[] = [];
     while (q.length < 3) {
       const r = Math.floor(Math.random() * 15) + 1;
       if (!q.includes(r)) q.push(r);

@@ -20,14 +20,19 @@ export default function MasterMarksPhase({ onComplete }: { onComplete: () => voi
 
   useEffect(() => {
     setShowMark(false);
+
     // Auto-play the vowel sound when it first appears
-    if (current.vowel !== "అ") {
-      play(`compare-అ-${current.vowel}`); // Wait, the comparison tracks might not exist for all letters. Just play the letter.
-      play(`${current.sound.replace("guninthalu-", "")}-letter`);
-    } else {
-      play(`a-letter`);
+    const vowelToTrans: Record<string, string> = {
+      "అ": "a", "ఆ": "aa", "ఇ": "i", "ఈ": "ee", "ఉ": "u", "ఊ": "oo",
+      "ఋ": "ru", "ౠ": "roo", "ఎ": "e", "ఏ": "ay", "ఐ": "ai",
+      "ఒ": "o", "ఓ": "oh", "ఔ": "ow", "అం": "am", "అః": "aha"
+    };
+
+    const t = vowelToTrans[current.vowel];
+    if (t) {
+      play(`${t}-letter`);
     }
-  }, [index, current.vowel, current.sound, play]);
+  }, [index, current.vowel, play]);
 
   // A safer play lookup
   const playSound = () => {
@@ -71,7 +76,7 @@ export default function MasterMarksPhase({ onComplete }: { onComplete: () => voi
       className="flex flex-col items-center justify-center p-6 h-full max-w-3xl mx-auto overflow-y-auto"
     >
       <div className="text-center mb-8 flex-shrink-0">
-        <Chintu mood="explaining" size={80} />
+        <Chintu mood="happy" size={80} />
         <h2 className="text-2xl font-bold text-[#7B1FA2] mt-4 font-nunito">
           Master the Marks (గుణింతపు గుర్తులు)
         </h2>
@@ -80,89 +85,63 @@ export default function MasterMarksPhase({ onComplete }: { onComplete: () => voi
         </p>
       </div>
 
-      <div className="flex flex-col sm:flex-row items-center gap-8 mb-12 flex-shrink-0">
-        {/* Vowel Side */}
-        <motion.div
-          key={`vowel-${index}`}
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          className="w-40 h-40 rounded-3xl bg-white shadow-lg flex flex-col items-center justify-center border-4 border-[#E8EAF6] relative"
-        >
-          <button
-            onClick={playSound}
-            className="absolute top-2 right-2 w-8 h-8 rounded-full bg-blue-50 text-xl flex items-center justify-center hover:bg-blue-100"
-          >
-            🔊
-          </button>
-          <span className="text-7xl font-bold text-[#2E5090] font-telugu">
-            {current.vowel}
-          </span>
-        </motion.div>
+      <div className="flex flex-col items-center justify-center w-full mt-4 flex-shrink-0">
+        <div className="flex flex-col sm:flex-row items-center gap-6 bg-white px-8 sm:px-12 py-10 rounded-[3rem] shadow-xl border-4 border-[#F3E5F5]">
 
-        {/* Arrow */}
-        <div className="text-5xl text-gray-400 font-bold hidden sm:block">➔</div>
-        <div className="text-4xl text-gray-400 font-bold sm:hidden">⬇</div>
+          {/* Base Consonant */}
+          <div className="flex flex-col items-center">
+            <span className="text-7xl sm:text-8xl font-bold text-[#2E5090] font-telugu">క</span>
+            <span className="text-xl font-nunito font-bold text-gray-400 mt-4">ka</span>
+          </div>
 
-        {/* Mark Side */}
-        <motion.div
-          key={`mark-${index}`}
-          className="w-40 h-40 rounded-3xl bg-white shadow-lg flex flex-col items-center justify-center border-4 border-[#F3E5F5] cursor-pointer"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={!showMark ? handleReveal : undefined}
-        >
-          {!showMark ? (
-            <span className="text-4xl text-[#7B1FA2] opacity-50 font-nunito font-bold text-center p-2">
-              Tap to Reveal Mark!
+          <div className="text-5xl font-bold text-gray-300 mx-2">+</div>
+
+          {/* Mark */}
+          <div className="flex flex-col items-center">
+            <span className="text-7xl sm:text-8xl font-bold text-[#FF8F00] font-telugu min-w-[80px] text-center">
+              {current.mark === null ? "—" : current.mark}
             </span>
-          ) : (
-            <motion.div
-              initial={{ scale: 0, rotate: -45 }}
-              animate={{ scale: 1, rotate: 0 }}
-              className="flex flex-col items-center w-full h-full justify-center relative"
-            >
-              {current.mark === null ? (
-                <span className="text-3xl font-bold text-[#7B1FA2] font-nunito opacity-70">
-                  (No Mark)
-                </span>
-              ) : (
-                <span className="text-8xl font-bold text-[#7B1FA2] font-telugu mb-2">
-                  {current.mark}
-                </span>
-              )}
-              <span className="text-sm font-nunito font-bold text-gray-400 absolute bottom-3 uppercase bg-white/80 px-2 rounded-lg">
-                {current.name}
+            <div className="bg-[#FFF8E1] px-4 py-1 rounded-full border border-[#FFE082] mt-4 text-center">
+              <span className="text-xl font-telugu font-bold text-[#F57C00]">
+                {current.teluguName}
               </span>
-            </motion.div>
-          )}
-        </motion.div>
-      </div>
-
-      {/* Example Box */}
-      <AnimatePresence mode="wait">
-        {showMark && (
-          <motion.div
-            key={`example-${index}`}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="mb-8 text-center bg-white/50 backdrop-blur-sm px-10 py-6 rounded-3xl border-2 border-[#E0D5C8]"
-          >
-            <p className="text-gray-500 font-nunito mb-2 text-sm uppercase tracking-wide font-bold">Example with క (ka):</p>
-            <div className="flex items-center gap-6 justify-center">
-              <div className="text-6xl font-bold text-[#C1553B] font-telugu">
-                {current.example}
-              </div>
-              <button
-                onClick={() => play(`gunintham-${current.sound}`)}
-                className="w-14 h-14 rounded-full bg-[#FFF3E0] shadow-md flex items-center justify-center text-3xl hover:scale-110 transition-transform"
-              >
-                🔊
-              </button>
+              <span className="text-lg font-nunito font-bold text-[#F57C00] ml-2">
+                ({current.name})
+              </span>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          </div>
+
+          <div className="text-5xl font-bold text-gray-300 mx-2">=</div>
+
+          {/* Combined Result */}
+          <div className="flex flex-col items-center min-w-[120px]">
+            {!showMark ? (
+              <button
+                onClick={handleReveal}
+                className="w-32 h-32 rounded-3xl border-4 border-dashed border-[#C1553B]/40 flex flex-col items-center justify-center bg-[#FFF3E0]/30 hover:bg-[#FFF3E0] transition-colors"
+              >
+                <span className="text-xl font-bold text-[#C1553B] font-nunito uppercase tracking-wider">Combine</span>
+              </button>
+            ) : (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
+                animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                className="flex flex-col items-center"
+              >
+                <span className="text-7xl sm:text-8xl font-bold text-[#C1553B] font-telugu">
+                  {current.example}
+                </span>
+                <button
+                  onClick={() => play(`gunintham-${current.sound}`)}
+                  className="mt-4 w-12 h-12 rounded-full bg-[#FFF3E0] text-2xl flex items-center justify-center hover:scale-110 shadow-sm border border-[#FFE082]"
+                >
+                  🔊
+                </button>
+              </motion.div>
+            )}
+          </div>
+        </div>
+      </div>
 
       {/* Next Button */}
       <div className="mt-auto py-6">

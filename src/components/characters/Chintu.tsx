@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-type ChintuMood = "happy" | "excited" | "thinking" | "encouraging" | "celebrating" | "proud";
+type ChintuMood = "happy" | "excited" | "thinking" | "encouraging" | "celebrating" | "proud" | "listening" | "explaining" | "surprised";
 
 interface ChintuProps {
   mood?: ChintuMood;
@@ -24,6 +24,9 @@ const MOOD_EYES: Record<ChintuMood, string> = {
   encouraging: "◠ ◡",
   celebrating: "✦ ✦",
   proud: "◡ ◡",
+  listening: "◡ ◡",
+  explaining: "◠ ◠",
+  surprised: "O O",
 };
 
 const MOOD_MOUTH: Record<ChintuMood, "smile" | "open" | "small"> = {
@@ -33,6 +36,9 @@ const MOOD_MOUTH: Record<ChintuMood, "smile" | "open" | "small"> = {
   encouraging: "smile",
   celebrating: "open",
   proud: "smile",
+  listening: "smile",
+  explaining: "open",
+  surprised: "open",
 };
 
 export function Chintu({ mood = "happy", size = "medium", animate = true }: ChintuProps) {

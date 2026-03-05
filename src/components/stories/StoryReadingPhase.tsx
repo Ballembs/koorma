@@ -148,6 +148,7 @@ export default function StoryReadingPhase({ story, onComplete }: PhaseProps) {
         <Button
           onClick={handleNextPage}
           size="lg"
+          fullWidth={false}
           className="text-xl px-8 shadow-lg font-bold"
           style={{ backgroundColor: "#F57C00", color: "white" }}
         >

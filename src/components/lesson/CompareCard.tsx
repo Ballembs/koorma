@@ -45,10 +45,9 @@ export function CompareCard({ pair, onComplete }: CompareCardProps) {
           <Card
             variant="highlight"
             className="p-6 text-center cursor-pointer hover:shadow-lg transition-shadow"
-            onClick={() => {
-              const u = new SpeechSynthesisUtterance(pair.transliteration);
-              u.lang = "en-US";
-              window.speechSynthesis.speak(u);
+            onClick={(e) => {
+              e.stopPropagation();
+              playLetter(pair.transliteration);
             }}
           >
             <p className="text-5xl font-bold text-mango mb-2">

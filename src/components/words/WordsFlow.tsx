@@ -9,6 +9,7 @@ import SeeHearPhase from "./SeeHearPhase";
 import WordMatchPhase from "./WordMatchPhase";
 import SpellPhase from "./SpellPhase";
 import PictureMatchPhase from "./PictureMatchPhase";
+import ShopkeeperQuizPhase from "./ShopkeeperQuizPhase";
 
 interface WordsFlowProps {
   category: typeof WORD_CATEGORIES[0];
@@ -16,7 +17,7 @@ interface WordsFlowProps {
 }
 
 export default function WordsFlow({ category, onComplete }: WordsFlowProps) {
-  const [phase, setPhase] = useState<"see-hear" | "match" | "spell" | "picture">("see-hear");
+  const [phase, setPhase] = useState<"see-hear" | "match" | "spell" | "picture" | "shopkeeper">("see-hear");
   const { wordProgress, updateWordProgress, addXP } = useKoormaStore();
 
   const handlePhaseComplete = () => {
@@ -24,16 +25,17 @@ export default function WordsFlow({ category, onComplete }: WordsFlowProps) {
     if (phase === "see-hear") setPhase("match");
     else if (phase === "match") setPhase("spell");
     else if (phase === "spell") setPhase("picture");
+    else if (phase === "picture") setPhase("shopkeeper");
     else {
       // Flow complete! Unlock next category if applicable
       addXP(100);
       const currentIndex = WORD_CATEGORIES.findIndex(c => c.id === category.id);
       if (currentIndex < WORD_CATEGORIES.length - 1) {
         const nextId = WORD_CATEGORIES[currentIndex + 1].id;
-        if (!wordProgress.unlockedCategories.includes(nextId)) {
+        if (!wordProgress.categoriesCompleted.includes(nextId)) {
           updateWordProgress({
-            unlockedCategories: [...wordProgress.unlockedCategories, nextId],
-            masteredWords: [...wordProgress.masteredWords, ...category.words.map(w => w.trans)]
+            categoriesCompleted: [...wordProgress.categoriesCompleted, nextId],
+            wordsLearned: [...wordProgress.wordsLearned, ...category.words.map(w => w.trans)]
           });
         }
       }
@@ -55,6 +57,7 @@ export default function WordsFlow({ category, onComplete }: WordsFlowProps) {
         {phase === "match" && <WordMatchPhase key="match" words={category.words} onComplete={handlePhaseComplete} />}
         {phase === "spell" && <SpellPhase key="spell" words={category.words} onComplete={handlePhaseComplete} />}
         {phase === "picture" && <PictureMatchPhase key="picture" words={category.words} onComplete={handlePhaseComplete} />}
+        {phase === "shopkeeper" && <ShopkeeperQuizPhase key="shopkeeper" onComplete={handlePhaseComplete} />}
       </AnimatePresence>
     </div>
   );

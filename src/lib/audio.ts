@@ -105,13 +105,6 @@ export function unlockAudio(): void {
   source.connect(ctx.destination);
   source.start(0);
 
-  // Also try to unlock speech synthesis
-  if (typeof window !== "undefined" && window.speechSynthesis) {
-    const utterance = new SpeechSynthesisUtterance("");
-    utterance.volume = 0;
-    window.speechSynthesis.speak(utterance);
-  }
-
   isAudioUnlocked = true;
   console.log("[Koorma Audio] Audio unlocked");
 }
@@ -326,77 +319,45 @@ export function speak(text: string, options: SpeakOptions = {}): void {
  */
 export function stopSpeaking(): void {
   if (typeof window !== "undefined" && window.speechSynthesis) {
-    window.speechSynthesis.cancel();
+    const synth = window.speechSynthesis;
+    synth.cancel();
   }
 }
 
-/**
- * Check if speech synthesis is supported
- */
+export function preloadVoices(): void {
+  // Triggered on module load, but kept for compatibility
+  loadVoices();
+}
+
 export function isSpeechSupported(): boolean {
-  return typeof window !== "undefined" && "speechSynthesis" in window;
+  return typeof window !== "undefined" && !!window.speechSynthesis;
 }
 
-/**
- * Check if Web Audio API is supported
- */
 export function isAudioSupported(): boolean {
-  return (
-    typeof window !== "undefined" &&
-    ("AudioContext" in window ||
-      "webkitAudioContext" in (window as unknown as { webkitAudioContext: typeof AudioContext }))
-  );
+  return typeof window !== "undefined" && !!(window.AudioContext || (window as any).webkitAudioContext);
 }
 
-/**
- * Get list of available voices
- */
-export function getAvailableVoices(): SpeechSynthesisVoice[] {
-  return allVoices;
-}
-
-/**
- * Check if Telugu voice is available
- */
 export function hasTeluguVoice(): boolean {
   return teluguVoice !== null;
 }
 
-/**
- * Preload voices (call early to ensure voices are available)
- */
-export function preloadVoices(): Promise<SpeechSynthesisVoice[]> {
-  return new Promise((resolve) => {
-    if (typeof window === "undefined" || !window.speechSynthesis) {
-      resolve([]);
-      return;
-    }
+export function getAvailableVoices(): SpeechSynthesisVoice[] {
+  return allVoices;
+}
+export function playCorrectSound() {
+  playSound("correct");
+}
 
-    // If already loaded, return immediately
-    if (voicesLoaded && allVoices.length > 0) {
-      resolve(allVoices);
-      return;
-    }
+export function playWrongSound() {
+  playSound("wrong");
+}
 
-    const voices = window.speechSynthesis.getVoices();
-    if (voices.length > 0) {
-      loadVoices();
-      resolve(allVoices);
-      return;
-    }
+export function playCompleteSound() {
+  playSound("complete");
+}
 
-    // Wait for voices to load (Chrome loads them async)
-    const handleVoicesChanged = () => {
-      loadVoices();
-      resolve(allVoices);
-    };
-
-    window.speechSynthesis.onvoiceschanged = handleVoicesChanged;
-
-    // Timeout fallback
-    setTimeout(() => {
-      loadVoices();
-      resolve(allVoices);
-    }, 1000);
-  });
+// Ensure audio context is ready on first interaction
+if (typeof window !== "undefined") {
+  document.addEventListener("touchstart", unlockAudio, { once: true });
+  document.addEventListener("click", unlockAudio, { once: true });
 }

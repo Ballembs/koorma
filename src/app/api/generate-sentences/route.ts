@@ -7,7 +7,7 @@ export async function POST(req: Request) {
   const { learnedLetters, difficulty, childName } = await req.json();
 
   const model = genAI.getGenerativeModel({
-    model: 'gemini-3.1-pro',
+    model: 'gemini-2.5-flash',
     systemInstruction: TELUGU_SYSTEM_PROMPT,
   });
 
@@ -35,8 +35,11 @@ Return ONLY valid JSON:
       "telugu": "అమ్మ అన్నం వండుతోంది",
       "transliteration": "AMMA ANNAM VANDUTHONDI",
       "english": "Mom is cooking rice",
-      "words": ["అమ్మ", "అన్నం", "వండుతోంది"],
-      "wordMeanings": ["Mom", "rice", "is cooking"]
+      "words": [
+        { "te": "అమ్మ", "trans": "AMMA", "en": "Mom" },
+        { "te": "అన్నం", "trans": "ANNAM", "en": "rice" },
+        { "te": "వండుతోంది", "trans": "VANDUTHONDI", "en": "is cooking" }
+      ]
     }
   ]
 }`;

@@ -81,14 +81,3 @@ export function playPartialSuccess() {
   tone(660, 0.2, "sine", 0.1);
   setTimeout(() => tone(784, 0.25, "sine", 0.1), 150);
 }
-
-/** Speak text using Web Speech API (fallback for legacy) */
-export function speak(text: string, lang = "te-IN", rate = 0.9) {
-  if (typeof window === "undefined" || !window.speechSynthesis) return;
-  const u = new SpeechSynthesisUtterance(text);
-  u.lang = lang;
-  u.rate = rate;
-  u.volume = 1;
-  window.speechSynthesis.cancel();
-  window.speechSynthesis.speak(u);
-}

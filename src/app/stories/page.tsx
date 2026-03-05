@@ -28,6 +28,7 @@ export default function StoriesPage() {
         <Button
           variant="secondary"
           size="sm"
+          fullWidth={false}
           onClick={handleBack}
           className="rounded-full w-12 h-12 flex items-center justify-center p-0"
         >

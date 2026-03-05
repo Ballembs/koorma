@@ -225,10 +225,10 @@ async function generateAll() {
       if (v.sound.endsWith("aa") && v.sound !== "kaa") ts = "aa";
       else if (v.sound.endsWith("ee")) ts = "ee";
       else if (v.sound.endsWith("i") && v.sound !== "ki" && v.sound !== "kai") ts = "i";
-      else if (v.sound.endsWith("oo")) ts = "oo";
-      else if (v.sound.endsWith("u") && v.sound !== "ku") ts = "u";
       else if (v.sound.endsWith("roo")) ts = "roo";
       else if (v.sound.endsWith("ru")) ts = "ru";
+      else if (v.sound.endsWith("oo")) ts = "oo";
+      else if (v.sound.endsWith("u") && v.sound !== "ku") ts = "u";
       else if (v.sound.endsWith("ay")) ts = "ay";
       else if (v.sound.endsWith("ai")) ts = "ai";
       else if (v.sound.endsWith("e")) ts = "e";
@@ -252,7 +252,8 @@ async function generateAll() {
         continue;
       }
 
-      await synthesize(combinedTelugu, `gunintham-${combinedTrans}`, SLOW_CONFIG);
+      // Use standard speed so short vowels don't get artificially stretched into long vowels
+      await synthesize(combinedTelugu, `gunintham-${combinedTrans}`, AUDIO_CONFIG);
     }
   }
 

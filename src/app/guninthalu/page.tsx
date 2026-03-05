@@ -9,6 +9,7 @@ import { consonants } from "@/content/consonants";
 
 import MasterMarksPhase from "@/components/guninthalu/MasterMarksPhase";
 import GuninthamFlow from "@/components/guninthalu/GuninthamFlow";
+import IdentifyMarkPhase from "@/components/guninthalu/IdentifyMarkPhase";
 
 export default function GuninthaluHubPage() {
   const router = useRouter();
@@ -16,6 +17,8 @@ export default function GuninthaluHubPage() {
 
   // Mode: 'hub' | 'marks' | 'consonant-flow'
   const [activeMode, setActiveMode] = useState<"hub" | "marks" | "consonant-flow">("hub");
+  // Sub-stage for 'marks' mode: 0 = Identify, 1 = Master
+  const [marksSubStage, setMarksSubStage] = useState<0 | 1>(0);
   const [selectedConsonant, setSelectedConsonant] = useState<string | null>(null);
 
   // Note: progress.stage > 0 means they completed the Marks phase
@@ -27,12 +30,18 @@ export default function GuninthaluHubPage() {
     } else {
       setActiveMode("hub");
       setSelectedConsonant(null);
+      setMarksSubStage(0);
     }
   };
 
   const handleFinishMarks = () => {
-    updateGuninthaluProgress({ stage: Math.max(guninthaluProgress.stage, 1) });
-    setActiveMode("hub");
+    if (marksSubStage === 0) {
+      setMarksSubStage(1);
+    } else {
+      updateGuninthaluProgress({ stage: Math.max(guninthaluProgress.stage, 1) });
+      setActiveMode("hub");
+      setMarksSubStage(0);
+    }
   };
 
   const handleFinishConsonantFlow = (consonantId: string) => {
@@ -52,10 +61,16 @@ export default function GuninthaluHubPage() {
       <div style={{ height: "100%", background: "linear-gradient(135deg, #EDE7F6, #E8EAF6)" }}>
         <header className="sticky top-0 z-50 safe-area-top px-4 py-3 bg-white/60 backdrop-blur-md flex items-center">
           <button onClick={handleBack} className="w-10 h-10 flex items-center justify-center rounded-full bg-black/5 text-xl">✕</button>
-          <h1 className="flex-1 text-center font-bold text-lg text-[#7B1FA2]">Master the Marks (గుణింతపు గుర్తులు)</h1>
+          <h1 className="flex-1 text-center font-bold text-lg text-[#7B1FA2]">
+            {marksSubStage === 0 ? "Meet the Marks" : "Master the Marks"}
+          </h1>
           <div className="w-10" />
         </header>
-        <MasterMarksPhase onComplete={handleFinishMarks} />
+        {marksSubStage === 0 ? (
+          <IdentifyMarkPhase onComplete={handleFinishMarks} />
+        ) : (
+          <MasterMarksPhase onComplete={handleFinishMarks} />
+        )}
       </div>
     );
   }

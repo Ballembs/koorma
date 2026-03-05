@@ -5,6 +5,7 @@ import { SENTENCE_LEVELS } from "@/content/sentences";
 import ReadAlongPhase from "./ReadAlongPhase";
 import WordOrderPhase from "./WordOrderPhase";
 import FillBlankPhase from "./FillBlankPhase";
+import DynamicPracticePhase from "./DynamicPracticePhase";
 
 import { useKoormaStore } from "@/lib/store";
 
@@ -14,7 +15,7 @@ interface SentencesFlowProps {
 }
 
 export default function SentencesFlow({ levelNum, onComplete }: SentencesFlowProps) {
-  const [phase, setPhase] = useState<"readAlong" | "wordOrder" | "fillBlank" | "complete">("readAlong");
+  const [phase, setPhase] = useState<"readAlong" | "wordOrder" | "fillBlank" | "dynamic" | "complete">("readAlong");
   const { sentenceProgress, updateSentenceProgress, addXP, unlockAchievement } = useKoormaStore();
 
   const levelKey = `level${levelNum}` as keyof typeof SENTENCE_LEVELS;
@@ -50,6 +51,14 @@ export default function SentencesFlow({ levelNum, onComplete }: SentencesFlowPro
       <FillBlankPhase
         sentences={sessionSentences}
         allLevelSentences={levelData.sentences}
+        onComplete={() => setPhase("dynamic")}
+      />
+    );
+  }
+
+  if (phase === "dynamic") {
+    return (
+      <DynamicPracticePhase
         onComplete={() => setPhase("complete")}
       />
     );

@@ -1,33 +1,29 @@
-import { useCallback, useRef } from 'react';
+import { useCallback } from 'react';
+
+// Global ref for the currently playing audio across all hook instances
+let globalCurrentAudio: HTMLAudioElement | null = null;
 
 export function useTeluguAudio() {
-  const currentAudio = useRef<HTMLAudioElement | null>(null);
-
   const stop = useCallback(() => {
-    if (currentAudio.current) {
-      currentAudio.current.pause();
-      currentAudio.current.currentTime = 0;
+    if (globalCurrentAudio) {
+      globalCurrentAudio.pause();
+      globalCurrentAudio.currentTime = 0;
+      globalCurrentAudio = null;
+    }
+    if (typeof window !== 'undefined' && window.speechSynthesis) {
+      window.speechSynthesis.cancel();
     }
   }, []);
 
   const play = useCallback((clipName: string) => {
-    return new Promise<void>((resolve, reject) => {
+    return new Promise<void>((resolve) => {
       stop();
       const audio = new Audio(`/audio/te/${clipName}.mp3`);
-      currentAudio.current = audio;
+      globalCurrentAudio = audio;
       audio.onended = () => resolve();
       audio.onerror = () => {
-        console.warn(`Audio not found: ${clipName}.mp3, falling back to Web Speech API`);
-        // Fallback: use browser TTS with Telugu
-        try {
-          const utterance = new SpeechSynthesisUtterance(clipName);
-          utterance.lang = 'te-IN';
-          utterance.rate = 0.7;
-          utterance.onend = () => resolve();
-          speechSynthesis.speak(utterance);
-        } catch {
-          resolve(); // silently continue if no audio
-        }
+        console.warn(`Audio not found: ${clipName}.mp3`);
+        resolve(); // silently continue if no audio
       };
       audio.play().catch((err) => {
         if (err.name !== 'NotAllowedError' && err.name !== 'AbortError') {
