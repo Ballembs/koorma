@@ -44,3 +44,12 @@ next-env.d.ts
 src/service-account.json
 koorma-488912-e21c7c01c40f.json
 service-account.json
+
+# Test files
+test-*.js
+test-*.mjs
+test-*.txt
+package-test.json
+
+# Keep .env.example
+!.env.example

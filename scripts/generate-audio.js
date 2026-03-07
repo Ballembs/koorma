@@ -340,6 +340,55 @@ async function generateAll() {
     await synthesize(s.te, `sentence-${s.trans}`);
   }
 
+  // ─── NEW STORY SENTENCES ───
+  const newStorySentences = [
+    // Story 3: School Day
+    { text: "నేను బడికి వెళ్ళాను", id: "STORY_SCHOOL_1" },
+    { text: "టీచర్ కొత్త పాట నేర్పించింది", id: "STORY_SCHOOL_2" },
+    { text: "నేను ఫ్రెండ్స్ తో ఆడుకున్నాను", id: "STORY_SCHOOL_3" },
+    { text: "ఇంటికి వచ్చి అమ్మకి చెప్పాను", id: "STORY_SCHOOL_4" },
+    { text: "అమ్మ నవ్వి లడ్డు ఇచ్చింది", id: "STORY_SCHOOL_5" },
+
+    // Story 4: Ammamma's House
+    { text: "మేము అమ్మమ్మ ఇంటికి వెళ్ళాం", id: "STORY_AMMAMMA_1" },
+    { text: "అమ్మమ్మ పులిహోర చేసింది", id: "STORY_AMMAMMA_2" },
+    { text: "తాత కథ చెప్పాడు", id: "STORY_AMMAMMA_3" },
+    { text: "నేను తోటలో ఆడుకున్నాను", id: "STORY_AMMAMMA_4" },
+    { text: "అమ్మమ్మ ఇల్లు చాలా బాగుంటుంది", id: "STORY_AMMAMMA_5" },
+
+    // Story 5: Cooking with Mom
+    { text: "అమ్మ దోశలు చేస్తోంది", id: "STORY_COOKING_1" },
+    { text: "నేను కూడా హెల్ప్ చేస్తాను అన్నాను", id: "STORY_COOKING_2" },
+    { text: "అమ్మ పిండి కలపమంది", id: "STORY_COOKING_3" },
+    { text: "నేను కలిపాను — పిండి కిందపడింది!", id: "STORY_COOKING_4" },
+    { text: "అమ్మ నవ్వింది — పరవాలేదు అంది", id: "STORY_COOKING_5" },
+
+    // Story 6: Bedtime
+    { text: "రాత్రి అయింది", id: "STORY_BEDTIME_1" },
+    { text: "అమ్మ పాలు తెచ్చింది", id: "STORY_BEDTIME_2" },
+    { text: "నాన్న కథ చెప్పాడు", id: "STORY_BEDTIME_3" },
+    { text: "నక్షత్రాలు మెరుస్తున్నాయి", id: "STORY_BEDTIME_4" },
+    { text: "శుభ రాత్రి — నిద్ర పోదాం!", id: "STORY_BEDTIME_5" },
+
+    // Story 7: Market Trip
+    { text: "నాన్నతో బజారుకి వెళ్ళాను", id: "STORY_MARKET_1" },
+    { text: "అరటి పండ్లు కొన్నాం", id: "STORY_MARKET_2" },
+    { text: "నేను ఐస్ క్రీమ్ కావాలి అన్నాను", id: "STORY_MARKET_3" },
+    { text: "నాన్న మాంగో ఐస్ క్రీమ్ కొనిచ్చాడు", id: "STORY_MARKET_4" },
+    { text: "బజారు చాలా సరదాగా ఉంది", id: "STORY_MARKET_5" },
+
+    // Story 8: Clever Crow
+    { text: "ఒక కాకికి దాహం వేసింది", id: "STORY_CROW_1" },
+    { text: "కుండలో కొంచెం నీళ్ళు ఉన్నాయి", id: "STORY_CROW_2" },
+    { text: "కాకి రాళ్ళు వేసింది", id: "STORY_CROW_3" },
+    { text: "నీళ్ళు పైకి వచ్చాయి!", id: "STORY_CROW_4" },
+    { text: "కాకి నీళ్ళు తాగి ఎగిరిపోయింది", id: "STORY_CROW_5" },
+  ];
+
+  for (const s of newStorySentences) {
+    await synthesize(s.text, `sentence-${s.id}`);
+  }
+
   console.log('\n🎉 All audio files generated!');
 }
 

@@ -1,5 +1,7 @@
 "use client";
 
+const DEBUG = process.env.NODE_ENV === 'development';
+
 import { useCallback, useEffect, useState, useRef } from "react";
 import { useKoormaStore } from "@/lib/store";
 import {
@@ -87,7 +89,7 @@ export function useAudio(): UseAudioReturn {
   const speak = useCallback(
     (text: string, options: SpeakOptions = {}) => {
       if (!audioEnabled) {
-        console.log("[useAudio] Audio disabled in settings, not speaking");
+        if (DEBUG) console.log("[useAudio] Audio disabled in settings, not speaking");
         return;
       }
 
@@ -97,7 +99,7 @@ export function useAudio(): UseAudioReturn {
         ...options,
       };
 
-      console.log(`[useAudio] Speaking: "${text}" with rate ${finalOptions.rate}`);
+      if (DEBUG) console.log(`[useAudio] Speaking: "${text}" with rate ${finalOptions.rate}`);
       speakText(text, finalOptions);
     },
     [audioEnabled, speechRate]

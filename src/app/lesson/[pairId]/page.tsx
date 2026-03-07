@@ -722,13 +722,10 @@ export default function LessonPage() {
       }}>
         <button
           onClick={() => router.push("/village")}
-          style={{
-            background: "none", border: "2px solid #E0D5C8", borderRadius: 10,
-            padding: "8px 16px", color: C.muted, fontSize: 14, fontWeight: 700,
-            cursor: "pointer", fontFamily: "'Nunito', sans-serif",
-          }}
+          className="w-10 h-10 flex items-center justify-center rounded-full bg-black/5 hover:bg-black/10 transition-colors text-xl shrink-0"
+          style={{ color: C.muted }}
         >
-          ✕ Exit
+          ✕
         </button>
 
         <div style={{ textAlign: "center" }}>

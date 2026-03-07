@@ -40,14 +40,12 @@ export default function SentencesPage() {
     <div className="w-full h-screen bg-gradient-to-b from-[#E0F7FA] to-[#B2EBF2] font-nunito flex flex-col overflow-hidden">
       {/* Header */}
       <header className="p-4 flex items-center justify-between z-10 bg-white/50 backdrop-blur-sm shadow-sm relative">
-        <Button
-          variant="secondary"
-          size="sm"
+        <button
           onClick={handleBack}
-          className="rounded-full w-12 h-12 flex items-center justify-center p-0"
+          className="w-12 h-12 bg-white/50 hover:bg-white rounded-full flex items-center justify-center transition-colors shrink-0 text-[#00838F]"
         >
           <span className="text-xl">✕</span>
-        </Button>
+        </button>
 
         <div className="flex items-center gap-2">
           <span className="text-2xl">🛤️</span>

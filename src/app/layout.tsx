@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Noto_Sans_Telugu, Nunito } from "next/font/google";
 import "./globals.css";
 import { LandscapeGuard } from "@/components/LandscapeGuard";
-import { DevTools } from "@/components/DevTools";
+import { SupabaseSync } from "@/components/SupabaseSync";
 const notoSansTelugu = Noto_Sans_Telugu({
   variable: "--font-noto-sans-telugu",
   subsets: ["telugu"],
@@ -50,8 +50,8 @@ export default function RootLayout({
       >
         <LandscapeGuard>
           <div className="landscape-app">
+            <SupabaseSync />
             {children}
-            <DevTools />
           </div>
         </LandscapeGuard>
       </body>

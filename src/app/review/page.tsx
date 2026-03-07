@@ -144,7 +144,7 @@ export default function ReviewPage() {
           <motion.button
             onClick={handleFinish}
             whileTap={{ scale: 0.9 }}
-            className="w-10 h-10 flex items-center justify-center rounded-full"
+            className="w-10 h-10 flex items-center justify-center rounded-full shrink-0"
             style={{ backgroundColor: `${colors.dark}10` }}
           >
             <span className="text-xl">✕</span>

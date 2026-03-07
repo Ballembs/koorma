@@ -22,7 +22,7 @@ interface PhaseProps {
 }
 
 export default function DynamicPracticePhase({ onComplete }: PhaseProps) {
-  const { childName, teluguLevel, sentenceProgress, completedPairs } = useKoormaStore();
+  const { childName, teluguLevel, sentenceProgress, completedPairs, wordProgress } = useKoormaStore();
   const [sentences, setSentences] = useState<DynamicSentence[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -47,7 +47,9 @@ export default function DynamicPracticePhase({ onComplete }: PhaseProps) {
             difficulty: sentenceProgress.currentLevel,
             childName: childName,
             theme: "everyday life",
-            learnedVocabulary: ["అమ్మ", "నాన్న", "ఇల్లు", "కుక్క", "పిల్లి", "బంతి", "కారు"], // In a real app, this would be `wordProgress.wordsLearned`
+            learnedVocabulary: wordProgress.wordsLearned.length > 0
+              ? wordProgress.wordsLearned
+              : ["అమ్మ", "నాన్న", "ఇల్లు", "కుక్క", "పిల్లి", "బంతి", "కారు"],
             learnedLetters: completedPairs.length > 0 ? completedPairs : ["అ", "ఆ", "క", "చ"],
           }),
         });

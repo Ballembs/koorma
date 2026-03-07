@@ -60,7 +60,7 @@ export default function GuninthaluHubPage() {
     return (
       <div style={{ height: "100%", background: "linear-gradient(135deg, #EDE7F6, #E8EAF6)" }}>
         <header className="sticky top-0 z-50 safe-area-top px-4 py-3 bg-white/60 backdrop-blur-md flex items-center">
-          <button onClick={handleBack} className="w-10 h-10 flex items-center justify-center rounded-full bg-black/5 text-xl">✕</button>
+          <button onClick={handleBack} className="w-10 h-10 flex items-center justify-center rounded-full bg-black/5 text-xl shrink-0">✕</button>
           <h1 className="flex-1 text-center font-bold text-lg text-[#7B1FA2]">
             {marksSubStage === 0 ? "Meet the Marks" : "Master the Marks"}
           </h1>
@@ -79,7 +79,7 @@ export default function GuninthaluHubPage() {
     return (
       <div style={{ height: "100%", background: "linear-gradient(135deg, #FFF3E0, #FBE9E7)" }}>
         <header className="sticky top-0 z-50 safe-area-top px-4 py-3 bg-white/60 backdrop-blur-md flex items-center">
-          <button onClick={handleBack} className="w-10 h-10 flex items-center justify-center rounded-full bg-black/5 text-xl">✕</button>
+          <button onClick={handleBack} className="w-10 h-10 flex items-center justify-center rounded-full bg-black/5 text-xl shrink-0">✕</button>
           <h1 className="flex-1 text-center font-bold text-lg text-[#C1553B]">Gunintham Flow</h1>
           <div className="w-10" />
         </header>

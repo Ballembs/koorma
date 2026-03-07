@@ -5,6 +5,9 @@
  * - iOS Safari compatible (requires user gesture to unlock)
  */
 
+const DEBUG = process.env.NODE_ENV === 'development';
+
+
 // Sound effect types
 export type SoundType = "correct" | "wrong" | "complete" | "levelup" | "tap";
 
@@ -47,9 +50,11 @@ function loadVoices(): void {
 
   voicesLoaded = voices.length > 0;
 
-  console.log(
-    `[Koorma Audio] Voices loaded: ${voices.length}, Telugu voice: ${teluguVoice?.name || "none (will use default)"}`
-  );
+  if (DEBUG) {
+    console.log(
+      `[Koorma Audio] Voices loaded: ${voices.length}, Telugu voice: ${teluguVoice?.name || "none (will use default)"}`
+    );
+  }
 }
 
 // Initialize voice loading on module load (client-side only)
@@ -106,7 +111,7 @@ export function unlockAudio(): void {
   source.start(0);
 
   isAudioUnlocked = true;
-  console.log("[Koorma Audio] Audio unlocked");
+  if (DEBUG) console.log("[Koorma Audio] Audio unlocked");
 }
 
 /**
@@ -175,7 +180,7 @@ export function playSound(type: SoundType): void {
     return;
   }
 
-  console.log(`[Koorma Audio] Playing sound: ${type}`);
+  if (DEBUG) console.log(`[Koorma Audio] Playing sound: ${type}`);
 
   switch (type) {
     case "correct":

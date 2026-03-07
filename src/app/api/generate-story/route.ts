@@ -4,6 +4,10 @@ import { TELUGU_SYSTEM_PROMPT } from '@/lib/telugu-system-prompt';
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY as string);
 
 export async function POST(req: Request) {
+  if (!process.env.GEMINI_API_KEY) {
+    return Response.json({ error: 'GEMINI_API_KEY is not configured' }, { status: 500 });
+  }
+
   const { learnedLetters, childName, theme } = await req.json();
 
   const model = genAI.getGenerativeModel({
@@ -63,15 +67,20 @@ Return ONLY valid JSON:
   }
 }`;
 
-  const result = await model.generateContent(prompt);
-  const text = result.response.text().replace(/```json|```/g, '').trim();
-
   try {
-    const data = JSON.parse(text);
-    const validated = validateTeluguOutput(data);
-    return Response.json(validated);
-  } catch {
-    return Response.json({ error: 'Parse failed', raw: text }, { status: 500 });
+    const result = await model.generateContent(prompt);
+    const text = result.response.text().replace(/```json|```/g, '').trim();
+
+    try {
+      const data = JSON.parse(text);
+      const validated = validateTeluguOutput(data);
+      return Response.json(validated);
+    } catch {
+      return Response.json({ error: 'Parse failed', raw: text }, { status: 500 });
+    }
+  } catch (apiErr) {
+    console.error("Gemini Story API Error:", apiErr);
+    return Response.json({ error: 'Failed to generate story' }, { status: 500 });
   }
 }
 

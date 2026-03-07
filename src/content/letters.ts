@@ -48,7 +48,10 @@ export function getConsonantIds(): string[] {
 export function getLetterIdsForSection(section: SectionId): string[] {
   if (section === "vowels") return getVowelIds();
   if (section === "consonants") return getConsonantIds();
-  return []; // Other sections don't have individual letters yet
+  // ⚠️ Advanced sections (gunintalu, words, sentences, stories) don't use letter IDs.
+  // Their completion is tracked via Zustand store progress objects.
+  // See village/page.tsx isUnlocked() and isComplete() for the actual logic.
+  return [];
 }
 
 /** Find a letter by its ID (transliteration) */
@@ -87,7 +90,11 @@ export function getSectionForLetter(id: string): SectionId | null {
   return null;
 }
 
-/** Check if a section is fully completed */
+/** 
+ * Check if a section is fully completed.
+ * ⚠️ Only works for vowels and consonants (letter-based sections).
+ * For advanced sections, use the progress-based checks in village/page.tsx.
+ */
 export function isSectionComplete(section: SectionId, completedIds: string[]): boolean {
   const letterIds = getLetterIdsForSection(section);
   if (letterIds.length === 0) return false;
