@@ -40,7 +40,6 @@ const WORLD_THEMES: Record<SectionId, { bg: string; accent: string; nodeBg: stri
 // ═══════════════════════════════════════════════
 
 function DemoModal({ onClose }: { onClose: () => void }) {
-  const isDev = process.env.NODE_ENV === "development";
   const backupRef = useRef<any>(null);
 
   const steps = [
@@ -131,66 +130,64 @@ function DemoModal({ onClose }: { onClose: () => void }) {
             ▶ Start Learning!
           </button>
 
-          {isDev && (
-            <div style={{ display: "flex", gap: 8, paddingLeft: 16, borderLeft: `2px solid ${C.muted}30` }}>
-              <button
-                onClick={() => {
-                  if (!backupRef.current) {
-                    const currentState = useKoormaStore.getState();
-                    backupRef.current = {
-                      completedPairs: currentState.completedPairs,
-                      completedSections: currentState.completedSections,
-                      guninthaluProgress: currentState.guninthaluProgress,
-                      wordProgress: currentState.wordProgress,
-                      sentenceProgress: currentState.sentenceProgress,
-                    };
-                  }
+          <div style={{ display: "flex", gap: 8, paddingLeft: 16, borderLeft: `2px solid ${C.muted}30` }}>
+            <button
+              onClick={() => {
+                if (!backupRef.current) {
+                  const currentState = useKoormaStore.getState();
+                  backupRef.current = {
+                    completedPairs: currentState.completedPairs,
+                    completedSections: currentState.completedSections,
+                    guninthaluProgress: currentState.guninthaluProgress,
+                    wordProgress: currentState.wordProgress,
+                    sentenceProgress: currentState.sentenceProgress,
+                  };
+                }
 
-                  useKoormaStore.setState({
-                    completedPairs: [...getVowelIds(), ...getConsonantIds()],
-                    completedSections: ["vowels", "consonants", "gunintalu", "words", "sentences", "stories"],
-                    guninthaluProgress: {
-                      ...useKoormaStore.getState().guninthaluProgress,
-                      stage: 6
-                    },
-                    wordProgress: {
-                      ...useKoormaStore.getState().wordProgress,
-                      categoriesCompleted: ["1", "2", "3", "4"]
-                    },
-                    sentenceProgress: {
-                      ...useKoormaStore.getState().sentenceProgress,
-                      currentLevel: 2
-                    }
-                  });
-                }}
-                style={{
-                  background: "#D4940C", border: "none", color: "white",
-                  padding: "14px 24px", borderRadius: 14, cursor: "pointer",
-                  fontSize: 16, fontWeight: 800, fontFamily: "'Nunito', sans-serif"
-                }}
-              >
-                🔓 Unlock All
-              </button>
-
-              <button
-                onClick={() => {
-                  if (backupRef.current) {
-                    useKoormaStore.setState(backupRef.current);
-                    backupRef.current = null;
-                  } else {
-                    useKoormaStore.getState().resetAll();
+                useKoormaStore.setState({
+                  completedPairs: [...getVowelIds(), ...getConsonantIds()],
+                  completedSections: ["vowels", "consonants", "gunintalu", "words", "sentences", "stories"],
+                  guninthaluProgress: {
+                    ...useKoormaStore.getState().guninthaluProgress,
+                    stage: 6
+                  },
+                  wordProgress: {
+                    ...useKoormaStore.getState().wordProgress,
+                    categoriesCompleted: ["1", "2", "3", "4"]
+                  },
+                  sentenceProgress: {
+                    ...useKoormaStore.getState().sentenceProgress,
+                    currentLevel: 2
                   }
-                }}
-                style={{
-                  background: "#C1553B", border: "none", color: "white",
-                  padding: "14px 24px", borderRadius: 14, cursor: "pointer",
-                  fontSize: 16, fontWeight: 800, fontFamily: "'Nunito', sans-serif"
-                }}
-              >
-                🔒 Lock All
-              </button>
-            </div>
-          )}
+                });
+              }}
+              style={{
+                background: "#D4940C", border: "none", color: "white",
+                padding: "14px 24px", borderRadius: 14, cursor: "pointer",
+                fontSize: 16, fontWeight: 800, fontFamily: "'Nunito', sans-serif"
+              }}
+            >
+              🔓 Unlock All
+            </button>
+
+            <button
+              onClick={() => {
+                if (backupRef.current) {
+                  useKoormaStore.setState(backupRef.current);
+                  backupRef.current = null;
+                } else {
+                  useKoormaStore.getState().resetAll();
+                }
+              }}
+              style={{
+                background: "#C1553B", border: "none", color: "white",
+                padding: "14px 24px", borderRadius: 14, cursor: "pointer",
+                fontSize: 16, fontWeight: 800, fontFamily: "'Nunito', sans-serif"
+              }}
+            >
+              🔒 Lock All
+            </button>
+          </div>
         </div>
       </motion.div>
     </motion.div>

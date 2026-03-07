@@ -6,7 +6,6 @@ export function createClient() {
 
   if (!url || !key) {
     console.error('[Supabase] Missing env vars. Check NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY')
-    // Return a dummy client that won't crash the app but won't work either
     return createBrowserClient('https://placeholder.supabase.co', 'placeholder')
   }
 
