@@ -143,6 +143,7 @@ interface KoormaState {
   // Advanced Section Actions
   updateGuninthaluProgress: (progress: Partial<KoormaState["guninthaluProgress"]>) => void;
   updateWordProgress: (progress: Partial<KoormaState["wordProgress"]>) => void;
+  updateSentenceProgress: (progress: Partial<KoormaState["sentenceProgress"]>) => void;
   updateStoryProgress: (progress: Partial<KoormaState["storyProgress"]>) => void;
   saveMagicStory: (story: GeneratedStory) => void;
 
@@ -399,6 +400,8 @@ export const useKoormaStore = create<KoormaState>()(
         set((state) => ({ guninthaluProgress: { ...state.guninthaluProgress, ...progress } })),
       updateWordProgress: (progress) =>
         set((state) => ({ wordProgress: { ...state.wordProgress, ...progress } })),
+      updateSentenceProgress: (progress) =>
+        set((state) => ({ sentenceProgress: { ...state.sentenceProgress, ...progress } })),
       updateStoryProgress: (progress) =>
         set((state) => ({ storyProgress: { ...state.storyProgress, ...progress } })),
       saveMagicStory: (story) => {
