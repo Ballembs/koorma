@@ -18,7 +18,7 @@ export default function DynamicStoryReadingPhase({ onComplete }: DynamicStoryPha
 
   const [currentIndex, setCurrentIndex] = useState(-1); // -1 = title card
 
-  const { wordProgress, completedPairs, childName, addXP, updateStreak } = useKoormaStore();
+  const { wordProgress, completedPairs, childName, addXP, updateStreak, saveMagicStory } = useKoormaStore();
 
   useEffect(() => {
     async function fetchStory() {
@@ -56,6 +56,7 @@ export default function DynamicStoryReadingPhase({ onComplete }: DynamicStoryPha
     } else {
       addXP(15);
       updateStreak();
+      saveMagicStory(story);
       onComplete();
     }
   };

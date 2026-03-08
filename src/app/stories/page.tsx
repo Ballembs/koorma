@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
-import { useKoormaStore } from "@/lib/store";
+import { useKoormaStore, GeneratedStory } from "@/lib/store";
 import { TIER1_STORIES } from "@/content/stories";
 import StoriesFlow from "@/components/stories/StoriesFlow";
 import { Button } from "@/components/ui/Button";
@@ -12,10 +12,12 @@ export default function StoriesPage() {
   const router = useRouter();
   const { storyProgress } = useKoormaStore();
   const [activeStoryId, setActiveStoryId] = useState<string | null>(null);
+  const [activeStoryData, setActiveStoryData] = useState<GeneratedStory | null>(null);
 
   const handleBack = () => {
-    if (activeStoryId !== null) {
+    if (activeStoryId !== null || activeStoryData !== null) {
       setActiveStoryId(null);
+      setActiveStoryData(null);
     } else {
       router.push("/village");
     }
@@ -110,6 +112,47 @@ export default function StoriesPage() {
                     );
                   })}
 
+                  {/* Render Saved Magic Stories */}
+                  {storyProgress?.savedMagicStories?.map((savedStory, i) => (
+                    <motion.button
+                      key={savedStory.id}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: (TIER1_STORIES.length + i) * 0.1 }}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={() => setActiveStoryData(savedStory)}
+                      className="relative bg-[#E3F2FD] p-6 text-left rounded-3xl shadow-lg border-b-8 border-[#64B5F6] flex flex-col justify-between overflow-hidden"
+                    >
+                      {/* Decorative background overlay */}
+                      <div className="absolute top-0 right-0 w-32 h-32 bg-[#BBDEFB] rounded-full -mr-16 -mt-16 opacity-50 pointer-events-none" />
+
+                      <div>
+                        <h3 className="text-3xl font-bold text-[#1565C0] font-telugu mb-1">{savedStory.title.telugu}</h3>
+                        <div className="text-lg font-bold text-[#1E88E5] mb-2">{savedStory.title.english}</div>
+
+                        <div className="mt-4 flex gap-2">
+                          <span className="bg-[#BBDEFB] text-[#1976D2] text-sm px-3 py-1 rounded-full font-bold">
+                            {savedStory.sentences.length} Pages
+                          </span>
+                          <span className="bg-[#BBDEFB] text-[#1976D2] text-sm px-3 py-1 rounded-full font-bold">
+                            {savedStory.theme}
+                          </span>
+                        </div>
+                      </div>
+
+                      <div className="mt-6 flex justify-between items-center w-full">
+                        <div className="flex gap-1">
+                          <span className="text-xl">✨</span>
+                          <span className="text-sm font-bold text-[#1E88E5] ml-1">AI Magic</span>
+                        </div>
+                        <div className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-bold shadow-sm">
+                          ✓ Saved
+                        </div>
+                      </div>
+                    </motion.button>
+                  ))}
+
                   {/* Dynamic tier 2 generator */}
                   <motion.button
                     initial={{ opacity: 0, y: 20 }}
@@ -118,28 +161,23 @@ export default function StoriesPage() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => setActiveStoryId("dynamic_1")}
-                    className="relative bg-gradient-to-br from-[#E1BEE7] to-[#CE93D8] p-6 text-left rounded-3xl shadow-lg border-b-8 border-[#BA68C8] flex flex-col justify-between overflow-hidden"
+                    className="relative bg-gradient-to-br from-[#E1BEE7] to-[#CE93D8] p-6 text-left rounded-3xl shadow-lg border-b-8 border-[#BA68C8] flex flex-col justify-between overflow-hidden sm:col-span-1 md:col-span-2 mt-4"
                   >
                     {/* Decorative background overlay */}
                     <div className="absolute top-0 right-0 w-32 h-32 bg-[#F3E5F5] rounded-full -mr-16 -mt-16 opacity-40 pointer-events-none" />
 
-                    <div>
-                      <h3 className="text-3xl font-bold text-[#6A1B9A] font-telugu mb-1">మాయా కథ</h3>
-                      <div className="text-lg font-bold text-[#8E24AA] mb-2">Magic Story Generator</div>
-
-                      <div className="mt-4 flex gap-2">
-                        <span className="bg-[#F3E5F5] text-[#8E24AA] text-sm px-3 py-1 rounded-full font-bold">
-                          AI Generated
-                        </span>
-                        <span className="bg-[#F3E5F5] text-[#8E24AA] text-sm px-3 py-1 rounded-full font-bold">
-                          Infinite
-                        </span>
+                    <div className="flex justify-between items-center w-full">
+                      <div>
+                        <h3 className="text-3xl font-bold text-[#6A1B9A] font-telugu mb-1">మాయా కథ</h3>
+                        <div className="text-lg font-bold text-[#8E24AA] mb-2">Magic Story Generator</div>
                       </div>
+                      <div className="text-5xl">✨🔮✨</div>
                     </div>
 
-                    <div className="mt-6 flex justify-between items-center w-full">
-                      <div className="text-3xl">✨🔮✨</div>
+                    <div className="mt-2 text-[#6A1B9A] font-bold text-lg">
+                      Read a brand new infinite story!
                     </div>
+
                   </motion.button>
                 </div>
               </div>
@@ -153,8 +191,12 @@ export default function StoriesPage() {
               className="absolute inset-0 z-20 bg-[#F5E6CC]"
             >
               <StoriesFlow
-                storyId={activeStoryId}
-                onComplete={() => setActiveStoryId(null)}
+                storyId={activeStoryId || ""}
+                dynamicStory={activeStoryData || undefined}
+                onComplete={() => {
+                  setActiveStoryId(null);
+                  setActiveStoryData(null);
+                }}
               />
             </motion.div>
           )}

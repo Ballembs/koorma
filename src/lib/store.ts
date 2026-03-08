@@ -23,6 +23,14 @@ interface WordScaffold {
   correctCount: number;
 }
 
+export interface GeneratedStory {
+  id?: string;
+  title: { telugu: string; english: string };
+  theme: string;
+  sentences: { telugu: string; transliteration: string; english: string }[];
+  generatedAt?: string;
+}
+
 interface KoormaState {
   // Child profile
   childName: string;
@@ -82,6 +90,13 @@ interface KoormaState {
     tier1: Record<string, { read: boolean; stars: number }>;
     tier2Generated: number;
     totalStoriesRead: number;
+    savedMagicStories: {
+      id: string;
+      title: { telugu: string; english: string };
+      theme: string;
+      sentences: { telugu: string; transliteration: string; english: string }[];
+      generatedAt: string;
+    }[];
   };
 
   // Settings
@@ -128,8 +143,8 @@ interface KoormaState {
   // Advanced Section Actions
   updateGuninthaluProgress: (progress: Partial<KoormaState["guninthaluProgress"]>) => void;
   updateWordProgress: (progress: Partial<KoormaState["wordProgress"]>) => void;
-  updateSentenceProgress: (progress: Partial<KoormaState["sentenceProgress"]>) => void;
   updateStoryProgress: (progress: Partial<KoormaState["storyProgress"]>) => void;
+  saveMagicStory: (story: GeneratedStory) => void;
 
   // Settings actions
   setAudioEnabled: (enabled: boolean) => void;
@@ -224,6 +239,7 @@ export const useKoormaStore = create<KoormaState>()(
         tier1: {},
         tier2Generated: 0,
         totalStoriesRead: 0,
+        savedMagicStories: [],
       },
 
       // Settings
@@ -383,10 +399,24 @@ export const useKoormaStore = create<KoormaState>()(
         set((state) => ({ guninthaluProgress: { ...state.guninthaluProgress, ...progress } })),
       updateWordProgress: (progress) =>
         set((state) => ({ wordProgress: { ...state.wordProgress, ...progress } })),
-      updateSentenceProgress: (progress) =>
-        set((state) => ({ sentenceProgress: { ...state.sentenceProgress, ...progress } })),
       updateStoryProgress: (progress) =>
         set((state) => ({ storyProgress: { ...state.storyProgress, ...progress } })),
+      saveMagicStory: (story) => {
+        set((state) => ({
+          storyProgress: {
+            ...state.storyProgress,
+            totalStoriesRead: state.storyProgress.totalStoriesRead + 1,
+            savedMagicStories: [
+              {
+                id: `magic-${Date.now()}`,
+                ...story,
+                generatedAt: new Date().toISOString()
+              },
+              ...(state.storyProgress.savedMagicStories || [])
+            ]
+          }
+        }));
+      },
 
       // Settings actions
       setAudioEnabled: (enabled) => set({ audioEnabled: enabled }),
@@ -408,7 +438,7 @@ export const useKoormaStore = create<KoormaState>()(
           guninthaluProgress: { stage: 1, marksLearned: [], consonantsPracticed: [], completedGuninthalu: [], rapidFireBest: 0, wordsRead: [] },
           wordProgress: { categoriesCompleted: [], currentCategory: null, wordsLearned: [], totalWordsLearned: 0 },
           sentenceProgress: { currentLevel: 1, sentencesRead: 0, sentencesBuilt: 0 },
-          storyProgress: { tier1: {}, tier2Generated: 0, totalStoriesRead: 0 },
+          storyProgress: { tier1: {}, tier2Generated: 0, totalStoriesRead: 0, savedMagicStories: [] },
         }),
 
       resetAll: () =>
@@ -436,7 +466,7 @@ export const useKoormaStore = create<KoormaState>()(
           guninthaluProgress: { stage: 1, marksLearned: [], consonantsPracticed: [], completedGuninthalu: [], rapidFireBest: 0, wordsRead: [] },
           wordProgress: { categoriesCompleted: [], currentCategory: null, wordsLearned: [], totalWordsLearned: 0 },
           sentenceProgress: { currentLevel: 1, sentencesRead: 0, sentencesBuilt: 0 },
-          storyProgress: { tier1: {}, tier2Generated: 0, totalStoriesRead: 0 },
+          storyProgress: { tier1: {}, tier2Generated: 0, totalStoriesRead: 0, savedMagicStories: [] },
         }),
     }),
     {

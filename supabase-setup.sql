@@ -23,6 +23,7 @@ create table public.user_progress (
   completed_pairs text[] not null default '{}',
   word_progress jsonb not null default '{"wordsLearned": [], "categoriesCompleted": []}',
   sentence_progress jsonb not null default '{"currentLevel": 1, "levelsUnlocked": [1], "sentencesFormed": 0}',
+  story_progress jsonb not null default '{"tier1": {}, "tier2Generated": 0, "totalStoriesRead": 0, "savedMagicStories": []}',
   created_at timestamp with time zone default timezone('utc'::text, now()) not null,
   updated_at timestamp with time zone default timezone('utc'::text, now()) not null
 );

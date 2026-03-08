@@ -574,39 +574,41 @@ export default function VillagePage() {
       {/* ── MAIN: horizontal winding path ── */}
       <div style={{ flex: 1, display: "flex", flexDirection: "column", overflow: "hidden" }}>
         <div className="village-path">
-          {SECTIONS.map((section, idx) => {
-            const sId = section.id as SectionId;
-            const unlocked = isUnlocked(sId);
-            const done = isComplete(sId);
-            const isActive = sId === displaySection;
+          <div style={{ display: "flex", margin: "auto", minWidth: "max-content", padding: "0 20px" }}>
+            {SECTIONS.map((section, idx) => {
+              const sId = section.id as SectionId;
+              const unlocked = isUnlocked(sId);
+              const done = isComplete(sId);
+              const isActive = sId === displaySection;
 
-            return (
-              <div key={section.id} style={{ display: "flex", alignItems: "center", gap: 0, flexShrink: 0 }}>
-                <SectionNode
-                  section={section}
-                  isActive={isActive}
-                  isUnlocked={unlocked}
-                  isDone={done}
-                  isCurrentChintu={isActive && selectedSection === null}
-                  onClick={() => setSelectedSection(sId === displaySection ? null : sId)}
-                />
-                {/* Path connector between sections */}
-                {idx < SECTIONS.length - 1 && (
-                  <div style={{ display: "flex", alignItems: "center", gap: 0, margin: "0 6px" }}>
-                    {[...Array(3)].map((_, i) => (
-                      <div key={i} style={{
-                        width: 12, height: 6, borderRadius: 3,
-                        background: idx < SECTIONS.findIndex(s => s.id === activeSection.id)
-                          ? C.mango : "#D0C8C0",
-                        margin: "0 3px",
-                        opacity: 0.7,
-                      }} />
-                    ))}
-                  </div>
-                )}
-              </div>
-            );
-          })}
+              return (
+                <div key={section.id} style={{ display: "flex", alignItems: "center", gap: 0, flexShrink: 0 }}>
+                  <SectionNode
+                    section={section}
+                    isActive={isActive}
+                    isUnlocked={unlocked}
+                    isDone={done}
+                    isCurrentChintu={isActive && selectedSection === null}
+                    onClick={() => setSelectedSection(sId === displaySection ? null : sId)}
+                  />
+                  {/* Path connector between sections */}
+                  {idx < SECTIONS.length - 1 && (
+                    <div style={{ display: "flex", alignItems: "center", gap: 0, margin: "0 6px" }}>
+                      {[...Array(3)].map((_, i) => (
+                        <div key={i} style={{
+                          width: 12, height: 6, borderRadius: 3,
+                          background: idx < SECTIONS.findIndex(s => s.id === activeSection.id)
+                            ? C.mango : "#D0C8C0",
+                          margin: "0 3px",
+                          opacity: 0.7,
+                        }} />
+                      ))}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
         </div>
 
         {/* ── LETTER SUB-PATH ── */}

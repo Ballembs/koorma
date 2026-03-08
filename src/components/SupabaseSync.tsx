@@ -62,6 +62,7 @@ export function SupabaseSync() {
             completedPairs: progress.completed_pairs || currentProgress.completedPairs,
             wordProgress: progress.word_progress || currentProgress.wordProgress,
             sentenceProgress: progress.sentence_progress || currentProgress.sentenceProgress,
+            storyProgress: progress.story_progress || currentProgress.storyProgress,
           })
         }
       } catch (err) {
@@ -94,6 +95,7 @@ export function SupabaseSync() {
               completed_pairs: state.completedPairs,
               word_progress: state.wordProgress,
               sentence_progress: state.sentenceProgress,
+              story_progress: state.storyProgress,
               updated_at: new Date().toISOString()
             }, { onConflict: 'id' })
         } catch (err) {

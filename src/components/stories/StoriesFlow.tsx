@@ -2,18 +2,21 @@
 
 import { useState } from "react";
 import { TIER1_STORIES } from "@/content/stories";
+import type { GeneratedStory } from "@/lib/store";
 import StoryReadingPhase from "./StoryReadingPhase";
 import DynamicStoryReadingPhase from "./DynamicStoryReadingPhase";
 
 interface StoriesFlowProps {
-  storyId: string;
+  storyId?: string;
+  dynamicStory?: GeneratedStory; // Pinned story passed directly
   onComplete: () => void;
 }
 
-export default function StoriesFlow({ storyId, onComplete }: StoriesFlowProps) {
+export default function StoriesFlow({ storyId, dynamicStory, onComplete }: StoriesFlowProps) {
   const [phase, setPhase] = useState<"reading" | "quiz" | "retell">("reading");
 
   // Handle Dynamic Story
+  // Handle Dynamic Story Generation trigger
   if (storyId === "dynamic_1") {
     if (phase === "reading") {
       return <DynamicStoryReadingPhase onComplete={onComplete} />;
@@ -21,8 +24,8 @@ export default function StoriesFlow({ storyId, onComplete }: StoriesFlowProps) {
     return <div>Future Dynamic Quiz</div>;
   }
 
-  // Handle Static Stories
-  const story = TIER1_STORIES.find((s) => s.id === storyId);
+  // Handle Static Stories OR explicitly passed dynamic stories
+  const story: any = dynamicStory || TIER1_STORIES.find((s) => s.id === storyId);
 
   if (!story) {
     return <div>Story not found</div>;
