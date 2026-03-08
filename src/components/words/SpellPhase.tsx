@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTeluguAudio } from "@/hooks/useTeluguAudio";
+import { showSuccessAnimation } from "@/lib/visuals";
 import { WORD_CATEGORIES } from "@/content/words";
 import { Chintu } from "@/components/characters/Chintu";
 
@@ -62,7 +63,7 @@ export default function SpellPhase({ words, onComplete }: PhaseProps) {
     if (newBuilt.length === targetSyllables.length) {
       if (newBuilt.join("") === targetWord.te) {
         // Success!
-        play("celebrate-amazing");
+        showSuccessAnimation("stars");
         setTimeout(() => {
           const newScore = score + 1;
           setScore(newScore);
@@ -74,7 +75,7 @@ export default function SpellPhase({ words, onComplete }: PhaseProps) {
         }, 1500);
       } else {
         // Failed, reset this word
-        play("celebrate-tryagain");
+        // Removed celebrate-tryagain spoken audio
         setTimeout(() => {
           setBuiltString([]);
           setPool(prev => prev.map(p => ({ ...p, used: false })));

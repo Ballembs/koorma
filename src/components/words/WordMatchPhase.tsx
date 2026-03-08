@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTeluguAudio } from "@/hooks/useTeluguAudio";
+import { showSuccessAnimation } from "@/lib/visuals";
 import { WORD_CATEGORIES } from "@/content/words";
 import { Chintu } from "@/components/characters/Chintu";
 
@@ -39,7 +40,7 @@ export default function WordMatchPhase({ words, onComplete }: PhaseProps) {
 
   const handleSelect = (selectedTrans: string) => {
     if (selectedTrans === targetWord.trans) {
-      play("celebrate-good");
+      showSuccessAnimation("stars");
       const newScore = score + 1;
       setScore(newScore);
 
@@ -49,7 +50,7 @@ export default function WordMatchPhase({ words, onComplete }: PhaseProps) {
         setTimeout(generateQuestion, 1500);
       }
     } else {
-      play("celebrate-tryagain");
+      // Removed celebrate-tryagain spoken audio
     }
   };
 

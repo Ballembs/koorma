@@ -39,7 +39,6 @@ export function useTeluguAudio() {
     playWord: (trans: string) => play(`${trans}-word`),
     playContext: (trans: string) => play(`${trans}-context`),
     playCompare: (short: string, long: string) => play(`compare-${short}-${long}`),
-    playCelebrate: (type: string) => play(`celebrate-${type}`),
     play,
     stop,
   };

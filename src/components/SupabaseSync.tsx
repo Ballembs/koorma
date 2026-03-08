@@ -28,18 +28,20 @@ export function SupabaseSync() {
         }
 
         // Fetch profile
-        const { data: profile } = await supabase
+        const { data: profileData } = await supabase
           .from('profiles')
           .select('*')
           .eq('id', session.user.id)
-          .single()
+          .limit(1)
+        const profile = profileData?.[0]
 
         // Fetch progress
-        const { data: progress } = await supabase
+        const { data: progressData } = await supabase
           .from('user_progress')
           .select('*')
           .eq('id', session.user.id)
-          .single()
+          .limit(1)
+        const progress = progressData?.[0]
 
         if (!active) return
 

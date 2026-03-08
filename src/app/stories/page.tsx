@@ -110,12 +110,37 @@ export default function StoriesPage() {
                     );
                   })}
 
-                  {/* Locked dynamic tier 2 teaser */}
-                  <div className="bg-gray-200 p-6 text-left rounded-3xl shadow-inner border-4 border-dashed border-gray-300 flex flex-col items-center justify-center text-gray-400 grayscale">
-                    <span className="text-4xl mb-4">🔮</span>
-                    <h3 className="text-xl font-bold mb-1">Magic Story Generator</h3>
-                    <p className="text-sm text-center">Unlocks after reading all basic stories!</p>
-                  </div>
+                  {/* Dynamic tier 2 generator */}
+                  <motion.button
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5 }}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => setActiveStoryId("dynamic_1")}
+                    className="relative bg-gradient-to-br from-[#E1BEE7] to-[#CE93D8] p-6 text-left rounded-3xl shadow-lg border-b-8 border-[#BA68C8] flex flex-col justify-between overflow-hidden"
+                  >
+                    {/* Decorative background overlay */}
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-[#F3E5F5] rounded-full -mr-16 -mt-16 opacity-40 pointer-events-none" />
+
+                    <div>
+                      <h3 className="text-3xl font-bold text-[#6A1B9A] font-telugu mb-1">మాయా కథ</h3>
+                      <div className="text-lg font-bold text-[#8E24AA] mb-2">Magic Story Generator</div>
+
+                      <div className="mt-4 flex gap-2">
+                        <span className="bg-[#F3E5F5] text-[#8E24AA] text-sm px-3 py-1 rounded-full font-bold">
+                          AI Generated
+                        </span>
+                        <span className="bg-[#F3E5F5] text-[#8E24AA] text-sm px-3 py-1 rounded-full font-bold">
+                          Infinite
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="mt-6 flex justify-between items-center w-full">
+                      <div className="text-3xl">✨🔮✨</div>
+                    </div>
+                  </motion.button>
                 </div>
               </div>
             </motion.div>

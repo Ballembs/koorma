@@ -194,7 +194,7 @@ async function generateAll() {
 
   // ─── ENCOURAGEMENT PHRASES ───
   await synthesize("అద్భుతం!", "celebrate-amazing");
-  await synthesize("బాగుంది!", "celebrate-good");
+  await synthesize("సరైన సమాధానం!", "celebrate-good"); // Keeping filename for backward compat, changing literal translation to Correct Answer
 
   console.log("Generating Guninthalu 576 Combinations...");
 

@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Chintu } from "@/components/characters/Chintu";
 import { Button } from "@/components/ui/Button";
 import { useTeluguAudio } from "@/hooks/useTeluguAudio";
+import { showSuccessAnimation } from "@/lib/visuals";
 import { GUNDU_GUNINTHALU_MISTAKES } from "@/content/guninthalu";
 
 // Chintu makes a mistake, child corrects him!
@@ -18,9 +19,9 @@ export default function GunduChallengePhase({ onComplete }: { onComplete: () => 
   const handleReveal = (childSaysNo: boolean) => {
     setShowCorrection(true);
     if (childSaysNo) {
-      play("celebrate-amazing"); // Child correctly spotted the mistake!
+      showSuccessAnimation("stars"); // Child correctly spotted the mistake!
     } else {
-      play("celebrate-tryagain");
+      // Removed celebrate-tryagain spoken audio
     }
   };
 

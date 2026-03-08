@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useKoormaStore } from "@/lib/store";
 import { useTeluguAudio } from "@/hooks/useTeluguAudio";
+import { useAudio } from "@/hooks/useAudio";
 import { Button } from "@/components/ui/Button";
 
 interface GeminiWord {
@@ -20,6 +21,7 @@ export default function ShopkeeperQuizPhase({ onComplete }: { onComplete: () => 
   const [currentQ, setCurrentQ] = useState(0);
   const { childName, completedPairs, teluguLevel, addXP } = useKoormaStore();
   const { playWord } = useTeluguAudio();
+  const { playSound } = useAudio();
 
   useEffect(() => {
     async function fetchWords() {
@@ -56,8 +58,7 @@ export default function ShopkeeperQuizPhase({ onComplete }: { onComplete: () => 
     const target = words[currentQ];
     if (selectedWord.telugu === target.telugu) {
       // Correct
-      const audio = new Audio('/audio/celebrate-good.mp3');
-      audio.play().catch(e => console.warn(e));
+      playSound("correct");
 
       setTimeout(() => {
         if (currentQ < words.length - 1) {
@@ -69,9 +70,7 @@ export default function ShopkeeperQuizPhase({ onComplete }: { onComplete: () => 
       }, 1500);
     } else {
       // Wrong
-      const audio = new Audio('/audio/incorrect.mp3');
-      audio.volume = 0.3;
-      audio.play().catch(e => console.warn(e));
+      playSound("wrong");
     }
   };
 

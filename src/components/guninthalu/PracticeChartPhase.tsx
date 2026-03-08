@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTeluguAudio } from "@/hooks/useTeluguAudio";
+import { showSuccessAnimation } from "@/lib/visuals";
 import { VOWEL_MARKS } from "@/content/guninthalu";
 import { Chintu } from "@/components/characters/Chintu";
 import { Button } from "@/components/ui/Button";
@@ -11,7 +12,7 @@ type ActivityType = "chart" | "mark-match" | "sound-match" | "build-it";
 
 export default function PracticeChartPhase({ onComplete }: { onComplete: () => void }) {
   const [activity, setActivity] = useState<ActivityType>("chart");
-  const { play, playCelebrate } = useTeluguAudio();
+  const { play } = useTeluguAudio();
 
   // --- CHART STATE ---
   const [tappedMarks, setTappedMarks] = useState<Set<string>>(new Set());
@@ -62,7 +63,7 @@ export default function PracticeChartPhase({ onComplete }: { onComplete: () => v
 
   const handleMarkMatchSelect = (selected: typeof VOWEL_MARKS[0]) => {
     if (selected.sound === currentMatch.sound) {
-      play("celebrate-good");
+      showSuccessAnimation("stars");
       setMatchScore(s => s + 1);
       if (matchScore >= 2) {
         setTimeout(() => setActivity("sound-match"), 1500);
@@ -72,13 +73,13 @@ export default function PracticeChartPhase({ onComplete }: { onComplete: () => v
         generateMatchOptions(next);
       }
     } else {
-      play("celebrate-tryagain");
+      // Removed celebrate-tryagain spoken audio
     }
   };
 
   const handleSoundMatchSelect = (selected: typeof VOWEL_MARKS[0]) => {
     if (selected.sound === currentSoundMatch.sound) {
-      play("celebrate-amazing");
+      showSuccessAnimation("stars");
       setSoundScore(s => s + 1);
       if (soundScore >= 2) {
         setTimeout(() => onComplete(), 1500);
@@ -89,7 +90,7 @@ export default function PracticeChartPhase({ onComplete }: { onComplete: () => v
         setTimeout(() => play(`guninthalu-${next.sound}`), 1500);
       }
     } else {
-      play("celebrate-tryagain");
+      // Removed celebrate-tryagain spoken audio
     }
   };
 
@@ -141,8 +142,8 @@ export default function PracticeChartPhase({ onComplete }: { onComplete: () => v
                     whileTap={{ scale: 0.9 }}
                     onClick={() => handleChartTap(mark)}
                     className={`h-16 rounded-xl text-3xl font-telugu shadow-sm border-2 flex items-center justify-center transition-colors ${tappedMarks.has(mark.sound)
-                        ? 'bg-[#E8EAF6] border-[#7B1FA2] text-[#7B1FA2]'
-                        : 'bg-white border-gray-200 text-gray-500 hover:border-[#7B1FA2]'
+                      ? 'bg-[#E8EAF6] border-[#7B1FA2] text-[#7B1FA2]'
+                      : 'bg-white border-gray-200 text-gray-500 hover:border-[#7B1FA2]'
                       }`}
                   >
                     {mark.display}

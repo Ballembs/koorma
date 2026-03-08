@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useKoormaStore } from "@/lib/store";
 import { useTeluguAudio } from "@/hooks/useTeluguAudio";
+import { showSuccessAnimation } from "@/lib/visuals";
 import { consonants } from "@/content/consonants";
 import { VOWEL_MARKS } from "@/content/guninthalu";
 import { Button } from "@/components/ui/Button";
@@ -234,7 +235,7 @@ function IdentifyPhase({ baseConsonant, onComplete }: any) {
     play(`gunintham-${data.finalTrans}`);
 
     if (idx === questions[currentQIndex]) {
-      setTimeout(() => play("celebrate-amazing"), 800);
+      setTimeout(() => showSuccessAnimation("stars"), 800);
       setTimeout(() => {
         if (currentQIndex < 2) {
           setCurrentQIndex(c => c + 1);
@@ -322,7 +323,7 @@ function BuildPhase({ baseConsonant, onComplete }: any) {
   const handleSelect = (idx: number) => {
     if (idx === currentQ) {
       play(`gunintham-${targetData.finalTrans}`);
-      setTimeout(() => play("celebrate-good"), 600);
+      setTimeout(() => showSuccessAnimation("stars"), 600);
       setTimeout(() => {
         if (currentQIndex < questions.length - 1) {
           setCurrentQIndex(c => c + 1);

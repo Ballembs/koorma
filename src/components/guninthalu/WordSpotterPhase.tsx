@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTeluguAudio } from "@/hooks/useTeluguAudio";
+import { showSuccessAnimation } from "@/lib/visuals";
 import { GUNINTHALU_WORDS } from "@/content/guninthalu";
 import { Chintu } from "@/components/characters/Chintu";
 import { Button } from "@/components/ui/Button";
@@ -38,7 +39,7 @@ export default function WordSpotterPhase({ onComplete }: { onComplete: () => voi
 
   const handleSelect = (selectedWord: string) => {
     if (selectedWord === currentWord.word) {
-      play("celebrate-amazing");
+      showSuccessAnimation("stars");
       const newScore = score + 1;
       setScore(newScore);
 
@@ -48,7 +49,7 @@ export default function WordSpotterPhase({ onComplete }: { onComplete: () => voi
         setTimeout(generateQuestion, 1500);
       }
     } else {
-      play("celebrate-tryagain");
+      // Removed celebrate-tryagain spoken audio
     }
   };
 

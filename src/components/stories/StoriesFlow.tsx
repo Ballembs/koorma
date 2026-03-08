@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { TIER1_STORIES } from "@/content/stories";
 import StoryReadingPhase from "./StoryReadingPhase";
+import DynamicStoryReadingPhase from "./DynamicStoryReadingPhase";
 
 interface StoriesFlowProps {
   storyId: string;
@@ -12,6 +13,15 @@ interface StoriesFlowProps {
 export default function StoriesFlow({ storyId, onComplete }: StoriesFlowProps) {
   const [phase, setPhase] = useState<"reading" | "quiz" | "retell">("reading");
 
+  // Handle Dynamic Story
+  if (storyId === "dynamic_1") {
+    if (phase === "reading") {
+      return <DynamicStoryReadingPhase onComplete={onComplete} />;
+    }
+    return <div>Future Dynamic Quiz</div>;
+  }
+
+  // Handle Static Stories
   const story = TIER1_STORIES.find((s) => s.id === storyId);
 
   if (!story) {

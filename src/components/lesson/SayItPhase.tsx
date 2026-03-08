@@ -2,6 +2,7 @@
 import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { useTeluguAudio } from "@/hooks/useTeluguAudio";
+import { showSuccessAnimation } from "@/lib/visuals";
 
 interface SayItPhaseProps {
   letter: string;
@@ -20,7 +21,7 @@ export function SayItPhase({ letter, trans, word, childName, onComplete, theme }
   const [attempts, setAttempts] = useState(0);
   const mediaRecorder = useRef<MediaRecorder | null>(null);
   const audioChunks = useRef<BlobPart[]>([]);
-  const { playLetter, playCelebrate } = useTeluguAudio();
+  const { playLetter } = useTeluguAudio();
 
   const accentColor = theme?.accent || "#D4940C";
   const MAX_ATTEMPTS = 3; // After 3 tries, auto-pass with encouragement
@@ -77,12 +78,12 @@ export function SayItPhase({ letter, trans, word, childName, onComplete, theme }
 
       if (result.matched) {
         setStatus("success");
-        playCelebrate("good");
+        showSuccessAnimation("stars");
         setTimeout(onComplete, 2000);
       } else if (newAttempts >= MAX_ATTEMPTS) {
         // After max attempts, ALWAYS pass with encouragement
         setStatus("success");
-        playCelebrate("good");
+        showSuccessAnimation("stars");
         setTimeout(onComplete, 2000);
       } else {
         setStatus("retry");

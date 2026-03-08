@@ -63,13 +63,6 @@ export function playWhoosh() {
   o.stop(c.currentTime + 0.25);
 }
 
-/** Ascending chime — letter mastery celebration */
-export function playCelebrate() {
-  [523, 659, 784, 1047].forEach((f, i) => {
-    setTimeout(() => tone(f, 0.3, "sine", 0.12), i * 120);
-  });
-}
-
 /** Gentle oops — wrong answer (never harsh) */
 export function playOops() {
   tone(300, 0.15, "sine", 0.08);

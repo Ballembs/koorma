@@ -12,8 +12,9 @@ import {
   getSectionForLetter,
   getLetterIdsForSection,
 } from "@/content/letters";
-import { playTap, playDing, playCelebrate, playOops } from "@/lib/sounds";
+import { playTap, playDing, playOops } from "@/lib/sounds";
 import { useTeluguAudio } from "@/hooks/useTeluguAudio";
+import { showSuccessAnimation } from "@/lib/visuals";
 import dynamic from "next/dynamic";
 
 import { SayItPhase } from "@/components/lesson/SayItPhase";
@@ -523,11 +524,11 @@ function GunduPhase({ pair, onNext, theme }: { pair: LetterData; onNext: () => v
     gunduSays: `${pair.telugu} is a very simple letter!`,
     correction: `Actually, ${pair.telugu} (${pair.transliteration}) is for ${pair.anchorWord} — ${pair.anchorMeaning}!`,
   };
-  const { playCelebrate } = useTeluguAudio();
+  // removed playCelebrate
 
   const handleAnswer = (isRight: boolean) => {
     if (answered) return;
-    if (isRight) { playDing(); setAnswered("right"); playCelebrate("tryagain"); }
+    if (isRight) { playDing(); setAnswered("right"); showSuccessAnimation("stars"); }
     else { playOops(); setAnswered("wrong"); }
   };
 
@@ -697,7 +698,7 @@ export default function LessonPage() {
     }
     addXP(10);
     updateStreak();
-    playCelebrate();
+    showSuccessAnimation("stars");
     setPhase("celebrate");
   }, [pairId, section, completedPairs, completePair, completeSection, addXP, updateStreak]);
 
