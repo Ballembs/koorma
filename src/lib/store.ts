@@ -31,6 +31,18 @@ export interface GeneratedStory {
   generatedAt?: string;
 }
 
+export interface WeeklyActivity {
+  weekStart: string; // YYYY-MM-DD
+  lettersLearned: string[];
+  wordsLearned: string[];
+  sentencesPracticed: number;
+  storiesRead: number;
+  rhymesSung: number;
+  dailyChallengesCompleted: number;
+  sessionMinutes: number;
+  xpEarned: number;
+}
+
 interface KoormaState {
   // Child profile
   childName: string;
@@ -99,9 +111,22 @@ interface KoormaState {
     }[];
   };
 
+  // V2 Activity Tracking
+  weeklyActivity: WeeklyActivity;
+  trackActivity: (type: keyof Omit<WeeklyActivity, 'weekStart'>, value: any) => void;
+
+  // Practice Drawings (Base64)
+  practiceDrawings: Record<string, string>;
+
   // Settings
   audioEnabled: boolean;
   speechRate: number;
+
+  // Multi-Child Profiles
+  profiles: UserProfile[];
+  activeProfileId: string | null;
+  setActiveProfile: (id: string) => void;
+  addProfile: (profile: UserProfile) => void;
 
   // Profile actions
   setChildName: (name: string) => void;
@@ -121,6 +146,7 @@ interface KoormaState {
   completePair: (pairId: string) => void;
   completeSection: (sectionId: string) => void;
   advanceToNextPair: () => void;
+  savePracticeDrawing: (letterId: string, base64: string) => void;
 
   // Scaffold actions
   setScaffoldLevel: (level: ScaffoldLevel) => void;
@@ -168,6 +194,15 @@ const getYesterday = (): string => {
   return yesterday.toISOString().split("T")[0];
 };
 
+// Get current week's Monday
+const getWeekStart = (): string => {
+  const d = new Date();
+  const day = d.getDay();
+  const diff = d.getDate() - day + (day === 0 ? -6 : 1);
+  const monday = new Date(d.setDate(diff));
+  return monday.toISOString().split("T")[0];
+};
+
 // Default word scaffold
 const defaultWordScaffold: WordScaffold = {
   level: 1,
@@ -191,6 +226,10 @@ export const useKoormaStore = create<KoormaState>()(
       dailyGoal: 10,
       createdAt: "",
 
+      // Multi-Child Profiles
+      profiles: [],
+      activeProfileId: null,
+
       // Onboarding
       onboardingDone: false,
 
@@ -212,6 +251,9 @@ export const useKoormaStore = create<KoormaState>()(
 
       // Review scores
       reviewScores: {},
+
+      // Digital Drawings
+      practiceDrawings: {},
 
       // UI state
       seenDemo: false,
@@ -243,11 +285,30 @@ export const useKoormaStore = create<KoormaState>()(
         savedMagicStories: [],
       },
 
+      // V2 Activity Tracking
+      weeklyActivity: {
+        weekStart: getWeekStart(),
+        lettersLearned: [],
+        wordsLearned: [],
+        sentencesPracticed: 0,
+        storiesRead: 0,
+        rhymesSung: 0,
+        dailyChallengesCompleted: 0,
+        sessionMinutes: 0,
+        xpEarned: 0,
+      },
+
       // Settings
       audioEnabled: true,
       speechRate: 0.8,
 
       // Profile actions
+      setActiveProfile: (id) => set({ activeProfileId: id }),
+      addProfile: (profile) => {
+        const { profiles } = get();
+        set({ profiles: [...profiles, profile] });
+      },
+
       setChildName: (name) => set({ childName: name }),
       setChildNickname: (nickname) => set({ childNickname: nickname }),
       setChildAge: (age) => set({ childAge: age }),
@@ -265,16 +326,37 @@ export const useKoormaStore = create<KoormaState>()(
           createdAt: new Date().toISOString(),
         }),
 
-      // Progress actions
-      setCurrentPhase: (phase) => set({ currentPhase: phase }),
+      // Progress and Unlock actions
+      setCurrentPhase: (phase) => {
+        set({ currentPhase: phase, currentPairIndex: 0 });
+      },
+
+      savePracticeDrawing: (letterId: string, base64: string) => {
+        const state = get();
+        const activeId = state.activeProfileId;
+
+        // Update root state
+        const updatedDrawings = { ...state.practiceDrawings, [letterId]: base64 };
+        set({ practiceDrawings: updatedDrawings });
+
+        // Sync to active profile
+        if (activeId) {
+          const updatedProfiles = state.profiles.map(p =>
+            p.id === activeId ? { ...p, practiceDrawings: updatedDrawings } : p
+          );
+          set({ profiles: updatedProfiles });
+        }
+      },
+
       setCurrentPairIndex: (index) => set({ currentPairIndex: index }),
 
       completePair: (pairId) => {
-        const { completedPairs } = get();
+        const { completedPairs, trackActivity } = get();
         if (!completedPairs.includes(pairId)) {
           set({
             completedPairs: [...completedPairs, pairId],
           });
+          trackActivity('lettersLearned', pairId);
         }
       },
 
@@ -342,8 +424,9 @@ export const useKoormaStore = create<KoormaState>()(
 
       // Gamification actions
       addXP: (amount) => {
-        const { xp } = get();
+        const { xp, trackActivity } = get();
         set({ xp: xp + amount });
+        trackActivity('xpEarned', amount);
       },
 
       updateStreak: () => {
@@ -396,19 +479,37 @@ export const useKoormaStore = create<KoormaState>()(
       setSeenDemo: (seen) => set({ seenDemo: seen }),
 
       // Advanced Section Actions
-      updateGuninthaluProgress: (progress) =>
-        set((state) => ({ guninthaluProgress: { ...state.guninthaluProgress, ...progress } })),
-      updateWordProgress: (progress) =>
-        set((state) => ({ wordProgress: { ...state.wordProgress, ...progress } })),
-      updateSentenceProgress: (progress) =>
-        set((state) => ({ sentenceProgress: { ...state.sentenceProgress, ...progress } })),
-      updateStoryProgress: (progress) =>
-        set((state) => ({ storyProgress: { ...state.storyProgress, ...progress } })),
+      updateGuninthaluProgress: (progress) => {
+        set((state) => ({ guninthaluProgress: { ...state.guninthaluProgress, ...progress } }));
+      },
+      updateWordProgress: (progress) => {
+        const state = get();
+        const oldWordsCount = state.wordProgress.wordsLearned.length;
+        set((state) => ({ wordProgress: { ...state.wordProgress, ...progress } }));
+        if (progress.wordsLearned) {
+          const newWords = progress.wordsLearned.filter(w => !state.wordProgress.wordsLearned.includes(w));
+          newWords.forEach(w => state.trackActivity('wordsLearned', w));
+        }
+      },
+      updateSentenceProgress: (progress) => {
+        const state = get();
+        set((state) => ({ sentenceProgress: { ...state.sentenceProgress, ...progress } }));
+        if (progress.sentencesRead && progress.sentencesRead > state.sentenceProgress.sentencesRead) {
+          state.trackActivity('sentencesPracticed', progress.sentencesRead - state.sentenceProgress.sentencesRead);
+        }
+      },
+      updateStoryProgress: (progress) => {
+        const state = get();
+        set((state) => ({ storyProgress: { ...state.storyProgress, ...progress } }));
+        if (progress.totalStoriesRead && progress.totalStoriesRead > state.storyProgress.totalStoriesRead) {
+          state.trackActivity('storiesRead', progress.totalStoriesRead - state.storyProgress.totalStoriesRead);
+        }
+      },
       saveMagicStory: (story) => {
+        const state = get();
         set((state) => ({
           storyProgress: {
             ...state.storyProgress,
-            totalStoriesRead: state.storyProgress.totalStoriesRead + 1,
             savedMagicStories: [
               {
                 id: `magic-${Date.now()}`,
@@ -419,6 +520,39 @@ export const useKoormaStore = create<KoormaState>()(
             ]
           }
         }));
+      },
+
+      trackActivity: (type, value) => {
+        const state = get();
+        let currentWeek = state.weeklyActivity.weekStart;
+        const actualWeek = getWeekStart();
+
+        let activity = { ...state.weeklyActivity };
+
+        // Reset if it's a new week
+        if (currentWeek !== actualWeek) {
+          activity = {
+            weekStart: actualWeek,
+            lettersLearned: [],
+            wordsLearned: [],
+            sentencesPracticed: 0,
+            storiesRead: 0,
+            rhymesSung: 0,
+            dailyChallengesCompleted: 0,
+            sessionMinutes: 0,
+            xpEarned: 0,
+          };
+        }
+
+        if (Array.isArray(activity[type])) {
+          if (!activity[type].includes(value)) {
+            (activity[type] as string[]).push(value);
+          }
+        } else {
+          (activity[type] as number) += typeof value === 'number' ? value : 1;
+        }
+
+        set({ weeklyActivity: activity });
       },
 
       // Settings actions
@@ -438,10 +572,23 @@ export const useKoormaStore = create<KoormaState>()(
           streak: 0,
           lastActiveDate: "",
           achievements: [],
+          profiles: [],
+          activeProfileId: null,
           guninthaluProgress: { stage: 1, marksLearned: [], consonantsPracticed: [], completedGuninthalu: [], rapidFireBest: 0, wordsRead: [] },
           wordProgress: { categoriesCompleted: [], currentCategory: null, wordsLearned: [], totalWordsLearned: 0 },
           sentenceProgress: { currentLevel: 1, sentencesRead: 0, sentencesBuilt: 0 },
           storyProgress: { tier1: {}, tier2Generated: 0, totalStoriesRead: 0, savedMagicStories: [] },
+          weeklyActivity: {
+            weekStart: getWeekStart(),
+            lettersLearned: [],
+            wordsLearned: [],
+            sentencesPracticed: 0,
+            storiesRead: 0,
+            rhymesSung: 0,
+            dailyChallengesCompleted: 0,
+            sessionMinutes: 0,
+            xpEarned: 0,
+          },
         }),
 
       resetAll: () =>
@@ -464,12 +611,25 @@ export const useKoormaStore = create<KoormaState>()(
           streak: 0,
           lastActiveDate: "",
           achievements: [],
+          profiles: [],
+          activeProfileId: null,
           audioEnabled: true,
           speechRate: 0.8,
           guninthaluProgress: { stage: 1, marksLearned: [], consonantsPracticed: [], completedGuninthalu: [], rapidFireBest: 0, wordsRead: [] },
           wordProgress: { categoriesCompleted: [], currentCategory: null, wordsLearned: [], totalWordsLearned: 0 },
           sentenceProgress: { currentLevel: 1, sentencesRead: 0, sentencesBuilt: 0 },
           storyProgress: { tier1: {}, tier2Generated: 0, totalStoriesRead: 0, savedMagicStories: [] },
+          weeklyActivity: {
+            weekStart: getWeekStart(),
+            lettersLearned: [],
+            wordsLearned: [],
+            sentencesPracticed: 0,
+            storiesRead: 0,
+            rhymesSung: 0,
+            dailyChallengesCompleted: 0,
+            sessionMinutes: 0,
+            xpEarned: 0,
+          },
         }),
     }),
     {
@@ -480,12 +640,15 @@ export const useKoormaStore = create<KoormaState>()(
 
 // Profile type for personalization
 export interface UserProfile {
+  id?: string;
   childName: string;
   childNickname: string;
   childAge: number;
+  avatarEmoji?: string;
   friends: string[];
   teluguLevel: TeluguLevel;
   displayName: string; // nickname or name
+  practiceDrawings?: Record<string, string>;
 }
 
 // Selector hooks for common state slices

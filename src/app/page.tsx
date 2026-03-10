@@ -178,6 +178,81 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── TESTIMONIALS ── */}
+      <section className="py-24 px-6 bg-orange-50 border-t-4 border-white">
+        <div className="max-w-6xl mx-auto text-center">
+          <h3 className="text-4xl md:text-5xl font-bold text-orange-600 mb-16">What Parents Are Saying 💬</h3>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { text: "My 5-year-old finally spoke to her Ammamma in Telugu instead of English! Worth every penny.", author: "Sneha P., Texas" },
+              { text: "The tracing exercises are beautiful. It feels like an authentic cultural experience, not just a flashy game.", author: "Karthik R., London" },
+              { text: "The AI stories are a game-changer. It generates stories using exactly the letters my son just learned!", author: "Divya M., California" }
+            ].map((t, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.2 }}
+                className="bg-white p-8 rounded-3xl shadow-lg border-2 border-orange-100 relative"
+              >
+                <div className="text-4xl absolute -top-5 left-8 bg-white px-2 text-orange-300">"</div>
+                <p className="text-lg text-brown/80 mb-6 font-medium italic">"{t.text}"</p>
+                <p className="text-orange-600 font-bold">— {t.author}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── PRICING TIERS ── */}
+      <section className="py-24 px-6 bg-white/80 backdrop-blur-md border-t-4 border-white overflow-hidden">
+        <div className="max-w-5xl mx-auto text-center relative">
+          <h3 className="text-4xl md:text-5xl font-bold text-green-600 mb-6">Choose Your Journey 🎟️</h3>
+          <p className="text-xl text-brown/70 max-w-2xl mx-auto mb-16">
+            Start for free, then unlock the full magic when your child is ready for more advanced adventures.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto text-left relative z-10">
+            {/* Free Tier */}
+            <motion.div
+              whileHover={{ y: -8 }}
+              className="bg-white rounded-[40px] p-10 border-4 border-gray-200 shadow-xl"
+            >
+              <h4 className="text-3xl font-black text-gray-700 mb-2">Basic</h4>
+              <div className="text-5xl font-black text-gray-900 mb-6">Free</div>
+              <ul className="space-y-4 mb-10 text-lg font-medium text-brown/80">
+                <li className="flex items-center gap-3">✅ <span className="flex-1">Full Vowels (అచ్చులు) Module</span></li>
+                <li className="flex items-center gap-3">✅ <span className="flex-1">Basic Letter Tracing</span></li>
+                <li className="flex items-center gap-3">✅ <span className="flex-1">1 Child Profile</span></li>
+                <li className="flex items-center gap-3 opacity-50">❌ <span className="flex-1 line-through">Magic Story Generator</span></li>
+              </ul>
+              <button onClick={() => router.push('/login?mode=signup')} className="w-full py-4 rounded-2xl bg-gray-100 text-gray-700 font-bold text-xl hover:bg-gray-200 transition-colors">Start Free</button>
+            </motion.div>
+
+            {/* Premium Tier */}
+            <motion.div
+              whileHover={{ y: -8 }}
+              className="bg-gradient-to-br from-orange-50 to-yellow-50 rounded-[40px] p-10 border-4 border-orange-400 shadow-2xl relative"
+            >
+              <div className="absolute top-0 right-10 -translate-y-1/2 bg-orange-500 text-white px-6 py-2 rounded-full font-bold uppercase tracking-wider text-sm shadow-lg">Most Popular</div>
+              <h4 className="text-3xl font-black text-orange-600 mb-2">Premium</h4>
+              <div className="text-5xl font-black text-orange-600 mb-1"><span className="text-3xl">$</span>8<span className="text-xl text-orange-400 font-bold">/mo</span></div>
+              <p className="text-sm text-orange-500/80 font-bold mb-6">Billed annually ($96/yr)</p>
+              <ul className="space-y-4 mb-10 text-lg font-medium text-brown/80">
+                <li className="flex items-center gap-3">🌟 <span className="flex-1 font-bold text-orange-700">Everything in Basic</span></li>
+                <li className="flex items-center gap-3">🌟 <span className="flex-1">All Consonants & Guninthalu</span></li>
+                <li className="flex items-center gap-3">🌟 <span className="flex-1">AI Magic Story Generator</span></li>
+                <li className="flex items-center gap-3">🌟 <span className="flex-1">Weekly Parent Reports</span></li>
+                <li className="flex items-center gap-3">🌟 <span className="flex-1">Up to 3 Child Profiles</span></li>
+              </ul>
+              <button onClick={() => router.push('/login?mode=signup')} className="w-full py-4 rounded-2xl bg-orange-500 text-white font-bold text-xl shadow-[0_6px_0_rgb(194,65,12)] hover:translate-y-[2px] hover:shadow-[0_4px_0_rgb(194,65,12)] transition-all">Unlock Premium 🚀</button>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* ── FOOTER CTA ── */}
       <section className="py-24 px-6 text-center">
         <h3 className="text-4xl font-bold text-orange-600 mb-10">Ready to start the adventure?</h3>

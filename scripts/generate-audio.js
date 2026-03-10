@@ -23,15 +23,23 @@ const AUDIO_CONFIG = {
 const SLOW_CONFIG = { ...AUDIO_CONFIG, speakingRate: 0.55 };
 
 async function synthesize(text, filename, config = AUDIO_CONFIG, useSsml = false) {
+  const dir = path.join(__dirname, '../public/audio/te');
+  const filePath = path.join(dir, `${filename}.mp3`);
+
+  if (fs.existsSync(filePath)) {
+    console.log(`⏩ ${filename}.mp3 (exists, skipping)`);
+    return;
+  }
+
   const input = useSsml ? { ssml: text } : { text };
   const [response] = await client.synthesizeSpeech({
     input,
     voice: VOICE_CONFIG,
     audioConfig: config,
   });
-  const dir = path.join(__dirname, '../public/audio/te');
+
   fs.mkdirSync(dir, { recursive: true });
-  fs.writeFileSync(path.join(dir, `${filename}.mp3`), response.audioContent, 'binary');
+  fs.writeFileSync(filePath, response.audioContent, 'binary');
   console.log(`✅ ${filename}.mp3`);
 }
 
@@ -387,6 +395,141 @@ async function generateAll() {
 
   for (const s of newStorySentences) {
     await synthesize(s.text, `sentence-${s.id}`);
+  }
+
+  // ─── V2: RHYMES ───
+  console.log("Generating Rhymes...");
+  const RHYMES_DATA = [
+    // Chandamama
+    { text: "చందమామ రావే", id: "rhyme-chandamama-1" },
+    { text: "జాబిల్లి రావే", id: "rhyme-chandamama-2" },
+    { text: "కొండెక్కి రావే", id: "rhyme-chandamama-3" },
+    { text: "గోరుముద్ద తేవే", id: "rhyme-chandamama-4" },
+    { text: "చందమామ రావే, జాబిల్లి రావే, కొండెక్కి రావే, గోరుముద్ద తేవే", id: "rhyme-chandamama-full" },
+    // Laali
+    { text: "లాలి లాలి లాలమ్మ", id: "rhyme-lali-lali-1" },
+    { text: "లాలి లాలి నిద్రపోమ్మ", id: "rhyme-lali-lali-2" },
+    { text: "పాలు తాగి పడుకోమ్మ", id: "rhyme-lali-lali-3" },
+    { text: "బంగారు తల్లి నిద్రపోమ్మ", id: "rhyme-lali-lali-4" },
+    { text: "లాలి లాలి లాలమ్మ, లాలి లాలి నిద్రపోమ్మ, పాలు తాగి పడుకోమ్మ, బంగారు తల్లి నిద్రపోమ్మ", id: "rhyme-lali-lali-full" },
+    // Akkada
+    { text: "అక్కడ ఇక్కడ ఎక్కడ చూసినా", id: "rhyme-akkada-ikkada-1" },
+    { text: "పచ్చని చెట్లు పూల తోటలు", id: "rhyme-akkada-ikkada-2" },
+    { text: "అక్కడ ఇక్కడ ఎక్కడ చూసినా, పచ్చని చెట్లు పూల తోటలు", id: "rhyme-akkada-ikkada-full" },
+    // Chitti
+    { text: "చిట్టి చిలకమ్మ అటు తిరిగి ఇటు తిరిగి", id: "rhyme-chitti-chilakamma-1" },
+    { text: "ఆ కొమ్మ మీద ఈ కొమ్మ మీద", id: "rhyme-chitti-chilakamma-2" },
+    { text: "గూటికి చేరింది", id: "rhyme-chitti-chilakamma-3" },
+    { text: "చిట్టి చిలకమ్మ అటు తిరిగి ఇటు తిరిగి, ఆ కొమ్మ మీద ఈ కొమ్మ మీద, గూటికి చేరింది", id: "rhyme-chitti-chilakamma-full" },
+    // Papa
+    { text: "పాపా పాపా నువ్వెక్కడ వెళ్ళావు", id: "rhyme-papa-papa-1" },
+    { text: "అమ్మమ్మ ఇంటికి వెళ్ళాను", id: "rhyme-papa-papa-2" },
+    { text: "ఏం తిన్నావు", id: "rhyme-papa-papa-3" },
+    { text: "లడ్డు తిన్నాను", id: "rhyme-papa-papa-4" },
+    { text: "పాపా పాపా నువ్వెక్కడ వెళ్ళావు, అమ్మమ్మ ఇంటికి వెళ్ళాను, ఏం తిన్నావు, లడ్డు తిన్నాను", id: "rhyme-papa-papa-full" },
+    // Bommalu
+    { text: "నా బొమ్మలు నా బొమ్మలు", id: "rhyme-naa-bommalu-1" },
+    { text: "చాలా బాగున్నాయి", id: "rhyme-naa-bommalu-2" },
+    { text: "బంతి బొమ్మ బావుంది", id: "rhyme-naa-bommalu-3" },
+    { text: "బస్సు బొమ్మ బావుంది", id: "rhyme-naa-bommalu-4" },
+    { text: "నా బొమ్మలు నా బొమ్మలు, చాలా బాగున్నాయి, బంతి బొమ్మ బావుంది, బస్సు బొమ్మ బావుంది", id: "rhyme-naa-bommalu-full" },
+    // Veena
+    { text: "వీణ వీణ వీణా వాయించు", id: "rhyme-veena-veena-1" },
+    { text: "రాగాలు రాగాలు పాడించు", id: "rhyme-veena-veena-2" },
+    { text: "వీణ వీణ వీణా వాయించు, రాగాలు రాగాలు పాడించు", id: "rhyme-veena-veena-full" },
+    // Amma
+    { text: "అమ్మ అమ్మ నువ్వే నా దేవత", id: "rhyme-amma-amma-1" },
+    { text: "నీ చేతి వంట చాలా బాగుంటుంది", id: "rhyme-amma-amma-2" },
+    { text: "నీ కథలు వింటే నిద్ర వస్తుంది", id: "rhyme-amma-amma-3" },
+    { text: "అమ్మ అమ్మ నువ్వే నా దేవత, నీ చేతి వంట చాలా బాగుంటుంది, నీ కథలు వింటే నిద్ర వస్తుంది", id: "rhyme-amma-amma-full" },
+    // Gaalipatam
+    { text: "ఎగిరేవయ్యా గాలిపటం", id: "rhyme-egurevayya-gaalipatam-1" },
+    { text: "ఆకాశంలో ఎగురుతోంది", id: "rhyme-egurevayya-gaalipatam-2" },
+    { text: "గాలి వీస్తే ఎగురుతోంది", id: "rhyme-egurevayya-gaalipatam-3" },
+    { text: "ఎగిరేవయ్యా గాలిపటం, ఆకాశంలో ఎగురుతోంది, గాలి వీస్తే ఎగురుతోంది", id: "rhyme-egurevayya-gaalipatam-full" },
+    // Chukkalu
+    { text: "చుక్కలు చుక్కలు ఆకాశంలో", id: "rhyme-chukkalu-1" },
+    { text: "మెరుస్తున్నాయి బంగారంలా", id: "rhyme-chukkalu-2" },
+    { text: "ఒకటి రెండు మూడు నాలుగు", id: "rhyme-chukkalu-3" },
+    { text: "లెక్కపెట్టు చుక్కల్ని", id: "rhyme-chukkalu-4" },
+    { text: "చుక్కలు చుక్కలు ఆకాశంలో, మెరుస్తున్నాయి బంగారంలా, ఒకటి రెండు మూడు నాలుగు, లెక్కపెట్టు చుక్కల్ని", id: "rhyme-chukkalu-full" },
+    // Aavu
+    { text: "ఆవూ ఆవూ ఏమి తింటావు", id: "rhyme-aavu-aavu-1" },
+    { text: "గడ్డి తింటాను", id: "rhyme-aavu-aavu-2" },
+    { text: "ఏమి ఇస్తావు", id: "rhyme-aavu-aavu-3" },
+    { text: "పాలు ఇస్తాను", id: "rhyme-aavu-aavu-4" },
+    { text: "ఆవూ ఆవూ ఏమి తింటావు, గడ్డి తింటాను, ఏమి ఇస్తావు, పాలు ఇస్తాను", id: "rhyme-aavu-aavu-full" },
+    // Kokkorokko
+    { text: "కొక్కొరొక్కో తెల్లవారింది", id: "rhyme-kokkorokko-1" },
+    { text: "నిద్ర లేవండి", id: "rhyme-kokkorokko-2" },
+    { text: "ముఖం కడుక్కోండి", id: "rhyme-kokkorokko-3" },
+    { text: "పాలు తాగండి", id: "rhyme-kokkorokko-4" },
+    { text: "కొక్కొరొక్కో తెల్లవారింది, నిద్ర లేవండి, ముఖం కడుక్కోండి, పాలు తాగండి", id: "rhyme-kokkorokko-full" },
+  ];
+  for (const s of RHYMES_DATA) {
+    await synthesize(s.text, s.id);
+  }
+
+  // ─── V2: AMMAMMA CONVERSATIONS ───
+  console.log("Generating Ammamma Conversations...");
+  const AMMAMMA_DATA = [
+    { text: "హలో అమ్మమ్మా!", id: "ammamma-halo-ammamma" },
+    { text: "ఎలా ఉన్నావు?", id: "ammamma-ela-unnavu" },
+    { text: "బాగున్నాను!", id: "ammamma-baagunnanu" },
+    { text: "I love you అమ్మమ్మా", id: "ammamma-love-you" },
+    { text: "బై బై!", id: "ammamma-bye-bye" },
+    { text: "స్కూల్ బాగుంది", id: "ammamma-school-bagundi" },
+    { text: "నేను తెలుగు నేర్చుకుంటున్నాను", id: "ammamma-nenu-telugu-nerchukuntunnanu" },
+    { text: "నాకు ఆకలి వేస్తోంది", id: "ammamma-naku-aakali-vesthondi" },
+    { text: "అమ్మమ్మ రావాలి", id: "ammamma-ammamma-raavali" },
+    { text: "మీ ఇంటికి వస్తాను", id: "ammamma-mee-intiki-vasthaanu" },
+    { text: "ఇది నా కుక్క", id: "ammamma-idi-naa-kukka" },
+    { text: "ఇది ఎర్రగా ఉంది", id: "ammamma-idi-erragaa-undi" },
+    { text: "అమ్మమ్మ, అన్నం తిన్నావా?", id: "ammamma-ammamma-annam-thinnavaa" },
+    { text: "నాకు మామిడి పండు కావాలి", id: "ammamma-naku-maamidi-pandu-kaavaali" },
+    { text: "నేను పాట పాడతాను", id: "ammamma-nenu-paata-paadataanu" },
+    { text: "అమ్మమ్మ, ఏం వండావు?", id: "ammamma-ammamma-em-vandaavu" },
+    { text: "నేను పుస్తకం చదువుతున్నాను", id: "ammamma-nenu-pusthakam-chadhuvuthunnaanu" },
+    { text: "అక్కడ వాతావరణం ఎలా ఉంది?", id: "ammamma-akkada-vaathaavarnam-elaa-undi" },
+    { text: "నేను తెలుగులో మాట్లాడగలను!", id: "ammamma-nenu-telugulo-maatlaadagalanu" },
+    { text: "మళ్ళీ ఫోన్ చేస్తాను", id: "ammamma-mallee-phone-chesthaanu" },
+  ];
+  for (const s of AMMAMMA_DATA) {
+    await synthesize(s.text, s.id);
+  }
+
+  // ─── V2: FESTIVALS ───
+  console.log("Generating Festival Audio...");
+  const FESTIVAL_DATA = [
+    { text: "ఉగాది శుభాకాంక్షలు!", id: "festival-ugadi-greeting" },
+    { text: "పచ్చడి", id: "festival-ugadi-vocab-1" },
+    { text: "నూతన సంవత్సరం", id: "festival-ugadi-vocab-2" },
+    { text: "తోరణం", id: "festival-ugadi-vocab-3" },
+
+    { text: "సంక్రాంతి శుభాకాంక్షలు!", id: "festival-sankranti-greeting" },
+    { text: "గాలిపటం", id: "festival-sankranti-vocab-1" },
+    { text: "పొంగలి", id: "festival-sankranti-vocab-2" },
+    { text: "భోగి మంట", id: "festival-sankranti-vocab-3" },
+    { text: "ముగ్గులు", id: "festival-sankranti-vocab-4" },
+
+    { text: "బతుకమ్మ పండుగ శుభాకాంక్షలు!", id: "festival-bathukamma-greeting" },
+    { text: "పూలు", id: "festival-bathukamma-vocab-1" },
+    { text: "తంగేడు పూలు", id: "festival-bathukamma-vocab-2" },
+    { text: "బతుకమ్మ", id: "festival-bathukamma-vocab-3" },
+
+    { text: "దసరా శుభాకాంక్షలు!", id: "festival-dussehra-greeting" },
+    { text: "బొమ్మల కొలువు", id: "festival-dussehra-vocab-1" },
+    { text: "విజయదశమి", id: "festival-dussehra-vocab-2" },
+    { text: "సరస్వతి పూజ", id: "festival-dussehra-vocab-3" },
+
+    { text: "దీపావళి శుభాకాంక్షలు!", id: "festival-deepavali-greeting" },
+    { text: "దీపాలు", id: "festival-deepavali-vocab-1" },
+    { text: "టపాసులు", id: "festival-deepavali-vocab-2" },
+    { text: "మిఠాయిలు", id: "festival-deepavali-vocab-3" },
+    { text: "లక్ష్మీ పూజ", id: "festival-deepavali-vocab-4" },
+  ];
+  for (const s of FESTIVAL_DATA) {
+    await synthesize(s.text, s.id);
   }
 
   console.log('\n🎉 All audio files generated!');

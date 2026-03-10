@@ -649,6 +649,7 @@ export default function LessonPage() {
   const { childName, completedPairs, completePair, completeSection, addXP, updateStreak, updateReviewScore } = useKoormaStore();
 
   const [phase, setPhase] = useState<Phase>("meet");
+  const [justCompletedSection, setJustCompletedSection] = useState(false);
 
   // Find letter data
   const allLetters = [...vowels, ...consonants] as LetterData[];
@@ -695,6 +696,7 @@ export default function LessonPage() {
     const sectionLetters = getLetterIdsForSection(section);
     if (sectionLetters.every(id => updatedCompleted.includes(id))) {
       completeSection(section);
+      setJustCompletedSection(true);
     }
     addXP(10);
     updateStreak();
@@ -703,7 +705,9 @@ export default function LessonPage() {
   }, [pairId, section, completedPairs, completePair, completeSection, addXP, updateStreak]);
 
   const handleNextLetter = () => {
-    if (isLast) {
+    if (justCompletedSection) {
+      router.push(`/congratulations?section=${section}`);
+    } else if (isLast) {
       router.push("/village");
     } else if (nextLetter) {
       router.push(`/lesson/${nextLetter.id}`);

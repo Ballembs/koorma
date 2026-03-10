@@ -47,3 +47,5 @@ $$ language plpgsql security definer;
 create trigger on_profile_created
   after insert on public.profiles
   for each row execute procedure public.handle_new_user_progress();
+
+

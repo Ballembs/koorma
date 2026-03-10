@@ -393,3 +393,30 @@ html, body {
   .safe-left   { padding-left:   env(safe-area-inset-left); }
   .safe-right  { padding-right:  env(safe-area-inset-right); }
 }
+
+/* ──────────────────────────────────────────────
+   Print sheet styles
+   ────────────────────────────────────────────── */
+@media print {
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    margin: 0;
+    padding: 0;
+  }
+  @page {
+    size: A4 portrait;
+    margin: 10mm;
+  }
+  #nextjs-dev-indicator { display: none !important; }
+  .print-container {
+    padding: 0 !important;
+  }
+}
+
+@media screen {
+  .print-container {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+}

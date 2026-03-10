@@ -13,6 +13,7 @@ import {
 } from "@/content/letters";
 import { vowels } from "@/content/vowels";
 import { consonants } from "@/content/consonants";
+import { FestivalBanner } from "@/components/festivals/FestivalBanner";
 
 // ═══════════════════════════════════════════════
 // CONSTANTS
@@ -450,6 +451,7 @@ export default function VillagePage() {
   const [showDemo, setShowDemo] = useState(false);
   const [selectedSection, setSelectedSection] = useState<SectionId | null>(null);
   const [mounted, setMounted] = useState(false);
+  const pathRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setMounted(true);
@@ -463,10 +465,6 @@ export default function VillagePage() {
     setShowDemo(false);
     setSeenDemo(true);
   };
-
-  if (!mounted) {
-    return <div style={{ width: "100%", height: "100%", background: WORLD_THEMES.vowels.bg }} />;
-  }
 
   const isUnlocked = (sId: SectionId) => {
     switch (sId) {
@@ -499,6 +497,21 @@ export default function VillagePage() {
 
   const displaySection = selectedSection ?? activeSection.id as SectionId;
   const displayTheme = WORLD_THEMES[displaySection];
+
+  useEffect(() => {
+    if (mounted && pathRef.current) {
+      setTimeout(() => {
+        const activeEl = pathRef.current?.querySelector('[data-active="true"]');
+        if (activeEl) {
+          activeEl.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        }
+      }, 300);
+    }
+  }, [mounted, displaySection]);
+
+  if (!mounted) {
+    return <div style={{ width: "100%", height: "100%", background: WORLD_THEMES.vowels.bg }} />;
+  }
 
   // Find next lesson to jump to
   const nextLetter = (() => {
@@ -557,23 +570,105 @@ export default function VillagePage() {
           )}
         </div>
 
-        {/* Right: Help button */}
-        <button
-          onClick={() => setShowDemo(true)}
-          style={{
-            background: "rgba(255,255,255,0.8)", border: "2px solid #E0D5C8",
-            borderRadius: 50, width: 40, height: 40,
-            display: "flex", alignItems: "center", justifyContent: "center",
-            cursor: "pointer", fontSize: 18, fontWeight: 700, color: C.muted,
-          }}
-        >
-          ❓
-        </button>
+        {/* Right: Help button & Parent Dashboard */}
+        <div style={{ display: "flex", gap: 12 }}>
+          <button
+            onClick={() => router.push("/practice")}
+            style={{
+              background: "white",
+              color: "#102A43",
+              border: "2px solid #E0D5C8",
+              height: 40, // Changed from 48 to 40 to match other buttons
+              padding: "0 16px", // Changed from 24px to 16px to match other buttons
+              borderRadius: 50, // Changed from 24 to 50 to match other buttons
+              cursor: "pointer",
+              fontSize: 14, // Changed from 16 to 14 to match other buttons
+              fontWeight: 800,
+              display: "flex",
+              alignItems: "center",
+              gap: 8,
+              boxShadow: "0 4px 0 #E0D5C8",
+              transition: "transform 0.1s, box-shadow 0.1s",
+              fontFamily: "'Nunito', sans-serif" // Added font family
+            }}
+          >
+            🖨️ <span className="hidden sm:inline">Practice</span>
+          </button>
+          <button
+            onClick={() => router.push("/parent/report")}
+            style={{
+              background: "rgba(255,255,255,0.8)", border: "2px solid #E0D5C8",
+              borderRadius: 50, padding: "0 16px", height: 40,
+              display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
+              cursor: "pointer", fontSize: 14, fontWeight: 800, color: C.dark,
+              fontFamily: "'Nunito', sans-serif"
+            }}
+          >
+            📊 <span className="hidden sm:inline">Parents</span>
+          </button>
+
+          <button
+            onClick={() => setShowDemo(true)}
+            style={{
+              background: "rgba(255,255,255,0.8)", border: "2px solid #E0D5C8",
+              borderRadius: 50, width: 40, height: 40,
+              display: "flex", alignItems: "center", justifyContent: "center",
+              cursor: "pointer", fontSize: 18, fontWeight: 700, color: C.muted,
+            }}
+          >
+            ❓
+          </button>
+        </div>
+      </div>
+
+      {/* ── BANNERS ── */}
+      <FestivalBanner />
+
+      {/* ── BONUS LOCATIONS ── */}
+      <div style={{
+        display: "flex", gap: 12, padding: "16px 28px 0",
+        overflowX: "auto", scrollbarWidth: "none"
+      }}>
+        {[
+          { id: "rhymes", name: "Song Tree", teluguName: "పాటల చెట్టు", icon: "🎵", path: "/rhymes", bg: "#FCE4EC", color: "#D81B60", locked: false },
+          { id: "conversations", name: "Conversations", teluguName: "సంభాషణలు", icon: "💬", path: "/conversations", bg: "#FFF8E1", color: "#D4940C", locked: false },
+          { id: "daily", name: "Daily", teluguName: "రోజు సవాలు", icon: "⚡", path: "/daily", bg: "#FFF8E1", color: "#D4940C", locked: completedPairs.filter(id => vowels.map(v => v.id).includes(id)).length < 4 },
+          { id: "practice", name: "Practice", teluguName: "అభ్యాసం", icon: "📄", path: "/practice", bg: "#E8F5E9", color: "#2D8B4E", locked: false }
+        ].map((loc) => (
+          <motion.button
+            key={loc.id}
+            whileHover={!loc.locked ? { scale: 1.05 } : {}}
+            whileTap={!loc.locked ? { scale: 0.95 } : {}}
+            onClick={() => !loc.locked && router.push(loc.path)}
+            style={{
+              background: "rgba(255,255,255,0.85)",
+              border: `2px solid ${loc.bg}`,
+              borderRadius: 20, padding: "8px 16px",
+              display: "flex", alignItems: "center", gap: 10,
+              cursor: loc.locked ? "default" : "pointer",
+              boxShadow: "0 4px 12px rgba(0,0,0,0.05)",
+              opacity: loc.locked ? 0.6 : 1,
+              flexShrink: 0
+            }}
+          >
+            <div style={{ background: loc.bg, width: 32, height: 32, borderRadius: 16, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 16 }}>
+              {loc.icon}
+            </div>
+            <div style={{ textAlign: "left" }}>
+              <div style={{ fontFamily: "'Noto Sans Telugu', sans-serif", fontWeight: 800, color: loc.color, fontSize: 14, lineHeight: 1.1 }}>
+                {loc.teluguName}
+              </div>
+              <div style={{ fontSize: 10, color: "#666", fontWeight: 700 }}>
+                {loc.locked ? "Locked" : loc.name}
+              </div>
+            </div>
+          </motion.button>
+        ))}
       </div>
 
       {/* ── MAIN: horizontal winding path ── */}
       <div style={{ flex: 1, display: "flex", flexDirection: "column", overflow: "hidden" }}>
-        <div className="village-path">
+        <div className="village-path" ref={pathRef}>
           <div style={{ display: "flex", margin: "auto", minWidth: "max-content", padding: "0 20px" }}>
             {SECTIONS.map((section, idx) => {
               const sId = section.id as SectionId;
@@ -582,7 +677,7 @@ export default function VillagePage() {
               const isActive = sId === displaySection;
 
               return (
-                <div key={section.id} style={{ display: "flex", alignItems: "center", gap: 0, flexShrink: 0 }}>
+                <div key={section.id} data-active={isActive ? "true" : "false"} style={{ display: "flex", alignItems: "center", gap: 0, flexShrink: 0 }}>
                   <SectionNode
                     section={section}
                     isActive={isActive}

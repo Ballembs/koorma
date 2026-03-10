@@ -79,7 +79,7 @@ function LoginContent() {
         if (signInError) throw signInError
       }
 
-      router.push('/village')
+      router.push('/profiles')
       router.refresh()
     } catch (err: any) {
       setError(err.message || 'Warning: You must run the supabase-setup.sql script in your Supabase dashboard!')

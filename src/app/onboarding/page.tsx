@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import { createClient } from "@/utils/supabase/client";
 import { useKoormaStore, type TeluguLevel } from "@/lib/store";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
@@ -37,7 +38,7 @@ interface OnboardingState {
 
 export default function OnboardingPage() {
   const router = useRouter();
-  const { updateProfile, completeOnboarding, setTeluguLevel } = useKoormaStore();
+  const { updateProfile, completeOnboarding, setTeluguLevel, addProfile, setActiveProfile } = useKoormaStore();
 
   const [currentScreen, setCurrentScreen] = useState(0);
   const [direction, setDirection] = useState(0);
@@ -63,9 +64,45 @@ export default function OnboardingPage() {
     }
   };
 
-  const handleComplete = () => {
+  const handleComplete = async () => {
     // Filter out empty friend names
     const validFriends = formData.friends.filter((f) => f.trim() !== "");
+
+    const supabase = createClient();
+    const { data: sessionData } = await supabase.auth.getSession();
+    const session = sessionData?.session;
+
+    if (session) {
+      const displayName = formData.childNickname.trim() || formData.childName.trim() || "Friend";
+
+      const { data: newProfile, error } = await supabase
+        .from("child_profiles")
+        .insert({
+          parent_id: session.user.id,
+          child_name: formData.childName,
+          child_nickname: formData.childNickname,
+          child_age: formData.childAge || 5,
+          avatar_emoji: "🧒",
+          display_name: displayName,
+          telugu_level: formData.teluguLevel
+        })
+        .select()
+        .single();
+
+      if (!error && newProfile) {
+        addProfile({
+          id: newProfile.id,
+          childName: newProfile.child_name,
+          childNickname: newProfile.child_nickname || "",
+          childAge: newProfile.child_age || 5,
+          avatarEmoji: newProfile.avatar_emoji || "🧒",
+          displayName: newProfile.display_name,
+          friends: validFriends,
+          teluguLevel: formData.teluguLevel,
+        });
+        setActiveProfile(newProfile.id);
+      }
+    }
 
     updateProfile({
       childName: formData.childName,
@@ -473,13 +510,12 @@ function FriendsScreen({
                 className="w-full px-5 py-4 rounded-2xl text-lg font-medium outline-none transition-all"
                 style={{
                   backgroundColor: "white",
-                  border: `3px solid ${
-                    friends[index]
-                      ? colors.mango
-                      : isRequired
+                  border: `3px solid ${friends[index]
+                    ? colors.mango
+                    : isRequired
                       ? colors.mango + "40"
                       : colors.dark + "15"
-                  }`,
+                    }`,
                   color: colors.dark,
                   fontFamily: "var(--font-nunito)",
                   minHeight: 56,
@@ -706,10 +742,10 @@ function ReadyScreen({
                 index === 0
                   ? colors.turmeric
                   : index % 3 === 1
-                  ? colors.mango
-                  : index % 3 === 2
-                  ? colors.kolam
-                  : colors.terra,
+                    ? colors.mango
+                    : index % 3 === 2
+                      ? colors.kolam
+                      : colors.terra,
               color: "white",
               fontFamily: "var(--font-nunito)",
               boxShadow: "0 3px 10px rgba(0,0,0,0.15)",
