@@ -166,10 +166,10 @@ export default function PracticeHubPage() {
       {/* ── TOP NAV ── */}
       <div
         style={{
-          padding: "16px 32px",
+          padding: "12px 16px",
           display: "flex",
           alignItems: "center",
-          gap: 20,
+          gap: 16,
           position: "sticky",
           top: 0,
           zIndex: 10,
@@ -180,11 +180,11 @@ export default function PracticeHubPage() {
           style={{
             background: "white",
             border: "2px solid #E0D5C8",
-            width: 48,
-            height: 48,
-            borderRadius: 24,
+            width: 40,
+            height: 40,
+            borderRadius: 20,
             cursor: "pointer",
-            fontSize: 22,
+            fontSize: 18,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -211,7 +211,7 @@ export default function PracticeHubPage() {
       {/* Shimmer animation */}
       <style>{`@keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }`}</style>
 
-      <div style={{ padding: "0 32px", maxWidth: 800, margin: "0 auto" }}>
+      <div style={{ padding: "0 16px", maxWidth: 800, margin: "0 auto" }}>
         {/* Header Section — compact */}
         <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, marginBottom: 12 }}>
           <span style={{ fontSize: 24 }}>✏️</span>
@@ -237,7 +237,7 @@ export default function PracticeHubPage() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(110px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fill, minmax(90px, 1fr))",
             gap: 16,
           }}
         >
@@ -271,7 +271,7 @@ export default function PracticeHubPage() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(110px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fill, minmax(90px, 1fr))",
             gap: 16,
           }}
         >
@@ -302,7 +302,7 @@ export default function PracticeHubPage() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(110px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fill, minmax(90px, 1fr))",
             gap: 16,
           }}
         >

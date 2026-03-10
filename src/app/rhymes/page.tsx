@@ -24,7 +24,7 @@ export default function RhymesHub() {
       {/* ── TOP NAV ── */}
       <div
         style={{
-          padding: "16px 32px",
+          padding: "12px 16px",
           display: "flex",
           alignItems: "center",
           gap: 20,
@@ -41,9 +41,9 @@ export default function RhymesHub() {
           style={{
             background: "white",
             border: "2px solid #E0D5C8",
-            width: 48,
-            height: 48,
-            borderRadius: 24,
+            width: 40,
+            height: 40,
+            borderRadius: 20,
             cursor: "pointer",
             fontSize: 22,
             display: "flex",
@@ -73,11 +73,11 @@ export default function RhymesHub() {
       </div>
 
       {/* ── MAIN CONTENT ── */}
-      <div style={{ padding: "32px 40px", flex: 1 }}>
+      <div style={{ padding: "20px 16px", flex: 1 }}>
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fill, minmax(160px, 1fr))",
             gap: 24,
             maxWidth: 1200,
             margin: "0 auto",

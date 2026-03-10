@@ -131,13 +131,12 @@ function LeftPanel({
   };
 
   return (
-    <div style={{
-      width: "42%", minWidth: 360, height: "100%",
+    <div className="lesson-left" style={{
       background: theme.bg, display: "flex", flexDirection: "column",
       alignItems: "center", justifyContent: "center",
       padding: "24px 20px", gap: 16, boxSizing: "border-box",
       borderRight: "2px solid rgba(255,255,255,0.6)",
-      flexShrink: 0, overflow: "hidden",
+      overflow: "hidden",
     }}>
       {/* Big letter display */}
       <div style={{ textAlign: "center", flexShrink: 0 }}>
@@ -765,7 +764,7 @@ export default function LessonPage() {
       </div>
 
       {/* ── SPLIT SCREEN ── */}
-      <div style={{ flex: 1, display: "flex", overflow: "hidden" }}>
+      <div className="lesson-split" style={{ flex: 1, display: "flex", overflow: "hidden" }}>
         {/* LEFT PANEL */}
         {phase !== "celebrate" && (
           <LeftPanel pair={pair} theme={theme} childName={childName} phase={phase} />

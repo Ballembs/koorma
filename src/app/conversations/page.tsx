@@ -21,7 +21,7 @@ export default function ConversationsHub() {
       {/* ── TOP NAV ── */}
       <div
         style={{
-          padding: "16px 32px",
+          padding: "12px 16px",
           display: "flex",
           alignItems: "center",
           gap: 16,
@@ -38,9 +38,9 @@ export default function ConversationsHub() {
           style={{
             background: "white",
             border: "2px solid #E0D5C8",
-            width: 48,
-            height: 48,
-            borderRadius: 24,
+            width: 40,
+            height: 40,
+            borderRadius: 20,
             cursor: "pointer",
             fontSize: 22,
             display: "flex",
@@ -55,7 +55,7 @@ export default function ConversationsHub() {
           <h1
             style={{
               margin: 0,
-              fontSize: 28,
+              fontSize: 22,
               fontFamily: "'Noto Sans Telugu', sans-serif",
               fontWeight: 800,
               color: "#D4940C",
@@ -84,11 +84,11 @@ export default function ConversationsHub() {
       {/* ── SCENARIO CARDS ── */}
       <div
         style={{
-          padding: "32px",
+          padding: "24px 16px",
           maxWidth: 800,
           margin: "0 auto",
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))",
+          gridTemplateColumns: "repeat(auto-fill, minmax(160px, 1fr))",
           gap: 24,
         }}
       >

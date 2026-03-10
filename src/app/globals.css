@@ -5,49 +5,8 @@
 
 @import "tailwindcss";
 
-/* ──────────────────────────────────────────────
-   Portrait orientation overlay
-   ────────────────────────────────────────────── */
-@media (orientation: portrait) {
-  .rotate-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    background: #FFF8F0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    font-family: 'Nunito', sans-serif;
-  }
+/* (Portrait overlay removed — now using dismissable banner) */
 
-  .rotate-overlay-icon {
-    font-size: 80px;
-    animation: rotatePulse 2s ease-in-out infinite;
-  }
-
-  .rotate-overlay-title {
-    font-size: 26px;
-    font-weight: 800;
-    color: #1A1A2E;
-    text-align: center;
-    margin: 0;
-  }
-
-  .rotate-overlay-sub {
-    font-size: 16px;
-    color: #4A4A5A;
-    text-align: center;
-    margin: 0;
-  }
-}
-
-@keyframes rotatePulse {
-  0%, 100% { transform: rotate(0deg); }
-  25%        { transform: rotate(-15deg); }
-  75%        { transform: rotate(15deg); }
-}
 
 /* ──────────────────────────────────────────────
    Root variables
@@ -418,5 +377,87 @@ html, body {
   .print-container {
     max-width: 700px;
     margin: 0 auto;
+  }
+}
+
+/* ══════════════════════════════════════════════════
+   MOBILE RESPONSIVE — screens < 768px
+   ══════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  /* Allow scrolling on mobile */
+  html, body {
+    overflow: auto;
+    height: auto;
+    min-height: 100%;
+  }
+
+  .landscape-app {
+    height: auto;
+    min-height: 100dvh;
+    overflow-y: auto;
+  }
+
+  /* Lesson split → stack vertically */
+  .lesson-split {
+    flex-direction: column;
+    overflow-y: auto;
+    height: auto;
+    min-height: 100%;
+  }
+
+  .lesson-left {
+    width: 100%;
+    min-width: unset;
+    height: auto;
+    padding: 16px;
+    border-right: none;
+    border-bottom: 2px solid rgba(255,255,255,0.6);
+  }
+
+  .lesson-right {
+    width: 100%;
+    height: auto;
+    min-height: 300px;
+    padding: 16px;
+  }
+
+  /* Smaller practice cards */
+  .practice-card {
+    min-width: 90px;
+    min-height: 90px;
+    padding: 12px;
+  }
+
+  /* Smaller phase dots */
+  .phase-dot {
+    width: 22px;
+    height: 22px;
+    font-size: 10px;
+  }
+
+  .phase-dot-connector {
+    width: 10px;
+  }
+
+  /* Button touch targets */
+  .btn-touch {
+    min-height: 48px;
+    min-width: 48px;
+    font-size: 15px;
+    padding: 10px 20px;
+  }
+
+  /* Chintu bubble */
+  .speech-bubble {
+    font-size: 12px;
+    max-width: 180px;
+    padding: 8px 12px;
+  }
+
+  /* Village path scrolls vertically on mobile */
+  .village-path {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0 16px;
   }
 }
