@@ -24,7 +24,7 @@ export default function StoriesPage() {
   };
 
   return (
-    <div className="w-full h-screen bg-gradient-to-b from-[#F5E6CC] to-[#E6C287] font-nunito flex flex-col overflow-hidden">
+    <div className="w-full min-h-screen bg-gradient-to-b from-[#F5E6CC] to-[#E6C287] font-nunito flex flex-col">
       {/* Header */}
       <header className="p-4 flex items-center justify-between z-10 bg-white/50 backdrop-blur-sm shadow-sm relative">
         <button
@@ -44,7 +44,7 @@ export default function StoriesPage() {
         </div>
       </header>
 
-      <div className="flex-1 relative overflow-y-auto">
+      <div className="flex-1 relative overflow-y-auto overflow-x-hidden">
         <AnimatePresence mode="wait">
           {activeStoryId === null ? (
             <motion.div
@@ -52,15 +52,15 @@ export default function StoriesPage() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="w-full h-full flex flex-col items-center justify-start p-8 pb-32"
+              className="w-full flex flex-col items-center justify-start p-4 sm:p-8 pb-32"
             >
               <div className="max-w-4xl w-full text-center">
-                <div className="mb-12">
-                  <h2 className="text-4xl font-bold text-[#5D4037]">Grand Story Library</h2>
-                  <p className="text-[#8D6E63] mt-2 text-xl font-bold">Pick a scroll to read an ancient tale!</p>
+                <div className="mb-6 sm:mb-12">
+                  <h2 className="text-2xl sm:text-4xl font-bold text-[#5D4037]">Grand Story Library</h2>
+                  <p className="text-[#8D6E63] mt-2 text-base sm:text-xl font-bold">Pick a scroll to read an ancient tale!</p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8">
                   {TIER1_STORIES.map((story, i) => {
                     const progress = storyProgress?.tier1?.[story.id];
                     const isRead = progress?.read || false;
@@ -75,14 +75,14 @@ export default function StoriesPage() {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         onClick={() => setActiveStoryId(story.id)}
-                        className="relative bg-[#FFF3E0] p-6 text-left rounded-3xl shadow-lg border-b-8 border-[#FFB74D] flex flex-col justify-between overflow-hidden"
+                        className="relative bg-[#FFF3E0] p-4 sm:p-6 text-left rounded-3xl shadow-lg border-b-4 sm:border-b-8 border-[#FFB74D] flex flex-col justify-between overflow-hidden min-h-[140px] sm:min-h-[180px]"
                       >
                         {/* Decorative background overlay */}
                         <div className="absolute top-0 right-0 w-32 h-32 bg-[#FFE0B2] rounded-full -mr-16 -mt-16 opacity-50 pointer-events-none" />
 
                         <div>
-                          <h3 className="text-3xl font-bold text-[#E65100] font-telugu mb-1">{story.title.te}</h3>
-                          <div className="text-lg font-bold text-[#FB8C00] mb-2">{story.title.en}</div>
+                          <h3 className="text-2xl sm:text-3xl font-bold text-[#E65100] font-telugu mb-1">{story.title.te}</h3>
+                          <div className="text-base sm:text-lg font-bold text-[#FB8C00] mb-2">{story.title.en}</div>
 
                           <div className="mt-4 flex gap-2">
                             <span className="bg-[#FFE0B2] text-[#F57C00] text-sm px-3 py-1 rounded-full font-bold">
@@ -161,7 +161,7 @@ export default function StoriesPage() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => setActiveStoryId("dynamic_1")}
-                    className="relative bg-gradient-to-br from-[#E1BEE7] to-[#CE93D8] p-6 text-left rounded-3xl shadow-lg border-b-8 border-[#BA68C8] flex flex-col justify-between overflow-hidden sm:col-span-1 md:col-span-2 mt-4"
+                    className="relative bg-gradient-to-br from-[#E1BEE7] to-[#CE93D8] p-4 sm:p-6 text-left rounded-3xl shadow-lg border-b-4 sm:border-b-8 border-[#BA68C8] flex flex-col justify-between overflow-hidden md:col-span-2 mt-4"
                   >
                     {/* Decorative background overlay */}
                     <div className="absolute top-0 right-0 w-32 h-32 bg-[#F3E5F5] rounded-full -mr-16 -mt-16 opacity-40 pointer-events-none" />

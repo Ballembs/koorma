@@ -490,4 +490,309 @@ export const TIER1_STORIES = [
     ],
     moral: { te: "ఆలోచిస్తే దారి దొరుకుతుంది!", trans: "AALOCHISTHE DAARI DORUKUTHUNDI!", en: "If you think, you'll find a way!" },
   },
+
+  // ═══ Stories from AP Telugu Textbook Themes (తెలుగు తోట) ═══
+
+  // ─── STORY 9: TELUGU MOTHER (AP Class 3 theme) ───
+  {
+    id: "telugu-thalli",
+    title: { te: "తెలుగుతల్లి", trans: "TELUGU THALLI", en: "Telugu Mother" },
+    theme: "culture",
+    illustration: "story-telugu-thalli",
+    sentences: [
+      {
+        te: "మా భాష తెలుగు",
+        trans: "MAA BHAASHA TELUGU",
+        en: "Our language is Telugu",
+        words: [
+          { te: "మా", trans: "MAA", en: "Our" },
+          { te: "భాష", trans: "BHAASHA", en: "language" },
+          { te: "తెలుగు", trans: "TELUGU", en: "Telugu" },
+        ],
+      },
+      {
+        te: "తెలుగు చాలా తీయని భాష",
+        trans: "TELUGU CHAALAA THEEYANI BHAASHA",
+        en: "Telugu is a very sweet language",
+        words: [
+          { te: "చాలా", trans: "CHAALAA", en: "very" },
+          { te: "తీయని", trans: "THEEYANI", en: "sweet" },
+          { te: "భాష", trans: "BHAASHA", en: "language" },
+        ],
+      },
+      {
+        te: "అమ్మ తెలుగులో పాట పాడుతుంది",
+        trans: "AMMA TELUGULO PAATA PAADUTHUNDI",
+        en: "Mom sings songs in Telugu",
+        words: [
+          { te: "అమ్మ", trans: "AMMA", en: "Mom" },
+          { te: "తెలుగులో", trans: "TELUGULO", en: "in Telugu" },
+          { te: "పాట", trans: "PAATA", en: "song" },
+          { te: "పాడుతుంది", trans: "PAADUTHUNDI", en: "sings" },
+        ],
+      },
+      {
+        te: "తాత తెలుగులో కథలు చెప్తాడు",
+        trans: "THAATHA TELUGULO KATHALU CHEPTHAADU",
+        en: "Grandpa tells stories in Telugu",
+        words: [
+          { te: "తాత", trans: "THAATHA", en: "Grandpa" },
+          { te: "కథలు", trans: "KATHALU", en: "stories" },
+          { te: "చెప్తాడు", trans: "CHEPTHAADU", en: "tells" },
+        ],
+      },
+      {
+        te: "నేను తెలుగు నేర్చుకుంటున్నాను!",
+        trans: "NENU TELUGU NERCHUKUNTUNNAANU!",
+        en: "I am learning Telugu!",
+        words: [
+          { te: "నేను", trans: "NENU", en: "I" },
+          { te: "తెలుగు", trans: "TELUGU", en: "Telugu" },
+          { te: "నేర్చుకుంటున్నాను", trans: "NERCHUKUNTUNNAANU", en: "am learning" },
+        ],
+      },
+    ],
+    moral: { te: "మా భాష తెలుగు — మా గర్వం!", trans: "MAA BHAASHA TELUGU — MAA GARVAM!", en: "Our language Telugu — our pride!" },
+  },
+
+  // ─── STORY 10: GOOD BOY (AP Class 3 theme) ───
+  {
+    id: "manchi-baludu",
+    title: { te: "మంచి బాలుడు", trans: "MANCHI BALUDU", en: "The Good Boy" },
+    theme: "values",
+    illustration: "story-manchi-baludu",
+    sentences: [
+      {
+        te: "రాము మంచి బాలుడు",
+        trans: "RAAMU MANCHI BALUDU",
+        en: "Ramu is a good boy",
+        words: [
+          { te: "రాము", trans: "RAAMU", en: "Ramu (name)" },
+          { te: "మంచి", trans: "MANCHI", en: "good" },
+          { te: "బాలుడు", trans: "BALUDU", en: "boy" },
+        ],
+      },
+      {
+        te: "రాము రోజూ బడికి వెళ్తాడు",
+        trans: "RAAMU ROJOO BADIKI VELTHAADU",
+        en: "Ramu goes to school every day",
+        words: [
+          { te: "రోజూ", trans: "ROJOO", en: "every day" },
+          { te: "బడికి", trans: "BADIKI", en: "to school" },
+          { te: "వెళ్తాడు", trans: "VELTHAADU", en: "goes" },
+        ],
+      },
+      {
+        te: "పెద్దవాళ్ళకు నమస్కారం చేస్తాడు",
+        trans: "PEDDAVALLAKU NAMASKAARAM CHESTHAADU",
+        en: "He greets elders with respect",
+        words: [
+          { te: "పెద్దవాళ్ళకు", trans: "PEDDAVALLAKU", en: "to elders" },
+          { te: "నమస్కారం", trans: "NAMASKAARAM", en: "respectful greeting" },
+          { te: "చేస్తాడు", trans: "CHESTHAADU", en: "does" },
+        ],
+      },
+      {
+        te: "ఫ్రెండ్స్ కి హెల్ప్ చేస్తాడు",
+        trans: "FRIENDS KI HELP CHESTHAADU",
+        en: "He helps his friends",
+        words: [
+          { te: "ఫ్రెండ్స్ కి", trans: "FRIENDS KI", en: "to friends" },
+          { te: "హెల్ప్", trans: "HELP", en: "help" },
+          { te: "చేస్తాడు", trans: "CHESTHAADU", en: "does" },
+        ],
+      },
+      {
+        te: "అందరూ రాము లాగా ఉండాలి!",
+        trans: "ANDAROO RAAMU LAAGAA UNDAALI!",
+        en: "Everyone should be like Ramu!",
+        words: [
+          { te: "అందరూ", trans: "ANDAROO", en: "everyone" },
+          { te: "లాగా", trans: "LAAGAA", en: "like" },
+          { te: "ఉండాలి", trans: "UNDAALI", en: "should be" },
+        ],
+      },
+    ],
+    moral: { te: "మంచిగా ఉంటే అందరూ ఇష్టపడతారు!", trans: "MANCHIGA UNTE ANDAROO ISHTAPADATHAARU!", en: "Be good and everyone will love you!" },
+  },
+
+  // ─── STORY 11: FARMER'S WISDOM (AP Class 4 theme) ───
+  {
+    id: "raithu-telivi",
+    title: { te: "రైతు తెలివి", trans: "RAITHU THELIVI", en: "The Farmer's Wisdom" },
+    theme: "values",
+    illustration: "story-raithu-telivi",
+    sentences: [
+      {
+        te: "ఒక రైతుకు మూడు కొడుకులు ఉన్నారు",
+        trans: "OKA RAITHUKU MOODU KODUKULU UNNAARU",
+        en: "A farmer had three sons",
+        words: [
+          { te: "రైతు", trans: "RAITHU", en: "farmer" },
+          { te: "మూడు", trans: "MOODU", en: "three" },
+          { te: "కొడుకులు", trans: "KODUKULU", en: "sons" },
+        ],
+      },
+      {
+        te: "కొడుకులు ఎప్పుడూ గొడవ పడేవారు",
+        trans: "KODUKULU EPPUDOO GODAVA PADEVAARU",
+        en: "The sons always fought with each other",
+        words: [
+          { te: "ఎప్పుడూ", trans: "EPPUDOO", en: "always" },
+          { te: "గొడవ", trans: "GODAVA", en: "fight" },
+          { te: "పడేవారు", trans: "PADEVAARU", en: "used to" },
+        ],
+      },
+      {
+        te: "రైతు ఒక కట్ట కర్రలు తెచ్చాడు",
+        trans: "RAITHU OKA KATTA KARRALU TECHCHAADU",
+        en: "The farmer brought a bundle of sticks",
+        words: [
+          { te: "కట్ట", trans: "KATTA", en: "bundle" },
+          { te: "కర్రలు", trans: "KARRALU", en: "sticks" },
+          { te: "తెచ్చాడు", trans: "TECHCHAADU", en: "brought" },
+        ],
+      },
+      {
+        te: "కట్ట విరగలేదు — ఒక్కో కర్ర విరిగింది",
+        trans: "KATTA VIRAGALEDU — OKKO KARRA VIRIGINDI",
+        en: "The bundle didn't break — but single sticks broke",
+        words: [
+          { te: "కట్ట", trans: "KATTA", en: "bundle" },
+          { te: "విరగలేదు", trans: "VIRAGALEDU", en: "didn't break" },
+          { te: "ఒక్కో", trans: "OKKO", en: "each/one by one" },
+          { te: "విరిగింది", trans: "VIRIGINDI", en: "broke" },
+        ],
+      },
+      {
+        te: "కలిసి ఉంటే బలం — విడిపోతే నాశనం!",
+        trans: "KALISI UNTE BALAM — VIDIPOTHE NAASHANAM!",
+        en: "Together is strength — apart is ruin!",
+        words: [
+          { te: "కలిసి", trans: "KALISI", en: "together" },
+          { te: "బలం", trans: "BALAM", en: "strength" },
+          { te: "విడిపోతే", trans: "VIDIPOTHE", en: "if separated" },
+          { te: "నాశనం", trans: "NAASHANAM", en: "ruin" },
+        ],
+      },
+    ],
+    moral: { te: "ఐకమత్యమే మహాబలం!", trans: "AIKAMATHYAME MAHAABALAM!", en: "Unity is strength!" },
+  },
+
+  // ─── STORY 12: FESTIVAL DAY (AP Class 1-2 theme) ───
+  {
+    id: "panduga-roju",
+    title: { te: "పండుగ రోజు", trans: "PANDUGA ROJU", en: "Festival Day" },
+    theme: "festivals",
+    illustration: "story-panduga-roju",
+    sentences: [
+      {
+        te: "ఈ రోజు పండుగ!",
+        trans: "EE ROJU PANDUGA!",
+        en: "Today is a festival!",
+        words: [
+          { te: "ఈ రోజు", trans: "EE ROJU", en: "today" },
+          { te: "పండుగ", trans: "PANDUGA", en: "festival" },
+        ],
+      },
+      {
+        te: "అమ్మ కొత్త బట్టలు ఇచ్చింది",
+        trans: "AMMA KOTTHA BATTALU ICHCHINDI",
+        en: "Mom gave new clothes",
+        words: [
+          { te: "కొత్త", trans: "KOTTHA", en: "new" },
+          { te: "బట్టలు", trans: "BATTALU", en: "clothes" },
+          { te: "ఇచ్చింది", trans: "ICHCHINDI", en: "gave" },
+        ],
+      },
+      {
+        te: "నాన్న పూజ చేశాడు",
+        trans: "NAANNA POOJA CHESHAADU",
+        en: "Dad did the prayer",
+        words: [
+          { te: "నాన్న", trans: "NAANNA", en: "Dad" },
+          { te: "పూజ", trans: "POOJA", en: "prayer/worship" },
+          { te: "చేశాడు", trans: "CHESHAADU", en: "did" },
+        ],
+      },
+      {
+        te: "అమ్మమ్మ స్వీట్లు చేసింది",
+        trans: "AMMAMMA SWEETLU CHESINDI",
+        en: "Grandma made sweets",
+        words: [
+          { te: "అమ్మమ్మ", trans: "AMMAMMA", en: "Grandma" },
+          { te: "స్వీట్లు", trans: "SWEETLU", en: "sweets" },
+          { te: "చేసింది", trans: "CHESINDI", en: "made" },
+        ],
+      },
+      {
+        te: "అందరూ కలిసి సంతోషంగా ఉన్నాం!",
+        trans: "ANDAROO KALISI SANTHOSHAMGA UNNAAM!",
+        en: "Everyone is together and happy!",
+        words: [
+          { te: "అందరూ", trans: "ANDAROO", en: "everyone" },
+          { te: "కలిసి", trans: "KALISI", en: "together" },
+          { te: "సంతోషంగా", trans: "SANTHOSHAMGA", en: "happily" },
+        ],
+      },
+    ],
+    moral: { te: "పండుగలు కుటుంబాన్ని కలుపుతాయి!", trans: "PANDUGALU KUTUMBAANNI KALUPUTHAAYI!", en: "Festivals bring families together!" },
+  },
+
+  // ─── STORY 13: AMMU AND BITTU (AP Class 1 character story) ───
+  {
+    id: "ammu-bittu",
+    title: { te: "అమ్ము-బిట్టు", trans: "AMMU-BITTU", en: "Ammu and Bittu" },
+    theme: "animals",
+    illustration: "story-ammu-bittu",
+    sentences: [
+      {
+        te: "అమ్ముకు ఒక ఉడత ఉంది — పేరు బిట్టు",
+        trans: "AMMUKU OKA UDATA UNDI — PERU BITTU",
+        en: "Ammu has a squirrel — its name is Bittu",
+        words: [
+          { te: "ఉడత", trans: "UDATA", en: "squirrel" },
+          { te: "పేరు", trans: "PERU", en: "name" },
+        ],
+      },
+      {
+        te: "బిట్టు చెట్టు ఎక్కుతుంది",
+        trans: "BITTU CHETTU EKKUTHUNDI",
+        en: "Bittu climbs trees",
+        words: [
+          { te: "చెట్టు", trans: "CHETTU", en: "tree" },
+          { te: "ఎక్కుతుంది", trans: "EKKUTHUNDI", en: "climbs" },
+        ],
+      },
+      {
+        te: "అమ్ము బిట్టుకు జీడిపప్పు ఇస్తుంది",
+        trans: "AMMU BITTUKU JEEDIPAPPU ISTHUNDI",
+        en: "Ammu gives cashew nuts to Bittu",
+        words: [
+          { te: "జీడిపప్పు", trans: "JEEDIPAPPU", en: "cashew nuts" },
+          { te: "ఇస్తుంది", trans: "ISTHUNDI", en: "gives" },
+        ],
+      },
+      {
+        te: "బిట్టు తోక ఊపుతూ సంతోషపడుతుంది",
+        trans: "BITTU THOKA OOPUTHOO SANTHOSHAPADUTHUNDI",
+        en: "Bittu wags its tail happily",
+        words: [
+          { te: "తోక", trans: "THOKA", en: "tail" },
+          { te: "ఊపుతూ", trans: "OOPUTHOO", en: "wagging" },
+          { te: "సంతోషపడుతుంది", trans: "SANTHOSHAPADUTHUNDI", en: "is happy" },
+        ],
+      },
+      {
+        te: "అమ్ము-బిట్టు మంచి ఫ్రెండ్స్!",
+        trans: "AMMU-BITTU MANCHI FRIENDS!",
+        en: "Ammu and Bittu are good friends!",
+        words: [
+          { te: "మంచి", trans: "MANCHI", en: "good" },
+          { te: "ఫ్రెండ్స్", trans: "FRIENDS", en: "friends" },
+        ],
+      },
+    ],
+    moral: { te: "జంతువులతో స్నేహంగా ఉండాలి!", trans: "JANTHUVULATHO SNEHAMGA UNDAALI!", en: "Be friends with animals!" },
+  },
 ];

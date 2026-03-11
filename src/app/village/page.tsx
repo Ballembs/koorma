@@ -631,7 +631,9 @@ export default function VillagePage() {
       }}>
         {[
           { id: "rhymes", name: "Song Tree", teluguName: "పాటల చెట్టు", icon: "🎵", path: "/rhymes", bg: "#FCE4EC", color: "#D81B60", locked: false },
-          { id: "conversations", name: "Conversations", teluguName: "సంభాషణలు", icon: "💬", path: "/conversations", bg: "#FFF8E1", color: "#D4940C", locked: false },
+          { id: "poems", name: "Poems", teluguName: "పద్యాలు", icon: "🌺", path: "/poems", bg: "#E0F7FA", color: "#00838F", locked: false },
+          { id: "proverbs", name: "Proverbs", teluguName: "సామెతలు", icon: "💬", path: "/proverbs", bg: "#F1F8E9", color: "#558B2F", locked: false },
+          { id: "conversations", name: "Chat", teluguName: "సంభాషణలు", icon: "🗣️", path: "/conversations", bg: "#FFF8E1", color: "#D4940C", locked: false },
           { id: "daily", name: "Daily", teluguName: "రోజు సవాలు", icon: "⚡", path: "/daily", bg: "#FFF8E1", color: "#D4940C", locked: completedPairs.filter(id => vowels.map(v => v.id).includes(id)).length < 4 },
           { id: "practice", name: "Practice", teluguName: "అభ్యాసం", icon: "📄", path: "/practice", bg: "#E8F5E9", color: "#2D8B4E", locked: false }
         ].map((loc) => (

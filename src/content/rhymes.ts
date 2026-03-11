@@ -176,4 +176,63 @@ export const TELUGU_RHYMES: Rhyme[] = [
     ],
     audioFull: "/audio/te/rhyme-kokkorokko-full.mp3",
   },
+
+  // ═══ AP Class 1 బాలగేయాలు (Children's Songs from తెలుగు తోట) ═══
+
+  {
+    id: "udata-udata",
+    title: { te: "ఉడత ఉడత హూచ్", trans: "UDATA UDATA HOOCH", en: "Squirrel Song" },
+    theme: "animals",
+    icon: "🐿️",
+    difficulty: 1,
+    lines: [
+      { te: "ఉడత ఉడత హూచ్", trans: "UDATA UDATA HOOCH", en: "Squirrel, squirrel, whoosh!" },
+      { te: "చెట్టు ఎక్కింది హూచ్", trans: "CHETTU EKKINDI HOOCH", en: "Climbed the tree, whoosh!" },
+      { te: "కొమ్మ మీద కూర్చుంది", trans: "KOMMA MEEDA KOORCHUNDI", en: "Sat on the branch" },
+      { te: "తోక ఊపుతూ చూసింది", trans: "THOKA OOPUTHOO CHOOSINDI", en: "Looked around wagging its tail" },
+    ],
+    audioFull: "/audio/te/rhyme-udata-udata-full.mp3",
+  },
+  {
+    id: "baavaa-panneeru",
+    title: { te: "బావా బావా పన్నీరు", trans: "BAAVAA BAAVAA PANNEERU", en: "Uncle, Perfume Water" },
+    theme: "culture",
+    icon: "💐",
+    difficulty: 1,
+    lines: [
+      { te: "బావా బావా పన్నీరు", trans: "BAAVAA BAAVAA PANNEERU", en: "Uncle, uncle, perfume water" },
+      { te: "పన్నీరు బుడ్డీలో", trans: "PANNEERU BUDDEELO", en: "In the perfume bottle" },
+      { te: "బుడ్డీ ఎవరిది", trans: "BUDDEE EVARIDI", en: "Whose bottle is it?" },
+      { te: "రాజుగారిది", trans: "RAAJUGAARIDI", en: "It belongs to the king" },
+    ],
+    audioFull: "/audio/te/rhyme-baavaa-panneeru-full.mp3",
+  },
+  {
+    id: "megham-chhatram",
+    title: { te: "మేఘం ఛత్రం", trans: "MEGHAM CHHATRAM", en: "Cloud Umbrella" },
+    theme: "nature",
+    icon: "☁️",
+    difficulty: 2,
+    lines: [
+      { te: "మేఘం ఛత్రం పట్టింది", trans: "MEGHAM CHHATRAM PATTINDI", en: "The cloud held an umbrella" },
+      { te: "భూమికి నీళ్ళు ఇచ్చింది", trans: "BHOOMIKI NEELLU ICHCHINDI", en: "Gave water to the earth" },
+      { te: "చెట్లు పూలు పండ్లు పూశాయి", trans: "CHETLU POOLU PANDLU POOSHAYI", en: "Trees bloomed with flowers and fruits" },
+      { te: "పిల్లలు సంతోషంగా ఆడారు", trans: "PILLALU SANTHOSHAMGA AADAARU", en: "Children played happily" },
+    ],
+    audioFull: "/audio/te/rhyme-megham-chhatram-full.mp3",
+  },
+  {
+    id: "gunna-maamidi",
+    title: { te: "గున్న మామిడి", trans: "GUNNA MAAMIDI", en: "Little Mango Tree" },
+    theme: "nature",
+    icon: "🥭",
+    difficulty: 1,
+    lines: [
+      { te: "గున్న మామిడి చెట్టు", trans: "GUNNA MAAMIDI CHETTU", en: "Little mango tree" },
+      { te: "కాయలు కాసింది", trans: "KAAYALU KAASINDI", en: "Bore fruits" },
+      { te: "పిల్లలు వచ్చారు", trans: "PILLALU VACHCHAARU", en: "Children came" },
+      { te: "మామిడి పండ్లు తిన్నారు", trans: "MAAMIDI PANDLU THINNARU", en: "Ate the mangoes" },
+    ],
+    audioFull: "/audio/te/rhyme-gunna-maamidi-full.mp3",
+  },
 ];

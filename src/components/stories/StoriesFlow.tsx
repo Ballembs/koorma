@@ -5,6 +5,7 @@ import { TIER1_STORIES } from "@/content/stories";
 import type { GeneratedStory } from "@/lib/store";
 import StoryReadingPhase from "./StoryReadingPhase";
 import DynamicStoryReadingPhase from "./DynamicStoryReadingPhase";
+import StoryQuizPhase from "./StoryQuizPhase";
 
 interface StoriesFlowProps {
   storyId?: string;
@@ -35,7 +36,16 @@ export default function StoriesFlow({ storyId, dynamicStory, onComplete }: Stori
     return (
       <StoryReadingPhase
         story={story}
-        onComplete={onComplete} // Skip directly back to library for MVP
+        onComplete={() => setPhase("quiz")}
+      />
+    );
+  }
+
+  if (phase === "quiz") {
+    return (
+      <StoryQuizPhase
+        story={story}
+        onComplete={onComplete}
       />
     );
   }
