@@ -13,8 +13,7 @@ export default function BookshelfPage() {
       fontFamily: "'Nunito', sans-serif"
     }}>
       {/* Header */}
-      <div style={{
-        padding: "20px 32px",
+      <div className="bookshelf-header" style={{
         display: "flex", alignItems: "center", gap: 20,
         background: "white",
         boxShadow: "0 4px 20px rgba(0,0,0,0.05)",
@@ -31,19 +30,19 @@ export default function BookshelfPage() {
           ◀
         </button>
         <div>
-          <h1 style={{ margin: 0, fontSize: 24, fontWeight: 800, color: "#1A1A2E", display: "flex", alignItems: "center", gap: 12 }}>
+          <h1 className="bookshelf-title" style={{ margin: 0, fontWeight: 800, color: "#1A1A2E", display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
             <span style={{ fontSize: 32 }}>📚</span>
             <span style={{ fontFamily: "'Noto Sans Telugu', sans-serif" }}>పుస్తకాల అలమార</span>
             <span style={{ color: "#4A4A5A", fontSize: 16, fontWeight: 700 }}> (Bookshelf)</span>
           </h1>
-          <p style={{ margin: "4px 0 0", fontSize: 14, color: "#4A4A5A", fontWeight: 600 }}>
+          <p className="bookshelf-subtitle" style={{ margin: "4px 0 0", color: "#4A4A5A", fontWeight: 600 }}>
             Read and practice from AP SCERT Textbooks
           </p>
         </div>
       </div>
 
       {/* Main Content */}
-      <div style={{ padding: "40px" }}>
+      <div className="bookshelf-content">
         <BookshelfGrid />
       </div>
     </div>

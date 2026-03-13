@@ -51,14 +51,28 @@ export async function POST(req: Request) {
     return Response.json(cached);
   }
 
-  // Read the page image
+  // Read the page image — try local first (dev), then Supabase Storage (prod)
   const imgPath = path.join(process.cwd(), 'public', 'book-pages', `class-${classId}`, `page-${String(pageNum).padStart(3, '0')}.png`);
-  if (!existsSync(imgPath)) {
-    return Response.json({ error: 'Page image not found' }, { status: 404 });
-  }
+  let base64Image: string;
 
-  const imgBuffer = await readFile(imgPath);
-  const base64Image = imgBuffer.toString('base64');
+  if (existsSync(imgPath)) {
+    const imgBuffer = await readFile(imgPath);
+    base64Image = imgBuffer.toString('base64');
+  } else {
+    // Fetch from Supabase Storage
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://deuekxrcicpawkcqcrpl.supabase.co';
+    const imgUrl = `${supabaseUrl}/storage/v1/object/public/book-pages/class-${classId}/page-${String(pageNum).padStart(3, '0')}.png`;
+    try {
+      const imgRes = await fetch(imgUrl);
+      if (!imgRes.ok) {
+        return Response.json({ error: 'Page image not found' }, { status: 404 });
+      }
+      const imgBuffer = Buffer.from(await imgRes.arrayBuffer());
+      base64Image = imgBuffer.toString('base64');
+    } catch {
+      return Response.json({ error: 'Failed to fetch page image' }, { status: 500 });
+    }
+  }
 
   const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
 

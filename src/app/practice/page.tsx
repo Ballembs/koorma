@@ -29,10 +29,10 @@ function LetterCard({
       onClick={onClick}
       style={{
         position: "relative",
-        background: canPrint ? "white" : "linear-gradient(135deg, #E8ECF0 0%, #DDE3E9 50%, #E8ECF0 100%)",
+        background: canPrint ? "white" : "linear-gradient(135deg, #F0E8D8 0%, #E8DFD0 50%, #F0E8D8 100%)",
         backgroundSize: canPrint ? undefined : "200% 100%",
         animation: canPrint ? undefined : "shimmer 2.5s ease-in-out infinite",
-        border: canPrint ? "2px solid #fff" : "2px dashed #CBD5E1",
+        border: canPrint ? "2px solid #fff" : "2px dashed #D4C4A8",
         borderRadius: 24,
         padding: "24px 12px 18px",
         display: "flex",
@@ -51,7 +51,7 @@ function LetterCard({
             position: "absolute",
             top: 8,
             right: 8,
-            background: "#B0BEC5",
+            background: "#C4A86E",
             width: 22,
             height: 22,
             borderRadius: 11,
@@ -71,7 +71,7 @@ function LetterCard({
           fontFamily: "'Noto Sans Telugu', sans-serif",
           fontSize: 52,
           fontWeight: 900,
-          color: canPrint ? "#102A43" : "#9FB3C8",
+          color: canPrint ? "#102A43" : "#B8A080",
           lineHeight: 1,
         }}
       >
@@ -83,7 +83,7 @@ function LetterCard({
           fontFamily: "'Noto Sans Telugu', sans-serif",
           fontSize: 12,
           fontWeight: 800,
-          color: canPrint ? "#627D98" : "#9FB3C8",
+          color: canPrint ? "#627D98" : "#B8A080",
           textAlign: "center",
         }}
       >
@@ -157,7 +157,7 @@ export default function PracticeHubPage() {
       style={{
         width: "100%",
         minHeight: "100%",
-        background: "linear-gradient(135deg, #F0F4F8, #D9E2EC)",
+        background: "linear-gradient(135deg, #FAF6EF, #F0E8D8)",
         paddingBottom: 60,
         fontFamily: "'Nunito', sans-serif",
         overflowY: "auto",

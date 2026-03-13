@@ -37,22 +37,22 @@ export default function SentencesPage() {
   };
 
   return (
-    <div className="w-full h-screen bg-gradient-to-b from-[#E0F7FA] to-[#B2EBF2] font-nunito flex flex-col overflow-hidden">
+    <div className="w-full h-screen bg-gradient-to-b from-[#FAF6EF] to-[#F0E8D8] font-nunito flex flex-col overflow-hidden">
       {/* Header */}
       <header className="p-4 flex items-center justify-between z-10 bg-white/50 backdrop-blur-sm shadow-sm relative">
         <button
           onClick={handleBack}
-          className="w-12 h-12 bg-white/50 hover:bg-white rounded-full flex items-center justify-center transition-colors shrink-0 text-[#00838F]"
+          className="w-12 h-12 bg-white/50 hover:bg-white rounded-full flex items-center justify-center transition-colors shrink-0 text-[#5A3E28]"
         >
           <span className="text-xl">✕</span>
         </button>
 
         <div className="flex items-center gap-2">
           <span className="text-2xl">🛤️</span>
-          <h1 className="text-xl font-bold text-[#006064]">వాక్యాల బాట (Sentence Path)</h1>
+          <h1 className="text-xl font-bold text-[#5A3E28]">వాక్యాల బాట (Sentence Path)</h1>
         </div>
 
-        <div className="flex items-center gap-2 bg-white/80 px-4 py-2 rounded-full font-bold text-[#00838F] shadow-sm">
+        <div className="flex items-center gap-2 bg-white/80 px-4 py-2 rounded-full font-bold text-[#8B6914] shadow-sm">
           <span>Level {sentenceProgress?.currentLevel || 1}/4</span>
         </div>
       </header>
@@ -69,13 +69,13 @@ export default function SentencesPage() {
             >
               <div className="max-w-4xl w-full">
                 <div className="text-center mb-12">
-                  <h2 className="text-3xl font-bold text-[#006064]">Sentence Path</h2>
-                  <p className="text-gray-600 mt-2 text-lg">Follow the river to build bigger sentences!</p>
+                  <h2 className="text-3xl font-bold text-[#5A3E28]">Sentence Path</h2>
+                  <p className="text-gray-600 mt-2 text-lg">Follow the path to build bigger sentences!</p>
                 </div>
 
                 <div className="relative flex flex-col items-center">
                   {/* Decorative River line */}
-                  <div className="absolute top-0 bottom-0 w-8 bg-[#4DD0E1] rounded-full opacity-30 -z-10" />
+                  <div className="absolute top-0 bottom-0 w-8 bg-[#D4940C] rounded-full opacity-20 -z-10" />
 
                   {LEVELS.map((lvl, idx) => {
                     const isUnlocked = lvl.num === 1 || lvl.num <= (sentenceProgress?.currentLevel || 1);
@@ -128,7 +128,7 @@ export default function SentencesPage() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              className="absolute inset-0 z-20 bg-[#E0F7FA]"
+              className="absolute inset-0 z-20 bg-[#FAF6EF]"
             >
               <SentencesFlow
                 levelNum={activeLevel}

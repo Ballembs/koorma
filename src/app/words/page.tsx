@@ -24,7 +24,7 @@ export default function WordsPage() {
   return (
     <div style={{
       width: "100%", height: "100%",
-      background: "linear-gradient(135deg, #E0F2F1, #E8F5E9)",
+      background: "linear-gradient(135deg, #FAF6EF, #F0E8D8)",
       display: "flex", flexDirection: "column",
       fontFamily: "'Nunito', sans-serif",
       overflow: "hidden"
@@ -72,7 +72,7 @@ export default function WordsPage() {
             >
               <div className="max-w-4xl mx-auto">
                 <div className="text-center mb-10">
-                  <h2 className="text-3xl font-bold text-[#2E7D32]">Welcome to the Word Bazaar!</h2>
+                  <h2 className="text-3xl font-bold text-[#5A3E28]">Welcome to the Word Bazaar!</h2>
                   <p className="text-gray-600 mt-2 text-lg">Choose a shop to learn new words!</p>
                 </div>
 
@@ -86,13 +86,13 @@ export default function WordsPage() {
                         whileTap={isUnlocked ? { scale: 0.95 } : {}}
                         onClick={() => isUnlocked && setActiveCategory(cat)}
                         className={`p-6 rounded-3xl shadow-sm border-2 flex flex-col items-center justify-center transition-all ${isUnlocked
-                          ? 'bg-white border-[#A5D6A7] hover:shadow-md cursor-pointer'
+                          ? 'bg-white border-[#E6C287] hover:shadow-md cursor-pointer'
                           : 'bg-gray-100 border-gray-200 opacity-60 cursor-not-allowed'
                           }`}
                         style={{ minHeight: "200px" }}
                       >
                         <span className="text-6xl mb-4">{isUnlocked ? cat.emoji : "🔒"}</span>
-                        <span className="text-2xl font-bold text-[#2E7D32] font-telugu mb-1 text-center line-clamp-1">{cat.teluguTitle}</span>
+                        <span className="text-2xl font-bold text-[#5A3E28] font-telugu mb-1 text-center line-clamp-1">{cat.teluguTitle}</span>
                         <span className="text-sm font-bold text-gray-500 font-nunito">{cat.englishTitle}</span>
                       </motion.button>
                     );

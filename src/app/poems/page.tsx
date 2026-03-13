@@ -14,7 +14,7 @@ export default function PoemsHub() {
         minHeight: "100%",
         display: "flex",
         flexDirection: "column",
-        background: "linear-gradient(135deg, #E0F7FA, #B2EBF2)", // Light blue theme
+        background: "linear-gradient(135deg, #FAF6EF, #F0E8D8)", // Warm cream theme
         fontFamily: "'Nunito', sans-serif",
         overflowY: "auto",
         paddingBottom: 60,
@@ -29,7 +29,7 @@ export default function PoemsHub() {
           gap: 20,
           background: "rgba(255,255,255,0.7)",
           backdropFilter: "blur(12px)",
-          borderBottom: "2px solid rgba(0,188,212,0.2)",
+          borderBottom: "2px solid rgba(212,148,12,0.2)",
           position: "sticky",
           top: 0,
           zIndex: 10,
@@ -39,7 +39,7 @@ export default function PoemsHub() {
           onClick={() => router.push("/village")}
           style={{
             background: "white",
-            border: "2px solid #80DEEA",
+            border: "2px solid #E6C287",
             width: 44,
             height: 44,
             borderRadius: 22,
@@ -48,7 +48,7 @@ export default function PoemsHub() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            boxShadow: "0 4px 12px rgba(0,188,212,0.15)",
+            boxShadow: "0 4px 12px rgba(212,148,12,0.15)",
           }}
         >
           ⬅️
@@ -60,12 +60,12 @@ export default function PoemsHub() {
               fontSize: 28,
               fontFamily: "'Noto Sans Telugu', sans-serif",
               fontWeight: 800,
-              color: "#006064",
+              color: "#5A3E28",
             }}
           >
             పద్యాల తోట <span style={{ fontFamily: "'Nunito', sans-serif", fontSize: 24 }}>🌺</span>
           </h1>
-          <p style={{ margin: "4px 0 0", color: "#00838F", fontWeight: 700, fontSize: 16 }}>
+          <p style={{ margin: "4px 0 0", color: "#8B6914", fontWeight: 700, fontSize: 16 }}>
             Garden of Poems: Class 2 Recitations
           </p>
         </div>
@@ -94,9 +94,9 @@ export default function PoemsHub() {
                 background: "white",
                 borderRadius: 24,
                 padding: 24,
-                boxShadow: "0 10px 30px rgba(0,188,212,0.1)",
+                boxShadow: "0 10px 30px rgba(90,62,40,0.08)",
                 cursor: "pointer",
-                border: "2px solid #E0F7FA",
+                border: "2px solid #F0E8D8",
                 display: "flex",
                 flexDirection: "column",
                 gap: 16,
@@ -112,7 +112,7 @@ export default function PoemsHub() {
                   right: -20,
                   width: 100,
                   height: 100,
-                  background: "#E0F7FA",
+                  background: "#FFF8F0",
                   borderRadius: "50%",
                   opacity: 0.5,
                   zIndex: 0,
@@ -120,28 +120,28 @@ export default function PoemsHub() {
               />
               
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", zIndex: 1 }}>
-                <div style={{ fontSize: 48, background: "#E0F7FA", width: 80, height: 80, borderRadius: 20, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <div style={{ fontSize: 48, background: "#FFF8F0", width: 80, height: 80, borderRadius: 20, display: "flex", alignItems: "center", justifyContent: "center" }}>
                   {poem.icon}
                 </div>
-                <div style={{ background: "#E0F7FA", color: "#00838F", padding: "6px 14px", borderRadius: 20, fontSize: 13, fontWeight: 800 }}>
+                <div style={{ background: "#FFF8F0", color: "#8B6914", padding: "6px 14px", borderRadius: 20, fontSize: 13, fontWeight: 800 }}>
                   {poem.theme.toUpperCase()}
                 </div>
               </div>
 
               <div style={{ zIndex: 1 }}>
-                <h2 style={{ margin: "0 0 4px", fontSize: 26, fontFamily: "'Noto Sans Telugu', sans-serif", color: "#006064", fontWeight: 800 }}>
+                <h2 style={{ margin: "0 0 4px", fontSize: 26, fontFamily: "'Noto Sans Telugu', sans-serif", color: "#5A3E28", fontWeight: 800 }}>
                   {poem.title.te}
                 </h2>
-                <div style={{ fontSize: 16, color: "#0097A7", fontWeight: 700 }}>
+                <div style={{ fontSize: 16, color: "#8B6914", fontWeight: 700 }}>
                   {poem.title.en}
                 </div>
               </div>
 
-              <div style={{ marginTop: "auto", display: "flex", justifyContent: "space-between", alignItems: "center", paddingTop: 16, borderTop: "2px dashed #E0F7FA", zIndex: 1 }}>
-                <div style={{ fontSize: 14, color: "#00ACC1", fontWeight: 800 }}>
+              <div style={{ marginTop: "auto", display: "flex", justifyContent: "space-between", alignItems: "center", paddingTop: 16, borderTop: "2px dashed #F0E8D8", zIndex: 1 }}>
+                <div style={{ fontSize: 14, color: "#8B6914", fontWeight: 800 }}>
                   {poem.lines.length} Lines • {poem.vocabulary.length} Words
                 </div>
-                <div style={{ background: "#00BCD4", color: "white", width: 36, height: 36, borderRadius: 18, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 16, fontWeight: "bold" }}>
+                <div style={{ background: "linear-gradient(135deg, #D4940C, #F5B82E)", color: "white", width: 36, height: 36, borderRadius: 18, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 16, fontWeight: "bold" }}>
                   →
                 </div>
               </div>

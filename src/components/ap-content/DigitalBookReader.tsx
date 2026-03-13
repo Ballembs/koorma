@@ -15,6 +15,12 @@ interface DigitalBookReaderProps {
   onClose?: () => void;
 }
 
+interface TranslationData {
+  teluguText: string;
+  lines: { telugu: string; transliteration: string; english: string }[];
+  summary: string;
+}
+
 export function DigitalBookReader({ classId, totalPages, startPage = 1, onClose }: DigitalBookReaderProps) {
   const [currentPage, setCurrentPage] = useState(startPage);
   const [showControls, setShowControls] = useState(true);
@@ -30,6 +36,10 @@ export function DigitalBookReader({ classId, totalPages, startPage = 1, onClose 
   const [hasAnimation, setHasAnimation] = useState(false);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [showRotateHint, setShowRotateHint] = useState(false);
+  const [showTranslation, setShowTranslation] = useState(false);
+  const [translationData, setTranslationData] = useState<TranslationData | null>(null);
+  const [translationLoading, setTranslationLoading] = useState(false);
+  const translationCache = useRef<Record<number, TranslationData>>({});
   const controlsTimer = useRef<NodeJS.Timeout | null>(null);
   const flipSound = useRef<HTMLAudioElement | null>(null);
   const touchStartX = useRef<number | null>(null);
@@ -111,12 +121,14 @@ export function DigitalBookReader({ classId, totalPages, startPage = 1, onClose 
     return () => { flipSound.current = null; };
   }, []);
 
-  // Auto-hide controls
+  // Auto-hide controls (but keep them visible when translation panel is open)
   const resetControlsTimer = useCallback(() => {
     setShowControls(true);
     if (controlsTimer.current) clearTimeout(controlsTimer.current);
-    controlsTimer.current = setTimeout(() => setShowControls(false), 4000);
-  }, []);
+    if (!showTranslation) {
+      controlsTimer.current = setTimeout(() => setShowControls(false), 4000);
+    }
+  }, [showTranslation]);
 
   useEffect(() => {
     resetControlsTimer();
@@ -182,7 +194,48 @@ export function DigitalBookReader({ classId, totalPages, startPage = 1, onClose 
   const progress = ((currentPage - 1) / Math.max(totalPages - 1, 1)) * 100;
   const DRAW_COLORS = ["#FF0000", "#0000FF", "#00AA00", "#FF8800", "#8B00FF", "#000000"];
 
-  // For cover or landscape pages, show image only (full width)
+  // Close translation when changing pages
+  useEffect(() => {
+    setShowTranslation(false);
+    setTranslationData(translationCache.current[currentPage] || null);
+  }, [currentPage]);
+
+  // Keep controls visible while translation panel is open
+  useEffect(() => {
+    if (showTranslation) {
+      setShowControls(true);
+      if (controlsTimer.current) clearTimeout(controlsTimer.current);
+    } else {
+      resetControlsTimer();
+    }
+  }, [showTranslation, resetControlsTimer]);
+
+  // Fetch translation
+  const fetchTranslation = useCallback(async () => {
+    if (translationCache.current[currentPage]) {
+      setTranslationData(translationCache.current[currentPage]);
+      setShowTranslation(true);
+      return;
+    }
+    setTranslationLoading(true);
+    setShowTranslation(true);
+    try {
+      const res = await fetch("/api/translate-page", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ classId, pageNum: currentPage }),
+      });
+      if (res.ok) {
+        const data = await res.json();
+        translationCache.current[currentPage] = data;
+        setTranslationData(data);
+      }
+    } catch (err) {
+      console.error("Translation fetch error:", err);
+    } finally {
+      setTranslationLoading(false);
+    }
+  }, [classId, currentPage]);
 
 
   return (
@@ -249,9 +302,11 @@ export function DigitalBookReader({ classId, totalPages, startPage = 1, onClose 
         <div style={{
           position: "relative",
           height: "100%",
+          flex: showTranslation ? "0 0 55%" : "1",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          transition: "flex 0.4s ease",
           animation: isTransitioning
             ? `slideOut${slideDirection === "right" ? "Left" : "Right"} 0.2s ease-in forwards`
             : `slideIn${slideDirection === "right" ? "Right" : "Left"} 0.2s ease-out`,
@@ -262,7 +317,7 @@ export function DigitalBookReader({ classId, totalPages, startPage = 1, onClose 
             maxHeight: "100%",
             boxShadow: "0 4px 20px rgba(0,0,0,0.15)",
             borderRadius: 6,
-            overflow: "hidden",
+            overflow: "visible",
             lineHeight: 0,
           }}>
             {/* Page image — always rendered for stable layout */}
@@ -360,6 +415,120 @@ export function DigitalBookReader({ classId, totalPages, startPage = 1, onClose 
             )}
           </div>
         </div>
+
+        {/* ═══ TRANSLATION PANEL (slides in from right) ═══ */}
+        {showTranslation && (
+          <div style={{
+            flex: "0 0 40%",
+            height: "100%",
+            background: "linear-gradient(180deg, #FFF8F0, #FAF3E8)",
+            borderLeft: "2px solid #E6D5B8",
+            borderRadius: "8px 0 0 8px",
+            overflowY: "auto",
+            padding: "16px 18px",
+            animation: "slideInPanel 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+            boxShadow: "-4px 0 20px rgba(0,0,0,0.08)",
+          }}>
+            {/* Panel Header */}
+            <div style={{
+              display: "flex", justifyContent: "space-between", alignItems: "center",
+              marginBottom: 12, paddingBottom: 10,
+              borderBottom: "2px solid #E6D5B8",
+            }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                <span style={{ fontSize: 20 }}>🌐</span>
+                <span style={{
+                  fontWeight: 900, fontSize: 15, color: "#5A3E28",
+                  fontFamily: "'Nunito', sans-serif",
+                }}>Translation</span>
+              </div>
+              <button
+                onClick={() => setShowTranslation(false)}
+                style={{
+                  background: "rgba(0,0,0,0.06)", border: "none", borderRadius: 50,
+                  width: 28, height: 28, cursor: "pointer", fontSize: 12,
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                  color: "#888",
+                }}
+              >✕</button>
+            </div>
+
+            {/* Loading */}
+            {translationLoading && (
+              <div style={{
+                textAlign: "center", padding: "40px 16px",
+                color: "#D4940C", fontWeight: 700, fontSize: 14,
+                fontFamily: "'Nunito', sans-serif",
+              }}>
+                <div style={{
+                  fontSize: 32, marginBottom: 12,
+                  animation: "spin 1.5s linear infinite",
+                }}>🌐</div>
+                Translating page...
+              </div>
+            )}
+
+            {/* Summary */}
+            {translationData?.summary && !translationLoading && (
+              <div style={{
+                background: "linear-gradient(135deg, #D4940C15, #F5B82E15)",
+                border: "1px solid #E6C28740",
+                borderRadius: 12, padding: "10px 14px", marginBottom: 14,
+              }}>
+                <div style={{
+                  fontSize: 11, fontWeight: 800, color: "#D4940C",
+                  textTransform: "uppercase", letterSpacing: 0.8,
+                  marginBottom: 4, fontFamily: "'Nunito', sans-serif",
+                }}>📖 Summary</div>
+                <div style={{
+                  fontSize: 13, color: "#5A3E28", lineHeight: 1.5,
+                  fontFamily: "'Nunito', sans-serif", fontWeight: 600,
+                }}>{translationData.summary}</div>
+              </div>
+            )}
+
+            {/* Line-by-line translations */}
+            {translationData?.lines && !translationLoading && (
+              <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                {translationData.lines.map((line, idx) => (
+                  <div key={idx} style={{
+                    background: "white",
+                    borderRadius: 12, padding: "10px 14px",
+                    border: "1px solid #F0E8D8",
+                    boxShadow: "0 1px 4px rgba(0,0,0,0.04)",
+                  }}>
+                    {/* Telugu */}
+                    <div style={{
+                      fontFamily: "'Noto Sans Telugu', sans-serif",
+                      fontSize: 16, fontWeight: 800, color: "#5A3E28",
+                      lineHeight: 1.4, marginBottom: 2,
+                    }}>{line.telugu}</div>
+                    {/* Transliteration */}
+                    <div style={{
+                      fontSize: 12, fontWeight: 700, color: "#D4940C",
+                      fontStyle: "italic", marginBottom: 3,
+                      fontFamily: "'Nunito', sans-serif",
+                    }}>{line.transliteration}</div>
+                    {/* English */}
+                    <div style={{
+                      fontSize: 12, fontWeight: 600, color: "#666",
+                      fontFamily: "'Nunito', sans-serif",
+                    }}>{line.english}</div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* No data yet and not loading */}
+            {!translationData && !translationLoading && (
+              <div style={{
+                textAlign: "center", padding: "40px 16px",
+                color: "#aaa", fontSize: 13,
+                fontFamily: "'Nunito', sans-serif",
+              }}>No translation available</div>
+            )}
+          </div>
+        )}
       </div>
 
       {/* ===== Navigation Click Zones ===== */}
@@ -413,7 +582,20 @@ export function DigitalBookReader({ classId, totalPages, startPage = 1, onClose 
           {currentPage} / {totalPages}
         </span>
         <div style={{ display: "flex", gap: 6 }}>
-          <button onClick={() => { setDrawMode(!drawMode); setPlayingAnimation(false); }} style={topBtnStyle(drawMode)} title="Draw / Write">
+          <button
+            onClick={() => {
+              if (showTranslation) {
+                setShowTranslation(false);
+              } else {
+                fetchTranslation();
+              }
+            }}
+            style={topBtnStyle(showTranslation)}
+            title="Translate page"
+          >
+            🌐
+          </button>
+          <button onClick={() => { setDrawMode(!drawMode); setPlayingAnimation(false); setShowTranslation(false); }} style={topBtnStyle(drawMode)} title="Draw / Write">
             ✏️
           </button>
         </div>
@@ -479,6 +661,14 @@ export function DigitalBookReader({ classId, totalPages, startPage = 1, onClose 
           0%, 100% { transform: scale(1); box-shadow: 0 2px 12px rgba(0,0,0,0.2), 0 0 20px rgba(255,215,0,0.3); }
           50% { transform: scale(1.08); box-shadow: 0 2px 16px rgba(0,0,0,0.25), 0 0 30px rgba(255,215,0,0.5); }
         }
+        @keyframes slideInPanel {
+          from { transform: translateX(100%); opacity: 0; }
+          to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes spin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
       `}</style>
     </div>
   );
@@ -486,7 +676,9 @@ export function DigitalBookReader({ classId, totalPages, startPage = 1, onClose 
 
 // ====== Helpers ======
 function pageImgSrc(classId: number, pageNum: number) {
-  return `/book-pages/class-${classId}/page-${String(pageNum).padStart(3, "0")}.png`;
+  // Book page images are stored in Supabase Storage (too large for git/deployment)
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://deuekxrcicpawkcqcrpl.supabase.co';
+  return `${supabaseUrl}/storage/v1/object/public/book-pages/class-${classId}/page-${String(pageNum).padStart(3, "0")}.png`;
 }
 
 function topBtnStyle(active?: boolean): React.CSSProperties {

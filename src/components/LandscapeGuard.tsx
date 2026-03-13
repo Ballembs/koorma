@@ -11,6 +11,12 @@ export function LandscapeGuard({ children }: { children: React.ReactNode }) {
     const dismissed = sessionStorage.getItem("koorma-tablet-banner-dismissed");
     if (isSmall && !dismissed) {
       setShowBanner(true);
+      // Auto-dismiss after 4 seconds so it doesn't block content
+      const timer = setTimeout(() => {
+        setShowBanner(false);
+        sessionStorage.setItem("koorma-tablet-banner-dismissed", "1");
+      }, 4000);
+      return () => clearTimeout(timer);
     }
   }, []);
 
@@ -23,6 +29,7 @@ export function LandscapeGuard({ children }: { children: React.ReactNode }) {
     <>
       {showBanner && (
         <div
+          className="landscape-banner"
           style={{
             position: "fixed",
             top: 0,
@@ -31,18 +38,19 @@ export function LandscapeGuard({ children }: { children: React.ReactNode }) {
             zIndex: 9999,
             background: "linear-gradient(135deg, #D4940C, #B07A0A)",
             color: "white",
-            padding: "10px 16px",
+            padding: "8px 16px",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             gap: 12,
             fontFamily: "'Nunito', sans-serif",
-            fontSize: 13,
+            fontSize: 12,
             fontWeight: 700,
             boxShadow: "0 2px 12px rgba(0,0,0,0.15)",
+            transition: "transform 0.3s ease, opacity 0.3s ease",
           }}
         >
-          <span>📱 → 📱 Works best on tablet or iPad for the full experience!</span>
+          <span>📱 Best on tablet or iPad for the full experience!</span>
           <button
             onClick={dismiss}
             style={{
@@ -51,7 +59,7 @@ export function LandscapeGuard({ children }: { children: React.ReactNode }) {
               color: "white",
               borderRadius: 8,
               padding: "4px 10px",
-              fontSize: 12,
+              fontSize: 11,
               fontWeight: 800,
               cursor: "pointer",
               flexShrink: 0,

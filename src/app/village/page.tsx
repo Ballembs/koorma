@@ -36,10 +36,46 @@ const ACTIVITIES = [
     shadow: "rgba(46,125,50,0.4)", border: "#A5D6A7",
   },
   {
-    id: "rhymes", label: "పాటలు", english: "Songs",
-    icon: "🎵", gradient: "linear-gradient(135deg, #E65100, #FF9800)",
+    id: "guninthalu", label: "గుణింతాలు", english: "Combos",
+    icon: "✨", gradient: "linear-gradient(135deg, #7B1FA2, #AB47BC)",
+    shadow: "rgba(123,31,162,0.4)", border: "#CE93D8",
+    path: "/guninthalu",
+  },
+  {
+    id: "words", label: "పదాలు", english: "Words",
+    icon: "🛒", gradient: "linear-gradient(135deg, #E65100, #FF9800)",
     shadow: "rgba(230,81,0,0.4)", border: "#FFCC80",
+    path: "/words",
+  },
+  {
+    id: "sentences", label: "వాక్యాలు", english: "Sentences",
+    icon: "🛤️", gradient: "linear-gradient(135deg, #00695C, #26A69A)",
+    shadow: "rgba(0,105,92,0.4)", border: "#80CBC4",
+    path: "/sentences",
+  },
+  {
+    id: "stories", label: "కథలు", english: "Stories",
+    icon: "📜", gradient: "linear-gradient(135deg, #BF360C, #FF7043)",
+    shadow: "rgba(191,54,12,0.4)", border: "#FFAB91",
+    path: "/stories",
+  },
+  {
+    id: "rhymes", label: "పాటలు", english: "Songs",
+    icon: "🎵", gradient: "linear-gradient(135deg, #F57F17, #FFCA28)",
+    shadow: "rgba(245,127,23,0.4)", border: "#FFE082",
     path: "/rhymes",
+  },
+  {
+    id: "poems", label: "పద్యాలు", english: "Poems",
+    icon: "🌺", gradient: "linear-gradient(135deg, #AD1457, #E91E63)",
+    shadow: "rgba(173,20,87,0.4)", border: "#F48FB1",
+    path: "/poems",
+  },
+  {
+    id: "proverbs", label: "సామెతలు", english: "Proverbs",
+    icon: "💬", gradient: "linear-gradient(135deg, #C62828, #EF5350)",
+    shadow: "rgba(198,40,40,0.4)", border: "#EF9A9A",
+    path: "/proverbs",
   },
   {
     id: "books", label: "పుస్తకాలు", english: "Books",
@@ -48,16 +84,10 @@ const ACTIVITIES = [
     path: "/bookshelf",
   },
   {
-    id: "poems", label: "పద్యాలు", english: "Poems",
-    icon: "🌺", gradient: "linear-gradient(135deg, #00838F, #26C6DA)",
-    shadow: "rgba(0,131,143,0.4)", border: "#80DEEA",
-    path: "/poems",
-  },
-  {
-    id: "proverbs", label: "సామెతలు", english: "Proverbs",
-    icon: "💬", gradient: "linear-gradient(135deg, #C62828, #EF5350)",
-    shadow: "rgba(198,40,40,0.4)", border: "#EF9A9A",
-    path: "/proverbs",
+    id: "review", label: "సమీక్ష", english: "Review",
+    icon: "🔄", gradient: "linear-gradient(135deg, #4527A0, #7E57C2)",
+    shadow: "rgba(69,39,160,0.4)", border: "#B39DDB",
+    path: "/review",
   },
   {
     id: "practice", label: "అభ్యాసం", english: "Practice",
@@ -102,10 +132,12 @@ function DemoModal({ onClose }: { onClose: () => void }) {
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.85, opacity: 0 }}
         transition={{ type: "spring", stiffness: 300, damping: 25 }}
+        className="demo-modal-content"
         style={{
-          background: "#FFF8F0", borderRadius: 28, padding: "40px 48px",
+          background: "#FFF8F0", borderRadius: 28,
           maxWidth: 760, width: "90vw",
           boxShadow: "0 32px 80px rgba(0,0,0,0.25)",
+          maxHeight: "90vh", overflowY: "auto",
         }}
       >
         <div style={{ textAlign: "center", marginBottom: 32 }}>
@@ -118,7 +150,7 @@ function DemoModal({ onClose }: { onClose: () => void }) {
           </p>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16, marginBottom: 32 }}>
+        <div className="demo-steps-grid" style={{ marginBottom: 32 }}>
           {steps.map((step, i) => (
             <motion.div
               key={step.title}
@@ -148,7 +180,7 @@ function DemoModal({ onClose }: { onClose: () => void }) {
           </p>
         </div>
 
-        <div style={{ display: "flex", justifyContent: "center", gap: 12, alignItems: "center" }}>
+        <div className="demo-actions" style={{ display: "flex", justifyContent: "center", gap: 12, alignItems: "center" }}>
           <button
             onClick={onClose}
             style={{
@@ -236,21 +268,21 @@ function ActivityBubble({
       whileHover={{ scale: 1.1, y: -6 }}
       whileTap={{ scale: 0.93 }}
       onClick={onClick}
+      className="activity-bubble"
       style={{
         position: "relative",
-        width: "clamp(110px, 14vw, 150px)",
-        height: "clamp(110px, 14vw, 150px)",
         borderRadius: "50%",
         border: `3px solid ${border}`,
         background: gradient,
-        boxShadow: `0 8px 32px ${shadow}, inset 0 2px 4px rgba(255,255,255,0.3)`,
+        boxShadow: `0 6px 24px ${shadow}, inset 0 2px 4px rgba(255,255,255,0.3)`,
         cursor: "pointer",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        gap: 1,
+        gap: 0,
         transition: "box-shadow 0.3s",
+        aspectRatio: "1",
       }}
     >
       {/* Glossy shine overlay */}
@@ -260,11 +292,10 @@ function ActivityBubble({
         pointerEvents: "none",
       }} />
 
-      <span style={{ fontSize: "clamp(26px, 4vw, 34px)", position: "relative", zIndex: 1 }}>{icon}</span>
-      <span style={{
+      <span className="bubble-icon" style={{ position: "relative", zIndex: 1 }}>{icon}</span>
+      <span className="bubble-label-telugu" style={{
         fontFamily: "'Noto Sans Telugu', sans-serif",
         fontWeight: 800,
-        fontSize: "clamp(12px, 1.8vw, 15px)",
         color: "white",
         textShadow: "0 1px 4px rgba(0,0,0,0.3)",
         lineHeight: 1.2,
@@ -272,13 +303,12 @@ function ActivityBubble({
       }}>
         {label}
       </span>
-      <span style={{
+      <span className="bubble-label-english" style={{
         fontFamily: "'Nunito', sans-serif",
         fontWeight: 700,
-        fontSize: "clamp(8px, 1.2vw, 10px)",
         color: "rgba(255,255,255,0.9)",
         textTransform: "uppercase",
-        letterSpacing: 0.8,
+        letterSpacing: 0.6,
         position: "relative", zIndex: 1,
       }}>
         {english}
@@ -287,10 +317,10 @@ function ActivityBubble({
       {/* Progress badge */}
       {badge && (
         <div style={{
-          position: "absolute", top: -2, right: -2,
+          position: "absolute", top: -4, right: -4,
           background: "linear-gradient(135deg, #FFD54F, #FF8F00)",
-          borderRadius: 20, padding: "3px 10px",
-          fontSize: 10, fontWeight: 800, color: "#4E342E",
+          borderRadius: 16, padding: "2px 8px",
+          fontSize: 9, fontWeight: 800, color: "#4E342E",
           boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
           fontFamily: "'Nunito', sans-serif",
           border: "2px solid white",
@@ -772,7 +802,7 @@ export default function VillagePage() {
   };
 
   return (
-    <div style={{
+    <div className="village-container" style={{
       width: "100%", height: "100%",
       position: "relative",
       fontFamily: "'Nunito', sans-serif",
@@ -828,10 +858,9 @@ export default function VillagePage() {
       >🐦</motion.div>
 
       {/* ═══ TOP BAR (Glass morphism) ═══ */}
-      <div style={{
+      <div className="village-top-bar" style={{
         position: "absolute", top: 0, left: 0, right: 0, zIndex: 20,
         display: "flex", alignItems: "center", justifyContent: "space-between",
-        padding: "10px 24px",
         background: "rgba(255,255,255,0.55)",
         backdropFilter: "blur(20px)",
         borderBottom: "1px solid rgba(255,255,255,0.4)",
@@ -844,15 +873,15 @@ export default function VillagePage() {
             style={{ fontSize: 26, display: "inline-block" }}
           >🐢</motion.span>
           <div>
-            <span style={{
+            <span className="village-greeting" style={{
               fontFamily: "'Noto Sans Telugu', sans-serif",
-              fontWeight: 900, fontSize: 20, color: C.dark,
+              fontWeight: 900, color: C.dark,
               textShadow: "0 1px 2px rgba(0,0,0,0.05)",
             }}>
               నమస్తే!
             </span>
-            <span style={{
-              fontSize: 14, color: "#555", fontWeight: 700, marginLeft: 8,
+            <span className="village-name" style={{
+              color: "#555", fontWeight: 700, marginLeft: 8,
             }}>
               {displayName} 🌟
             </span>
@@ -860,11 +889,11 @@ export default function VillagePage() {
         </div>
 
         {/* Center: XP + Streak (pill style) */}
-        <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
-          <div style={{
+        <div className="village-stats" style={{ display: "flex", gap: 8, alignItems: "center" }}>
+          <div className="village-stat-pill" style={{
             background: "linear-gradient(135deg, #FFF8E1, #FFE082)",
             border: "2px solid #FFD54F",
-            borderRadius: 24, padding: "5px 16px",
+            borderRadius: 24,
             display: "flex", gap: 5, alignItems: "center",
             boxShadow: "0 2px 8px rgba(212,148,12,0.2)",
           }}>
@@ -872,10 +901,10 @@ export default function VillagePage() {
             <span style={{ fontWeight: 900, color: "#8D6E00", fontSize: 14 }}>{xp} XP</span>
           </div>
           {streak > 0 && (
-            <div style={{
+            <div className="village-stat-pill" style={{
               background: "linear-gradient(135deg, #FFF3E0, #FFCC80)",
               border: "2px solid #FFB74D",
-              borderRadius: 24, padding: "5px 16px",
+              borderRadius: 24,
               display: "flex", gap: 5, alignItems: "center",
               boxShadow: "0 2px 8px rgba(193,85,59,0.15)",
             }}>
@@ -889,22 +918,24 @@ export default function VillagePage() {
         <div style={{ display: "flex", gap: 8 }}>
           <button
             onClick={() => router.push("/parent/report")}
+            className="village-icon-btn"
             style={{
               background: "rgba(255,255,255,0.75)", border: "2px solid rgba(0,0,0,0.08)",
-              borderRadius: 50, width: 38, height: 38,
+              borderRadius: 50,
               display: "flex", alignItems: "center", justifyContent: "center",
-              cursor: "pointer", fontSize: 16,
+              cursor: "pointer",
               boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
             }}
             title="Parents"
           >📊</button>
           <button
             onClick={() => setShowDemo(true)}
+            className="village-icon-btn"
             style={{
               background: "rgba(255,255,255,0.75)", border: "2px solid rgba(0,0,0,0.08)",
-              borderRadius: 50, width: 38, height: 38,
+              borderRadius: 50,
               display: "flex", alignItems: "center", justifyContent: "center",
-              cursor: "pointer", fontSize: 16, fontWeight: 800, color: "#888",
+              cursor: "pointer", fontWeight: 800, color: "#888",
               boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
             }}
             title="How it works"
@@ -913,23 +944,21 @@ export default function VillagePage() {
       </div>
 
       {/* ═══ ACTIVITY BUBBLES (centered on village scene) ═══ */}
-      <div style={{
+      <div className="village-activity-wrapper" style={{
         position: "absolute",
         inset: 0,
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        paddingTop: 52,
-        paddingBottom: 64,
         zIndex: 10,
+        overflowY: "auto",
       }}>
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(3, 1fr)",
-          gap: "clamp(16px, 3vw, 28px)",
-          maxWidth: 540,
-          placeItems: "center",
+        <div className="village-activity-glass" style={{
+          background: "rgba(255,255,255,0.25)",
+          backdropFilter: "blur(8px)",
+          borderRadius: 28,
         }}>
+          <div className="village-activity-grid">
           {ACTIVITIES.map((activity, idx) => {
             if (activity.id === "learn") {
               return (
@@ -961,14 +990,14 @@ export default function VillagePage() {
               />
             );
           })}
+          </div>
         </div>
       </div>
 
       {/* ═══ BOTTOM BAR (Glass morphism + Progress) ═══ */}
-      <div style={{
+      <div className="village-bottom-bar" style={{
         position: "absolute", bottom: 0, left: 0, right: 0, zIndex: 20,
         display: "flex", alignItems: "center", justifyContent: "center",
-        gap: 20, padding: "10px 28px",
         background: "rgba(255,255,255,0.6)",
         backdropFilter: "blur(20px)",
         borderTop: "1px solid rgba(255,255,255,0.5)",
@@ -1015,11 +1044,12 @@ export default function VillagePage() {
             whileHover={{ scale: 1.06 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => router.push(`/lesson/${nextLetter.id}`)}
+            className="village-cta-btn"
             style={{
               background: "linear-gradient(135deg, #D4940C, #F5B82E)",
               color: "white", border: "3px solid #FFE082",
               borderRadius: 50,
-              padding: "10px 28px", fontSize: 16, fontWeight: 900,
+              fontWeight: 900,
               cursor: "pointer", fontFamily: "'Nunito', sans-serif",
               boxShadow: "0 4px 20px rgba(212,148,12,0.4)",
               display: "flex", alignItems: "center", gap: 8,
@@ -1035,11 +1065,12 @@ export default function VillagePage() {
             whileHover={{ scale: 1.06 }}
             whileTap={{ scale: 0.95 }}
             onClick={getLearnAction()}
+            className="village-cta-btn"
             style={{
               background: "linear-gradient(135deg, #D4940C, #F5B82E)",
               color: "white", border: "3px solid #FFE082",
               borderRadius: 50,
-              padding: "10px 28px", fontSize: 16, fontWeight: 900,
+              fontWeight: 900,
               cursor: "pointer", fontFamily: "'Nunito', sans-serif",
               boxShadow: "0 4px 20px rgba(212,148,12,0.4)",
             }}

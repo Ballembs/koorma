@@ -381,6 +381,83 @@ html, body {
 }
 
 /* ══════════════════════════════════════════════════
+   VILLAGE PAGE — responsive classes
+   ══════════════════════════════════════════════════ */
+
+/* Village Top Bar — default (desktop) */
+.village-top-bar {
+  padding: 10px 24px;
+}
+.village-greeting { font-size: 20px; }
+.village-name { font-size: 14px; }
+.village-stat-pill { padding: 5px 16px; }
+.village-icon-btn { width: 38px; height: 38px; font-size: 16px; }
+
+/* Village Activity Grid — default (desktop) */
+.village-activity-wrapper {
+  padding-top: 56px;
+  padding-bottom: 68px;
+}
+.village-activity-glass { padding: 20px 24px; }
+.village-activity-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(10px, 2vw, 18px);
+  max-width: 520px;
+  place-items: center;
+}
+
+/* Village Activity Bubbles — default (desktop) */
+.activity-bubble { width: clamp(80px, 11vw, 110px); }
+.bubble-icon { font-size: clamp(22px, 3.2vw, 28px); }
+.bubble-label-telugu { font-size: clamp(10px, 1.5vw, 13px); }
+.bubble-label-english { font-size: clamp(7px, 1vw, 9px); }
+
+/* Village Bottom Bar — default (desktop) */
+.village-bottom-bar {
+  gap: 20px;
+  padding: 10px 28px;
+}
+.village-cta-btn {
+  padding: 10px 28px;
+  font-size: 16px;
+}
+
+/* Village Bookshelf Header — default (desktop) */
+.bookshelf-header { padding: 20px 32px; }
+.bookshelf-title { font-size: 24px; }
+.bookshelf-subtitle { font-size: 14px; }
+.bookshelf-content { padding: 40px; }
+
+/* ══════════════════════════════════════════════════
+   TABLET (medium) — 768px to 1024px
+   ══════════════════════════════════════════════════ */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .village-activity-grid {
+    gap: 12px;
+    max-width: 440px;
+  }
+  .activity-bubble { width: 90px; }
+  .bubble-icon { font-size: 24px; }
+  .bubble-label-telugu { font-size: 11px; }
+  .bubble-label-english { font-size: 8px; }
+
+  .village-cta-btn {
+    padding: 8px 22px;
+    font-size: 15px;
+  }
+}
+
+/* Demo Modal — responsive */
+.demo-modal-content { padding: 40px 48px; }
+.demo-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.demo-actions { flex-wrap: wrap; }
+
+/* ══════════════════════════════════════════════════
    MOBILE RESPONSIVE — screens < 768px
    ══════════════════════════════════════════════════ */
 @media (max-width: 768px) {
@@ -395,6 +472,65 @@ html, body {
     height: auto;
     min-height: 100dvh;
     overflow-y: auto;
+  }
+
+  /* Demo Modal — mobile */
+  .demo-modal-content { padding: 20px 16px; }
+  .demo-steps-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .demo-actions { flex-direction: column; gap: 8px; }
+
+  /* Village container — allow scroll */
+  .village-container {
+    overflow: auto !important;
+    height: auto !important;
+    min-height: 100dvh;
+  }
+
+  /* Village Top Bar — compact */
+  .village-top-bar {
+    padding: 8px 12px;
+    position: sticky !important;
+    top: 0;
+  }
+  .village-greeting { font-size: 16px; }
+  .village-name { font-size: 12px; }
+  .village-stat-pill { padding: 3px 10px; font-size: 12px; }
+  .village-stats { gap: 4px; }
+  .village-icon-btn { width: 32px; height: 32px; font-size: 14px; }
+
+  /* Village Activity Grid — 3 columns for mobile */
+  .village-activity-wrapper {
+    position: relative !important;
+    padding-top: 0;
+    padding-bottom: 0;
+    min-height: calc(100dvh - 120px);
+  }
+  .village-activity-glass {
+    padding: 16px;
+    border-radius: 20px;
+    margin: 12px;
+  }
+  .village-activity-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    max-width: 360px;
+  }
+  .activity-bubble { width: 80px; }
+  .bubble-icon { font-size: 20px; }
+  .bubble-label-telugu { font-size: 10px; }
+  .bubble-label-english { font-size: 7px; }
+
+  /* Village Bottom Bar — compact */
+  .village-bottom-bar {
+    position: sticky !important;
+    bottom: 0;
+    gap: 10px;
+    padding: 8px 12px;
+  }
+  .village-cta-btn {
+    padding: 8px 18px;
+    font-size: 14px;
+    white-space: nowrap;
   }
 
   /* Lesson split → stack vertically */
@@ -459,5 +595,51 @@ html, body {
     overflow-x: auto;
     overflow-y: hidden;
     padding: 0 16px;
+  }
+
+  /* Bookshelf responsive */
+  .bookshelf-header {
+    padding: 12px 16px;
+  }
+  .bookshelf-title {
+    font-size: 18px;
+  }
+  .bookshelf-subtitle {
+    font-size: 12px;
+  }
+  .bookshelf-content {
+    padding: 16px;
+  }
+}
+
+/* ══════════════════════════════════════════════════
+   VERY SMALL MOBILE — screens < 400px
+   ══════════════════════════════════════════════════ */
+@media (max-width: 400px) {
+  .village-activity-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    max-width: 300px;
+  }
+  .activity-bubble { width: 70px; }
+  .bubble-icon { font-size: 18px; }
+  .bubble-label-telugu { font-size: 9px; }
+  .bubble-label-english { font-size: 6px; }
+
+  .village-top-bar {
+    padding: 6px 10px;
+  }
+  .village-greeting { font-size: 14px; }
+  .village-name { font-size: 11px; display: none; }
+  .village-stat-pill { padding: 2px 8px; font-size: 11px; }
+  .village-icon-btn { width: 28px; height: 28px; font-size: 12px; }
+
+  .village-cta-btn {
+    padding: 6px 14px;
+    font-size: 13px;
+  }
+  .village-bottom-bar {
+    gap: 8px;
+    padding: 6px 10px;
   }
 }
