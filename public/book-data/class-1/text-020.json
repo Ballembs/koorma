@@ -1,0 +1,115 @@
+{
+  "title": "అక్షర పరిచయ చిత్రాలు",
+  "subtitle": null,
+  "lines": [
+    {
+      "words": [
+        {
+          "telugu": "అ",
+          "english": "A (first vowel in Telugu)"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "అమ్మ",
+          "english": "Mother"
+        },
+        {
+          "telugu": "అరటి",
+          "english": "Banana"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "ఆ",
+          "english": "Aa (second vowel in Telugu)"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "ఆవు",
+          "english": "Cow"
+        },
+        {
+          "telugu": "ఆకు",
+          "english": "Leaf"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "ఇ",
+          "english": "I (third vowel in Telugu)"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "ఇల్లు",
+          "english": "House"
+        },
+        {
+          "telugu": "ఇటుక",
+          "english": "Brick"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "ఈ",
+          "english": "Ee (fourth vowel in Telugu)"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "ఈల",
+          "english": "Whistle"
+        },
+        {
+          "telugu": "ఈగ",
+          "english": "Fly"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "1వ",
+          "english": "1st"
+        },
+        {
+          "telugu": "తరగతి",
+          "english": "Class"
+        },
+        {
+          "telugu": "-",
+          "english": "-"
+        },
+        {
+          "telugu": "తెలుగు",
+          "english": "Telugu"
+        }
+      ]
+    }
+  ],
+  "pageType": "alphabet",
+  "hasExercise": false,
+  "exerciseType": null,
+  "illustrationArea": {
+    "x": 5,
+    "y": 25,
+    "w": 90,
+    "h": 62
+  }
+}

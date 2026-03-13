@@ -1,0 +1,264 @@
+{
+  "words": [
+    {
+      "word": "పాఠశాల",
+      "english": "School",
+      "simpleTeluguMeaning": "బడి",
+      "x": 42,
+      "y": 6.5,
+      "w": 18,
+      "h": 5
+    },
+    {
+      "word": "పండుగ",
+      "english": "Festival",
+      "simpleTeluguMeaning": "ఉత్సవం",
+      "x": 64,
+      "y": 6.5,
+      "w": 16,
+      "h": 5
+    },
+    {
+      "word": "ఠ,",
+      "english": "Letter Tha",
+      "x": 10,
+      "y": 18.5,
+      "w": 3.5,
+      "h": 3.5
+    },
+    {
+      "word": "ఢ,",
+      "english": "Letter Dha",
+      "x": 15,
+      "y": 18.5,
+      "w": 4,
+      "h": 3.5
+    },
+    {
+      "word": "ణ,",
+      "english": "Letter Nna",
+      "x": 20.5,
+      "y": 18.5,
+      "w": 4,
+      "h": 3.5
+    },
+    {
+      "word": "థ,",
+      "english": "Letter Tha",
+      "x": 26.5,
+      "y": 18.5,
+      "w": 4,
+      "h": 3.5
+    },
+    {
+      "word": "ధ.",
+      "english": "Letter Dha",
+      "x": 32,
+      "y": 18.5,
+      "w": 4,
+      "h": 3.5
+    },
+    {
+      "word": "పండుగండి",
+      "english": "It is a festival",
+      "x": 7.5,
+      "y": 71,
+      "w": 13,
+      "h": 2.5
+    },
+    {
+      "word": "పండుగ",
+      "english": "Festival",
+      "x": 20,
+      "y": 71,
+      "w": 8,
+      "h": 2.5
+    },
+    {
+      "word": "పాఠశాల",
+      "english": "School",
+      "x": 7.5,
+      "y": 74,
+      "w": 9.5,
+      "h": 2.5
+    },
+    {
+      "word": "పండుగ",
+      "english": "Festival",
+      "x": 17.5,
+      "y": 74,
+      "w": 8,
+      "h": 2.5
+    },
+    {
+      "word": "పిల్లలంత",
+      "english": "All children",
+      "x": 7.5,
+      "y": 77,
+      "w": 9.5,
+      "h": 2.5
+    },
+    {
+      "word": "చేరిరి",
+      "english": "Gathered",
+      "x": 17.5,
+      "y": 77,
+      "w": 5.5,
+      "h": 2.5
+    },
+    {
+      "word": "సందడెంతొ",
+      "english": "How much joy",
+      "x": 7.5,
+      "y": 80,
+      "w": 11,
+      "h": 2.5
+    },
+    {
+      "word": "చేసిరి",
+      "english": "They did",
+      "x": 19.5,
+      "y": 80,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "ఢంకా",
+      "english": "Drum",
+      "x": 7.5,
+      "y": 83,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "మోగించిరి",
+      "english": "They played",
+      "x": 14.5,
+      "y": 83,
+      "w": 10.5,
+      "h": 2.5
+    },
+    {
+      "word": "వీణను",
+      "english": "Veena (Instrument)",
+      "x": 7.5,
+      "y": 86,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "వాయించిరి",
+      "english": "They played",
+      "x": 15,
+      "y": 86,
+      "w": 11.5,
+      "h": 2.5
+    },
+    {
+      "word": "పాటలెన్నో",
+      "english": "Many songs",
+      "x": 34,
+      "y": 71,
+      "w": 11,
+      "h": 2.5
+    },
+    {
+      "word": "పాడిరి",
+      "english": "They sang",
+      "x": 45,
+      "y": 71,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "వింత",
+      "english": "Strange/Wonder",
+      "x": 34,
+      "y": 74,
+      "w": 5,
+      "h": 2.5
+    },
+    {
+      "word": "కథలు",
+      "english": "Stories",
+      "x": 40,
+      "y": 74,
+      "w": 5.5,
+      "h": 2.5
+    },
+    {
+      "word": "చెప్పిరి",
+      "english": "They told",
+      "x": 46.5,
+      "y": 74,
+      "w": 7,
+      "h": 2.5
+    },
+    {
+      "word": "నాటకాలు",
+      "english": "Dramas/Plays",
+      "x": 34,
+      "y": 77,
+      "w": 9.5,
+      "h": 2.5
+    },
+    {
+      "word": "ఆడిరి",
+      "english": "They acted/played",
+      "x": 44.5,
+      "y": 77,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "నాట్యములే",
+      "english": "Dances",
+      "x": 34,
+      "y": 80,
+      "w": 11,
+      "h": 2.5
+    },
+    {
+      "word": "చేసిరి",
+      "english": "They did",
+      "x": 45.5,
+      "y": 80,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "బహుమతులే",
+      "english": "Prizes",
+      "x": 34,
+      "y": 83,
+      "w": 12,
+      "h": 2.5
+    },
+    {
+      "word": "గెల్చిరి",
+      "english": "They won",
+      "x": 47,
+      "y": 83,
+      "w": 7.5,
+      "h": 2.5
+    },
+    {
+      "word": "బంధుజనులు",
+      "english": "Relatives/People",
+      "x": 34,
+      "y": 86,
+      "w": 12.5,
+      "h": 2.5
+    },
+    {
+      "word": "మెచ్చిరి",
+      "english": "They praised",
+      "x": 47.5,
+      "y": 86,
+      "w": 8,
+      "h": 2.5
+    }
+  ],
+  "pageType": "rhyme",
+  "hasExercise": false
+}

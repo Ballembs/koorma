@@ -53,3 +53,11 @@ package-test.json
 
 # Keep .env.example
 !.env.example
+
+# AP Textbooks
+content-source/
+# Book page images (generated from PDFs)
+public/book-pages/
+
+# Large textbook PDFs (use Git LFS if needed)
+public/Books/*.pdf

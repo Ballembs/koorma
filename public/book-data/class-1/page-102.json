@@ -1,0 +1,393 @@
+{
+  "words": [
+    {
+      "word": "(ఇ)",
+      "english": "(i)",
+      "simpleTeluguMeaning": "",
+      "x": 8,
+      "y": 6,
+      "w": 6,
+      "h": 3
+    },
+    {
+      "word": "కింది",
+      "english": "Below",
+      "simpleTeluguMeaning": "కింద ఉన్న",
+      "x": 13,
+      "y": 5,
+      "w": 6,
+      "h": 4
+    },
+    {
+      "word": "అక్షరాలకు",
+      "english": "To letters",
+      "simpleTeluguMeaning": "అక్షరాలకు",
+      "x": 19,
+      "y": 5,
+      "w": 11,
+      "h": 5
+    },
+    {
+      "word": "వాటి",
+      "english": "Their",
+      "simpleTeluguMeaning": "వాటి",
+      "x": 30,
+      "y": 5,
+      "w": 5,
+      "h": 4
+    },
+    {
+      "word": "గుర్తులను",
+      "english": "Symbols",
+      "simpleTeluguMeaning": "గుర్తులు",
+      "x": 34,
+      "y": 5,
+      "w": 10,
+      "h": 5
+    },
+    {
+      "word": "జతపరచండి.",
+      "english": "Match",
+      "simpleTeluguMeaning": "కలపండి",
+      "x": 44,
+      "y": 5,
+      "w": 12,
+      "h": 4
+    },
+    {
+      "word": "అ",
+      "english": "a",
+      "simpleTeluguMeaning": "",
+      "x": 12,
+      "y": 10,
+      "w": 3,
+      "h": 3
+    },
+    {
+      "word": "ఇ",
+      "english": "i",
+      "simpleTeluguMeaning": "",
+      "x": 12,
+      "y": 14,
+      "w": 3,
+      "h": 3
+    },
+    {
+      "word": "ఉ",
+      "english": "u",
+      "simpleTeluguMeaning": "",
+      "x": 12,
+      "y": 19,
+      "w": 3,
+      "h": 3
+    },
+    {
+      "word": "ఋ",
+      "english": "ru",
+      "simpleTeluguMeaning": "",
+      "x": 12,
+      "y": 24,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "word": "ఆ",
+      "english": "aa",
+      "simpleTeluguMeaning": "",
+      "x": 41,
+      "y": 10,
+      "w": 3,
+      "h": 3
+    },
+    {
+      "word": "ఈ",
+      "english": "ee",
+      "simpleTeluguMeaning": "",
+      "x": 41,
+      "y": 13,
+      "w": 3,
+      "h": 3
+    },
+    {
+      "word": "ఊ",
+      "english": "uu",
+      "simpleTeluguMeaning": "",
+      "x": 41,
+      "y": 17,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "word": "ౠ",
+      "english": "ruu",
+      "simpleTeluguMeaning": "",
+      "x": 40,
+      "y": 22,
+      "w": 5,
+      "h": 3
+    },
+    {
+      "word": "ఐ",
+      "english": "ai",
+      "simpleTeluguMeaning": "",
+      "x": 41,
+      "y": 26,
+      "w": 3,
+      "h": 3
+    },
+    {
+      "word": "ఏ",
+      "english": "ae",
+      "simpleTeluguMeaning": "",
+      "x": 68,
+      "y": 9,
+      "w": 3,
+      "h": 3
+    },
+    {
+      "word": "ఒ",
+      "english": "o",
+      "simpleTeluguMeaning": "",
+      "x": 68,
+      "y": 14,
+      "w": 3,
+      "h": 3
+    },
+    {
+      "word": "ఔ",
+      "english": "au",
+      "simpleTeluguMeaning": "",
+      "x": 68,
+      "y": 18,
+      "w": 3,
+      "h": 3
+    },
+    {
+      "word": "ఓ",
+      "english": "oo",
+      "simpleTeluguMeaning": "",
+      "x": 68,
+      "y": 22,
+      "w": 3,
+      "h": 3
+    },
+    {
+      "word": "ఎ",
+      "english": "e",
+      "simpleTeluguMeaning": "",
+      "x": 68,
+      "y": 26,
+      "w": 3,
+      "h": 3
+    },
+    {
+      "word": "(ఈ)",
+      "english": "(ee)",
+      "simpleTeluguMeaning": "",
+      "x": 8,
+      "y": 32,
+      "w": 5,
+      "h": 3
+    },
+    {
+      "word": "కింది",
+      "english": "Below",
+      "simpleTeluguMeaning": "కింద ఉన్న",
+      "x": 13,
+      "y": 31,
+      "w": 6,
+      "h": 4
+    },
+    {
+      "word": "బొమ్మలు",
+      "english": "Pictures",
+      "simpleTeluguMeaning": "చిత్రాలు",
+      "x": 19,
+      "y": 31,
+      "w": 8,
+      "h": 5
+    },
+    {
+      "word": "గల",
+      "english": "having",
+      "simpleTeluguMeaning": "ఉన్న",
+      "x": 35,
+      "y": 32,
+      "w": 3,
+      "h": 3
+    },
+    {
+      "word": "గుణింత",
+      "english": "Gunintham",
+      "simpleTeluguMeaning": "",
+      "x": 39,
+      "y": 32,
+      "w": 7,
+      "h": 4
+    },
+    {
+      "word": "అక్షరాలతో",
+      "english": "With letters",
+      "simpleTeluguMeaning": "",
+      "x": 47,
+      "y": 31,
+      "w": 9,
+      "h": 5
+    },
+    {
+      "word": "మొదలవుతాయి.",
+      "english": "Start",
+      "simpleTeluguMeaning": "ప్రారంభం అవుతాయి",
+      "x": 57,
+      "y": 31,
+      "w": 14,
+      "h": 4
+    },
+    {
+      "word": "వాటి",
+      "english": "Their",
+      "simpleTeluguMeaning": "వాటి",
+      "x": 73,
+      "y": 32,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "word": "పేర్లు",
+      "english": "Names",
+      "simpleTeluguMeaning": "పేర్లు",
+      "x": 78,
+      "y": 31,
+      "w": 5,
+      "h": 5
+    },
+    {
+      "word": "చెప్పండి.",
+      "english": "Say",
+      "simpleTeluguMeaning": "చెప్పండి",
+      "x": 83,
+      "y": 31,
+      "w": 8,
+      "h": 5
+    },
+    {
+      "word": "తాత",
+      "english": "Grandfather",
+      "simpleTeluguMeaning": "తాతయ్య",
+      "x": 17,
+      "y": 38,
+      "w": 7,
+      "h": 4
+    },
+    {
+      "word": "కాకర",
+      "english": "Bitter gourd",
+      "simpleTeluguMeaning": "కాకరకాయ",
+      "x": 56,
+      "y": 39,
+      "w": 9,
+      "h": 4
+    },
+    {
+      "word": "మిరప",
+      "english": "Chilli",
+      "simpleTeluguMeaning": "పచ్చిమిరపకాయ",
+      "x": 15,
+      "y": 49,
+      "w": 9,
+      "h": 4
+    },
+    {
+      "word": "జింక",
+      "english": "Deer",
+      "simpleTeluguMeaning": "జింక",
+      "x": 57,
+      "y": 49,
+      "w": 8,
+      "h": 4
+    },
+    {
+      "word": "చీమ",
+      "english": "Ant",
+      "simpleTeluguMeaning": "చీమ",
+      "x": 17,
+      "y": 60,
+      "w": 7,
+      "h": 5
+    },
+    {
+      "word": "పీత",
+      "english": "Crab",
+      "simpleTeluguMeaning": "పీత",
+      "x": 59,
+      "y": 60,
+      "w": 6,
+      "h": 5
+    },
+    {
+      "word": "(ఉ)",
+      "english": "(u)",
+      "simpleTeluguMeaning": "",
+      "x": 8,
+      "y": 73,
+      "w": 5,
+      "h": 3
+    },
+    {
+      "word": "కింది",
+      "english": "Below",
+      "simpleTeluguMeaning": "కింద ఉన్న",
+      "x": 14,
+      "y": 72,
+      "w": 6,
+      "h": 4
+    },
+    {
+      "word": "గళ్ళలో",
+      "english": "In boxes",
+      "simpleTeluguMeaning": "గడులలో",
+      "x": 20,
+      "y": 72,
+      "w": 8,
+      "h": 5
+    },
+    {
+      "word": "లను",
+      "english": "these",
+      "simpleTeluguMeaning": "",
+      "x": 34,
+      "y": 75,
+      "w": 5,
+      "h": 3
+    },
+    {
+      "word": "గుర్తించి",
+      "english": "identify",
+      "simpleTeluguMeaning": "కనిపెట్టి",
+      "x": 40,
+      "y": 75,
+      "w": 8,
+      "h": 4
+    },
+    {
+      "word": "రంగులు",
+      "english": "Colors",
+      "simpleTeluguMeaning": "రంగులు",
+      "x": 13,
+      "y": 79,
+      "w": 9,
+      "h": 4
+    },
+    {
+      "word": "వేయండి.",
+      "english": "Color it",
+      "simpleTeluguMeaning": "నింపండి",
+      "x": 24,
+      "y": 79,
+      "w": 9,
+      "h": 4
+    }
+  ],
+  "pageType": "exercise",
+  "hasExercise": true
+}

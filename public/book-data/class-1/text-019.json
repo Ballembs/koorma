@@ -1,0 +1,459 @@
+{
+  "title": "వర్ణమాల",
+  "subtitle": null,
+  "lines": [
+    {
+      "words": [
+        {
+          "telugu": "అ",
+          "english": "A (short)"
+        },
+        {
+          "telugu": "ఆ",
+          "english": "Aa (long)"
+        },
+        {
+          "telugu": "ఇ",
+          "english": "I (short)"
+        },
+        {
+          "telugu": "ఈ",
+          "english": "Ee (long)"
+        },
+        {
+          "telugu": "ఉ",
+          "english": "U (short)"
+        },
+        {
+          "telugu": "ఊ",
+          "english": "Oo (long)"
+        },
+        {
+          "telugu": "ఋ",
+          "english": "Ru (vowel)"
+        },
+        {
+          "telugu": "ౠ",
+          "english": "Roo (long vowel)"
+        },
+        {
+          "telugu": "ఌ",
+          "english": "Lru (vowel)"
+        },
+        {
+          "telugu": "ౡ",
+          "english": "Lroo (long vowel)"
+        },
+        {
+          "telugu": "ఎ",
+          "english": "E (short)"
+        },
+        {
+          "telugu": "ఏ",
+          "english": "Ee (long)"
+        },
+        {
+          "telugu": "ఐ",
+          "english": "Ai"
+        },
+        {
+          "telugu": "ఒ",
+          "english": "O (short)"
+        },
+        {
+          "telugu": "ఓ",
+          "english": "Oo (long)"
+        },
+        {
+          "telugu": "ఔ",
+          "english": "Au"
+        },
+        {
+          "telugu": "అం",
+          "english": "Am (Anuswara)"
+        },
+        {
+          "telugu": "అః",
+          "english": "Aha (Visarga)"
+        },
+        {
+          "telugu": "C",
+          "english": "The letter 'C'"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "క",
+          "english": "Ka"
+        },
+        {
+          "telugu": "ఖ",
+          "english": "Kha"
+        },
+        {
+          "telugu": "గ",
+          "english": "Ga"
+        },
+        {
+          "telugu": "ఘ",
+          "english": "Gha"
+        },
+        {
+          "telugu": "ఙ",
+          "english": "Nga"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "చ",
+          "english": "Cha (soft)"
+        },
+        {
+          "telugu": "ఛ",
+          "english": "Chha (aspirated soft)"
+        },
+        {
+          "telugu": "జ",
+          "english": "Ja (soft)"
+        },
+        {
+          "telugu": "ఝ",
+          "english": "Jha (aspirated soft)"
+        },
+        {
+          "telugu": "ఞ",
+          "english": "Nya"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "ట",
+          "english": "Ta (retroflex)"
+        },
+        {
+          "telugu": "ఠ",
+          "english": "Tha (aspirated retroflex)"
+        },
+        {
+          "telugu": "డ",
+          "english": "Da (retroflex)"
+        },
+        {
+          "telugu": "ఢ",
+          "english": "Dha (aspirated retroflex)"
+        },
+        {
+          "telugu": "ణ",
+          "english": "Na (retroflex)"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "త",
+          "english": "Tha (dental)"
+        },
+        {
+          "telugu": "థ",
+          "english": "Thha (aspirated dental)"
+        },
+        {
+          "telugu": "ద",
+          "english": "Dha (dental)"
+        },
+        {
+          "telugu": "ధ",
+          "english": "Dhha (aspirated dental)"
+        },
+        {
+          "telugu": "న",
+          "english": "Na (dental)"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "ప",
+          "english": "Pa"
+        },
+        {
+          "telugu": "ఫ",
+          "english": "Pha"
+        },
+        {
+          "telugu": "బ",
+          "english": "Ba"
+        },
+        {
+          "telugu": "భ",
+          "english": "Bha"
+        },
+        {
+          "telugu": "మ",
+          "english": "Ma"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "య",
+          "english": "Ya"
+        },
+        {
+          "telugu": "ర",
+          "english": "Ra"
+        },
+        {
+          "telugu": "ల",
+          "english": "La"
+        },
+        {
+          "telugu": "వ",
+          "english": "Va"
+        },
+        {
+          "telugu": "శ",
+          "english": "Sha (palatal)"
+        },
+        {
+          "telugu": "ష",
+          "english": "Sha (retroflex)"
+        },
+        {
+          "telugu": "స",
+          "english": "Sa"
+        },
+        {
+          "telugu": "హ",
+          "english": "Ha"
+        },
+        {
+          "telugu": "ళ",
+          "english": "Lla (retroflex)"
+        },
+        {
+          "telugu": "క్ష",
+          "english": "Ksha (compound letter)"
+        },
+        {
+          "telugu": "ఱ",
+          "english": "Rra (alveolar)"
+        },
+        {
+          "telugu": "అ",
+          "english": "A (short)"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "సూచన:",
+          "english": "Note:"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "◆",
+          "english": "Bullet point"
+        },
+        {
+          "telugu": "గళంలో",
+          "english": "In the archaic category"
+        },
+        {
+          "telugu": "ఉన్న",
+          "english": "existing"
+        },
+        {
+          "telugu": "ౠ,",
+          "english": "Roo,"
+        },
+        {
+          "telugu": "ఌ,",
+          "english": "Lru,"
+        },
+        {
+          "telugu": "ౡ,",
+          "english": "Lroo,"
+        },
+        {
+          "telugu": "సి,",
+          "english": "C,"
+        },
+        {
+          "telugu": "ఛే,",
+          "english": "Chhe,"
+        },
+        {
+          "telugu": "జే,",
+          "english": "Je,"
+        },
+        {
+          "telugu": "ఱ",
+          "english": "Rra"
+        },
+        {
+          "telugu": "అక్షరాలు",
+          "english": "letters"
+        },
+        {
+          "telugu": "ప్రస్తుతం",
+          "english": "currently"
+        },
+        {
+          "telugu": "వాడుకలో",
+          "english": "in use"
+        },
+        {
+          "telugu": "లేవు.",
+          "english": "are not."
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "◆",
+          "english": "Bullet point"
+        },
+        {
+          "telugu": "జ,",
+          "english": "Ja,"
+        },
+        {
+          "telugu": "ఝ",
+          "english": "Jha"
+        },
+        {
+          "telugu": "అక్షరాలను",
+          "english": "letters"
+        },
+        {
+          "telugu": "పై",
+          "english": "higher"
+        },
+        {
+          "telugu": "తరగతులలో",
+          "english": "in classes"
+        },
+        {
+          "telugu": "నేర్చుకుంటారు.",
+          "english": "will learn."
+        },
+        {
+          "telugu": "వాటి",
+          "english": "Their"
+        },
+        {
+          "telugu": "ఉపయోగం",
+          "english": "usage"
+        },
+        {
+          "telugu": "తెలుసుకుంటారు.",
+          "english": "will know."
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "◆",
+          "english": "Bullet point"
+        },
+        {
+          "telugu": "'ఱ'",
+          "english": "'Rra'"
+        },
+        {
+          "telugu": "ను",
+          "english": "object marker"
+        },
+        {
+          "telugu": "సంయుక్తాక్షరంగా",
+          "english": "as a conjunct consonant"
+        },
+        {
+          "telugu": "గుర్తించాలి.",
+          "english": "should be identified."
+        },
+        {
+          "telugu": "దానికి",
+          "english": "For it"
+        },
+        {
+          "telugu": "ప్రత్యేక",
+          "english": "special"
+        },
+        {
+          "telugu": "లిపి",
+          "english": "script"
+        },
+        {
+          "telugu": "చిహ్నం",
+          "english": "symbol"
+        },
+        {
+          "telugu": "ఉన్నది",
+          "english": "exists"
+        },
+        {
+          "telugu": "కాబట్టి",
+          "english": "therefore"
+        },
+        {
+          "telugu": "దానిని",
+          "english": "it"
+        },
+        {
+          "telugu": "వర్ణమాలలో",
+          "english": "in the alphabet"
+        },
+        {
+          "telugu": "చూపించే",
+          "english": "showing"
+        },
+        {
+          "telugu": "సంప్రదాయం",
+          "english": "tradition"
+        },
+        {
+          "telugu": "ఉంది.",
+          "english": "exists."
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "తెలుగు",
+          "english": "Telugu"
+        },
+        {
+          "telugu": "తోట",
+          "english": "Garden"
+        }
+      ]
+    }
+  ],
+  "pageType": "alphabet",
+  "hasExercise": false,
+  "exerciseType": null,
+  "illustrationArea": {
+    "x": 5,
+    "y": 15,
+    "w": 90,
+    "h": 57
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "title": null,
+  "subtitle": null,
+  "lines": [
+    {
+      "words": [
+        {
+          "telugu": "తెలుగు",
+          "english": "Telugu"
+        },
+        {
+          "telugu": "తోట",
+          "english": "garden"
+        }
+      ]
+    }
+  ],
+  "pageType": "info",
+  "hasExercise": false,
+  "exerciseType": null,
+  "illustrationArea": {
+    "x": 2,
+    "y": 2,
+    "w": 96,
+    "h": 88
+  }
+}

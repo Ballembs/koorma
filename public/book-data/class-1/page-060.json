@@ -1,0 +1,319 @@
+{
+  "words": [
+    {
+      "word": "బావా",
+      "english": "Brother-in-law",
+      "simpleTeluguMeaning": "బావ",
+      "x": 31.8,
+      "y": 7.44,
+      "w": 12.8,
+      "h": 4.5
+    },
+    {
+      "word": "బావా",
+      "english": "Brother-in-law",
+      "simpleTeluguMeaning": "బావ",
+      "x": 45.8,
+      "y": 7.44,
+      "w": 12.8,
+      "h": 4.5
+    },
+    {
+      "word": "పన్నీరు",
+      "english": "Rose water",
+      "simpleTeluguMeaning": "సుగంధ జలం",
+      "x": 59.8,
+      "y": 7.44,
+      "w": 13.9,
+      "h": 5.8
+    },
+    {
+      "word": "మ,",
+      "english": "Letter Ma",
+      "x": 74,
+      "y": 20.4,
+      "w": 4.5,
+      "h": 3.7
+    },
+    {
+      "word": "చ",
+      "english": "Letter Cha",
+      "x": 80.9,
+      "y": 20.4,
+      "w": 3.5,
+      "h": 3.7
+    },
+    {
+      "word": "బావా",
+      "english": "Brother-in-law",
+      "simpleTeluguMeaning": "బావ",
+      "x": 10.1,
+      "y": 20.4,
+      "w": 7.8,
+      "h": 2.7
+    },
+    {
+      "word": "బావా",
+      "english": "Brother-in-law",
+      "simpleTeluguMeaning": "బావ",
+      "x": 19.1,
+      "y": 20.4,
+      "w": 7.8,
+      "h": 2.7
+    },
+    {
+      "word": "పన్నీరు",
+      "english": "Rose water",
+      "simpleTeluguMeaning": "సుగంధ జలం",
+      "x": 28.1,
+      "y": 20.4,
+      "w": 9.4,
+      "h": 3.5
+    },
+    {
+      "word": "బావను",
+      "english": "Brother-in-law (object)",
+      "simpleTeluguMeaning": "బావని",
+      "x": 10.1,
+      "y": 24.1,
+      "w": 9.5,
+      "h": 2.5
+    },
+    {
+      "word": "పట్టుకు",
+      "english": "Having caught",
+      "simpleTeluguMeaning": "పట్టుకొని",
+      "x": 20.8,
+      "y": 24.1,
+      "w": 9.3,
+      "h": 3
+    },
+    {
+      "word": "తన్నేరు",
+      "english": "They kicked",
+      "simpleTeluguMeaning": "తన్నారు",
+      "x": 31.3,
+      "y": 24.1,
+      "w": 9.5,
+      "h": 3
+    },
+    {
+      "word": "వీధి",
+      "english": "Street",
+      "simpleTeluguMeaning": "బజారు",
+      "x": 10.1,
+      "y": 27.6,
+      "w": 5.4,
+      "h": 2.6
+    },
+    {
+      "word": "వీధి",
+      "english": "Street",
+      "simpleTeluguMeaning": "బజారు",
+      "x": 16.7,
+      "y": 27.6,
+      "w": 5.4,
+      "h": 2.6
+    },
+    {
+      "word": "తిప్పేరు",
+      "english": "They roamed/turned",
+      "simpleTeluguMeaning": "తిప్పారు",
+      "x": 23.3,
+      "y": 27.6,
+      "w": 9.4,
+      "h": 3
+    },
+    {
+      "word": "వీసెడు",
+      "english": "A measure (Vise)",
+      "simpleTeluguMeaning": "ఒక కొలత",
+      "x": 10.1,
+      "y": 31.1,
+      "w": 8.1,
+      "h": 2.6
+    },
+    {
+      "word": "గంధం",
+      "english": "Sandalwood paste",
+      "simpleTeluguMeaning": "చందనం",
+      "x": 19.4,
+      "y": 31.1,
+      "w": 8,
+      "h": 2.6
+    },
+    {
+      "word": "పూసేరు",
+      "english": "They applied",
+      "simpleTeluguMeaning": "పూశారు",
+      "x": 28.6,
+      "y": 31.1,
+      "w": 8.8,
+      "h": 2.6
+    },
+    {
+      "word": "చావడి",
+      "english": "Porch/Verandah",
+      "simpleTeluguMeaning": "అరుగు",
+      "x": 10.1,
+      "y": 34.6,
+      "w": 8,
+      "h": 2.6
+    },
+    {
+      "word": "గుంజకు",
+      "english": "To the pillar",
+      "simpleTeluguMeaning": "స్తంభానికి",
+      "x": 19.3,
+      "y": 34.6,
+      "w": 9.2,
+      "h": 2.5
+    },
+    {
+      "word": "కట్టేరు",
+      "english": "They tied",
+      "simpleTeluguMeaning": "కట్టారు",
+      "x": 29.7,
+      "y": 34.6,
+      "w": 8,
+      "h": 3
+    },
+    {
+      "word": "చప్పిడి",
+      "english": "Tasteless/Bland",
+      "simpleTeluguMeaning": "రుచి లేని",
+      "x": 10.1,
+      "y": 38.1,
+      "w": 8.1,
+      "h": 3
+    },
+    {
+      "word": "గుద్దులు",
+      "english": "Blows/Punches",
+      "simpleTeluguMeaning": "దెబ్బలు",
+      "x": 19.4,
+      "y": 38.1,
+      "w": 9,
+      "h": 3
+    },
+    {
+      "word": "గుద్దేరు",
+      "english": "They punched",
+      "simpleTeluguMeaning": "కొట్టారు",
+      "x": 29.6,
+      "y": 38.1,
+      "w": 8.7,
+      "h": 3
+    },
+    {
+      "word": "పట్టె",
+      "english": "Wooden frame",
+      "simpleTeluguMeaning": "చక్కని",
+      "x": 10.1,
+      "y": 41.7,
+      "w": 5.9,
+      "h": 3
+    },
+    {
+      "word": "మంచం",
+      "english": "Bed/Cot",
+      "simpleTeluguMeaning": "పడక",
+      "x": 17.2,
+      "y": 41.7,
+      "w": 8.4,
+      "h": 2.5
+    },
+    {
+      "word": "వేసేరు",
+      "english": "They put",
+      "simpleTeluguMeaning": "వేశారు",
+      "x": 26.8,
+      "y": 41.7,
+      "w": 7.3,
+      "h": 2.6
+    },
+    {
+      "word": "పాతిక",
+      "english": "Twenty-five",
+      "simpleTeluguMeaning": "ఇరవై ఐదు",
+      "x": 10.1,
+      "y": 45.2,
+      "w": 8,
+      "h": 2.6
+    },
+    {
+      "word": "గుద్దులు",
+      "english": "Blows/Punches",
+      "simpleTeluguMeaning": "దెబ్బలు",
+      "x": 19.3,
+      "y": 45.2,
+      "w": 9,
+      "h": 3
+    },
+    {
+      "word": "గుద్దేరు",
+      "english": "They punched",
+      "simpleTeluguMeaning": "కొట్టారు",
+      "x": 29.5,
+      "y": 45.2,
+      "w": 8.7,
+      "h": 3
+    },
+    {
+      "word": "నులక",
+      "english": "Coir rope",
+      "simpleTeluguMeaning": "తాడు",
+      "x": 10.1,
+      "y": 48.7,
+      "w": 6.8,
+      "h": 2.5
+    },
+    {
+      "word": "మంచం",
+      "english": "Bed/Cot",
+      "simpleTeluguMeaning": "పడక",
+      "x": 18.1,
+      "y": 48.7,
+      "w": 8.4,
+      "h": 2.5
+    },
+    {
+      "word": "వేసేరు",
+      "english": "They put",
+      "simpleTeluguMeaning": "వేశారు",
+      "x": 27.7,
+      "y": 48.7,
+      "w": 7.3,
+      "h": 2.6
+    },
+    {
+      "word": "నూరు",
+      "english": "Hundred",
+      "simpleTeluguMeaning": "వంద",
+      "x": 10.1,
+      "y": 52.2,
+      "w": 6.7,
+      "h": 2.5
+    },
+    {
+      "word": "గుద్దులు",
+      "english": "Blows/Punches",
+      "simpleTeluguMeaning": "దెబ్బలు",
+      "x": 18,
+      "y": 52.2,
+      "w": 9,
+      "h": 3
+    },
+    {
+      "word": "గుద్దేరు",
+      "english": "They punched",
+      "simpleTeluguMeaning": "కొట్టారు",
+      "x": 28.2,
+      "y": 52.2,
+      "w": 8.7,
+      "h": 3
+    }
+  ],
+  "pageType": "rhyme",
+  "hasExercise": false
+}

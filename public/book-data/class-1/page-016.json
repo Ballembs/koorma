@@ -1,0 +1,51 @@
+{
+  "words": [
+    {
+      "word": "అమ్మ",
+      "english": "Mother",
+      "simpleTeluguMeaning": "తల్లి",
+      "x": 28.35,
+      "y": 7.37,
+      "w": 13.92,
+      "h": 5.73
+    },
+    {
+      "word": "1వ",
+      "english": "First",
+      "simpleTeluguMeaning": "మొదటి",
+      "x": 6.81,
+      "y": 92.54,
+      "w": 3.79,
+      "h": 2.22
+    },
+    {
+      "word": "తరగతి",
+      "english": "Class",
+      "simpleTeluguMeaning": "క్లాస్",
+      "x": 10.97,
+      "y": 92.54,
+      "w": 6.05,
+      "h": 2.22
+    },
+    {
+      "word": "-",
+      "english": "-",
+      "simpleTeluguMeaning": "-",
+      "x": 17.52,
+      "y": 92.54,
+      "w": 1.25,
+      "h": 2.22
+    },
+    {
+      "word": "తెలుగు",
+      "english": "Telugu",
+      "simpleTeluguMeaning": "తెలుగు",
+      "x": 19.27,
+      "y": 92.54,
+      "w": 6.35,
+      "h": 2.22
+    }
+  ],
+  "pageType": "story",
+  "hasExercise": false
+}

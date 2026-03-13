@@ -1,0 +1,85 @@
+{
+  "words": [
+    {
+      "word": "సమగ్ర",
+      "english": "Comprehensive",
+      "simpleTeluguMeaning": "మొత్తం",
+      "x": 34.62,
+      "y": 66.86,
+      "w": 6.88,
+      "h": 2.22
+    },
+    {
+      "word": "శిక్షా,",
+      "english": "Education",
+      "simpleTeluguMeaning": "చదువు",
+      "x": 41.5,
+      "y": 66.86,
+      "w": 5.25,
+      "h": 2.22
+    },
+    {
+      "word": "పాఠశాల",
+      "english": "School",
+      "simpleTeluguMeaning": "బడి",
+      "x": 46.75,
+      "y": 66.86,
+      "w": 7.37,
+      "h": 2.22
+    },
+    {
+      "word": "విద్యాశాఖ,",
+      "english": "Education Department",
+      "x": 54.12,
+      "y": 66.86,
+      "w": 10.37,
+      "h": 2.22
+    },
+    {
+      "word": "ఆంధ్రప్రదేశ్",
+      "english": "Andhra Pradesh",
+      "x": 31.37,
+      "y": 69.86,
+      "w": 10.12,
+      "h": 2
+    },
+    {
+      "word": "ప్రభుత్వం",
+      "english": "Government",
+      "simpleTeluguMeaning": "ప్రభుత్వం",
+      "x": 41.5,
+      "y": 69.86,
+      "w": 8,
+      "h": 2
+    },
+    {
+      "word": "వారిచే",
+      "english": "By them",
+      "simpleTeluguMeaning": "వాళ్ళతో",
+      "x": 49.5,
+      "y": 69.86,
+      "w": 4.88,
+      "h": 2
+    },
+    {
+      "word": "ఉచిత",
+      "english": "Free",
+      "simpleTeluguMeaning": "ఉచితం",
+      "x": 54.37,
+      "y": 69.86,
+      "w": 4.75,
+      "h": 2
+    },
+    {
+      "word": "పంపిణీ",
+      "english": "Distribution",
+      "simpleTeluguMeaning": "పంచిపెట్టడం",
+      "x": 59.12,
+      "y": 69.86,
+      "w": 6.25,
+      "h": 2
+    }
+  ],
+  "pageType": "info",
+  "hasExercise": false
+}

@@ -76,3 +76,23 @@ begin
     alter table public.user_progress add column child_id uuid references child_profiles(id);
   end if;
 end $$;
+
+-- 6. Track AP textbook progress per child
+create table if not exists public.ap_textbook_progress (
+  id uuid default gen_random_uuid() primary key,
+  user_id uuid references auth.users not null,
+  class_number int not null,
+  chapter_id text not null,
+  content_type text not null,  -- 'rhyme', 'story', 'exercise', etc.
+  completed boolean default false,
+  score int default 0,         -- for exercises: percentage correct
+  time_spent_seconds int default 0,
+  completed_at timestamp with time zone,
+  created_at timestamp with time zone default now(),
+  unique(user_id, class_number, chapter_id)
+);
+
+alter table public.ap_textbook_progress enable row level security;
+drop policy if exists "own_ap_progress" on ap_textbook_progress;
+create policy "own_ap_progress" on ap_textbook_progress 
+  for all using (auth.uid() = user_id);

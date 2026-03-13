@@ -1,0 +1,366 @@
+{
+  "words": [
+    {
+      "word": "రాయండి",
+      "english": "Write",
+      "simpleTeluguMeaning": "వ్రాయండి",
+      "x": 21.36,
+      "y": 7.32,
+      "w": 12.33,
+      "h": 2.65
+    },
+    {
+      "word": "గుర్తుల",
+      "english": "Marks",
+      "simpleTeluguMeaning": "గుర్తులు",
+      "x": 13.98,
+      "y": 12.55,
+      "w": 8.06,
+      "h": 3.69
+    },
+    {
+      "word": "ఆధారంగా",
+      "english": "Based on",
+      "simpleTeluguMeaning": "బట్టి",
+      "x": 23.01,
+      "y": 13.06,
+      "w": 11.84,
+      "h": 3.18
+    },
+    {
+      "word": "చుక్కలను",
+      "english": "Dots",
+      "simpleTeluguMeaning": "బిందువులను",
+      "x": 35.83,
+      "y": 13.06,
+      "w": 11.26,
+      "h": 3.18
+    },
+    {
+      "word": "కలుపుతూ",
+      "english": "Joining",
+      "simpleTeluguMeaning": "కలుపుతూ",
+      "x": 47.86,
+      "y": 12.93,
+      "w": 11.75,
+      "h": 3.06
+    },
+    {
+      "word": "అక్షరాలు",
+      "english": "Letters",
+      "simpleTeluguMeaning": "అక్షరాలు",
+      "x": 13.98,
+      "y": 16.5,
+      "w": 10.78,
+      "h": 3.18
+    },
+    {
+      "word": "రాయండి.",
+      "english": "Write.",
+      "simpleTeluguMeaning": "వ్రాయండి.",
+      "x": 25.63,
+      "y": 16.62,
+      "w": 12.43,
+      "h": 2.55
+    },
+    {
+      "word": "మంచం",
+      "english": "Bed",
+      "simpleTeluguMeaning": "మంచం",
+      "x": 13.3,
+      "y": 20.7,
+      "w": 35.44,
+      "h": 7.64
+    },
+    {
+      "word": "కింది",
+      "english": "Below",
+      "simpleTeluguMeaning": "క్రింది",
+      "x": 13.5,
+      "y": 30.51,
+      "w": 5.92,
+      "h": 2.29
+    },
+    {
+      "word": "గళ్ళలోని",
+      "english": "In the boxes",
+      "simpleTeluguMeaning": "గళ్ళలోని",
+      "x": 20.39,
+      "y": 30.13,
+      "w": 9.9,
+      "h": 3.82
+    },
+    {
+      "word": "అక్షరాలతో",
+      "english": "With letters",
+      "simpleTeluguMeaning": "అక్షరాలతో",
+      "x": 31.07,
+      "y": 30.13,
+      "w": 12.14,
+      "h": 3.82
+    },
+    {
+      "word": "ఏర్పడే",
+      "english": "Formed",
+      "simpleTeluguMeaning": "తయారయ్యే",
+      "x": 44.08,
+      "y": 30.25,
+      "w": 7.67,
+      "h": 3.44
+    },
+    {
+      "word": "పదాలు",
+      "english": "Words",
+      "simpleTeluguMeaning": "మాటలు",
+      "x": 52.62,
+      "y": 30.38,
+      "w": 7.48,
+      "h": 2.42
+    },
+    {
+      "word": "రాయండి.",
+      "english": "Write.",
+      "simpleTeluguMeaning": "వ్రాయండి.",
+      "x": 61.17,
+      "y": 30.38,
+      "w": 12.33,
+      "h": 2.55
+    },
+    {
+      "word": "మ",
+      "english": "ma",
+      "simpleTeluguMeaning": "మ",
+      "x": 16.99,
+      "y": 35.22,
+      "w": 4.56,
+      "h": 3.57
+    },
+    {
+      "word": "ప",
+      "english": "pa",
+      "simpleTeluguMeaning": "ప",
+      "x": 27.67,
+      "y": 35.35,
+      "w": 2.72,
+      "h": 2.93
+    },
+    {
+      "word": "డ",
+      "english": "da",
+      "simpleTeluguMeaning": "డ",
+      "x": 35.53,
+      "y": 35.35,
+      "w": 3.01,
+      "h": 2.93
+    },
+    {
+      "word": "ర",
+      "english": "ra",
+      "simpleTeluguMeaning": "ర",
+      "x": 16.99,
+      "y": 40.57,
+      "w": 3.01,
+      "h": 2.8
+    },
+    {
+      "word": "గ",
+      "english": "ga",
+      "simpleTeluguMeaning": "గ",
+      "x": 27.67,
+      "y": 40.45,
+      "w": 2.82,
+      "h": 3.06
+    },
+    {
+      "word": "వ",
+      "english": "va",
+      "simpleTeluguMeaning": "వ",
+      "x": 35.73,
+      "y": 40.45,
+      "w": 3.11,
+      "h": 3.06
+    },
+    {
+      "word": "న",
+      "english": "na",
+      "simpleTeluguMeaning": "న",
+      "x": 17.18,
+      "y": 45.41,
+      "w": 2.91,
+      "h": 3.18
+    },
+    {
+      "word": "ం",
+      "english": "am",
+      "simpleTeluguMeaning": "ం",
+      "x": 26.89,
+      "y": 46.56,
+      "w": 2.62,
+      "h": 2.04
+    },
+    {
+      "word": "చ",
+      "english": "cha",
+      "simpleTeluguMeaning": "చ",
+      "x": 35.83,
+      "y": 45.54,
+      "w": 3.3,
+      "h": 2.93
+    },
+    {
+      "word": "సృజనాత్మకత",
+      "english": "Creativity",
+      "simpleTeluguMeaning": "సృజనాత్మకత",
+      "x": 18.83,
+      "y": 53.63,
+      "w": 16.6,
+      "h": 3.82
+    },
+    {
+      "word": "పిల్లలూ!",
+      "english": "Children!",
+      "simpleTeluguMeaning": "పిల్లలూ!",
+      "x": 8.83,
+      "y": 60.38,
+      "w": 7.48,
+      "h": 3.44
+    },
+    {
+      "word": "చిత్రానికి",
+      "english": "To the picture",
+      "simpleTeluguMeaning": "బొమ్మకి",
+      "x": 17.18,
+      "y": 60.13,
+      "w": 10.39,
+      "h": 3.57
+    },
+    {
+      "word": "తగిన",
+      "english": "Suitable",
+      "simpleTeluguMeaning": "తగిన",
+      "x": 28.35,
+      "y": 60.25,
+      "w": 5.05,
+      "h": 2.29
+    },
+    {
+      "word": "రంగులు",
+      "english": "Colors",
+      "simpleTeluguMeaning": "రంగులు",
+      "x": 34.37,
+      "y": 60.25,
+      "w": 8.06,
+      "h": 2.42
+    },
+    {
+      "word": "వేయండి.",
+      "english": "Apply.",
+      "simpleTeluguMeaning": "వేయండి.",
+      "x": 43.3,
+      "y": 60.25,
+      "w": 9.22,
+      "h": 2.68
+    },
+    {
+      "word": "పేరు",
+      "english": "Name",
+      "simpleTeluguMeaning": "పేరు",
+      "x": 53.4,
+      "y": 60.25,
+      "w": 4.17,
+      "h": 2.55
+    },
+    {
+      "word": "రాయండి.",
+      "english": "Write.",
+      "simpleTeluguMeaning": "వ్రాయండి.",
+      "x": 58.45,
+      "y": 60.25,
+      "w": 12.52,
+      "h": 2.55
+    },
+    {
+      "word": "తెలుగు",
+      "english": "Telugu",
+      "simpleTeluguMeaning": "తెలుగు",
+      "x": 83.3,
+      "y": 92.61,
+      "w": 6.89,
+      "h": 2.55
+    },
+    {
+      "word": "తోట",
+      "english": "Garden",
+      "simpleTeluguMeaning": "తోట",
+      "x": 91.17,
+      "y": 92.48,
+      "w": 4.17,
+      "h": 2.55
+    },
+    {
+      "word": "చుక్కలు",
+      "english": "Dots",
+      "simpleTeluguMeaning": "బిందువులు",
+      "x": 59.81,
+      "y": 12.1,
+      "w": 8.54,
+      "h": 3.18
+    },
+    {
+      "word": "కలుపుతూ",
+      "english": "Joining",
+      "simpleTeluguMeaning": "కలుపుతూ",
+      "x": 69.42,
+      "y": 12.1,
+      "w": 11.26,
+      "h": 3.06
+    },
+    {
+      "word": "గీతల్లో",
+      "english": "In lines",
+      "simpleTeluguMeaning": "గీతలలో",
+      "x": 81.65,
+      "y": 11.85,
+      "w": 6.6,
+      "h": 3.82
+    },
+    {
+      "word": "రాయండి.",
+      "english": "Write.",
+      "simpleTeluguMeaning": "వ్రాయండి.",
+      "x": 89.22,
+      "y": 12.36,
+      "w": 12.43,
+      "h": 2.55
+    },
+    {
+      "word": "మంచం",
+      "english": "Bed",
+      "simpleTeluguMeaning": "మంచం",
+      "x": 62.62,
+      "y": 17.58,
+      "w": 19.32,
+      "h": 2.55
+    },
+    {
+      "word": "మంచం",
+      "english": "Bed",
+      "simpleTeluguMeaning": "మంచం",
+      "x": 62.72,
+      "y": 22.93,
+      "w": 19.32,
+      "h": 2.55
+    },
+    {
+      "word": "మంచం",
+      "english": "Bed",
+      "simpleTeluguMeaning": "మంచం",
+      "x": 62.62,
+      "y": 28.28,
+      "w": 19.51,
+      "h": 2.55
+    }
+  ],
+  "pageType": "exercise",
+  "hasExercise": true
+}

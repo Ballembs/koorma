@@ -1,0 +1,807 @@
+{
+  "words": [
+    {
+      "word": "కృతజ్ఞతాభివందనాలు",
+      "english": "Acknowledgments",
+      "simpleTeluguMeaning": "ధన్యవాదాలు",
+      "x": 37.12,
+      "y": 7.42,
+      "w": 23.3,
+      "h": 3.4
+    },
+    {
+      "word": "ఒకటవ",
+      "english": "First",
+      "simpleTeluguMeaning": "మొదటి",
+      "x": 11.2,
+      "y": 11.53,
+      "w": 6.13,
+      "h": 2.21
+    },
+    {
+      "word": "తరగతి",
+      "english": "Class",
+      "simpleTeluguMeaning": "క్లాసు",
+      "x": 18.06,
+      "y": 11.53,
+      "w": 6.13,
+      "h": 2.21
+    },
+    {
+      "word": "పాఠ్యపుస్తకంలో",
+      "english": "In the textbook",
+      "simpleTeluguMeaning": "",
+      "x": 24.89,
+      "y": 11.53,
+      "w": 13.98,
+      "h": 2.61
+    },
+    {
+      "word": "తెలుగు",
+      "english": "Telugu",
+      "simpleTeluguMeaning": "",
+      "x": 39.58,
+      "y": 11.53,
+      "w": 6.77,
+      "h": 2.21
+    },
+    {
+      "word": "బాలల",
+      "english": "Children's",
+      "simpleTeluguMeaning": "పిల్లల",
+      "x": 47.05,
+      "y": 11.53,
+      "w": 4.96,
+      "h": 2.21
+    },
+    {
+      "word": "కోసం",
+      "english": "For",
+      "simpleTeluguMeaning": "కొరకు",
+      "x": 52.71,
+      "y": 11.53,
+      "w": 4.79,
+      "h": 2.21
+    },
+    {
+      "word": "బాలసాహిత్యాన్ని",
+      "english": "Children's literature",
+      "simpleTeluguMeaning": "",
+      "x": 58.2,
+      "y": 11.53,
+      "w": 13.56,
+      "h": 2.61
+    },
+    {
+      "word": "సృష్టించిన",
+      "english": "Created",
+      "simpleTeluguMeaning": "",
+      "x": 72.46,
+      "y": 11.53,
+      "w": 8.52,
+      "h": 2.61
+    },
+    {
+      "word": "ప్రాచీన,",
+      "english": "Ancient",
+      "simpleTeluguMeaning": "పాత",
+      "x": 81.69,
+      "y": 11.53,
+      "w": 6.45,
+      "h": 2.61
+    },
+    {
+      "word": "ఆధునిక",
+      "english": "Modern",
+      "simpleTeluguMeaning": "కొత్త",
+      "x": 11.2,
+      "y": 14.73,
+      "w": 7.42,
+      "h": 2.21
+    },
+    {
+      "word": "రచయితల",
+      "english": "Writers",
+      "simpleTeluguMeaning": "కవుల",
+      "x": 19.32,
+      "y": 14.73,
+      "w": 9.07,
+      "h": 2.21
+    },
+    {
+      "word": "రచనలను",
+      "english": "Writings",
+      "simpleTeluguMeaning": "",
+      "x": 29.1,
+      "y": 14.73,
+      "w": 8.01,
+      "h": 2.21
+    },
+    {
+      "word": "ఎంపిక",
+      "english": "Select",
+      "simpleTeluguMeaning": "ఎన్నుకోవడం",
+      "x": 37.81,
+      "y": 14.73,
+      "w": 6.13,
+      "h": 2.21
+    },
+    {
+      "word": "చేసుకోవడం",
+      "english": "To do",
+      "simpleTeluguMeaning": "చేయడం",
+      "x": 44.64,
+      "y": 14.73,
+      "w": 10.43,
+      "h": 2.21
+    },
+    {
+      "word": "జరిగింది.",
+      "english": "Happened",
+      "simpleTeluguMeaning": "అయ్యింది",
+      "x": 55.77,
+      "y": 14.73,
+      "w": 7.85,
+      "h": 2.21
+    },
+    {
+      "word": "పాఠ్యాంశానికి",
+      "english": "To the lesson",
+      "simpleTeluguMeaning": "",
+      "x": 64.33,
+      "y": 14.73,
+      "w": 11.63,
+      "h": 2.61
+    },
+    {
+      "word": "అనుగుణంగా",
+      "english": "Accordingly",
+      "simpleTeluguMeaning": "",
+      "x": 76.66,
+      "y": 14.73,
+      "w": 10.95,
+      "h": 2.21
+    },
+    {
+      "word": "ఒకటి,",
+      "english": "One,",
+      "simpleTeluguMeaning": "",
+      "x": 11.2,
+      "y": 17.93,
+      "w": 5.46,
+      "h": 2.21
+    },
+    {
+      "word": "రెండు",
+      "english": "Two",
+      "simpleTeluguMeaning": "",
+      "x": 17.37,
+      "y": 17.93,
+      "w": 5.23,
+      "h": 2.21
+    },
+    {
+      "word": "పదాలను",
+      "english": "Words",
+      "simpleTeluguMeaning": "మాటలను",
+      "x": 23.3,
+      "y": 17.93,
+      "w": 7.31,
+      "h": 2.21
+    },
+    {
+      "word": "లేదా",
+      "english": "Or",
+      "simpleTeluguMeaning": "",
+      "x": 31.31,
+      "y": 17.93,
+      "w": 3.99,
+      "h": 2.21
+    },
+    {
+      "word": "పాదాలను",
+      "english": "Lines",
+      "simpleTeluguMeaning": "",
+      "x": 36,
+      "y": 17.93,
+      "w": 8.01,
+      "h": 2.21
+    },
+    {
+      "word": "మార్చుకోవడం",
+      "english": "To change",
+      "simpleTeluguMeaning": "మార్చడం",
+      "x": 44.71,
+      "y": 17.93,
+      "w": 12.02,
+      "h": 2.61
+    },
+    {
+      "word": "జరిగింది.",
+      "english": "Happened",
+      "simpleTeluguMeaning": "అయ్యింది",
+      "x": 57.43,
+      "y": 17.93,
+      "w": 7.85,
+      "h": 2.21
+    },
+    {
+      "word": "అద్వితీయమైన",
+      "english": "Unique",
+      "simpleTeluguMeaning": "సరిసాటిలేని",
+      "x": 17.72,
+      "y": 20.94,
+      "w": 11.41,
+      "h": 2.61
+    },
+    {
+      "word": "ఈ",
+      "english": "This",
+      "simpleTeluguMeaning": "",
+      "x": 29.83,
+      "y": 20.94,
+      "w": 1.77,
+      "h": 2.21
+    },
+    {
+      "word": "రచనలను",
+      "english": "Writings",
+      "simpleTeluguMeaning": "",
+      "x": 32.31,
+      "y": 20.94,
+      "w": 8.01,
+      "h": 2.21
+    },
+    {
+      "word": "అందించిన",
+      "english": "Provided",
+      "simpleTeluguMeaning": "ఇచ్చిన",
+      "x": 41.02,
+      "y": 20.94,
+      "w": 8.7,
+      "h": 2.21
+    },
+    {
+      "word": "క్రింది",
+      "english": "Below",
+      "simpleTeluguMeaning": "కింద",
+      "x": 50.43,
+      "y": 20.94,
+      "w": 4.67,
+      "h": 2.61
+    },
+    {
+      "word": "మహనీయులందరికీ",
+      "english": "To all great people",
+      "simpleTeluguMeaning": "",
+      "x": 55.8,
+      "y": 20.94,
+      "w": 15.65,
+      "h": 2.21
+    },
+    {
+      "word": "మా",
+      "english": "Our",
+      "simpleTeluguMeaning": "మన",
+      "x": 72.16,
+      "y": 20.94,
+      "w": 2.44,
+      "h": 2.21
+    },
+    {
+      "word": "హృదయపూర్వక",
+      "english": "Heartfelt",
+      "simpleTeluguMeaning": "మనస్ఫూర్తిగా",
+      "x": 75.3,
+      "y": 20.94,
+      "w": 12.33,
+      "h": 2.61
+    },
+    {
+      "word": "కృతజ్ఞతాభివందనాలు.",
+      "english": "Acknowledgments.",
+      "simpleTeluguMeaning": "ధన్యవాదాలు.",
+      "x": 11.2,
+      "y": 23.95,
+      "w": 17.68,
+      "h": 3.4
+    },
+    {
+      "word": "తాళ్ళపాక",
+      "english": "Tallapaka",
+      "simpleTeluguMeaning": "",
+      "x": 35.13,
+      "y": 29.61,
+      "w": 7.42,
+      "h": 2.61
+    },
+    {
+      "word": "అన్నమయ్య",
+      "english": "Annamayya",
+      "simpleTeluguMeaning": "",
+      "x": 43.25,
+      "y": 29.61,
+      "w": 8.7,
+      "h": 2.61
+    },
+    {
+      "word": "(చందమామ",
+      "english": "(Moon",
+      "simpleTeluguMeaning": "(జాబిల్లి",
+      "x": 52.65,
+      "y": 29.61,
+      "w": 8.87,
+      "h": 2.21
+    },
+    {
+      "word": "రావే)",
+      "english": "Come)",
+      "simpleTeluguMeaning": "రా",
+      "x": 62.22,
+      "y": 29.61,
+      "w": 4.09,
+      "h": 2.21
+    },
+    {
+      "word": "యోగి",
+      "english": "Yogi",
+      "simpleTeluguMeaning": "",
+      "x": 39.9,
+      "y": 32.61,
+      "w": 4.54,
+      "h": 2.21
+    },
+    {
+      "word": "వేమన",
+      "english": "Vemana",
+      "simpleTeluguMeaning": "",
+      "x": 45.14,
+      "y": 32.61,
+      "w": 5.06,
+      "h": 2.21
+    },
+    {
+      "word": "(పద్యరత్నాలు)",
+      "english": "(Poetry gems)",
+      "simpleTeluguMeaning": "",
+      "x": 50.9,
+      "y": 32.61,
+      "w": 10.53,
+      "h": 2.61
+    },
+    {
+      "word": "వేటూరి",
+      "english": "Veturi",
+      "simpleTeluguMeaning": "",
+      "x": 36.46,
+      "y": 35.61,
+      "w": 5.62,
+      "h": 2.21
+    },
+    {
+      "word": "ప్రభాకర",
+      "english": "Prabhakara",
+      "simpleTeluguMeaning": "",
+      "x": 42.78,
+      "y": 35.61,
+      "w": 6.53,
+      "h": 2.61
+    },
+    {
+      "word": "శాస్త్రి",
+      "english": "Sastry",
+      "simpleTeluguMeaning": "",
+      "x": 50.01,
+      "y": 35.61,
+      "w": 3.79,
+      "h": 2.61
+    },
+    {
+      "word": "(మేలుకొలుపు)",
+      "english": "(Awakening)",
+      "simpleTeluguMeaning": "(నిద్రలేపుట)",
+      "x": 54.5,
+      "y": 35.61,
+      "w": 10.36,
+      "h": 2.21
+    },
+    {
+      "word": "దేవులపల్లి",
+      "english": "Devulapalli",
+      "simpleTeluguMeaning": "",
+      "x": 38.31,
+      "y": 38.61,
+      "w": 7.31,
+      "h": 2.61
+    },
+    {
+      "word": "కృష్ణశాస్త్రి",
+      "english": "Krishna Sastry",
+      "simpleTeluguMeaning": "",
+      "x": 46.32,
+      "y": 38.61,
+      "w": 7.31,
+      "h": 2.61
+    },
+    {
+      "word": "(అమ్మ",
+      "english": "(Mother",
+      "simpleTeluguMeaning": "(మమ్మీ",
+      "x": 54.33,
+      "y": 38.61,
+      "w": 4.67,
+      "h": 2.61
+    },
+    {
+      "word": "ఒడి)",
+      "english": "Lap)",
+      "simpleTeluguMeaning": "",
+      "x": 59.7,
+      "y": 38.61,
+      "w": 3.28,
+      "h": 2.21
+    },
+    {
+      "word": "చింతా",
+      "english": "Chinta",
+      "simpleTeluguMeaning": "",
+      "x": 40.06,
+      "y": 41.61,
+      "w": 4.88,
+      "h": 2.21
+    },
+    {
+      "word": "దీక్షితులు",
+      "english": "Deekshitulu",
+      "simpleTeluguMeaning": "",
+      "x": 45.64,
+      "y": 41.61,
+      "w": 6.87,
+      "h": 2.61
+    },
+    {
+      "word": "(తారంగం)",
+      "english": "(Tarangam)",
+      "simpleTeluguMeaning": "",
+      "x": 53.21,
+      "y": 41.61,
+      "w": 8.01,
+      "h": 2.21
+    },
+    {
+      "word": "బి.వి.",
+      "english": "B.V.",
+      "simpleTeluguMeaning": "",
+      "x": 38.21,
+      "y": 44.61,
+      "w": 4.19,
+      "h": 2.21
+    },
+    {
+      "word": "నరసింహారావు",
+      "english": "Narasimha Rao",
+      "simpleTeluguMeaning": "",
+      "x": 43.1,
+      "y": 44.61,
+      "w": 10.95,
+      "h": 2.21
+    },
+    {
+      "word": "(తాయిలం)",
+      "english": "(Sweets/gifts)",
+      "simpleTeluguMeaning": "(స్వీట్స్)",
+      "x": 54.75,
+      "y": 44.61,
+      "w": 8.35,
+      "h": 2.21
+    },
+    {
+      "word": "దొప్పలపూడి",
+      "english": "Doppalapudi",
+      "simpleTeluguMeaning": "",
+      "x": 36.65,
+      "y": 47.61,
+      "w": 9.49,
+      "h": 2.61
+    },
+    {
+      "word": "రాధాకృష్ణమూర్తి",
+      "english": "Radhakrishna Murthy",
+      "simpleTeluguMeaning": "",
+      "x": 46.84,
+      "y": 47.61,
+      "w": 11.63,
+      "h": 2.61
+    },
+    {
+      "word": "(పడవ)",
+      "english": "(Boat)",
+      "simpleTeluguMeaning": "",
+      "x": 59.17,
+      "y": 47.61,
+      "w": 5.46,
+      "h": 2.21
+    },
+    {
+      "word": "సమతారావు",
+      "english": "Samatarao",
+      "simpleTeluguMeaning": "",
+      "x": 37.82,
+      "y": 50.61,
+      "w": 9.14,
+      "h": 2.21
+    },
+    {
+      "word": "(ఉడత",
+      "english": "(Squirrel",
+      "simpleTeluguMeaning": "",
+      "x": 47.66,
+      "y": 50.61,
+      "w": 4.54,
+      "h": 2.21
+    },
+    {
+      "word": "ఉడత",
+      "english": "Squirrel",
+      "simpleTeluguMeaning": "",
+      "x": 52.9,
+      "y": 50.61,
+      "w": 4.04,
+      "h": 2.21
+    },
+    {
+      "word": "హూచ్)",
+      "english": "Hooch)",
+      "simpleTeluguMeaning": "",
+      "x": 57.64,
+      "y": 50.61,
+      "w": 5.82,
+      "h": 2.61
+    },
+    {
+      "word": "తురుమెళ్ళ",
+      "english": "Turumella",
+      "simpleTeluguMeaning": "",
+      "x": 34.61,
+      "y": 53.61,
+      "w": 7.42,
+      "h": 2.61
+    },
+    {
+      "word": "ఇంద్రాణి",
+      "english": "Indrani",
+      "simpleTeluguMeaning": "",
+      "x": 42.73,
+      "y": 53.61,
+      "w": 6.45,
+      "h": 2.61
+    },
+    {
+      "word": "దేవి",
+      "english": "Devi",
+      "simpleTeluguMeaning": "",
+      "x": 49.88,
+      "y": 53.61,
+      "w": 2.94,
+      "h": 2.21
+    },
+    {
+      "word": "(ఊహల",
+      "english": "(Imagination",
+      "simpleTeluguMeaning": "(కలల",
+      "x": 53.52,
+      "y": 53.61,
+      "w": 5.82,
+      "h": 2.21
+    },
+    {
+      "word": "ఊయల)",
+      "english": "Swing)",
+      "simpleTeluguMeaning": "",
+      "x": 60.04,
+      "y": 53.61,
+      "w": 6.64,
+      "h": 2.21
+    },
+    {
+      "word": "వెలగా",
+      "english": "Velaga",
+      "simpleTeluguMeaning": "",
+      "x": 34.82,
+      "y": 56.61,
+      "w": 5.06,
+      "h": 2.21
+    },
+    {
+      "word": "వెంకటప్పయ్య",
+      "english": "Venkatappayya",
+      "simpleTeluguMeaning": "",
+      "x": 40.58,
+      "y": 56.61,
+      "w": 10.26,
+      "h": 2.61
+    },
+    {
+      "word": "(బావాబావా",
+      "english": "(Brother-in-law",
+      "simpleTeluguMeaning": "",
+      "x": 51.54,
+      "y": 56.61,
+      "w": 8.7,
+      "h": 2.21
+    },
+    {
+      "word": "పన్నీరు)",
+      "english": "Rosewater)",
+      "simpleTeluguMeaning": "",
+      "x": 60.94,
+      "y": 56.61,
+      "w": 5.54,
+      "h": 2.61
+    },
+    {
+      "word": "ఆదర్శ",
+      "english": "Adarsha",
+      "simpleTeluguMeaning": "",
+      "x": 42.12,
+      "y": 59.61,
+      "w": 4.79,
+      "h": 2.61
+    },
+    {
+      "word": "సామ్రాట్",
+      "english": "Samrat",
+      "simpleTeluguMeaning": "",
+      "x": 47.61,
+      "y": 59.61,
+      "w": 6.64,
+      "h": 2.61
+    },
+    {
+      "word": "(ఆట)",
+      "english": "(Game)",
+      "simpleTeluguMeaning": "(ఆడుకోవడం)",
+      "x": 54.95,
+      "y": 59.61,
+      "w": 4.19,
+      "h": 2.21
+    },
+    {
+      "word": "జై",
+      "english": "Jai",
+      "simpleTeluguMeaning": "",
+      "x": 40.59,
+      "y": 62.61,
+      "w": 1.67,
+      "h": 2.61
+    },
+    {
+      "word": "సీతారాం",
+      "english": "Sitaram",
+      "simpleTeluguMeaning": "",
+      "x": 42.96,
+      "y": 62.61,
+      "w": 6.45,
+      "h": 2.21
+    },
+    {
+      "word": "(ఇల్లు",
+      "english": "(House",
+      "simpleTeluguMeaning": "(గృహం",
+      "x": 50.11,
+      "y": 62.61,
+      "w": 4.39,
+      "h": 2.61
+    },
+    {
+      "word": "-",
+      "english": "-",
+      "simpleTeluguMeaning": "",
+      "x": 55.2,
+      "y": 62.61,
+      "w": 1.01,
+      "h": 2.21
+    },
+    {
+      "word": "ఈగ)",
+      "english": "Fly)",
+      "simpleTeluguMeaning": "",
+      "x": 56.91,
+      "y": 62.61,
+      "w": 3.79,
+      "h": 2.21
+    },
+    {
+      "word": "కస్తూరి",
+      "english": "Kasturi",
+      "simpleTeluguMeaning": "",
+      "x": 37.5,
+      "y": 65.61,
+      "w": 5.23,
+      "h": 2.61
+    },
+    {
+      "word": "నరసింహమూర్తి",
+      "english": "Narasimhamurthy",
+      "simpleTeluguMeaning": "",
+      "x": 43.43,
+      "y": 65.61,
+      "w": 11.53,
+      "h": 2.61
+    },
+    {
+      "word": "(ఎలుకమ్మ)",
+      "english": "(Mouse)",
+      "simpleTeluguMeaning": "",
+      "x": 55.66,
+      "y": 65.61,
+      "w": 8.11,
+      "h": 2.61
+    },
+    {
+      "word": "కమ్మిశెట్టి",
+      "english": "Kammisetti",
+      "simpleTeluguMeaning": "",
+      "x": 35.5,
+      "y": 68.61,
+      "w": 6.35,
+      "h": 2.61
+    },
+    {
+      "word": "వేంకటేశ్వరరావు",
+      "english": "Venkateswara Rao",
+      "simpleTeluguMeaning": "",
+      "x": 42.55,
+      "y": 68.61,
+      "w": 12.43,
+      "h": 2.61
+    },
+    {
+      "word": "(శుభదాయిని)",
+      "english": "(Auspicious)",
+      "simpleTeluguMeaning": "(మంచిది)",
+      "x": 55.68,
+      "y": 68.61,
+      "w": 10.13,
+      "h": 2.61
+    },
+    {
+      "word": "1వ",
+      "english": "1st",
+      "simpleTeluguMeaning": "మొదటి",
+      "x": 7.04,
+      "y": 92.49,
+      "w": 2.74,
+      "h": 2.21
+    },
+    {
+      "word": "తరగతి",
+      "english": "Class",
+      "simpleTeluguMeaning": "క్లాసు",
+      "x": 10.48,
+      "y": 92.49,
+      "w": 4.67,
+      "h": 2.21
+    },
+    {
+      "word": "-",
+      "english": "-",
+      "simpleTeluguMeaning": "",
+      "x": 15.85,
+      "y": 92.49,
+      "w": 1.01,
+      "h": 2.21
+    },
+    {
+      "word": "తెలుగు",
+      "english": "Telugu",
+      "simpleTeluguMeaning": "",
+      "x": 17.56,
+      "y": 92.49,
+      "w": 5.46,
+      "h": 2.21
+    }
+  ],
+  "pageType": "info",
+  "hasExercise": false
+}

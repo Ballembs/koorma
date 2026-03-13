@@ -1,0 +1,278 @@
+{
+  "words": [
+    {
+      "word": "ఎలుకమ్మ",
+      "english": "Mother Mouse",
+      "x": 31,
+      "y": 7,
+      "w": 23,
+      "h": 6
+    },
+    {
+      "word": "ఎ,",
+      "english": "A (letter)",
+      "x": 62,
+      "y": 7.5,
+      "w": 3,
+      "h": 3
+    },
+    {
+      "word": "ఏ,",
+      "english": "Aa (letter)",
+      "x": 67.5,
+      "y": 7.5,
+      "w": 3,
+      "h": 3
+    },
+    {
+      "word": "ఐ",
+      "english": "Ai (letter)",
+      "x": 73,
+      "y": 8,
+      "w": 3,
+      "h": 2.5
+    },
+    {
+      "word": "ఎక్కడికెళ్ళావ్",
+      "english": "Where did you go?",
+      "x": 40,
+      "y": 16.5,
+      "w": 13,
+      "h": 2.5
+    },
+    {
+      "word": "ఎలుకమ్మా?",
+      "english": "Mother Mouse?",
+      "x": 54,
+      "y": 16.5,
+      "w": 12,
+      "h": 2.5
+    },
+    {
+      "word": "చేలోకెళ్ళా",
+      "english": "I went to the field",
+      "x": 40,
+      "y": 19.5,
+      "w": 9.5,
+      "h": 2.5
+    },
+    {
+      "word": "చిట్టెమ్మా!",
+      "english": "Little one!",
+      "x": 50.5,
+      "y": 19.5,
+      "w": 9,
+      "h": 2.5
+    },
+    {
+      "word": "ఎట్లా",
+      "english": "How",
+      "x": 40,
+      "y": 22.5,
+      "w": 5,
+      "h": 2.5
+    },
+    {
+      "word": "వెళ్ళావ్",
+      "english": "did you go?",
+      "x": 46,
+      "y": 22.5,
+      "w": 7,
+      "h": 2.5
+    },
+    {
+      "word": "ఎలుకమ్మా?",
+      "english": "Mother Mouse?",
+      "x": 54,
+      "y": 22.5,
+      "w": 12,
+      "h": 2.5
+    },
+    {
+      "word": "చీకటి",
+      "english": "Dark",
+      "x": 40,
+      "y": 25.5,
+      "w": 5.5,
+      "h": 2
+    },
+    {
+      "word": "చాటున",
+      "english": "in the shadow",
+      "x": 46.5,
+      "y": 25.5,
+      "w": 7,
+      "h": 2
+    },
+    {
+      "word": "చిన్నమ్మా!",
+      "english": "Little one!",
+      "x": 54.5,
+      "y": 25.5,
+      "w": 10,
+      "h": 2.5
+    },
+    {
+      "word": "ఏమేం",
+      "english": "What all",
+      "x": 40,
+      "y": 28.5,
+      "w": 6.5,
+      "h": 2
+    },
+    {
+      "word": "తెచ్చావ్",
+      "english": "did you bring?",
+      "x": 47.5,
+      "y": 28.5,
+      "w": 7,
+      "h": 2.5
+    },
+    {
+      "word": "ఎలుకమ్మా?",
+      "english": "Mother Mouse?",
+      "x": 55.5,
+      "y": 28.5,
+      "w": 12,
+      "h": 2.5
+    },
+    {
+      "word": "గింజలు",
+      "english": "Seeds",
+      "x": 40,
+      "y": 31.5,
+      "w": 6.5,
+      "h": 2
+    },
+    {
+      "word": "తెచ్చా",
+      "english": "I brought",
+      "x": 47.5,
+      "y": 31.5,
+      "w": 5.5,
+      "h": 2.5
+    },
+    {
+      "word": "బుజ్జమ్మా!",
+      "english": "Little one!",
+      "x": 54,
+      "y": 31.5,
+      "w": 11,
+      "h": 2.5
+    },
+    {
+      "word": "ఎక్కడ",
+      "english": "Where",
+      "x": 40,
+      "y": 34.5,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "దాచావ్",
+      "english": "did you hide?",
+      "x": 47.5,
+      "y": 34.5,
+      "w": 7,
+      "h": 2
+    },
+    {
+      "word": "ఎలుకమ్మా?",
+      "english": "Mother Mouse?",
+      "x": 55.5,
+      "y": 34.5,
+      "w": 12,
+      "h": 2.5
+    },
+    {
+      "word": "కలుగులో",
+      "english": "In the hole",
+      "x": 40,
+      "y": 37.5,
+      "w": 8,
+      "h": 2
+    },
+    {
+      "word": "దాచా",
+      "english": "I hid",
+      "x": 49,
+      "y": 37.5,
+      "w": 4.5,
+      "h": 2
+    },
+    {
+      "word": "కన్నమ్మా!",
+      "english": "Little one!",
+      "x": 54.5,
+      "y": 37.5,
+      "w": 11.5,
+      "h": 2.5
+    },
+    {
+      "word": "ఎన్నాళ్ళొస్తాయి",
+      "english": "For how many days will they come",
+      "x": 40,
+      "y": 40.5,
+      "w": 13.5,
+      "h": 3
+    },
+    {
+      "word": "ఎలుకమ్మా?",
+      "english": "Mother Mouse?",
+      "x": 54.5,
+      "y": 40.5,
+      "w": 13,
+      "h": 2.5
+    },
+    {
+      "word": "ఐదేళ్ళొస్తాయి",
+      "english": "They will come for five days",
+      "x": 40,
+      "y": 43.5,
+      "w": 12.5,
+      "h": 3
+    },
+    {
+      "word": "ఎల్లమ్మా!",
+      "english": "Little one!",
+      "x": 53.5,
+      "y": 43.5,
+      "w": 9,
+      "h": 2.5
+    },
+    {
+      "word": "1వ",
+      "english": "1st",
+      "x": 6,
+      "y": 93,
+      "w": 2.5,
+      "h": 2
+    },
+    {
+      "word": "తరగతి",
+      "english": "Class",
+      "x": 9.5,
+      "y": 93,
+      "w": 4.5,
+      "h": 1.5
+    },
+    {
+      "word": "-",
+      "english": "-",
+      "x": 15,
+      "y": 93.5,
+      "w": 1,
+      "h": 0.5
+    },
+    {
+      "word": "తెలుగు",
+      "english": "Telugu",
+      "x": 16.5,
+      "y": 93,
+      "w": 5,
+      "h": 1.5
+    }
+  ],
+  "pageType": "rhyme",
+  "hasExercise": false
+}

@@ -1,0 +1,124 @@
+{
+  "title": "తెలుగు తోట 1",
+  "subtitle": "సమగ్ర శిక్ష, ఆంధ్రప్రదేశ్ ప్రభుత్వం వారిచే ఉచిత పంపిణీ తెలుగు వాచకం",
+  "lines": [
+    {
+      "words": [
+        {
+          "telugu": "తెలుగుదెల్ల",
+          "english": "The entire Telugu (region/people)",
+          "simpleTeluguMeaning": "తెలుగుదేశం అంతా"
+        },
+        {
+          "telugu": "యన్న",
+          "english": "called/said"
+        },
+        {
+          "telugu": "దేశంబు",
+          "english": "country/region"
+        },
+        {
+          "telugu": "తెలుగును",
+          "english": "is Telugu"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "తెలుగు",
+          "english": "Telugu"
+        },
+        {
+          "telugu": "పల్కుచు",
+          "english": "speaking"
+        },
+        {
+          "telugu": "తెలుగుగాకండ",
+          "english": "be Telugu"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "మల్లె",
+          "english": "Jasmine (poetic reference/name)"
+        },
+        {
+          "telugu": "నృపులు",
+          "english": "kings"
+        },
+        {
+          "telugu": "కలుపు",
+          "english": "mix/include/support"
+        },
+        {
+          "telugu": "నెరుగవే",
+          "english": "don't you know?"
+        },
+        {
+          "telugu": "బాసడి",
+          "english": "language supporter/friend"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "దేశభాషలందు",
+          "english": "Among national languages"
+        },
+        {
+          "telugu": "తెలుగు",
+          "english": "Telugu"
+        },
+        {
+          "telugu": "లెస్స",
+          "english": "best/excellent"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "రాష్ట్ర",
+          "english": "State"
+        },
+        {
+          "telugu": "విద్యా",
+          "english": "Education"
+        },
+        {
+          "telugu": "పరిశోధన",
+          "english": "Research"
+        },
+        {
+          "telugu": "శిక్షణ",
+          "english": "Training"
+        },
+        {
+          "telugu": "సంస్థ",
+          "english": "Institution"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "అమరావతి",
+          "english": "Amaravati"
+        }
+      ]
+    }
+  ],
+  "pageType": "cover",
+  "hasExercise": false,
+  "exerciseType": null,
+  "illustrationArea": {
+    "x": 48,
+    "y": 27,
+    "w": 52,
+    "h": 73
+  }
+}

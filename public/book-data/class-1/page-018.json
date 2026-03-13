@@ -1,0 +1,864 @@
+{
+  "words": [
+    {
+      "word": "అక్షర",
+      "english": "Alphabet",
+      "simpleTeluguMeaning": "అక్షరాలు",
+      "x": 38.5,
+      "y": 8.5,
+      "w": 7.5,
+      "h": 4.5
+    },
+    {
+      "word": "గేయాలు",
+      "english": "Rhymes",
+      "simpleTeluguMeaning": "పాటలు",
+      "x": 47,
+      "y": 8,
+      "w": 13.5,
+      "h": 5
+    },
+    {
+      "word": "అచ్చుల",
+      "english": "Vowels",
+      "x": 11.5,
+      "y": 17.5,
+      "w": 7.5,
+      "h": 3.5
+    },
+    {
+      "word": "గేయం",
+      "english": "Rhyme",
+      "simpleTeluguMeaning": "పాట",
+      "x": 19.5,
+      "y": 17.5,
+      "w": 9.5,
+      "h": 3.5
+    },
+    {
+      "word": "అమ్మ",
+      "english": "Mother",
+      "simpleTeluguMeaning": "మమ్మీ",
+      "x": 11.5,
+      "y": 21.5,
+      "w": 6.5,
+      "h": 3.5
+    },
+    {
+      "word": "మొదటి",
+      "english": "First",
+      "simpleTeluguMeaning": "మొదట",
+      "x": 18.5,
+      "y": 21.5,
+      "w": 8.5,
+      "h": 3.5
+    },
+    {
+      "word": "దైవం",
+      "english": "God",
+      "simpleTeluguMeaning": "దేవుడు",
+      "x": 28,
+      "y": 21.5,
+      "w": 8,
+      "h": 3.5
+    },
+    {
+      "word": "అమ్మ",
+      "english": "Mother",
+      "simpleTeluguMeaning": "మమ్మీ",
+      "x": 11.5,
+      "y": 26.5,
+      "w": 4.5,
+      "h": 3
+    },
+    {
+      "word": "మొదటి",
+      "english": "First",
+      "x": 16.5,
+      "y": 26.5,
+      "w": 6,
+      "h": 2.5
+    },
+    {
+      "word": "దైవము",
+      "english": "God",
+      "x": 23.5,
+      "y": 26.5,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "ఆవు",
+      "english": "Cow",
+      "x": 11.5,
+      "y": 30,
+      "w": 3.5,
+      "h": 2.5
+    },
+    {
+      "word": "పాలు",
+      "english": "Milk",
+      "x": 15.5,
+      "y": 30,
+      "w": 4.5,
+      "h": 2.5
+    },
+    {
+      "word": "మధురము",
+      "english": "Sweet",
+      "simpleTeluguMeaning": "తీయనిది",
+      "x": 21,
+      "y": 30,
+      "w": 9.5,
+      "h": 2.5
+    },
+    {
+      "word": "ఇటుక",
+      "english": "Brick",
+      "x": 11.5,
+      "y": 33.5,
+      "w": 5.5,
+      "h": 2.5
+    },
+    {
+      "word": "గోడ",
+      "english": "Wall",
+      "x": 17.5,
+      "y": 33.5,
+      "w": 4,
+      "h": 2.5
+    },
+    {
+      "word": "మందము",
+      "english": "Thick",
+      "simpleTeluguMeaning": "లావు",
+      "x": 22,
+      "y": 33.5,
+      "w": 8.5,
+      "h": 2.5
+    },
+    {
+      "word": "ఈల",
+      "english": "Whistle",
+      "x": 11.5,
+      "y": 37.5,
+      "w": 3.5,
+      "h": 2.5
+    },
+    {
+      "word": "పాట",
+      "english": "Song",
+      "x": 15.5,
+      "y": 37.5,
+      "w": 4,
+      "h": 2.5
+    },
+    {
+      "word": "విందము",
+      "english": "Let's listen",
+      "simpleTeluguMeaning": "విందాం",
+      "x": 20,
+      "y": 37.5,
+      "w": 9,
+      "h": 2.5
+    },
+    {
+      "word": "ఉడుత",
+      "english": "Squirrel",
+      "x": 11.5,
+      "y": 41,
+      "w": 5.5,
+      "h": 2.5
+    },
+    {
+      "word": "తోక",
+      "english": "Tail",
+      "x": 17.5,
+      "y": 41,
+      "w": 4,
+      "h": 2.5
+    },
+    {
+      "word": "అందము",
+      "english": "Beauty",
+      "simpleTeluguMeaning": "అందం",
+      "x": 22,
+      "y": 41,
+      "w": 8,
+      "h": 2.5
+    },
+    {
+      "word": "ఊయలూగు",
+      "english": "Swing",
+      "x": 11.5,
+      "y": 44.5,
+      "w": 9.5,
+      "h": 2.5
+    },
+    {
+      "word": "చుందము",
+      "english": "Let's see",
+      "simpleTeluguMeaning": "చూద్దాం",
+      "x": 21.5,
+      "y": 44.5,
+      "w": 9.5,
+      "h": 2.5
+    },
+    {
+      "word": "ఎలుక",
+      "english": "Mouse",
+      "x": 11.5,
+      "y": 48,
+      "w": 5.5,
+      "h": 2.5
+    },
+    {
+      "word": "వల్ల",
+      "english": "Because of",
+      "x": 17.5,
+      "y": 48,
+      "w": 3.5,
+      "h": 3
+    },
+    {
+      "word": "నష్టము",
+      "english": "Loss",
+      "x": 21.5,
+      "y": 48,
+      "w": 6.5,
+      "h": 3
+    },
+    {
+      "word": "ఏనుగెక్కుటిష్టము",
+      "english": "Riding an elephant is desired",
+      "x": 11.5,
+      "y": 51.5,
+      "w": 14.5,
+      "h": 3.5
+    },
+    {
+      "word": "ఐస్‌క్రీం",
+      "english": "Ice cream",
+      "x": 11.5,
+      "y": 55.5,
+      "w": 7,
+      "h": 3
+    },
+    {
+      "word": "చల్లన",
+      "english": "Cold",
+      "simpleTeluguMeaning": "చల్లగా",
+      "x": 19.5,
+      "y": 55.5,
+      "w": 4.5,
+      "h": 3
+    },
+    {
+      "word": "ఒంటె",
+      "english": "Camel",
+      "x": 11.5,
+      "y": 59.5,
+      "w": 5,
+      "h": 2.5
+    },
+    {
+      "word": "నడక",
+      "english": "Walk",
+      "x": 17,
+      "y": 59.5,
+      "w": 4.5,
+      "h": 2.5
+    },
+    {
+      "word": "మెల్లన",
+      "english": "Slow",
+      "simpleTeluguMeaning": "మెల్లగా",
+      "x": 22,
+      "y": 59.5,
+      "w": 6.5,
+      "h": 3
+    },
+    {
+      "word": "ఓడ",
+      "english": "Ship",
+      "x": 11.5,
+      "y": 63,
+      "w": 3.5,
+      "h": 2.5
+    },
+    {
+      "word": "నీట",
+      "english": "In water",
+      "simpleTeluguMeaning": "నీటిలో",
+      "x": 15.5,
+      "y": 63,
+      "w": 4,
+      "h": 2.5
+    },
+    {
+      "word": "తేలును",
+      "english": "Floats",
+      "x": 20,
+      "y": 63,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "ఔటు",
+      "english": "Firecracker",
+      "x": 11.5,
+      "y": 66.5,
+      "w": 4.5,
+      "h": 2.5
+    },
+    {
+      "word": "భలే",
+      "english": "Well",
+      "simpleTeluguMeaning": "బాగా",
+      "x": 16.5,
+      "y": 66.5,
+      "w": 3.5,
+      "h": 3
+    },
+    {
+      "word": "పేలును",
+      "english": "Explodes",
+      "x": 20.5,
+      "y": 66.5,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "హల్లుల",
+      "english": "Consonants",
+      "x": 52.5,
+      "y": 17,
+      "w": 8,
+      "h": 3.5
+    },
+    {
+      "word": "గేయం",
+      "english": "Rhyme",
+      "simpleTeluguMeaning": "పాట",
+      "x": 61.5,
+      "y": 17,
+      "w": 9.5,
+      "h": 3.5
+    },
+    {
+      "word": "అక్షరాల",
+      "english": "Alphabets",
+      "x": 52.5,
+      "y": 21,
+      "w": 8.5,
+      "h": 3.5
+    },
+    {
+      "word": "జల్లులు",
+      "english": "Showers",
+      "simpleTeluguMeaning": "వాన",
+      "x": 62,
+      "y": 21,
+      "w": 8,
+      "h": 3.5
+    },
+    {
+      "word": "హల్లులోయ్",
+      "english": "Oh Consonants",
+      "x": 54,
+      "y": 26,
+      "w": 9,
+      "h": 3
+    },
+    {
+      "word": "హల్లులు",
+      "english": "Consonants",
+      "x": 64,
+      "y": 26,
+      "w": 6.5,
+      "h": 3
+    },
+    {
+      "word": "అక్షరాల",
+      "english": "Alphabets",
+      "x": 62.5,
+      "y": 29,
+      "w": 6.5,
+      "h": 3
+    },
+    {
+      "word": "జల్లులు",
+      "english": "Showers",
+      "simpleTeluguMeaning": "వాన",
+      "x": 69.5,
+      "y": 29,
+      "w": 6.5,
+      "h": 3
+    },
+    {
+      "word": "క",
+      "english": "Ka",
+      "x": 54,
+      "y": 32.5,
+      "w": 2,
+      "h": 2
+    },
+    {
+      "word": "ఖ",
+      "english": "Kha",
+      "x": 56.5,
+      "y": 32.5,
+      "w": 2.5,
+      "h": 2.5
+    },
+    {
+      "word": "గ",
+      "english": "Ga",
+      "x": 59.5,
+      "y": 32.5,
+      "w": 2,
+      "h": 2
+    },
+    {
+      "word": "ఘ",
+      "english": "Gha",
+      "x": 62,
+      "y": 32.5,
+      "w": 2.5,
+      "h": 2.5
+    },
+    {
+      "word": "ఙ",
+      "english": "Nga",
+      "x": 65,
+      "y": 32.5,
+      "w": 2,
+      "h": 2
+    },
+    {
+      "word": "కలిసీ",
+      "english": "Together",
+      "simpleTeluguMeaning": "కలిసి",
+      "x": 62.5,
+      "y": 34.5,
+      "w": 4.5,
+      "h": 2.5
+    },
+    {
+      "word": "మెలిసీ",
+      "english": "Mingled",
+      "simpleTeluguMeaning": "కలిసి",
+      "x": 67.5,
+      "y": 34.5,
+      "w": 5,
+      "h": 2.5
+    },
+    {
+      "word": "ఆడేద్దాం",
+      "english": "Let's play",
+      "simpleTeluguMeaning": "ఆడుకుందాం",
+      "x": 73,
+      "y": 34.5,
+      "w": 8.5,
+      "h": 3
+    },
+    {
+      "word": "చ",
+      "english": "Cha",
+      "x": 54,
+      "y": 37.5,
+      "w": 2.5,
+      "h": 2
+    },
+    {
+      "word": "ఛ",
+      "english": "Chha",
+      "x": 57,
+      "y": 37.5,
+      "w": 2.5,
+      "h": 2.5
+    },
+    {
+      "word": "జ",
+      "english": "Ja",
+      "x": 60,
+      "y": 37.5,
+      "w": 2,
+      "h": 2
+    },
+    {
+      "word": "ఝ",
+      "english": "Jha",
+      "x": 62.5,
+      "y": 37.5,
+      "w": 3,
+      "h": 3
+    },
+    {
+      "word": "ఞ",
+      "english": "Nya",
+      "x": 66,
+      "y": 37.5,
+      "w": 2.5,
+      "h": 2
+    },
+    {
+      "word": "చక్కగ",
+      "english": "Nicely",
+      "simpleTeluguMeaning": "బాగా",
+      "x": 62.5,
+      "y": 39.5,
+      "w": 5,
+      "h": 3
+    },
+    {
+      "word": "పాటలు",
+      "english": "Songs",
+      "x": 68,
+      "y": 39.5,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "పాడేద్దాం",
+      "english": "Let's sing",
+      "simpleTeluguMeaning": "పాడుకుందాం",
+      "x": 75,
+      "y": 39.5,
+      "w": 8.5,
+      "h": 3
+    },
+    {
+      "word": "ట",
+      "english": "Ta",
+      "x": 54,
+      "y": 42.5,
+      "w": 2,
+      "h": 2
+    },
+    {
+      "word": "ఠ",
+      "english": "Tha",
+      "x": 56.5,
+      "y": 42.5,
+      "w": 2,
+      "h": 2.5
+    },
+    {
+      "word": "డ",
+      "english": "Da",
+      "x": 59,
+      "y": 42.5,
+      "w": 2.5,
+      "h": 2
+    },
+    {
+      "word": "ఢ",
+      "english": "Dha",
+      "x": 62,
+      "y": 42.5,
+      "w": 2.5,
+      "h": 2.5
+    },
+    {
+      "word": "ణ",
+      "english": "Na",
+      "x": 65,
+      "y": 42.5,
+      "w": 2,
+      "h": 2
+    },
+    {
+      "word": "టక్కున",
+      "english": "Quickly",
+      "simpleTeluguMeaning": "వెంటనే",
+      "x": 62.5,
+      "y": 45,
+      "w": 6,
+      "h": 3
+    },
+    {
+      "word": "జవాబు",
+      "english": "Answer",
+      "x": 69,
+      "y": 45,
+      "w": 6,
+      "h": 2.5
+    },
+    {
+      "word": "చెప్పేద్దాం",
+      "english": "Let's tell",
+      "simpleTeluguMeaning": "చెబుదాం",
+      "x": 75.5,
+      "y": 45,
+      "w": 9,
+      "h": 3
+    },
+    {
+      "word": "త",
+      "english": "Ta",
+      "x": 54,
+      "y": 48,
+      "w": 2,
+      "h": 2
+    },
+    {
+      "word": "థ",
+      "english": "Tha",
+      "x": 56.5,
+      "y": 48,
+      "w": 2.5,
+      "h": 2.5
+    },
+    {
+      "word": "ద",
+      "english": "Da",
+      "x": 59.5,
+      "y": 48,
+      "w": 2,
+      "h": 2
+    },
+    {
+      "word": "ధ",
+      "english": "Dha",
+      "x": 62,
+      "y": 48,
+      "w": 2.5,
+      "h": 2.5
+    },
+    {
+      "word": "న",
+      "english": "Na",
+      "x": 65,
+      "y": 48,
+      "w": 2,
+      "h": 2
+    },
+    {
+      "word": "తగవులు",
+      "english": "Quarrels",
+      "simpleTeluguMeaning": "కొట్లాటలు",
+      "x": 62.5,
+      "y": 50.5,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "లేక",
+      "english": "Without",
+      "simpleTeluguMeaning": "లేకుండా",
+      "x": 69.5,
+      "y": 50.5,
+      "w": 3.5,
+      "h": 2.5
+    },
+    {
+      "word": "కలిసుందాం",
+      "english": "Let's be together",
+      "simpleTeluguMeaning": "కలిసి ఉందాం",
+      "x": 73.5,
+      "y": 50.5,
+      "w": 9.5,
+      "h": 2.5
+    },
+    {
+      "word": "ప",
+      "english": "Pa",
+      "x": 54,
+      "y": 53,
+      "w": 2.5,
+      "h": 2
+    },
+    {
+      "word": "ఫ",
+      "english": "Pha",
+      "x": 57,
+      "y": 53,
+      "w": 2.5,
+      "h": 2.5
+    },
+    {
+      "word": "బ",
+      "english": "Ba",
+      "x": 60,
+      "y": 53,
+      "w": 2.5,
+      "h": 2.5
+    },
+    {
+      "word": "భ",
+      "english": "Bha",
+      "x": 63,
+      "y": 53,
+      "w": 2.5,
+      "h": 2.5
+    },
+    {
+      "word": "మ",
+      "english": "Ma",
+      "x": 66,
+      "y": 53,
+      "w": 2.5,
+      "h": 2
+    },
+    {
+      "word": "పెద్దల",
+      "english": "Elders",
+      "x": 62.5,
+      "y": 55.5,
+      "w": 5,
+      "h": 3
+    },
+    {
+      "word": "మాటలు",
+      "english": "Words",
+      "x": 68,
+      "y": 55.5,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "పాటిద్దాం",
+      "english": "Let's follow",
+      "simpleTeluguMeaning": "విందాం",
+      "x": 75,
+      "y": 55.5,
+      "w": 8.5,
+      "h": 3
+    },
+    {
+      "word": "య",
+      "english": "Ya",
+      "x": 54,
+      "y": 58.5,
+      "w": 2.5,
+      "h": 2
+    },
+    {
+      "word": "ర",
+      "english": "Ra",
+      "x": 57,
+      "y": 58.5,
+      "w": 2,
+      "h": 2
+    },
+    {
+      "word": "ల",
+      "english": "La",
+      "x": 59.5,
+      "y": 58.5,
+      "w": 2.5,
+      "h": 2
+    },
+    {
+      "word": "వ",
+      "english": "Va",
+      "x": 62.5,
+      "y": 58.5,
+      "w": 2.5,
+      "h": 2
+    },
+    {
+      "word": "శ",
+      "english": "Sha",
+      "x": 65.5,
+      "y": 58.5,
+      "w": 2.5,
+      "h": 2
+    },
+    {
+      "word": "ష",
+      "english": "Shha",
+      "x": 68.5,
+      "y": 58.5,
+      "w": 2.5,
+      "h": 2.5
+    },
+    {
+      "word": "స",
+      "english": "Sa",
+      "x": 71.5,
+      "y": 58.5,
+      "w": 2,
+      "h": 2
+    },
+    {
+      "word": "ఎల్లరి",
+      "english": "Everyone's",
+      "simpleTeluguMeaning": "అందరి",
+      "x": 62.5,
+      "y": 61,
+      "w": 5,
+      "h": 3
+    },
+    {
+      "word": "మనసులు",
+      "english": "Hearts",
+      "x": 68,
+      "y": 61,
+      "w": 7.5,
+      "h": 2.5
+    },
+    {
+      "word": "గెలిచేద్దాం",
+      "english": "Let's win",
+      "simpleTeluguMeaning": "గెలుద్దాం",
+      "x": 76,
+      "y": 61,
+      "w": 9.5,
+      "h": 3
+    },
+    {
+      "word": "హ",
+      "english": "Ha",
+      "x": 54,
+      "y": 64,
+      "w": 2.5,
+      "h": 2.5
+    },
+    {
+      "word": "ళ",
+      "english": "La",
+      "x": 57,
+      "y": 64,
+      "w": 2,
+      "h": 2.5
+    },
+    {
+      "word": "క్ష",
+      "english": "Ksha",
+      "x": 59.5,
+      "y": 64,
+      "w": 3,
+      "h": 3
+    },
+    {
+      "word": "ఱ",
+      "english": "Ra",
+      "x": 63,
+      "y": 64,
+      "w": 2.5,
+      "h": 2
+    },
+    {
+      "word": "హాయిహాయిగా",
+      "english": "Joyfully",
+      "simpleTeluguMeaning": "సంతోషంగా",
+      "x": 62.5,
+      "y": 66.5,
+      "w": 12,
+      "h": 2.5
+    },
+    {
+      "word": "చదివేద్దాం",
+      "english": "Let's read",
+      "simpleTeluguMeaning": "చదువుదాం",
+      "x": 75,
+      "y": 66.5,
+      "w": 9.5,
+      "h": 3
+    }
+  ],
+  "pageType": "rhyme",
+  "hasExercise": false
+}

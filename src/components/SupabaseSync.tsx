@@ -80,6 +80,12 @@ export function SupabaseSync() {
           progress = progressData?.[0]
         }
 
+        // Catch up AP Textbook Progress
+        const { data: apData } = await supabase
+          .from('ap_textbook_progress')
+          .select('*')
+          .eq('user_id', session.user.id)
+
         if (!active) return
 
         // Hydrate profile setting overrides
@@ -90,6 +96,24 @@ export function SupabaseSync() {
           })
         }
 
+        const hydratedApProgress: Record<string, any> = { ...currentState.apProgress };
+        if (apData) {
+          apData.forEach(row => {
+            const key = `c${row.class_number}-${row.chapter_id}-${row.content_type}`;
+            let starsEarned = 0;
+            if (row.score > 0) {
+              if (row.score <= 50) starsEarned = 1;
+              else if (row.score <= 80) starsEarned = 2;
+              else starsEarned = 3;
+            }
+            hydratedApProgress[key] = {
+              completed: row.completed,
+              score: row.score,
+              starsEarned
+            };
+          });
+        }
+
         // Hydrate progress
         if (progress) {
           useKoormaStore.setState({
@@ -98,7 +122,10 @@ export function SupabaseSync() {
             wordProgress: progress.word_progress || currentState.wordProgress,
             sentenceProgress: progress.sentence_progress || currentState.sentenceProgress,
             storyProgress: progress.story_progress || currentState.storyProgress,
+            apProgress: hydratedApProgress,
           })
+        } else if (apData) {
+          useKoormaStore.setState({ apProgress: hydratedApProgress });
         }
       } catch (err) {
         console.warn('[SupabaseSync] Cloud hydration failed, using local state:', err)
@@ -148,6 +175,34 @@ export function SupabaseSync() {
           await supabase
             .from('user_progress')
             .upsert(upsertData, { onConflict: 'id' })
+
+          if (Object.keys(state.apProgress).length > 0) {
+            const apUpserts = Object.entries(state.apProgress).map(([key, data]) => {
+              // Expected key format: c{classNumber}-{chapterId}-{contentType}
+              // However, chapterId can have dashes. 
+              // Assuming schema: c1-chapter-1-rhyme -> class: 1, type: rhyme, chapterId: chapter-1
+              // Let's parse strictly: key always starts with 'c', followed by digit, followed by '-'.
+              const classStr = key.substring(1, key.indexOf('-'));
+              const classNumber = parseInt(classStr, 10);
+              const remainder = key.substring(key.indexOf('-') + 1);
+              const lastDashIdx = remainder.lastIndexOf('-');
+              const contentType = remainder.substring(lastDashIdx + 1);
+              const chapterId = remainder.substring(0, lastDashIdx);
+
+              return {
+                user_id: session.user.id,
+                class_number: classNumber,
+                chapter_id: chapterId,
+                content_type: contentType,
+                completed: data.completed,
+                score: data.score
+              }
+            });
+
+            await supabase
+              .from('ap_textbook_progress')
+              .upsert(apUpserts, { onConflict: 'user_id,class_number,chapter_id' })
+          }
         } catch (err) {
           console.warn('[SupabaseSync] Cloud save failed:', err)
         }

@@ -1,0 +1,197 @@
+{
+  "words": [
+    {
+      "word": "బాల",
+      "english": "Child",
+      "simpleTeluguMeaning": "పిల్లల",
+      "x": 38,
+      "y": 8,
+      "w": 7,
+      "h": 5
+    },
+    {
+      "word": "గేయాలు",
+      "english": "Songs / Rhymes",
+      "simpleTeluguMeaning": "పాటలు",
+      "x": 46,
+      "y": 8,
+      "w": 13,
+      "h": 5
+    },
+    {
+      "word": "జేజేలు",
+      "english": "Cheers / Salutations",
+      "simpleTeluguMeaning": "నమస్కారాలు",
+      "x": 41,
+      "y": 17,
+      "w": 9,
+      "h": 4
+    },
+    {
+      "word": "అమ్మకు",
+      "english": "To Mother",
+      "x": 34,
+      "y": 27,
+      "w": 8,
+      "h": 4
+    },
+    {
+      "word": "జేజే",
+      "english": "Hail / Praise",
+      "simpleTeluguMeaning": "నమస్కారం",
+      "x": 43,
+      "y": 27,
+      "w": 5,
+      "h": 4
+    },
+    {
+      "word": "నాన్నకు",
+      "english": "To Father",
+      "x": 34,
+      "y": 31,
+      "w": 8,
+      "h": 4
+    },
+    {
+      "word": "జేజే",
+      "english": "Hail / Praise",
+      "simpleTeluguMeaning": "నమస్కారం",
+      "x": 43,
+      "y": 31,
+      "w": 5,
+      "h": 4
+    },
+    {
+      "word": "బంగారు",
+      "english": "Golden",
+      "x": 40,
+      "y": 35,
+      "w": 8,
+      "h": 4
+    },
+    {
+      "word": "భారత",
+      "english": "Indian",
+      "x": 49,
+      "y": 35,
+      "w": 7,
+      "h": 4
+    },
+    {
+      "word": "భూమికి",
+      "english": "To the land",
+      "simpleTeluguMeaning": "నేలకు",
+      "x": 40,
+      "y": 39,
+      "w": 7,
+      "h": 4
+    },
+    {
+      "word": "జేజే",
+      "english": "Hail / Praise",
+      "simpleTeluguMeaning": "నమస్కారం",
+      "x": 48,
+      "y": 39,
+      "w": 5,
+      "h": 4
+    },
+    {
+      "word": "చదువులు",
+      "english": "Studies",
+      "simpleTeluguMeaning": "పాఠాలు",
+      "x": 34,
+      "y": 43,
+      "w": 10,
+      "h": 4
+    },
+    {
+      "word": "నేర్పే",
+      "english": "Teaching",
+      "x": 45,
+      "y": 43,
+      "w": 6,
+      "h": 4
+    },
+    {
+      "word": "గురువుకు",
+      "english": "To Teacher",
+      "simpleTeluguMeaning": "టీచరుకు",
+      "x": 34,
+      "y": 47,
+      "w": 10,
+      "h": 4
+    },
+    {
+      "word": "జేజే",
+      "english": "Hail / Praise",
+      "simpleTeluguMeaning": "నమస్కారం",
+      "x": 45,
+      "y": 47,
+      "w": 5,
+      "h": 4
+    },
+    {
+      "word": "అన్నం",
+      "english": "Food / Rice",
+      "simpleTeluguMeaning": "భోజనం",
+      "x": 40,
+      "y": 51,
+      "w": 7,
+      "h": 4
+    },
+    {
+      "word": "పెట్టే",
+      "english": "Providing",
+      "simpleTeluguMeaning": "ఇచ్చే",
+      "x": 48,
+      "y": 51,
+      "w": 6,
+      "h": 4
+    },
+    {
+      "word": "రైతుకు",
+      "english": "To Farmer",
+      "x": 40,
+      "y": 55,
+      "w": 7,
+      "h": 4
+    },
+    {
+      "word": "జేజే",
+      "english": "Hail / Praise",
+      "simpleTeluguMeaning": "నమస్కారం",
+      "x": 48,
+      "y": 55,
+      "w": 5,
+      "h": 4
+    },
+    {
+      "word": "1వ",
+      "english": "1st",
+      "simpleTeluguMeaning": "ఒకటవ",
+      "x": 6,
+      "y": 93,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "word": "తరగతి",
+      "english": "Class",
+      "simpleTeluguMeaning": "క్లాస్",
+      "x": 11,
+      "y": 93,
+      "w": 6,
+      "h": 3
+    },
+    {
+      "word": "తెలుగు",
+      "english": "Telugu",
+      "x": 18,
+      "y": 93,
+      "w": 6,
+      "h": 3
+    }
+  ],
+  "pageType": "rhyme",
+  "hasExercise": false
+}

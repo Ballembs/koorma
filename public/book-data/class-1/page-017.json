@@ -1,0 +1,24 @@
+{
+  "words": [
+    {
+      "word": "తెలుగు",
+      "english": "Telugu",
+      "simpleTeluguMeaning": "",
+      "x": 82.5,
+      "y": 92.5,
+      "w": 5.5,
+      "h": 2.5
+    },
+    {
+      "word": "తోట",
+      "english": "Garden",
+      "simpleTeluguMeaning": "",
+      "x": 88.5,
+      "y": 92.5,
+      "w": 3.5,
+      "h": 2.5
+    }
+  ],
+  "pageType": "story",
+  "hasExercise": false
+}

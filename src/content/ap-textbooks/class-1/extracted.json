@@ -1,0 +1,41 @@
+{
+  "class": 1,
+  "bookTitle": {
+    "te": "తెలుగు తోట 1",
+    "trans": "TELUGU THOTA 1",
+    "en": "Telugu Garden 1"
+  },
+  "chapters": [
+    {
+      "id": "chapter-1-rhyme",
+      "chapterNumber": 1,
+      "title": { "te": "వాన", "trans": "VAANA", "en": "Rain" },
+      "type": "rhyme",
+      "content": {
+        "lines": [
+          { "te": "వాన వాన వల్లప్ప", "trans": "VAANA VAANA VALLAPPA", "en": "Rain rain vallappa" },
+          { "te": "వాకిలి తిరుగు చెల్లప్ప", "trans": "VAAKILI THIRUGU CHELLAPPA", "en": "Turn around the yard chellappa" }
+        ]
+      }
+    },
+    {
+      "id": "chapter-2-story",
+      "chapterNumber": 2,
+      "title": { "te": "కోతి, పిల్లి", "trans": "KOTHI, PILLI", "en": "Monkey and Cat" },
+      "type": "story",
+      "content": {
+        "paragraphs": [
+          {
+            "te": "ఒక ఊరిలో ఒక కోతి, ఒక పిల్లి ఉండేవి.",
+            "trans": "OKA OORILO OKA KOTHI, OKA PILLI UNDEVI.",
+            "en": "There was a monkey and a cat in a village.",
+            "words": [
+              { "te": "కోతి", "trans": "KOTHI", "en": "Monkey" },
+              { "te": "పిల్లి", "trans": "PILLI", "en": "Cat" }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

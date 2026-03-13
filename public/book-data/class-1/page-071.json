@@ -1,0 +1,357 @@
+{
+  "words": [
+    {
+      "word": "రాయండి",
+      "english": "Write",
+      "simpleTeluguMeaning": "రాయండి",
+      "x": 22,
+      "y": 6.8,
+      "w": 12,
+      "h": 3
+    },
+    {
+      "word": "చుక్కలు",
+      "english": "Dots",
+      "simpleTeluguMeaning": "చుక్కలు",
+      "x": 58.5,
+      "y": 9.5,
+      "w": 7.5,
+      "h": 2.5
+    },
+    {
+      "word": "కలుపుతూ",
+      "english": "Joining",
+      "simpleTeluguMeaning": "కలుపుతూ",
+      "x": 65.5,
+      "y": 9.5,
+      "w": 9,
+      "h": 2.5
+    },
+    {
+      "word": "గీతల్లో",
+      "english": "In the lines",
+      "simpleTeluguMeaning": "గీతల్లో",
+      "x": 74,
+      "y": 9.5,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "రాయండి",
+      "english": "Write",
+      "simpleTeluguMeaning": "రాయండి",
+      "x": 80,
+      "y": 9.5,
+      "w": 9.5,
+      "h": 2.5
+    },
+    {
+      "word": "గుర్తుల",
+      "english": "Symbols/Marks",
+      "simpleTeluguMeaning": "గుర్తుల",
+      "x": 17.5,
+      "y": 13.5,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "ఆధారంగా",
+      "english": "Based on",
+      "simpleTeluguMeaning": "బట్టి",
+      "x": 23.5,
+      "y": 13.5,
+      "w": 9,
+      "h": 2.5
+    },
+    {
+      "word": "చుక్కలను",
+      "english": "Dots",
+      "simpleTeluguMeaning": "చుక్కలను",
+      "x": 32.5,
+      "y": 13.5,
+      "w": 8,
+      "h": 2.5
+    },
+    {
+      "word": "కలుపుతూ",
+      "english": "Joining",
+      "simpleTeluguMeaning": "కలుపుతూ",
+      "x": 40,
+      "y": 13.5,
+      "w": 9,
+      "h": 2.5
+    },
+    {
+      "word": "అక్షరాలు",
+      "english": "Letters",
+      "simpleTeluguMeaning": "అక్షరాలు",
+      "x": 17.5,
+      "y": 16.5,
+      "w": 8.5,
+      "h": 2.5
+    },
+    {
+      "word": "రాయండి",
+      "english": "Write",
+      "simpleTeluguMeaning": "రాయండి",
+      "x": 25.5,
+      "y": 16.5,
+      "w": 9.5,
+      "h": 2.5
+    },
+    {
+      "word": "జ",
+      "english": "Ja",
+      "simpleTeluguMeaning": "జ",
+      "x": 56.5,
+      "y": 14.2,
+      "w": 4.5,
+      "h": 3
+    },
+    {
+      "word": "డ",
+      "english": "Da",
+      "simpleTeluguMeaning": "డ",
+      "x": 64,
+      "y": 14.2,
+      "w": 4.5,
+      "h": 3
+    },
+    {
+      "word": "ద",
+      "english": "Da",
+      "simpleTeluguMeaning": "ద",
+      "x": 75,
+      "y": 14.2,
+      "w": 4.5,
+      "h": 3
+    },
+    {
+      "word": "ం",
+      "english": "Anusvara/Sunna",
+      "simpleTeluguMeaning": "సున్న",
+      "x": 81.5,
+      "y": 14.8,
+      "w": 3.5,
+      "h": 2
+    },
+    {
+      "word": "డ",
+      "english": "Da",
+      "simpleTeluguMeaning": "డ",
+      "x": 86.5,
+      "y": 14.2,
+      "w": 4.5,
+      "h": 3
+    },
+    {
+      "word": "కింది",
+      "english": "Below",
+      "simpleTeluguMeaning": "క్రింది",
+      "x": 17.5,
+      "y": 30.5,
+      "w": 4.5,
+      "h": 2.5
+    },
+    {
+      "word": "గళ్ళలోని",
+      "english": "In the boxes",
+      "simpleTeluguMeaning": "గడులలోని",
+      "x": 22.5,
+      "y": 30.5,
+      "w": 7.5,
+      "h": 2.5
+    },
+    {
+      "word": "అక్షరాలతో",
+      "english": "With letters",
+      "simpleTeluguMeaning": "అక్షరాలతో",
+      "x": 29.5,
+      "y": 30.5,
+      "w": 10,
+      "h": 2.5
+    },
+    {
+      "word": "ఏర్పడే",
+      "english": "Formed",
+      "simpleTeluguMeaning": "వచ్చే",
+      "x": 39.5,
+      "y": 30.5,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "పదాలు",
+      "english": "Words",
+      "simpleTeluguMeaning": "పదాలు",
+      "x": 45.5,
+      "y": 30.5,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "రాయండి",
+      "english": "Write",
+      "simpleTeluguMeaning": "రాయండి",
+      "x": 52,
+      "y": 30.5,
+      "w": 9.5,
+      "h": 2.5
+    },
+    {
+      "word": "జ",
+      "english": "Ja",
+      "simpleTeluguMeaning": "జ",
+      "x": 20,
+      "y": 35.5,
+      "w": 4.5,
+      "h": 3
+    },
+    {
+      "word": "క",
+      "english": "Ka",
+      "simpleTeluguMeaning": "క",
+      "x": 29.5,
+      "y": 35.5,
+      "w": 4.5,
+      "h": 3
+    },
+    {
+      "word": "డ",
+      "english": "Da",
+      "simpleTeluguMeaning": "డ",
+      "x": 38.5,
+      "y": 35.5,
+      "w": 4.5,
+      "h": 3
+    },
+    {
+      "word": "ప",
+      "english": "Pa",
+      "simpleTeluguMeaning": "ప",
+      "x": 20,
+      "y": 40.5,
+      "w": 4.5,
+      "h": 3
+    },
+    {
+      "word": "గ",
+      "english": "Ga",
+      "simpleTeluguMeaning": "గ",
+      "x": 29.5,
+      "y": 40.5,
+      "w": 4.5,
+      "h": 3
+    },
+    {
+      "word": "వ",
+      "english": "Va",
+      "simpleTeluguMeaning": "వ",
+      "x": 38.5,
+      "y": 40.5,
+      "w": 4.5,
+      "h": 3
+    },
+    {
+      "word": "ద",
+      "english": "Da",
+      "simpleTeluguMeaning": "ద",
+      "x": 20,
+      "y": 45.5,
+      "w": 4.5,
+      "h": 3
+    },
+    {
+      "word": "ం",
+      "english": "Anusvara/Sunna",
+      "simpleTeluguMeaning": "సున్న",
+      "x": 29.5,
+      "y": 45.5,
+      "w": 3.5,
+      "h": 3
+    },
+    {
+      "word": "ర",
+      "english": "Ra",
+      "simpleTeluguMeaning": "ర",
+      "x": 38.5,
+      "y": 45.5,
+      "w": 4.5,
+      "h": 3
+    },
+    {
+      "word": "సృజనాత్మకత",
+      "english": "Creativity",
+      "simpleTeluguMeaning": "సృజనాత్మకత",
+      "x": 19.5,
+      "y": 53.5,
+      "w": 13.5,
+      "h": 3
+    },
+    {
+      "word": "పిల్లలూ!",
+      "english": "Children!",
+      "simpleTeluguMeaning": "పిల్లలూ!",
+      "x": 12,
+      "y": 59,
+      "w": 7,
+      "h": 2.5
+    },
+    {
+      "word": "చిత్రానికి",
+      "english": "To the picture",
+      "simpleTeluguMeaning": "బొమ్మకి",
+      "x": 19.5,
+      "y": 59,
+      "w": 7.5,
+      "h": 2.5
+    },
+    {
+      "word": "తగిన",
+      "english": "Suitable",
+      "simpleTeluguMeaning": "సరిపడే",
+      "x": 27,
+      "y": 59,
+      "w": 4.5,
+      "h": 2.5
+    },
+    {
+      "word": "రంగులు",
+      "english": "Colors",
+      "simpleTeluguMeaning": "రంగులు",
+      "x": 32,
+      "y": 59,
+      "w": 8,
+      "h": 2.5
+    },
+    {
+      "word": "వేయండి",
+      "english": "Color/Apply",
+      "simpleTeluguMeaning": "వేయండి",
+      "x": 40,
+      "y": 59,
+      "w": 8,
+      "h": 2.5
+    },
+    {
+      "word": "పేరు",
+      "english": "Name",
+      "simpleTeluguMeaning": "పేరు",
+      "x": 48.5,
+      "y": 59,
+      "w": 4.5,
+      "h": 2.5
+    },
+    {
+      "word": "రాయండి",
+      "english": "Write",
+      "simpleTeluguMeaning": "రాయండి",
+      "x": 53,
+      "y": 59,
+      "w": 9.5,
+      "h": 2.5
+    }
+  ],
+  "pageType": "exercise",
+  "hasExercise": true
+}

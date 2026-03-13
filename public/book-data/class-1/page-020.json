@@ -1,0 +1,127 @@
+{
+  "words": [
+    {
+      "word": "అక్షర",
+      "english": "Alphabet",
+      "x": 32.5,
+      "y": 8,
+      "w": 7.5,
+      "h": 4.5
+    },
+    {
+      "word": "పరిచయ",
+      "english": "Introduction",
+      "x": 41,
+      "y": 8,
+      "w": 13.5,
+      "h": 4.5
+    },
+    {
+      "word": "చిత్రాలు",
+      "english": "Pictures",
+      "x": 55.5,
+      "y": 8,
+      "w": 11.5,
+      "h": 4.5
+    },
+    {
+      "word": "అమ్మ",
+      "english": "Mother",
+      "simpleTeluguMeaning": "తల్లి",
+      "x": 45.5,
+      "y": 29,
+      "w": 6.5,
+      "h": 4
+    },
+    {
+      "word": "అరటి",
+      "english": "Banana",
+      "x": 71.5,
+      "y": 29,
+      "w": 6.5,
+      "h": 4
+    },
+    {
+      "word": "ఆవు",
+      "english": "Cow",
+      "x": 46,
+      "y": 47.5,
+      "w": 5.5,
+      "h": 4
+    },
+    {
+      "word": "ఆకు",
+      "english": "Leaf",
+      "x": 72,
+      "y": 47.5,
+      "w": 5.5,
+      "h": 4
+    },
+    {
+      "word": "ఇల్లు",
+      "english": "House",
+      "x": 46,
+      "y": 65,
+      "w": 5.5,
+      "h": 4
+    },
+    {
+      "word": "ఇటుక",
+      "english": "Brick",
+      "x": 71,
+      "y": 65,
+      "w": 7,
+      "h": 4
+    },
+    {
+      "word": "ఈల",
+      "english": "Whistle",
+      "x": 46,
+      "y": 83,
+      "w": 5.5,
+      "h": 4
+    },
+    {
+      "word": "ఈగ",
+      "english": "Fly",
+      "x": 72,
+      "y": 83,
+      "w": 5.5,
+      "h": 4
+    },
+    {
+      "word": "1వ",
+      "english": "1st",
+      "x": 6.5,
+      "y": 92.5,
+      "w": 3.5,
+      "h": 2.5
+    },
+    {
+      "word": "తరగతి",
+      "english": "Class",
+      "x": 10.5,
+      "y": 92.5,
+      "w": 4.5,
+      "h": 2.5
+    },
+    {
+      "word": "-",
+      "english": "-",
+      "x": 15.5,
+      "y": 92.5,
+      "w": 1.5,
+      "h": 2.5
+    },
+    {
+      "word": "తెలుగు",
+      "english": "Telugu",
+      "x": 17.5,
+      "y": 92.5,
+      "w": 4.5,
+      "h": 2.5
+    }
+  ],
+  "pageType": "alphabet",
+  "hasExercise": false
+}

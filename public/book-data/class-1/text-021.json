@@ -1,0 +1,95 @@
+{
+  "title": null,
+  "subtitle": null,
+  "lines": [
+    {
+      "words": [
+        {
+          "telugu": "ఉ",
+          "english": "U (vowel)"
+        },
+        {
+          "telugu": "ఉడత",
+          "english": "Squirrel"
+        },
+        {
+          "telugu": "ఉట్టి",
+          "english": "Sling/Net (to hang pots)"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "ఊ",
+          "english": "Ū (vowel)"
+        },
+        {
+          "telugu": "ఊయల",
+          "english": "Cradle/Swing"
+        },
+        {
+          "telugu": "ఊడ",
+          "english": "Aerial root (e.g., of a banyan tree)"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "ఋ",
+          "english": "Ru (vowel)"
+        },
+        {
+          "telugu": "ఋషి",
+          "english": "Sage/Hermit"
+        },
+        {
+          "telugu": "ఋక్షం",
+          "english": "Bear"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "ఎ",
+          "english": "E (vowel)"
+        },
+        {
+          "telugu": "ఎలుక",
+          "english": "Mouse/Rat"
+        },
+        {
+          "telugu": "ఎద్దు",
+          "english": "Ox/Bull"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "ఏ",
+          "english": "Ē (vowel)"
+        },
+        {
+          "telugu": "ఏనుగు",
+          "english": "Elephant"
+        },
+        {
+          "telugu": "ఏతం",
+          "english": "Water lift (traditional)"
+        }
+      ]
+    }
+  ],
+  "pageType": "alphabet",
+  "hasExercise": false,
+  "exerciseType": null,
+  "illustrationArea": {
+    "x": 8,
+    "y": 14,
+    "w": 84,
+    "h": 75
+  }
+}

@@ -1,0 +1,242 @@
+{
+  "words": [
+    {
+      "word": "సంచి",
+      "english": "Bag",
+      "x": 10,
+      "y": 15,
+      "w": 12,
+      "h": 4
+    },
+    {
+      "word": "హంస",
+      "english": "Swan",
+      "x": 27,
+      "y": 15,
+      "w": 10,
+      "h": 4
+    },
+    {
+      "word": "తాళం",
+      "english": "Lock",
+      "x": 44,
+      "y": 15,
+      "w": 10,
+      "h": 4
+    },
+    {
+      "word": "ద్రాక్ష",
+      "english": "Grapes",
+      "x": 60,
+      "y": 15,
+      "w": 10,
+      "h": 4
+    },
+    {
+      "word": "అ",
+      "english": "Letter A",
+      "x": 74,
+      "y": 10,
+      "w": 12,
+      "h": 8
+    },
+    {
+      "word": "నంది",
+      "english": "Bull",
+      "x": 0,
+      "y": 26,
+      "w": 8,
+      "h": 4
+    },
+    {
+      "word": "ధనం",
+      "english": "Money",
+      "simpleTeluguMeaning": "డబ్బు",
+      "x": 10,
+      "y": 26,
+      "w": 10,
+      "h": 4
+    },
+    {
+      "word": "దండ",
+      "english": "Garland",
+      "x": 27,
+      "y": 26,
+      "w": 9,
+      "h": 4
+    },
+    {
+      "word": "రథం",
+      "english": "Chariot",
+      "x": 44,
+      "y": 26,
+      "w": 10,
+      "h": 4
+    },
+    {
+      "word": "తబల",
+      "english": "Tabla (Drum)",
+      "x": 60,
+      "y": 26,
+      "w": 10,
+      "h": 4
+    },
+    {
+      "word": "వీణ",
+      "english": "Veena (Instrument)",
+      "x": 78,
+      "y": 26,
+      "w": 8,
+      "h": 4
+    },
+    {
+      "word": "అక్షరాల",
+      "english": "Letters",
+      "x": 9,
+      "y": 33,
+      "w": 25,
+      "h": 7
+    },
+    {
+      "word": "ఆట",
+      "english": "Game",
+      "x": 41,
+      "y": 33,
+      "w": 14,
+      "h": 7
+    },
+    {
+      "word": "ఢంకా",
+      "english": "Drum",
+      "x": 76,
+      "y": 38,
+      "w": 12,
+      "h": 4
+    },
+    {
+      "word": "ఝషం",
+      "english": "Fish",
+      "simpleTeluguMeaning": "చేప",
+      "x": 11,
+      "y": 50,
+      "w": 11,
+      "h": 4
+    },
+    {
+      "word": "ఇ",
+      "english": "Letter I",
+      "x": 25,
+      "y": 43,
+      "w": 14,
+      "h": 8
+    },
+    {
+      "word": "టమాట",
+      "english": "Tomato",
+      "x": 44,
+      "y": 50,
+      "w": 10,
+      "h": 4
+    },
+    {
+      "word": "పాఠశాల",
+      "english": "School",
+      "simpleTeluguMeaning": "బడి",
+      "x": 59,
+      "y": 50,
+      "w": 13,
+      "h": 4
+    },
+    {
+      "word": "డబ్బా",
+      "english": "Box / Tin",
+      "x": 77,
+      "y": 50,
+      "w": 10,
+      "h": 4
+    },
+    {
+      "word": "ఓడ",
+      "english": "Ship",
+      "x": 0,
+      "y": 62,
+      "w": 8,
+      "h": 4
+    },
+    {
+      "word": "ఒంటె",
+      "english": "Camel",
+      "x": 11,
+      "y": 62,
+      "w": 10,
+      "h": 4
+    },
+    {
+      "word": "ఐరావతం",
+      "english": "White Elephant",
+      "x": 25,
+      "y": 62,
+      "w": 14,
+      "h": 4
+    },
+    {
+      "word": "ఏనుగు",
+      "english": "Elephant",
+      "x": 44,
+      "y": 62,
+      "w": 11,
+      "h": 4
+    },
+    {
+      "word": "ఎలుక",
+      "english": "Mouse",
+      "x": 45,
+      "y": 74,
+      "w": 10,
+      "h": 4
+    },
+    {
+      "word": "ఉడత",
+      "english": "Squirrel",
+      "x": 11,
+      "y": 85,
+      "w": 10,
+      "h": 4
+    },
+    {
+      "word": "ఊయల",
+      "english": "Swing",
+      "x": 28,
+      "y": 85,
+      "w": 11,
+      "h": 4
+    },
+    {
+      "word": "ఋషి",
+      "english": "Sage",
+      "simpleTeluguMeaning": "ముని",
+      "x": 45,
+      "y": 85,
+      "w": 9,
+      "h": 4
+    },
+    {
+      "word": "తెలుగు",
+      "english": "Telugu",
+      "x": 81,
+      "y": 93,
+      "w": 8,
+      "h": 3
+    },
+    {
+      "word": "తోట",
+      "english": "Garden",
+      "x": 90,
+      "y": 93,
+      "w": 6,
+      "h": 3
+    }
+  ],
+  "pageType": "alphabet",
+  "hasExercise": false
+}

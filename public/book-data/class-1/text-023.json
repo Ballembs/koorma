@@ -1,0 +1,126 @@
+{
+  "title": null,
+  "subtitle": null,
+  "lines": [
+    {
+      "words": [
+        {
+          "telugu": "క",
+          "english": "Ka (Telugu letter)"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "కన్ను",
+          "english": "Eye"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "కప్ప",
+          "english": "Frog"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "ఖ",
+          "english": "Kha (Telugu letter)"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "ఖర్జూరం",
+          "english": "Date (fruit)"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "ఖరం",
+          "english": "Donkey",
+          "simpleTeluguMeaning": "గాడిద"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "గ",
+          "english": "Ga (Telugu letter)"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "గరిటె",
+          "english": "Spoon / Ladle"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "గడియారం",
+          "english": "Clock"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "ఘ",
+          "english": "Gha (Telugu letter)"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "ఘంటిక",
+          "english": "Bell",
+          "simpleTeluguMeaning": "గంట"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "ఘటం",
+          "english": "Pot / Vessel",
+          "simpleTeluguMeaning": "కుండ"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "తెలుగు",
+          "english": "Telugu"
+        },
+        {
+          "telugu": "తోట",
+          "english": "Garden"
+        }
+      ]
+    }
+  ],
+  "pageType": "alphabet",
+  "hasExercise": false,
+  "exerciseType": null,
+  "illustrationArea": {
+    "x": 14,
+    "y": 10,
+    "w": 80,
+    "h": 75
+  }
+}

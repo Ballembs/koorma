@@ -1,0 +1,21 @@
+{
+  "class": 2,
+  "bookTitle": {
+    "te": "తెలుగు తోట 2",
+    "trans": "TELUGU THOTA 2",
+    "en": "Telugu Garden 2"
+  },
+  "chapters": [
+    {
+      "id": "c2-ch1-rhyme",
+      "chapterNumber": 1,
+      "title": { "te": "వానకల్లప్ప", "trans": "VAANAKALLAPPA", "en": "Rainy Days" },
+      "type": "rhyme",
+      "content": {
+        "lines": [
+          { "te": "మబ్బులు పట్టి వానలు కురిసె", "trans": "MABBULU PATTI VAANALU KURISE", "en": "Clouds gathered and it rained" }
+        ]
+      }
+    }
+  ]
+}

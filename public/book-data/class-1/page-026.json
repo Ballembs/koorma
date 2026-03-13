@@ -1,0 +1,163 @@
+{
+  "words": [
+    {
+      "word": "త",
+      "english": "Letter Ta",
+      "x": 16,
+      "y": 7,
+      "w": 14,
+      "h": 12
+    },
+    {
+      "word": "తలుపు",
+      "english": "Door",
+      "x": 43,
+      "y": 18.5,
+      "w": 11,
+      "h": 4.5
+    },
+    {
+      "word": "తబల",
+      "english": "Tabla (Drums)",
+      "x": 70,
+      "y": 18.5,
+      "w": 10,
+      "h": 4.5
+    },
+    {
+      "word": "థ",
+      "english": "Letter Tha",
+      "x": 16,
+      "y": 22,
+      "w": 14,
+      "h": 15
+    },
+    {
+      "word": "గ్రంథం",
+      "english": "Book",
+      "simpleTeluguMeaning": "పుస్తకం",
+      "x": 43,
+      "y": 25,
+      "w": 11,
+      "h": 6
+    },
+    {
+      "word": "గ్రంథం",
+      "english": "Book",
+      "simpleTeluguMeaning": "పుస్తకం",
+      "x": 43,
+      "y": 35,
+      "w": 11,
+      "h": 4.5
+    },
+    {
+      "word": "రథం",
+      "english": "Chariot",
+      "x": 70,
+      "y": 35,
+      "w": 9,
+      "h": 4.5
+    },
+    {
+      "word": "ద",
+      "english": "Letter Da",
+      "x": 16,
+      "y": 40,
+      "w": 14,
+      "h": 13
+    },
+    {
+      "word": "దండ",
+      "english": "Garland",
+      "x": 44,
+      "y": 51,
+      "w": 9,
+      "h": 4.5
+    },
+    {
+      "word": "దంతం",
+      "english": "Tusk",
+      "simpleTeluguMeaning": "పన్ను",
+      "x": 69,
+      "y": 51,
+      "w": 11,
+      "h": 4.5
+    },
+    {
+      "word": "ధ",
+      "english": "Letter Dha",
+      "x": 16,
+      "y": 55,
+      "w": 14,
+      "h": 16
+    },
+    {
+      "word": "ధనం",
+      "english": "Money",
+      "simpleTeluguMeaning": "డబ్బు",
+      "x": 44,
+      "y": 67.5,
+      "w": 9,
+      "h": 4.5
+    },
+    {
+      "word": "ధనియాలు",
+      "english": "Coriander seeds",
+      "x": 67,
+      "y": 67.5,
+      "w": 15,
+      "h": 4.5
+    },
+    {
+      "word": "న",
+      "english": "Letter Na",
+      "x": 16,
+      "y": 73,
+      "w": 14,
+      "h": 13
+    },
+    {
+      "word": "నత్త",
+      "english": "Snail",
+      "x": 45,
+      "y": 84,
+      "w": 8,
+      "h": 5
+    },
+    {
+      "word": "నంది",
+      "english": "Bull (Nandi)",
+      "simpleTeluguMeaning": "ఎద్దు",
+      "x": 70,
+      "y": 84,
+      "w": 9,
+      "h": 4.5
+    },
+    {
+      "word": "1వ",
+      "english": "1st",
+      "x": 5,
+      "y": 92,
+      "w": 6,
+      "h": 4
+    },
+    {
+      "word": "తరగతి",
+      "english": "Class",
+      "x": 10,
+      "y": 92,
+      "w": 10,
+      "h": 4
+    },
+    {
+      "word": "తెలుగు",
+      "english": "Telugu",
+      "x": 22,
+      "y": 92,
+      "w": 10,
+      "h": 4
+    }
+  ],
+  "pageType": "alphabet",
+  "hasExercise": false
+}

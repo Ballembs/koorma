@@ -1,0 +1,83 @@
+{
+  "title": null,
+  "subtitle": null,
+  "lines": [
+    {
+      "words": [
+        {
+          "telugu": "చ",
+          "english": "Cha"
+        },
+        {
+          "telugu": "చక్రం",
+          "english": "Wheel"
+        },
+        {
+          "telugu": "చందమామ",
+          "english": "Moon"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "ఛ",
+          "english": "Chha"
+        },
+        {
+          "telugu": "ఛత్రం",
+          "english": "Umbrella",
+          "simpleTeluguMeaning": "గొడుగు"
+        },
+        {
+          "telugu": "పింఛం",
+          "english": "Peacock feather",
+          "simpleTeluguMeaning": "ఈక"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "జ",
+          "english": "Ja"
+        },
+        {
+          "telugu": "జడ",
+          "english": "Braid"
+        },
+        {
+          "telugu": "జల్లెడ",
+          "english": "Sieve"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "ఝ",
+          "english": "Jha"
+        },
+        {
+          "telugu": "ఝరి",
+          "english": "Stream",
+          "simpleTeluguMeaning": "సెలయేరు"
+        },
+        {
+          "telugu": "ఝషం",
+          "english": "Fish",
+          "simpleTeluguMeaning": "చేప"
+        }
+      ]
+    }
+  ],
+  "pageType": "alphabet",
+  "hasExercise": false,
+  "exerciseType": null,
+  "illustrationArea": {
+    "x": 5,
+    "y": 8,
+    "w": 90,
+    "h": 77
+  }
+}

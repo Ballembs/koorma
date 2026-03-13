@@ -1,0 +1,195 @@
+{
+  "words": [
+    {
+      "word": "ఐ",
+      "english": "Ai",
+      "simpleTeluguMeaning": "",
+      "x": 17.5,
+      "y": 9.2,
+      "w": 12,
+      "h": 9.5
+    },
+    {
+      "word": "ఐరావతం",
+      "english": "Airavatam (Indra's elephant)",
+      "simpleTeluguMeaning": "ఏనుగు",
+      "x": 42,
+      "y": 17.2,
+      "w": 12.5,
+      "h": 3
+    },
+    {
+      "word": "ఐరేని",
+      "english": "Pot",
+      "simpleTeluguMeaning": "కుండ",
+      "x": 70.8,
+      "y": 17,
+      "w": 7,
+      "h": 3
+    },
+    {
+      "word": "ఒ",
+      "english": "O",
+      "simpleTeluguMeaning": "",
+      "x": 17,
+      "y": 23,
+      "w": 13,
+      "h": 9.5
+    },
+    {
+      "word": "ఒంటె",
+      "english": "Camel",
+      "simpleTeluguMeaning": "",
+      "x": 44.2,
+      "y": 30.5,
+      "w": 7.5,
+      "h": 3
+    },
+    {
+      "word": "ఒడ్డాణం",
+      "english": "Waistbelt",
+      "simpleTeluguMeaning": "నడుముకు పెట్టుకునే నగ",
+      "x": 69.5,
+      "y": 30.5,
+      "w": 10,
+      "h": 3.2
+    },
+    {
+      "word": "ఓ",
+      "english": "Oo",
+      "simpleTeluguMeaning": "",
+      "x": 17,
+      "y": 35,
+      "w": 13,
+      "h": 11.5
+    },
+    {
+      "word": "ఓడ",
+      "english": "Ship",
+      "simpleTeluguMeaning": "పడవ",
+      "x": 45.2,
+      "y": 44,
+      "w": 5.5,
+      "h": 3
+    },
+    {
+      "word": "ఓదనం",
+      "english": "Cooked Rice",
+      "simpleTeluguMeaning": "అన్నం",
+      "x": 69.5,
+      "y": 44,
+      "w": 9,
+      "h": 3
+    },
+    {
+      "word": "ఔ",
+      "english": "Au",
+      "simpleTeluguMeaning": "",
+      "x": 17,
+      "y": 48,
+      "w": 13.5,
+      "h": 12
+    },
+    {
+      "word": "ఔషధం",
+      "english": "Medicine",
+      "simpleTeluguMeaning": "మందు",
+      "x": 43.5,
+      "y": 57.5,
+      "w": 9.5,
+      "h": 3.2
+    },
+    {
+      "word": "ఔటు",
+      "english": "Firecracker",
+      "simpleTeluguMeaning": "టపాసు",
+      "x": 71,
+      "y": 57.5,
+      "w": 6.5,
+      "h": 3
+    },
+    {
+      "word": "అం",
+      "english": "Am",
+      "simpleTeluguMeaning": "",
+      "x": 11.5,
+      "y": 63.5,
+      "w": 23.5,
+      "h": 9.5
+    },
+    {
+      "word": "అంగడి",
+      "english": "Market/Shop",
+      "simpleTeluguMeaning": "దుకాణం",
+      "x": 43.5,
+      "y": 71.2,
+      "w": 9,
+      "h": 3.2
+    },
+    {
+      "word": "అందెలు",
+      "english": "Anklets",
+      "simpleTeluguMeaning": "పట్టీలు/మువ్వలు",
+      "x": 69.8,
+      "y": 71.2,
+      "w": 9.5,
+      "h": 3
+    },
+    {
+      "word": "అః",
+      "english": "Aha",
+      "simpleTeluguMeaning": "",
+      "x": 13.5,
+      "y": 76.5,
+      "w": 19,
+      "h": 9.5
+    },
+    {
+      "word": "అంతఃపురం",
+      "english": "Palace",
+      "simpleTeluguMeaning": "రాజుగారి ఇల్లు",
+      "x": 54.5,
+      "y": 84.8,
+      "w": 14.5,
+      "h": 3.2
+    },
+    {
+      "word": "1వ",
+      "english": "1st",
+      "simpleTeluguMeaning": "",
+      "x": 6.5,
+      "y": 92.8,
+      "w": 3.5,
+      "h": 2.2
+    },
+    {
+      "word": "తరగతి",
+      "english": "Class",
+      "simpleTeluguMeaning": "",
+      "x": 10.5,
+      "y": 92.8,
+      "w": 4.5,
+      "h": 2.2
+    },
+    {
+      "word": "-",
+      "english": "-",
+      "simpleTeluguMeaning": "",
+      "x": 15.2,
+      "y": 92.8,
+      "w": 1.5,
+      "h": 2.2
+    },
+    {
+      "word": "తెలుగు",
+      "english": "Telugu",
+      "simpleTeluguMeaning": "",
+      "x": 16.5,
+      "y": 92.8,
+      "w": 5.5,
+      "h": 2.2
+    }
+  ],
+  "pageType": "alphabet",
+  "hasExercise": false
+}

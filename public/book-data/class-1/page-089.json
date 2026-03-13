@@ -1,0 +1,492 @@
+{
+  "words": [
+    {
+      "word": "వినండి",
+      "english": "Listen",
+      "simpleTeluguMeaning": "వినండి",
+      "x": 18.06,
+      "y": 8.01,
+      "w": 7.42,
+      "h": 2.21
+    },
+    {
+      "word": "-",
+      "english": "-",
+      "simpleTeluguMeaning": "-",
+      "x": 27.23,
+      "y": 9.45,
+      "w": 1.13,
+      "h": 0.44
+    },
+    {
+      "word": "మాట్లాడండి",
+      "english": "Speak",
+      "simpleTeluguMeaning": "చెప్పండి",
+      "x": 29.58,
+      "y": 8.12,
+      "w": 11.66,
+      "h": 2.87
+    },
+    {
+      "word": "(అ)",
+      "english": "(a)",
+      "simpleTeluguMeaning": "(అ)",
+      "x": 12.06,
+      "y": 13.59,
+      "w": 3.79,
+      "h": 2.21
+    },
+    {
+      "word": "గేయం",
+      "english": "Song",
+      "simpleTeluguMeaning": "పాట",
+      "x": 17.58,
+      "y": 13.59,
+      "w": 5.16,
+      "h": 2.21
+    },
+    {
+      "word": "పాడండి.",
+      "english": "Sing.",
+      "simpleTeluguMeaning": "పాడండి.",
+      "x": 23.95,
+      "y": 13.59,
+      "w": 7.18,
+      "h": 2.21
+    },
+    {
+      "word": "అభినయించండి.",
+      "english": "Act out.",
+      "simpleTeluguMeaning": "చేసి చూపించండి.",
+      "x": 32.26,
+      "y": 13.59,
+      "w": 13.63,
+      "h": 2.21
+    },
+    {
+      "word": "(ఆ)",
+      "english": "(aa)",
+      "simpleTeluguMeaning": "(ఆ)",
+      "x": 12.06,
+      "y": 16.91,
+      "w": 4.19,
+      "h": 2.21
+    },
+    {
+      "word": "పాఠం",
+      "english": "Lesson",
+      "simpleTeluguMeaning": "పాఠం",
+      "x": 17.58,
+      "y": 16.91,
+      "w": 4.92,
+      "h": 2.21
+    },
+    {
+      "word": "చిత్రం",
+      "english": "Picture",
+      "simpleTeluguMeaning": "బొమ్మ",
+      "x": 23.51,
+      "y": 16.91,
+      "w": 4.76,
+      "h": 2.21
+    },
+    {
+      "word": "చూడండి.",
+      "english": "Look.",
+      "simpleTeluguMeaning": "చూడండి.",
+      "x": 29.27,
+      "y": 16.91,
+      "w": 8.06,
+      "h": 2.21
+    },
+    {
+      "word": "చిత్రం",
+      "english": "Picture",
+      "simpleTeluguMeaning": "బొమ్మ",
+      "x": 38.31,
+      "y": 16.91,
+      "w": 4.76,
+      "h": 2.21
+    },
+    {
+      "word": "గురించి",
+      "english": "About",
+      "simpleTeluguMeaning": "గురించి",
+      "x": 44.03,
+      "y": 16.91,
+      "w": 6.37,
+      "h": 2.21
+    },
+    {
+      "word": "మాట్లాడండి.",
+      "english": "Speak.",
+      "simpleTeluguMeaning": "చెప్పండి.",
+      "x": 51.37,
+      "y": 16.91,
+      "w": 10.4,
+      "h": 2.87
+    },
+    {
+      "word": "(ఇ)",
+      "english": "(i)",
+      "simpleTeluguMeaning": "(ఇ)",
+      "x": 12.06,
+      "y": 20.22,
+      "w": 3.79,
+      "h": 2.21
+    },
+    {
+      "word": "కింది",
+      "english": "Below",
+      "simpleTeluguMeaning": "కింద ఉన్న",
+      "x": 17.58,
+      "y": 20.22,
+      "w": 4.44,
+      "h": 2.21
+    },
+    {
+      "word": "చిత్రం",
+      "english": "Picture",
+      "simpleTeluguMeaning": "బొమ్మ",
+      "x": 23.02,
+      "y": 20.22,
+      "w": 4.76,
+      "h": 2.21
+    },
+    {
+      "word": "ఆధారంగా",
+      "english": "Based on",
+      "simpleTeluguMeaning": "బట్టి",
+      "x": 28.79,
+      "y": 20.22,
+      "w": 8.31,
+      "h": 2.21
+    },
+    {
+      "word": "మాట్లాడండి.",
+      "english": "Speak.",
+      "simpleTeluguMeaning": "చెప్పండి.",
+      "x": 38.19,
+      "y": 20.22,
+      "w": 10.4,
+      "h": 2.87
+    },
+    {
+      "word": "చదవండి",
+      "english": "Read",
+      "simpleTeluguMeaning": "చదవండి",
+      "x": 22.18,
+      "y": 52.32,
+      "w": 8.31,
+      "h": 2.21
+    },
+    {
+      "word": "(అ)",
+      "english": "(a)",
+      "simpleTeluguMeaning": "(అ)",
+      "x": 12.06,
+      "y": 60.17,
+      "w": 3.79,
+      "h": 2.21
+    },
+    {
+      "word": "గేయంలోని",
+      "english": "In the song",
+      "simpleTeluguMeaning": "పాటలో",
+      "x": 17.58,
+      "y": 60.17,
+      "w": 8.95,
+      "h": 2.21
+    },
+    {
+      "word": "వాక్యాలలో",
+      "english": "In sentences",
+      "simpleTeluguMeaning": "వాక్యాలలో",
+      "x": 27.5,
+      "y": 60.17,
+      "w": 8.55,
+      "h": 2.76
+    },
+    {
+      "word": "‘",
+      "english": "'",
+      "simpleTeluguMeaning": "'",
+      "x": 37.06,
+      "y": 60.17,
+      "w": 1.05,
+      "h": 2.21
+    },
+    {
+      "word": "ఠ,",
+      "english": "Tha,",
+      "simpleTeluguMeaning": "ఠ,",
+      "x": 38.79,
+      "y": 60.17,
+      "w": 1.69,
+      "h": 2.54
+    },
+    {
+      "word": "ఢ,",
+      "english": "Dha,",
+      "simpleTeluguMeaning": "ఢ,",
+      "x": 41.65,
+      "y": 60.17,
+      "w": 1.85,
+      "h": 2.65
+    },
+    {
+      "word": "ణ,",
+      "english": "Na,",
+      "simpleTeluguMeaning": "ణ,",
+      "x": 44.52,
+      "y": 60.17,
+      "w": 2.02,
+      "h": 2.65
+    },
+    {
+      "word": "ఢ’",
+      "english": "Dha'",
+      "simpleTeluguMeaning": "ఢ'",
+      "x": 47.62,
+      "y": 60.17,
+      "w": 1.69,
+      "h": 2.65
+    },
+    {
+      "word": "అక్షరాలకు",
+      "english": "To letters",
+      "simpleTeluguMeaning": "అక్షరాలకు",
+      "x": 50.48,
+      "y": 60.17,
+      "w": 8.55,
+      "h": 2.76
+    },
+    {
+      "word": "‘",
+      "english": "'",
+      "simpleTeluguMeaning": "'",
+      "x": 59.92,
+      "y": 60.17,
+      "w": 1.05,
+      "h": 2.21
+    },
+    {
+      "word": "’",
+      "english": "'",
+      "simpleTeluguMeaning": "'",
+      "x": 64.03,
+      "y": 60.17,
+      "w": 1.05,
+      "h": 2.21
+    },
+    {
+      "word": "చుట్టండి.",
+      "english": "Circle.",
+      "simpleTeluguMeaning": "గుండ్రంగా గీయండి.",
+      "x": 65.56,
+      "y": 60.17,
+      "w": 7.42,
+      "h": 2.76
+    },
+    {
+      "word": "(ఆ)",
+      "english": "(aa)",
+      "simpleTeluguMeaning": "(ఆ)",
+      "x": 12.06,
+      "y": 64.48,
+      "w": 4.19,
+      "h": 2.21
+    },
+    {
+      "word": "కింది",
+      "english": "Below",
+      "simpleTeluguMeaning": "కింద ఉన్న",
+      "x": 17.06,
+      "y": 64.48,
+      "w": 4.44,
+      "h": 2.21
+    },
+    {
+      "word": "బొమ్మలు",
+      "english": "Pictures",
+      "simpleTeluguMeaning": "బొమ్మలు",
+      "x": 22.38,
+      "y": 64.48,
+      "w": 7.02,
+      "h": 2.87
+    },
+    {
+      "word": "చూసి",
+      "english": "Seeing",
+      "simpleTeluguMeaning": "చూసి",
+      "x": 30.2,
+      "y": 64.48,
+      "w": 4.27,
+      "h": 2.21
+    },
+    {
+      "word": "వాక్యాలు",
+      "english": "Sentences",
+      "simpleTeluguMeaning": "వాక్యాలు",
+      "x": 35.28,
+      "y": 64.48,
+      "w": 7.18,
+      "h": 2.76
+    },
+    {
+      "word": "చెప్పండి.",
+      "english": "Tell.",
+      "simpleTeluguMeaning": "చెప్పండి.",
+      "x": 43.19,
+      "y": 64.48,
+      "w": 7.66,
+      "h": 2.87
+    },
+    {
+      "word": "వాక్యాలలో",
+      "english": "In sentences",
+      "simpleTeluguMeaning": "వాక్యాలలో",
+      "x": 51.09,
+      "y": 64.48,
+      "w": 8.55,
+      "h": 2.76
+    },
+    {
+      "word": "‘ఠ,",
+      "english": "'Tha,",
+      "simpleTeluguMeaning": "'ఠ,",
+      "x": 60.44,
+      "y": 64.48,
+      "w": 2.62,
+      "h": 2.54
+    },
+    {
+      "word": "ఢ,",
+      "english": "Dha,",
+      "simpleTeluguMeaning": "ఢ,",
+      "x": 63.83,
+      "y": 64.48,
+      "w": 1.85,
+      "h": 2.65
+    },
+    {
+      "word": "ణ,’",
+      "english": "Na,'",
+      "simpleTeluguMeaning": "ణ,'",
+      "x": 66.85,
+      "y": 64.48,
+      "w": 2.94,
+      "h": 2.65
+    },
+    {
+      "word": "అక్షరాలకు",
+      "english": "To letters",
+      "simpleTeluguMeaning": "అక్షరాలకు",
+      "x": 70.6,
+      "y": 64.48,
+      "w": 8.55,
+      "h": 2.76
+    },
+    {
+      "word": "‘",
+      "english": "'",
+      "simpleTeluguMeaning": "'",
+      "x": 79.92,
+      "y": 64.48,
+      "w": 1.05,
+      "h": 2.21
+    },
+    {
+      "word": "’",
+      "english": "'",
+      "simpleTeluguMeaning": "'",
+      "x": 84.03,
+      "y": 64.48,
+      "w": 1.05,
+      "h": 2.21
+    },
+    {
+      "word": "చుట్టండి.",
+      "english": "Circle.",
+      "simpleTeluguMeaning": "గుండ్రంగా గీయండి.",
+      "x": 85.56,
+      "y": 64.48,
+      "w": 7.42,
+      "h": 2.76
+    },
+    {
+      "word": "పాఠశాల",
+      "english": "School",
+      "simpleTeluguMeaning": "బడి",
+      "x": 16.53,
+      "y": 89.61,
+      "w": 6.85,
+      "h": 2.21
+    },
+    {
+      "word": "గంట",
+      "english": "Bell",
+      "simpleTeluguMeaning": "గంట",
+      "x": 24.35,
+      "y": 89.61,
+      "w": 4.19,
+      "h": 2.21
+    },
+    {
+      "word": "గణ",
+      "english": "Gana",
+      "simpleTeluguMeaning": "గణ",
+      "x": 29.52,
+      "y": 89.61,
+      "w": 2.94,
+      "h": 2.21
+    },
+    {
+      "word": "గణ",
+      "english": "Gana",
+      "simpleTeluguMeaning": "గణ",
+      "x": 33.43,
+      "y": 89.61,
+      "w": 2.94,
+      "h": 2.21
+    },
+    {
+      "word": "మోగింది",
+      "english": "Rang",
+      "simpleTeluguMeaning": "మోగింది",
+      "x": 37.34,
+      "y": 89.61,
+      "w": 7.42,
+      "h": 2.21
+    },
+    {
+      "word": "ఢంకా",
+      "english": "Drum",
+      "simpleTeluguMeaning": "ఢంకా",
+      "x": 62.94,
+      "y": 89.61,
+      "w": 4.76,
+      "h": 2.21
+    },
+    {
+      "word": "ఢమఢమ",
+      "english": "Dhama dhama",
+      "simpleTeluguMeaning": "ఢమఢమ",
+      "x": 68.67,
+      "y": 89.61,
+      "w": 7.26,
+      "h": 2.54
+    },
+    {
+      "word": "మోగింది",
+      "english": "Rang",
+      "simpleTeluguMeaning": "మోగింది",
+      "x": 76.9,
+      "y": 89.61,
+      "w": 7.42,
+      "h": 2.21
+    }
+  ],
+  "pageType": "exercise",
+  "hasExercise": true
+}

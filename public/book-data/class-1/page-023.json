@@ -1,0 +1,122 @@
+{
+  "words": [
+    {
+      "word": "క",
+      "english": "Alphabet letter 'Ka'",
+      "x": 19.5,
+      "y": 9.5,
+      "w": 10,
+      "h": 11.5
+    },
+    {
+      "word": "కన్ను",
+      "english": "Eye",
+      "simpleTeluguMeaning": "కన్ను",
+      "x": 45.5,
+      "y": 18.5,
+      "w": 6.5,
+      "h": 3.5
+    },
+    {
+      "word": "కప్ప",
+      "english": "Frog",
+      "x": 72,
+      "y": 18.5,
+      "w": 5.5,
+      "h": 3.5
+    },
+    {
+      "word": "ఖ",
+      "english": "Alphabet letter 'Kha'",
+      "x": 17.5,
+      "y": 30.5,
+      "w": 11.5,
+      "h": 10
+    },
+    {
+      "word": "ఖర్జూరం",
+      "english": "Dates",
+      "x": 43.5,
+      "y": 38.5,
+      "w": 10.5,
+      "h": 3
+    },
+    {
+      "word": "ఖరం",
+      "english": "Donkey",
+      "simpleTeluguMeaning": "గాడిద",
+      "x": 71.5,
+      "y": 38.5,
+      "w": 6.5,
+      "h": 3
+    },
+    {
+      "word": "గ",
+      "english": "Alphabet letter 'Ga'",
+      "x": 18.5,
+      "y": 48,
+      "w": 11.5,
+      "h": 12
+    },
+    {
+      "word": "గరిటె",
+      "english": "Ladle",
+      "x": 45,
+      "y": 58,
+      "w": 6.5,
+      "h": 3
+    },
+    {
+      "word": "గడియారం",
+      "english": "Clock",
+      "x": 68.5,
+      "y": 58,
+      "w": 12.5,
+      "h": 3
+    },
+    {
+      "word": "ఘ",
+      "english": "Alphabet letter 'Gha'",
+      "x": 15.5,
+      "y": 68,
+      "w": 16.5,
+      "h": 14.5
+    },
+    {
+      "word": "ఘంటిక",
+      "english": "Bell",
+      "simpleTeluguMeaning": "గంట",
+      "x": 44,
+      "y": 78,
+      "w": 9.5,
+      "h": 3.5
+    },
+    {
+      "word": "ఘటం",
+      "english": "Pot",
+      "simpleTeluguMeaning": "కుండ",
+      "x": 71,
+      "y": 78,
+      "w": 7.5,
+      "h": 3.5
+    },
+    {
+      "word": "తెలుగు",
+      "english": "Telugu",
+      "x": 82.5,
+      "y": 92.5,
+      "w": 4.5,
+      "h": 2.5
+    },
+    {
+      "word": "తోట",
+      "english": "Garden",
+      "x": 87.5,
+      "y": 92.5,
+      "w": 4,
+      "h": 2.5
+    }
+  ],
+  "pageType": "alphabet",
+  "hasExercise": false
+}

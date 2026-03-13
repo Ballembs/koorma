@@ -1,0 +1,190 @@
+{
+  "words": [
+    {
+      "word": "తారంగం",
+      "english": "Tharangam (a rhythmic word in songs)",
+      "x": 8,
+      "y": 56.5,
+      "w": 12,
+      "h": 3
+    },
+    {
+      "word": "-",
+      "english": "-",
+      "x": 21,
+      "y": 56.5,
+      "w": 2,
+      "h": 3
+    },
+    {
+      "word": "తారంగం",
+      "english": "Tharangam",
+      "x": 23.5,
+      "y": 56.5,
+      "w": 12,
+      "h": 3
+    },
+    {
+      "word": "తారంగం",
+      "english": "Tharangam",
+      "x": 12,
+      "y": 61.5,
+      "w": 9.5,
+      "h": 2.5
+    },
+    {
+      "word": "తారంగం",
+      "english": "Tharangam",
+      "x": 22.5,
+      "y": 61.5,
+      "w": 9.5,
+      "h": 2.5
+    },
+    {
+      "word": "తాండవ",
+      "english": "Dance",
+      "simpleTeluguMeaning": "నాట్యం",
+      "x": 10,
+      "y": 65.5,
+      "w": 8.5,
+      "h": 2.5
+    },
+    {
+      "word": "కృష్ణ",
+      "english": "Krishna",
+      "simpleTeluguMeaning": "కృష్ణుడు",
+      "x": 19.5,
+      "y": 65.5,
+      "w": 5,
+      "h": 3
+    },
+    {
+      "word": "తారంగం",
+      "english": "Tharangam",
+      "x": 24.5,
+      "y": 65.5,
+      "w": 9.5,
+      "h": 2.5
+    },
+    {
+      "word": "వేణునాథా",
+      "english": "Flute player",
+      "simpleTeluguMeaning": "మురళీధరుడు",
+      "x": 12.5,
+      "y": 69.5,
+      "w": 10,
+      "h": 2.5
+    },
+    {
+      "word": "తారంగం",
+      "english": "Tharangam",
+      "x": 23,
+      "y": 69.5,
+      "w": 9.5,
+      "h": 2.5
+    },
+    {
+      "word": "వేంకట",
+      "english": "Venkata",
+      "x": 10,
+      "y": 73,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "రమణ",
+      "english": "Ramana",
+      "x": 17,
+      "y": 73,
+      "w": 7,
+      "h": 2.5
+    },
+    {
+      "word": "తారంగం",
+      "english": "Tharangam",
+      "x": 25,
+      "y": 73,
+      "w": 9.5,
+      "h": 2.5
+    },
+    {
+      "word": "వెన్నదొంగా",
+      "english": "Butter thief",
+      "simpleTeluguMeaning": "వెన్న దొంగిలించేవాడు",
+      "x": 11.5,
+      "y": 77,
+      "w": 11.5,
+      "h": 2.5
+    },
+    {
+      "word": "తారంగం",
+      "english": "Tharangam",
+      "x": 23.5,
+      "y": 77,
+      "w": 9.5,
+      "h": 2.5
+    },
+    {
+      "word": "చిన్ని",
+      "english": "Little",
+      "simpleTeluguMeaning": "చిన్న",
+      "x": 11.5,
+      "y": 80.5,
+      "w": 5.5,
+      "h": 3
+    },
+    {
+      "word": "కృష్ణా",
+      "english": "Krishna",
+      "simpleTeluguMeaning": "కృష్ణుడు",
+      "x": 17.5,
+      "y": 80.5,
+      "w": 5.5,
+      "h": 3
+    },
+    {
+      "word": "తారంగం",
+      "english": "Tharangam",
+      "x": 23.5,
+      "y": 80.5,
+      "w": 9.5,
+      "h": 2.5
+    },
+    {
+      "word": "1వ",
+      "english": "1st",
+      "simpleTeluguMeaning": "ఒకటవ",
+      "x": 6,
+      "y": 93,
+      "w": 4,
+      "h": 2
+    },
+    {
+      "word": "తరగతి",
+      "english": "Class",
+      "simpleTeluguMeaning": "క్లాస్",
+      "x": 10.5,
+      "y": 93,
+      "w": 4.5,
+      "h": 2
+    },
+    {
+      "word": "-",
+      "english": "-",
+      "x": 15.5,
+      "y": 93,
+      "w": 1,
+      "h": 2
+    },
+    {
+      "word": "తెలుగు",
+      "english": "Telugu",
+      "x": 16.5,
+      "y": 93,
+      "w": 5,
+      "h": 2
+    }
+  ],
+  "pageType": "rhyme",
+  "hasExercise": false
+}

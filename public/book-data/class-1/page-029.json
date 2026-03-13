@@ -1,0 +1,144 @@
+{
+  "words": [
+    {
+      "word": "ష",
+      "english": "Letter Sha",
+      "x": 14,
+      "y": 8,
+      "w": 18,
+      "h": 14
+    },
+    {
+      "word": "వేషం",
+      "english": "Costume",
+      "x": 42,
+      "y": 18,
+      "w": 13,
+      "h": 5
+    },
+    {
+      "word": "మేషం",
+      "english": "Goat",
+      "simpleTeluguMeaning": "మేక",
+      "x": 69,
+      "y": 18,
+      "w": 13,
+      "h": 5
+    },
+    {
+      "word": "స",
+      "english": "Letter Sa",
+      "x": 14,
+      "y": 25,
+      "w": 18,
+      "h": 13
+    },
+    {
+      "word": "సంచి",
+      "english": "Bag",
+      "x": 43,
+      "y": 34,
+      "w": 11,
+      "h": 5
+    },
+    {
+      "word": "సజ్జ",
+      "english": "Millet",
+      "x": 70,
+      "y": 34,
+      "w": 9,
+      "h": 5
+    },
+    {
+      "word": "హ",
+      "english": "Letter Ha",
+      "x": 11,
+      "y": 40,
+      "w": 23,
+      "h": 14
+    },
+    {
+      "word": "హంస",
+      "english": "Swan",
+      "x": 43,
+      "y": 50,
+      "w": 11,
+      "h": 5
+    },
+    {
+      "word": "సింహం",
+      "english": "Lion",
+      "x": 68,
+      "y": 50,
+      "w": 14,
+      "h": 5
+    },
+    {
+      "word": "ళ",
+      "english": "Letter Lla",
+      "x": 14,
+      "y": 56,
+      "w": 18,
+      "h": 13
+    },
+    {
+      "word": "తాళం",
+      "english": "Lock",
+      "x": 43,
+      "y": 67,
+      "w": 11,
+      "h": 5
+    },
+    {
+      "word": "గంగాళం",
+      "english": "Tub",
+      "x": 67,
+      "y": 67,
+      "w": 16,
+      "h": 5
+    },
+    {
+      "word": "క్ష",
+      "english": "Letter Ksha",
+      "x": 14,
+      "y": 72,
+      "w": 19,
+      "h": 17
+    },
+    {
+      "word": "ద్రాక్ష",
+      "english": "Grapes",
+      "x": 43,
+      "y": 83,
+      "w": 11,
+      "h": 5
+    },
+    {
+      "word": "నక్షత్రం",
+      "english": "Star",
+      "simpleTeluguMeaning": "చుక్క",
+      "x": 68,
+      "y": 83,
+      "w": 14,
+      "h": 5
+    },
+    {
+      "word": "తెలుగు",
+      "english": "Telugu",
+      "x": 80,
+      "y": 91,
+      "w": 9,
+      "h": 4
+    },
+    {
+      "word": "తోట",
+      "english": "Garden",
+      "x": 87,
+      "y": 91,
+      "w": 7,
+      "h": 4
+    }
+  ],
+  "pageType": "alphabet",
+  "hasExercise": false
+}

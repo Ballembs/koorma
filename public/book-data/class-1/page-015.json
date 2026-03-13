@@ -1,0 +1,249 @@
+{
+  "words": [
+    {
+      "word": "తాయీలం",
+      "english": "Sweet/Gift",
+      "simpleTeluguMeaning": "తినుబండారం",
+      "x": 16.5,
+      "y": 6.8,
+      "w": 13.5,
+      "h": 2.5
+    },
+    {
+      "word": "ఆటలు",
+      "english": "Games",
+      "simpleTeluguMeaning": "ఆటలు",
+      "x": 9.5,
+      "y": 10.8,
+      "w": 6.8,
+      "h": 2.2
+    },
+    {
+      "word": "ఆడీ",
+      "english": "Playing",
+      "simpleTeluguMeaning": "ఆడుకొని",
+      "x": 17.5,
+      "y": 10.8,
+      "w": 4.5,
+      "h": 2.2
+    },
+    {
+      "word": "పాటలు",
+      "english": "Songs",
+      "simpleTeluguMeaning": "పాటలు",
+      "x": 23,
+      "y": 10.8,
+      "w": 7.5,
+      "h": 2.2
+    },
+    {
+      "word": "పాడీ",
+      "english": "Singing",
+      "simpleTeluguMeaning": "పాడుకొని",
+      "x": 31,
+      "y": 10.8,
+      "w": 5,
+      "h": 2.2
+    },
+    {
+      "word": "అలసీ",
+      "english": "Tired",
+      "simpleTeluguMeaning": "అలసిపోయి",
+      "x": 15,
+      "y": 14.8,
+      "w": 5.5,
+      "h": 2.2
+    },
+    {
+      "word": "వచ్చానే",
+      "english": "Came",
+      "simpleTeluguMeaning": "వచ్చాను",
+      "x": 21.5,
+      "y": 14.8,
+      "w": 8,
+      "h": 3
+    },
+    {
+      "word": "తియ్యతీయని",
+      "english": "Very sweet",
+      "simpleTeluguMeaning": "చాలా తియ్యని",
+      "x": 8.5,
+      "y": 18.8,
+      "w": 12,
+      "h": 2.5
+    },
+    {
+      "word": "తాయీలమేదో",
+      "english": "Some sweet/gift",
+      "simpleTeluguMeaning": "ఏదో ఒక తినుబండారం",
+      "x": 21.5,
+      "y": 18.8,
+      "w": 15.5,
+      "h": 2.5
+    },
+    {
+      "word": "తెచ్చీపెట్టమ్మా",
+      "english": "Bring and give mother",
+      "simpleTeluguMeaning": "తీసుకురా అమ్మ",
+      "x": 16,
+      "y": 22.8,
+      "w": 14.5,
+      "h": 3.2
+    },
+    {
+      "word": "గూటీలోని",
+      "english": "In the nest/shelf",
+      "simpleTeluguMeaning": "గూటిలో ఉన్న",
+      "x": 10.8,
+      "y": 26.8,
+      "w": 10.5,
+      "h": 2.5
+    },
+    {
+      "word": "బెల్లం",
+      "english": "Jaggery",
+      "simpleTeluguMeaning": "బెల్లం",
+      "x": 22,
+      "y": 26.8,
+      "w": 5.8,
+      "h": 3
+    },
+    {
+      "word": "ముక్క",
+      "english": "Piece",
+      "simpleTeluguMeaning": "తునక",
+      "x": 28.5,
+      "y": 26.8,
+      "w": 6.8,
+      "h": 2.5
+    },
+    {
+      "word": "కొంచెంపెట్టమ్మా",
+      "english": "Give a little mother",
+      "simpleTeluguMeaning": "కొద్దిగా ఇవ్వు అమ్మ",
+      "x": 14.2,
+      "y": 30.8,
+      "w": 17.5,
+      "h": 3
+    },
+    {
+      "word": "చేటలోని",
+      "english": "In the winnowing basket",
+      "simpleTeluguMeaning": "చేటలో ఉన్న",
+      "x": 11,
+      "y": 34.8,
+      "w": 10,
+      "h": 2.5
+    },
+    {
+      "word": "కొబ్బరికోరూ",
+      "english": "Grated coconut",
+      "simpleTeluguMeaning": "కొబ్బరి తురుము",
+      "x": 22,
+      "y": 34.8,
+      "w": 12.5,
+      "h": 3
+    },
+    {
+      "word": "చారెడు",
+      "english": "Handful",
+      "simpleTeluguMeaning": "గుప్పెడు",
+      "x": 13.5,
+      "y": 38.8,
+      "w": 7,
+      "h": 2.2
+    },
+    {
+      "word": "తియ్యమ్మా",
+      "english": "Take mother",
+      "simpleTeluguMeaning": "తీయి అమ్మ",
+      "x": 21.5,
+      "y": 38.8,
+      "w": 11.5,
+      "h": 3
+    },
+    {
+      "word": "అటకామీదీ",
+      "english": "On the attic",
+      "simpleTeluguMeaning": "అటక పైన",
+      "x": 8.5,
+      "y": 42.8,
+      "w": 11,
+      "h": 2.2
+    },
+    {
+      "word": "అటుకలకుండా",
+      "english": "Pot of flattened rice",
+      "simpleTeluguMeaning": "అటుకుల కుండ",
+      "x": 20.5,
+      "y": 42.8,
+      "w": 16.5,
+      "h": 2.2
+    },
+    {
+      "word": "అమ్మా",
+      "english": "Mother",
+      "simpleTeluguMeaning": "అమ్మ",
+      "x": 14,
+      "y": 46.8,
+      "w": 6.5,
+      "h": 3
+    },
+    {
+      "word": "దింపమ్మా",
+      "english": "Bring down mother",
+      "simpleTeluguMeaning": "కింద పెట్టు అమ్మ",
+      "x": 21.5,
+      "y": 46.8,
+      "w": 10.5,
+      "h": 3
+    },
+    {
+      "word": "తియ్యతీయని",
+      "english": "Very sweet",
+      "simpleTeluguMeaning": "చాలా తియ్యని",
+      "x": 8,
+      "y": 50.8,
+      "w": 12.5,
+      "h": 2.8
+    },
+    {
+      "word": "తాయీలమేదో",
+      "english": "Some sweet/gift",
+      "simpleTeluguMeaning": "ఏదో ఒక తినుబండారం",
+      "x": 21.5,
+      "y": 50.8,
+      "w": 16,
+      "h": 2.5
+    },
+    {
+      "word": "తీసీపెట్టమ్మా",
+      "english": "Take and give mother",
+      "simpleTeluguMeaning": "తీసి ఇవ్వు అమ్మ",
+      "x": 16.2,
+      "y": 54.8,
+      "w": 13.5,
+      "h": 3
+    },
+    {
+      "word": "తెలుగు",
+      "english": "Telugu",
+      "simpleTeluguMeaning": "తెలుగు",
+      "x": 83,
+      "y": 93,
+      "w": 5.5,
+      "h": 2
+    },
+    {
+      "word": "తోట",
+      "english": "Garden",
+      "simpleTeluguMeaning": "తోట",
+      "x": 89,
+      "y": 93,
+      "w": 3.5,
+      "h": 2
+    }
+  ],
+  "pageType": "rhyme",
+  "hasExercise": false
+}

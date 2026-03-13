@@ -1,0 +1,842 @@
+{
+  "words": [
+    {
+      "word": "జాతీయ",
+      "english": "National",
+      "simpleTeluguMeaning": "దేశానికి సంబంధించిన",
+      "x": 40.89,
+      "y": 6.87,
+      "w": 7.42,
+      "h": 2.3
+    },
+    {
+      "word": "గీతం",
+      "english": "Song",
+      "simpleTeluguMeaning": "పాట",
+      "x": 50.31,
+      "y": 6.87,
+      "w": 5.46,
+      "h": 2.3
+    },
+    {
+      "word": "రవీంద్రనాథ్",
+      "english": "Rabindranath",
+      "x": 74.84,
+      "y": 11.53,
+      "w": 9.21,
+      "h": 2.21
+    },
+    {
+      "word": "ఠాగూర్",
+      "english": "Tagore",
+      "x": 84.68,
+      "y": 11.75,
+      "w": 5.39,
+      "h": 1.76
+    },
+    {
+      "word": "జనగణమన",
+      "english": "Jana Gana Mana",
+      "x": 34.33,
+      "y": 15.01,
+      "w": 9.45,
+      "h": 1.76
+    },
+    {
+      "word": "అధినాయక",
+      "english": "Ruler",
+      "x": 44.88,
+      "y": 14.89,
+      "w": 9.21,
+      "h": 2.05
+    },
+    {
+      "word": "జయహే!",
+      "english": "Victory",
+      "x": 55.03,
+      "y": 14.89,
+      "w": 7.03,
+      "h": 1.76
+    },
+    {
+      "word": "భారత",
+      "english": "India",
+      "x": 40.03,
+      "y": 18.06,
+      "w": 4.6,
+      "h": 1.88
+    },
+    {
+      "word": "భాగ్యవిధాతా!",
+      "english": "Dispenser of destiny",
+      "x": 45.42,
+      "y": 18.06,
+      "w": 10.93,
+      "h": 2.05
+    },
+    {
+      "word": "పంజాబ,",
+      "english": "Punjab",
+      "x": 33.39,
+      "y": 21.01,
+      "w": 6.24,
+      "h": 1.88
+    },
+    {
+      "word": "సింధు,",
+      "english": "Sindh",
+      "x": 40.57,
+      "y": 21.01,
+      "w": 5.23,
+      "h": 2.05
+    },
+    {
+      "word": "గుజరాత,",
+      "english": "Gujarat",
+      "x": 46.74,
+      "y": 21.01,
+      "w": 6.79,
+      "h": 2.05
+    },
+    {
+      "word": "మరాఠా,",
+      "english": "Maratha",
+      "x": 54.55,
+      "y": 21.01,
+      "w": 8.04,
+      "h": 1.88
+    },
+    {
+      "word": "ద్రావిడ,",
+      "english": "Dravida",
+      "x": 38.62,
+      "y": 24.31,
+      "w": 6.09,
+      "h": 2.21
+    },
+    {
+      "word": "ఉత్కళ,",
+      "english": "Utkala",
+      "x": 45.89,
+      "y": 24.19,
+      "w": 5.93,
+      "h": 2.33
+    },
+    {
+      "word": "వంగా!",
+      "english": "Banga",
+      "x": 52.84,
+      "y": 24.19,
+      "w": 4.6,
+      "h": 1.76
+    },
+    {
+      "word": "వింధ్య,",
+      "english": "Vindhya",
+      "x": 33.16,
+      "y": 27.24,
+      "w": 5.39,
+      "h": 2.33
+    },
+    {
+      "word": "హిమాచల,",
+      "english": "Himachala",
+      "x": 39.55,
+      "y": 27.24,
+      "w": 7.42,
+      "h": 1.76
+    },
+    {
+      "word": "యమునా,",
+      "english": "Yamuna",
+      "x": 47.92,
+      "y": 27.24,
+      "w": 6.56,
+      "h": 1.76
+    },
+    {
+      "word": "గంగా!",
+      "english": "Ganga",
+      "x": 55.49,
+      "y": 27.24,
+      "w": 4.53,
+      "h": 1.76
+    },
+    {
+      "word": "ఉచ్చల",
+      "english": "Uchchala",
+      "x": 39.17,
+      "y": 30.54,
+      "w": 4.84,
+      "h": 2.05
+    },
+    {
+      "word": "జలధి",
+      "english": "Jaladhi",
+      "x": 44.8,
+      "y": 30.54,
+      "w": 4.6,
+      "h": 1.76
+    },
+    {
+      "word": "తరంగా!",
+      "english": "Taranga",
+      "x": 50.42,
+      "y": 30.3,
+      "w": 6.79,
+      "h": 1.88
+    },
+    {
+      "word": "తవ",
+      "english": "Tava",
+      "x": 40.73,
+      "y": 33.47,
+      "w": 2.65,
+      "h": 1.64
+    },
+    {
+      "word": "శుభనామే",
+      "english": "Shubha name",
+      "x": 43.86,
+      "y": 33.47,
+      "w": 7.65,
+      "h": 1.88
+    },
+    {
+      "word": "జాగే!",
+      "english": "Jage",
+      "x": 52.61,
+      "y": 33.36,
+      "w": 3.75,
+      "h": 1.76
+    },
+    {
+      "word": "తవ",
+      "english": "Tava",
+      "x": 38.62,
+      "y": 36.65,
+      "w": 2.65,
+      "h": 1.64
+    },
+    {
+      "word": "శుభ",
+      "english": "Shubha",
+      "x": 42.14,
+      "y": 36.65,
+      "w": 3.43,
+      "h": 1.88
+    },
+    {
+      "word": "ఆశిష",
+      "english": "Ashisha",
+      "x": 46.52,
+      "y": 36.65,
+      "w": 4.68,
+      "h": 1.76
+    },
+    {
+      "word": "మాంగే",
+      "english": "Mange",
+      "x": 52.22,
+      "y": 36.53,
+      "w": 4.68,
+      "h": 1.76
+    },
+    {
+      "word": "గాహే",
+      "english": "Gahe",
+      "x": 38.85,
+      "y": 39.59,
+      "w": 4.29,
+      "h": 1.76
+    },
+    {
+      "word": "తవ",
+      "english": "Tava",
+      "x": 44.09,
+      "y": 39.71,
+      "w": 2.65,
+      "h": 1.64
+    },
+    {
+      "word": "జయగాథా!",
+      "english": "Jayagatha",
+      "x": 47.77,
+      "y": 39.71,
+      "w": 9.45,
+      "h": 1.88
+    },
+    {
+      "word": "జనగణ",
+      "english": "Jana gana",
+      "x": 34.8,
+      "y": 42.76,
+      "w": 5.46,
+      "h": 1.64
+    },
+    {
+      "word": "మంగళదాయక",
+      "english": "Mangaladayaka",
+      "x": 41.28,
+      "y": 42.64,
+      "w": 12.34,
+      "h": 1.88
+    },
+    {
+      "word": "జయహే!",
+      "english": "Jayahe",
+      "x": 54.72,
+      "y": 42.76,
+      "w": 7.03,
+      "h": 1.76
+    },
+    {
+      "word": "భారత",
+      "english": "Bharata",
+      "x": 40.26,
+      "y": 45.7,
+      "w": 4.53,
+      "h": 1.88
+    },
+    {
+      "word": "భాగ్య",
+      "english": "Bhagya",
+      "x": 45.66,
+      "y": 45.82,
+      "w": 3.98,
+      "h": 2.21
+    },
+    {
+      "word": "విధాతా!",
+      "english": "Vidhata",
+      "x": 50.74,
+      "y": 45.82,
+      "w": 5.78,
+      "h": 1.88
+    },
+    {
+      "word": "జయహే!",
+      "english": "Jayahe",
+      "x": 36.59,
+      "y": 48.87,
+      "w": 7.03,
+      "h": 1.76
+    },
+    {
+      "word": "జయహే!",
+      "english": "Jayahe",
+      "x": 44.72,
+      "y": 48.87,
+      "w": 7.03,
+      "h": 1.76
+    },
+    {
+      "word": "జయహే!",
+      "english": "Jayahe",
+      "x": 52.84,
+      "y": 48.87,
+      "w": 7.03,
+      "h": 1.76
+    },
+    {
+      "word": "జయ",
+      "english": "Jaya",
+      "x": 36.98,
+      "y": 52.16,
+      "w": 3.51,
+      "h": 1.64
+    },
+    {
+      "word": "జయ",
+      "english": "Jaya",
+      "x": 41.59,
+      "y": 52.16,
+      "w": 3.51,
+      "h": 1.64
+    },
+    {
+      "word": "జయ",
+      "english": "Jaya",
+      "x": 46.12,
+      "y": 52.16,
+      "w": 3.51,
+      "h": 1.64
+    },
+    {
+      "word": "జయహే!!",
+      "english": "Jayahe",
+      "x": 50.74,
+      "y": 52.04,
+      "w": 8.51,
+      "h": 1.76
+    },
+    {
+      "word": "ప్రతిజ్ఞ",
+      "english": "Pledge",
+      "simpleTeluguMeaning": "ప్రమాణం",
+      "x": 45.19,
+      "y": 63.33,
+      "w": 6.17,
+      "h": 2.54
+    },
+    {
+      "word": "పైడిమర్రి",
+      "english": "Pydimarri",
+      "x": 69.53,
+      "y": 67.2,
+      "w": 6.32,
+      "h": 2.21
+    },
+    {
+      "word": "వెంకటసుబ్బారావు",
+      "english": "Venkata Subba Rao",
+      "x": 76.87,
+      "y": 67.2,
+      "w": 13.51,
+      "h": 2.05
+    },
+    {
+      "word": "భారతదేశం",
+      "english": "India",
+      "simpleTeluguMeaning": "మన దేశం",
+      "x": 18.27,
+      "y": 69.9,
+      "w": 8.74,
+      "h": 1.88
+    },
+    {
+      "word": "నా",
+      "english": "My",
+      "simpleTeluguMeaning": "నాది",
+      "x": 28.34,
+      "y": 69.9,
+      "w": 1.95,
+      "h": 1.64
+    },
+    {
+      "word": "మాతృభూమి.",
+      "english": "Motherland",
+      "simpleTeluguMeaning": "పుట్టిన దేశం",
+      "x": 31.62,
+      "y": 69.78,
+      "w": 9.92,
+      "h": 2.05
+    },
+    {
+      "word": "భారతీయులందరూ",
+      "english": "All Indians",
+      "simpleTeluguMeaning": "మన దేశ ప్రజలు",
+      "x": 43.03,
+      "y": 69.9,
+      "w": 14.21,
+      "h": 1.88
+    },
+    {
+      "word": "నా",
+      "english": "My",
+      "simpleTeluguMeaning": "నాది",
+      "x": 58.57,
+      "y": 69.9,
+      "w": 1.95,
+      "h": 1.64
+    },
+    {
+      "word": "సహోదరులు.",
+      "english": "Brothers and sisters",
+      "simpleTeluguMeaning": "అన్నదమ్ములు అక్కచెల్లెల్లు",
+      "x": 61.85,
+      "y": 69.78,
+      "w": 10.38,
+      "h": 2.05
+    },
+    {
+      "word": "నేను",
+      "english": "I",
+      "simpleTeluguMeaning": "నేను",
+      "x": 18.42,
+      "y": 72.84,
+      "w": 3.28,
+      "h": 1.64
+    },
+    {
+      "word": "నా",
+      "english": "My",
+      "simpleTeluguMeaning": "నాది",
+      "x": 22.56,
+      "y": 72.84,
+      "w": 1.95,
+      "h": 1.64
+    },
+    {
+      "word": "దేశాన్ని",
+      "english": "Country",
+      "simpleTeluguMeaning": "దేశం",
+      "x": 25.6,
+      "y": 72.84,
+      "w": 5.46,
+      "h": 1.88
+    },
+    {
+      "word": "ప్రేమిస్తున్నాను.",
+      "english": "Love",
+      "simpleTeluguMeaning": "ఇష్టపడుతున్నాను",
+      "x": 31.93,
+      "y": 72.84,
+      "w": 11.24,
+      "h": 2.33
+    },
+    {
+      "word": "సుసంపన్నమైన,",
+      "english": "Prosperous",
+      "simpleTeluguMeaning": "చాలా మంచిదైన",
+      "x": 43.96,
+      "y": 72.84,
+      "w": 11.79,
+      "h": 2.33
+    },
+    {
+      "word": "బహువిధమైన",
+      "english": "Diverse",
+      "simpleTeluguMeaning": "రకరకాల",
+      "x": 56.6,
+      "y": 72.84,
+      "w": 10.38,
+      "h": 2.21
+    },
+    {
+      "word": "నా",
+      "english": "My",
+      "simpleTeluguMeaning": "నాది",
+      "x": 67.84,
+      "y": 72.84,
+      "w": 1.95,
+      "h": 1.64
+    },
+    {
+      "word": "దేశ",
+      "english": "Country",
+      "simpleTeluguMeaning": "దేశం",
+      "x": 70.88,
+      "y": 72.84,
+      "w": 2.96,
+      "h": 1.64
+    },
+    {
+      "word": "వారసత్వ",
+      "english": "Heritage",
+      "simpleTeluguMeaning": "మన పూర్వీకుల సంపద",
+      "x": 74.84,
+      "y": 72.84,
+      "w": 6.87,
+      "h": 2.21
+    },
+    {
+      "word": "సంపద",
+      "english": "Wealth",
+      "simpleTeluguMeaning": "ఆస్తి",
+      "x": 15.69,
+      "y": 75.89,
+      "w": 5.07,
+      "h": 1.88
+    },
+    {
+      "word": "నాకు",
+      "english": "To me",
+      "simpleTeluguMeaning": "నాకు",
+      "x": 21.62,
+      "y": 75.89,
+      "w": 3.75,
+      "h": 1.64
+    },
+    {
+      "word": "గర్వకారణం.",
+      "english": "Pride",
+      "simpleTeluguMeaning": "గర్వంగా ఉంది",
+      "x": 26.23,
+      "y": 75.89,
+      "w": 9.21,
+      "h": 2.05
+    },
+    {
+      "word": "దీనికి",
+      "english": "To this",
+      "simpleTeluguMeaning": "దీనికి",
+      "x": 36.45,
+      "y": 75.89,
+      "w": 4.14,
+      "h": 1.88
+    },
+    {
+      "word": "అర్హత",
+      "english": "Eligibility",
+      "simpleTeluguMeaning": "యోగ్్యత",
+      "x": 41.53,
+      "y": 75.89,
+      "w": 4.45,
+      "h": 2.05
+    },
+    {
+      "word": "పొందడానికై",
+      "english": "To attain",
+      "simpleTeluguMeaning": "పొందడానికి",
+      "x": 46.84,
+      "y": 75.89,
+      "w": 9.68,
+      "h": 1.88
+    },
+    {
+      "word": "సర్వదా",
+      "english": "Always",
+      "simpleTeluguMeaning": "ఎప్పుడూ",
+      "x": 57.38,
+      "y": 75.89,
+      "w": 5.7,
+      "h": 2.05
+    },
+    {
+      "word": "నేను",
+      "english": "I",
+      "simpleTeluguMeaning": "నేను",
+      "x": 64.09,
+      "y": 75.89,
+      "w": 3.28,
+      "h": 1.64
+    },
+    {
+      "word": "కృషి",
+      "english": "Effort",
+      "simpleTeluguMeaning": "కష్టం",
+      "x": 68.38,
+      "y": 75.77,
+      "w": 3.67,
+      "h": 2.21
+    },
+    {
+      "word": "చేస్తాను.",
+      "english": "I will do",
+      "simpleTeluguMeaning": "చేస్తాను",
+      "x": 72.99,
+      "y": 75.89,
+      "w": 6.17,
+      "h": 2.05
+    },
+    {
+      "word": "నా",
+      "english": "My",
+      "simpleTeluguMeaning": "నాది",
+      "x": 18.27,
+      "y": 79.42,
+      "w": 1.95,
+      "h": 1.64
+    },
+    {
+      "word": "తల్లిదండ్రుల్ని,",
+      "english": "Parents",
+      "simpleTeluguMeaning": "అమ్మానాన్నలను",
+      "x": 21.08,
+      "y": 79.42,
+      "w": 11.24,
+      "h": 2.54
+    },
+    {
+      "word": "ఉపాధ్యాయుల్ని,",
+      "english": "Teachers",
+      "simpleTeluguMeaning": "టీచర్లను",
+      "x": 33.33,
+      "y": 79.42,
+      "w": 13.58,
+      "h": 2.65
+    },
+    {
+      "word": "పెద్దలందర్నీ",
+      "english": "Elders",
+      "simpleTeluguMeaning": "పెద్దవారిని",
+      "x": 47.92,
+      "y": 79.42,
+      "w": 10.07,
+      "h": 2.33
+    },
+    {
+      "word": "గౌరవిస్తాను.",
+      "english": "Respect",
+      "simpleTeluguMeaning": "మర్యాద ఇస్తాను",
+      "x": 58.85,
+      "y": 79.42,
+      "w": 9.52,
+      "h": 2.05
+    },
+    {
+      "word": "ప్రతివారితోను",
+      "english": "With everyone",
+      "simpleTeluguMeaning": "అందరితో",
+      "x": 69.45,
+      "y": 79.42,
+      "w": 10.46,
+      "h": 1.88
+    },
+    {
+      "word": "మర్యాదగా",
+      "english": "Respectfully",
+      "simpleTeluguMeaning": "మర్యాదగా",
+      "x": 15.85,
+      "y": 82.35,
+      "w": 7.88,
+      "h": 2.21
+    },
+    {
+      "word": "నడుచుకొంటాను.",
+      "english": "I will behave",
+      "simpleTeluguMeaning": "ప్రవర్తిస్తాను",
+      "x": 24.59,
+      "y": 82.47,
+      "w": 12.8,
+      "h": 1.88
+    },
+    {
+      "word": "జంతువులపట్ల",
+      "english": "Towards animals",
+      "simpleTeluguMeaning": "జంతువుల మీద",
+      "x": 38.33,
+      "y": 82.47,
+      "w": 10.93,
+      "h": 2.21
+    },
+    {
+      "word": "దయతో",
+      "english": "With compassion",
+      "simpleTeluguMeaning": "జాలితో",
+      "x": 50.12,
+      "y": 82.47,
+      "w": 5.46,
+      "h": 1.88
+    },
+    {
+      "word": "ఉంటాను.",
+      "english": "I will be",
+      "simpleTeluguMeaning": "ఉంటాను",
+      "x": 56.44,
+      "y": 82.47,
+      "w": 6.87,
+      "h": 1.88
+    },
+    {
+      "word": "నా",
+      "english": "My",
+      "simpleTeluguMeaning": "నాది",
+      "x": 18.27,
+      "y": 85.76,
+      "w": 1.95,
+      "h": 1.64
+    },
+    {
+      "word": "దేశంపట్ల,",
+      "english": "Towards country",
+      "simpleTeluguMeaning": "దేశం మీద",
+      "x": 21.31,
+      "y": 85.76,
+      "w": 7.42,
+      "h": 2.33
+    },
+    {
+      "word": "నా",
+      "english": "My",
+      "simpleTeluguMeaning": "నాది",
+      "x": 29.83,
+      "y": 85.76,
+      "w": 1.95,
+      "h": 1.64
+    },
+    {
+      "word": "ప్రజలపట్ల",
+      "english": "Towards people",
+      "simpleTeluguMeaning": "ప్రజల మీద",
+      "x": 32.86,
+      "y": 85.76,
+      "w": 7.88,
+      "h": 2.33
+    },
+    {
+      "word": "సేవానిరతితో",
+      "english": "With dedication to service",
+      "simpleTeluguMeaning": "సేవ చేయాలనే ఇష్టంతో",
+      "x": 41.76,
+      "y": 85.76,
+      "w": 9.52,
+      "h": 1.88
+    },
+    {
+      "word": "ఉంటానని",
+      "english": "I will be",
+      "simpleTeluguMeaning": "ఉంటానని",
+      "x": 52.3,
+      "y": 85.76,
+      "w": 7.65,
+      "h": 1.88
+    },
+    {
+      "word": "ప్రతిజ్ఞ",
+      "english": "Pledge",
+      "simpleTeluguMeaning": "ప్రమాణం",
+      "x": 60.89,
+      "y": 85.64,
+      "w": 4.6,
+      "h": 2.54
+    },
+    {
+      "word": "చేస్తున్నాను.",
+      "english": "I am taking",
+      "simpleTeluguMeaning": "చేస్తున్నాను",
+      "x": 66.43,
+      "y": 85.64,
+      "w": 9.84,
+      "h": 2.54
+    },
+    {
+      "word": "వారి",
+      "english": "Their",
+      "simpleTeluguMeaning": "వాళ్ళ",
+      "x": 18.19,
+      "y": 89.17,
+      "w": 3.12,
+      "h": 1.76
+    },
+    {
+      "word": "శ్రేయోభివృద్ధులే",
+      "english": "Prosperity and development",
+      "simpleTeluguMeaning": "బాగుపడడమే",
+      "x": 22.25,
+      "y": 89.17,
+      "w": 12.49,
+      "h": 2.33
+    },
+    {
+      "word": "నా",
+      "english": "My",
+      "simpleTeluguMeaning": "నాది",
+      "x": 35.75,
+      "y": 89.17,
+      "w": 1.95,
+      "h": 1.64
+    },
+    {
+      "word": "ఆనందానికి",
+      "english": "For happiness",
+      "simpleTeluguMeaning": "సంతోషానికి",
+      "x": 38.64,
+      "y": 89.17,
+      "w": 8.74,
+      "h": 1.76
+    },
+    {
+      "word": "మూలం.",
+      "english": "Root cause",
+      "simpleTeluguMeaning": "కారణం",
+      "x": 48.32,
+      "y": 89.17,
+      "w": 6.17,
+      "h": 1.88
+    }
+  ],
+  "pageType": "rhyme",
+  "hasExercise": false
+}

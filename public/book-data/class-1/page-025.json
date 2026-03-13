@@ -1,0 +1,150 @@
+{
+  "words": [
+    {
+      "word": "ట",
+      "english": "Ta",
+      "x": 16.5,
+      "y": 9.5,
+      "w": 13.5,
+      "h": 11.5
+    },
+    {
+      "word": "టమాట",
+      "english": "Tomato",
+      "x": 44.5,
+      "y": 19,
+      "w": 9.5,
+      "h": 3
+    },
+    {
+      "word": "పీట",
+      "english": "Wooden seat",
+      "x": 72.5,
+      "y": 18.5,
+      "w": 5.5,
+      "h": 3
+    },
+    {
+      "word": "ఠ",
+      "english": "Tha",
+      "x": 17.5,
+      "y": 25,
+      "w": 10.5,
+      "h": 11.5
+    },
+    {
+      "word": "మండల పరిషత్",
+      "english": "Mandal Parishad",
+      "x": 47,
+      "y": 26.5,
+      "w": 8,
+      "h": 1.5
+    },
+    {
+      "word": "ఆదర్శ ప్రాథమిక పాఠశాల",
+      "english": "Adarsha Pradhamika Paatashaala (Ideal Primary School)",
+      "x": 45.5,
+      "y": 28,
+      "w": 11.5,
+      "h": 1.5
+    },
+    {
+      "word": "పాఠశాల",
+      "english": "School",
+      "x": 44,
+      "y": 35.5,
+      "w": 10.5,
+      "h": 3
+    },
+    {
+      "word": "కంఠం",
+      "english": "Neck",
+      "x": 71.5,
+      "y": 35.5,
+      "w": 8.5,
+      "h": 2.5
+    },
+    {
+      "word": "డ",
+      "english": "Da",
+      "x": 17,
+      "y": 40.5,
+      "w": 12,
+      "h": 11.5
+    },
+    {
+      "word": "డబ్బా",
+      "english": "Box / Tin",
+      "x": 45.5,
+      "y": 51.5,
+      "w": 8,
+      "h": 4
+    },
+    {
+      "word": "డప్పు",
+      "english": "Drum",
+      "x": 72,
+      "y": 51.5,
+      "w": 7,
+      "h": 4
+    },
+    {
+      "word": "ఢ",
+      "english": "Dha",
+      "x": 17,
+      "y": 56.5,
+      "w": 12,
+      "h": 14.5
+    },
+    {
+      "word": "ఢంక",
+      "english": "Large drum",
+      "x": 45.5,
+      "y": 68,
+      "w": 6.5,
+      "h": 3
+    },
+    {
+      "word": "ఢమరుకం",
+      "english": "Small drum",
+      "x": 69.5,
+      "y": 68,
+      "w": 11.5,
+      "h": 3
+    },
+    {
+      "word": "ణ",
+      "english": "Na",
+      "x": 16.5,
+      "y": 76.5,
+      "w": 13.5,
+      "h": 8.5
+    },
+    {
+      "word": "బాణం",
+      "english": "Arrow",
+      "x": 45,
+      "y": 84.5,
+      "w": 7.5,
+      "h": 3
+    },
+    {
+      "word": "వీణ",
+      "english": "Veena (Musical Instrument)",
+      "x": 72.5,
+      "y": 84.5,
+      "w": 5.5,
+      "h": 3
+    },
+    {
+      "word": "తెలుగు తోట",
+      "english": "Telugu Garden",
+      "x": 82.5,
+      "y": 93,
+      "w": 11,
+      "h": 2.5
+    }
+  ],
+  "pageType": "alphabet",
+  "hasExercise": false
+}

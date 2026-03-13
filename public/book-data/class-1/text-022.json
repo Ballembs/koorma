@@ -1,0 +1,127 @@
+{
+  "title": null,
+  "subtitle": null,
+  "lines": [
+    {
+      "words": [
+        {
+          "telugu": "ఐ",
+          "english": "Ai (vowel)"
+        },
+        {
+          "telugu": "ఐరావతం",
+          "english": "Airavatham (mythical elephant)"
+        },
+        {
+          "telugu": "ఐరేని",
+          "english": "Aireni (ritual pot)"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "ఒ",
+          "english": "O (short vowel)"
+        },
+        {
+          "telugu": "ఒంటె",
+          "english": "Camel"
+        },
+        {
+          "telugu": "ఒడ్డాణం",
+          "english": "Waist belt (girdle)"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "ఓ",
+          "english": "O (long vowel)"
+        },
+        {
+          "telugu": "ఓడ",
+          "english": "Ship"
+        },
+        {
+          "telugu": "ఓదనం",
+          "english": "Cooked rice"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "ఔ",
+          "english": "Au (vowel)"
+        },
+        {
+          "telugu": "ఔషధం",
+          "english": "Medicine"
+        },
+        {
+          "telugu": "ఔటు",
+          "english": "Outu (an uncommon word in this context, depicted as firecrackers)"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "అం",
+          "english": "Am (vowel with anusvara)"
+        },
+        {
+          "telugu": "అంగడి",
+          "english": "Shop / Market"
+        },
+        {
+          "telugu": "అందెలు",
+          "english": "Anklets"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "అః",
+          "english": "Ah (vowel with visarga)"
+        },
+        {
+          "telugu": "అంతఃపురం",
+          "english": "Inner palace / Harem"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "1వ",
+          "english": "1st"
+        },
+        {
+          "telugu": "తరగతి",
+          "english": "Class"
+        },
+        {
+          "telugu": "-",
+          "english": "-"
+        },
+        {
+          "telugu": "తెలుగు",
+          "english": "Telugu"
+        }
+      ]
+    }
+  ],
+  "pageType": "alphabet",
+  "hasExercise": false,
+  "exerciseType": null,
+  "illustrationArea": {
+    "x": 36,
+    "y": 10,
+    "w": 60,
+    "h": 78
+  }
+}

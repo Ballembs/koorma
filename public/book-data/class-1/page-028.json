@@ -1,0 +1,160 @@
+{
+  "words": [
+    {
+      "word": "య",
+      "english": "Ya (Telugu letter)",
+      "x": 13,
+      "y": 7,
+      "w": 21,
+      "h": 14
+    },
+    {
+      "word": "యతి",
+      "english": "Ascetic/Sage",
+      "simpleTeluguMeaning": "ఋషి",
+      "x": 45,
+      "y": 18,
+      "w": 6.5,
+      "h": 3.5
+    },
+    {
+      "word": "యంత్రం",
+      "english": "Machine",
+      "simpleTeluguMeaning": "మెషిన్",
+      "x": 70,
+      "y": 18,
+      "w": 10,
+      "h": 4
+    },
+    {
+      "word": "ర",
+      "english": "Ra (Telugu letter)",
+      "x": 18,
+      "y": 24.5,
+      "w": 10,
+      "h": 12
+    },
+    {
+      "word": "రంపం",
+      "english": "Saw",
+      "x": 44.5,
+      "y": 35,
+      "w": 8,
+      "h": 3.5
+    },
+    {
+      "word": "పార",
+      "english": "Spade",
+      "x": 72,
+      "y": 35,
+      "w": 5.5,
+      "h": 3.5
+    },
+    {
+      "word": "ల",
+      "english": "La (Telugu letter)",
+      "x": 17.5,
+      "y": 42.5,
+      "w": 11.5,
+      "h": 10
+    },
+    {
+      "word": "లడ్డు",
+      "english": "Laddu (Sweet)",
+      "x": 45.5,
+      "y": 51.5,
+      "w": 6,
+      "h": 4
+    },
+    {
+      "word": "తల",
+      "english": "Head",
+      "x": 72.5,
+      "y": 51.5,
+      "w": 5,
+      "h": 3
+    },
+    {
+      "word": "వ",
+      "english": "Va (Telugu letter)",
+      "x": 17.5,
+      "y": 57,
+      "w": 11.5,
+      "h": 12.5
+    },
+    {
+      "word": "వల",
+      "english": "Net",
+      "x": 46,
+      "y": 68,
+      "w": 5,
+      "h": 3
+    },
+    {
+      "word": "వంకాయ",
+      "english": "Brinjal/Eggplant",
+      "x": 69.5,
+      "y": 68,
+      "w": 10.5,
+      "h": 3
+    },
+    {
+      "word": "శ",
+      "english": "Sha (Telugu letter)",
+      "x": 18,
+      "y": 74,
+      "w": 12,
+      "h": 12.5
+    },
+    {
+      "word": "శంఖం",
+      "english": "Conch",
+      "x": 44.5,
+      "y": 84.5,
+      "w": 8,
+      "h": 3
+    },
+    {
+      "word": "కలశం",
+      "english": "Sacred pot",
+      "x": 71,
+      "y": 84.5,
+      "w": 7.5,
+      "h": 3
+    },
+    {
+      "word": "1వ",
+      "english": "1st",
+      "x": 5.5,
+      "y": 92.5,
+      "w": 4,
+      "h": 2.5
+    },
+    {
+      "word": "తరగతి",
+      "english": "Class",
+      "x": 9.5,
+      "y": 92.5,
+      "w": 6.5,
+      "h": 3
+    },
+    {
+      "word": "-",
+      "english": "-",
+      "x": 16.5,
+      "y": 93.5,
+      "w": 1.5,
+      "h": 1
+    },
+    {
+      "word": "తెలుగు",
+      "english": "Telugu",
+      "x": 18,
+      "y": 92.5,
+      "w": 6,
+      "h": 3
+    }
+  ],
+  "pageType": "alphabet",
+  "hasExercise": false
+}

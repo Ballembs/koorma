@@ -1,0 +1,1086 @@
+{
+  "words": [
+    {
+      "word": "సాధించవలసిన",
+      "english": "to be achieved",
+      "x": 34,
+      "y": 7,
+      "w": 15,
+      "h": 4
+    },
+    {
+      "word": "సామర్థ్యాలు",
+      "english": "capabilities",
+      "x": 50,
+      "y": 7,
+      "w": 12,
+      "h": 4
+    },
+    {
+      "word": "I.",
+      "english": "I.",
+      "x": 10,
+      "y": 13,
+      "w": 2,
+      "h": 3
+    },
+    {
+      "word": "వినండి",
+      "english": "listen",
+      "x": 13,
+      "y": 13,
+      "w": 6,
+      "h": 3
+    },
+    {
+      "word": "-",
+      "english": "-",
+      "x": 20,
+      "y": 13,
+      "w": 1,
+      "h": 3
+    },
+    {
+      "word": "మాట్లాడండి",
+      "english": "speak",
+      "x": 22,
+      "y": 13,
+      "w": 9,
+      "h": 3
+    },
+    {
+      "word": "పరిచితమైన",
+      "english": "familiar",
+      "x": 13,
+      "y": 17,
+      "w": 9,
+      "h": 3
+    },
+    {
+      "word": "కథలు,",
+      "english": "stories,",
+      "x": 23,
+      "y": 17,
+      "w": 5,
+      "h": 3
+    },
+    {
+      "word": "పాటలు,",
+      "english": "songs,",
+      "x": 29,
+      "y": 17,
+      "w": 6,
+      "h": 3
+    },
+    {
+      "word": "సంభాషణలు",
+      "english": "conversations",
+      "x": 36,
+      "y": 17,
+      "w": 9,
+      "h": 3
+    },
+    {
+      "word": "విని",
+      "english": "having heard",
+      "x": 46,
+      "y": 17,
+      "w": 3,
+      "h": 3
+    },
+    {
+      "word": "అర్థంచేసుకోవాలి.",
+      "english": "must understand.",
+      "x": 50,
+      "y": 17,
+      "w": 13,
+      "h": 3
+    },
+    {
+      "word": "విన్న",
+      "english": "heard",
+      "x": 13,
+      "y": 20,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "word": "అంశం",
+      "english": "topic",
+      "x": 18,
+      "y": 20,
+      "w": 5,
+      "h": 3
+    },
+    {
+      "word": "గురించి",
+      "english": "about",
+      "x": 24,
+      "y": 20,
+      "w": 6,
+      "h": 3
+    },
+    {
+      "word": "ఎవరు?",
+      "english": "who?",
+      "x": 31,
+      "y": 20,
+      "w": 5,
+      "h": 3
+    },
+    {
+      "word": "ఏమిటి?",
+      "english": "what?",
+      "x": 37,
+      "y": 20,
+      "w": 6,
+      "h": 3
+    },
+    {
+      "word": "ఎక్కడ?",
+      "english": "where?",
+      "x": 44,
+      "y": 20,
+      "w": 6,
+      "h": 3
+    },
+    {
+      "word": "వంటి",
+      "english": "such as",
+      "x": 51,
+      "y": 20,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "word": "ప్రశ్నలకు",
+      "english": "to questions",
+      "x": 56,
+      "y": 20,
+      "w": 7,
+      "h": 3
+    },
+    {
+      "word": "సమాధానాలు",
+      "english": "answers",
+      "x": 64,
+      "y": 20,
+      "w": 9,
+      "h": 3
+    },
+    {
+      "word": "ఇవ్వగలగాలి.",
+      "english": "should be able to give.",
+      "x": 74,
+      "y": 20,
+      "w": 9,
+      "h": 3
+    },
+    {
+      "word": "సూచనలు",
+      "english": "instructions",
+      "x": 13,
+      "y": 23,
+      "w": 7,
+      "h": 3
+    },
+    {
+      "word": "విని",
+      "english": "having heard",
+      "x": 21,
+      "y": 23,
+      "w": 3,
+      "h": 3
+    },
+    {
+      "word": "అర్థం",
+      "english": "meaning",
+      "x": 25,
+      "y": 23,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "word": "చేసుకొని",
+      "english": "understood",
+      "x": 30,
+      "y": 23,
+      "w": 7,
+      "h": 3
+    },
+    {
+      "word": "ఆ",
+      "english": "that",
+      "x": 38,
+      "y": 23,
+      "w": 2,
+      "h": 3
+    },
+    {
+      "word": "ప్రకారం",
+      "english": "accordingly",
+      "x": 41,
+      "y": 23,
+      "w": 6,
+      "h": 3
+    },
+    {
+      "word": "చేయగలగాలి.",
+      "english": "should be able to do.",
+      "x": 48,
+      "y": 23,
+      "w": 9,
+      "h": 3
+    },
+    {
+      "word": "వింటున్నప్పుడు",
+      "english": "while listening",
+      "x": 13,
+      "y": 26,
+      "w": 11,
+      "h": 3
+    },
+    {
+      "word": "అక్షరాల",
+      "english": "letters'",
+      "x": 25,
+      "y": 26,
+      "w": 6,
+      "h": 3
+    },
+    {
+      "word": "మధ్య,",
+      "english": "between,",
+      "x": 32,
+      "y": 26,
+      "w": 5,
+      "h": 3
+    },
+    {
+      "word": "ధ్వని",
+      "english": "sound",
+      "x": 38,
+      "y": 26,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "word": "భేదాలను",
+      "english": "differences",
+      "x": 43,
+      "y": 26,
+      "w": 7,
+      "h": 3
+    },
+    {
+      "word": "గుర్తించగలగాలి.",
+      "english": "should be able to identify.",
+      "x": 51,
+      "y": 26,
+      "w": 12,
+      "h": 3
+    },
+    {
+      "word": "తెలిసిన,",
+      "english": "known,",
+      "x": 13,
+      "y": 28,
+      "w": 6,
+      "h": 3
+    },
+    {
+      "word": "చూసిన",
+      "english": "seen",
+      "x": 20,
+      "y": 28,
+      "w": 5,
+      "h": 3
+    },
+    {
+      "word": "వాటి",
+      "english": "their",
+      "x": 26,
+      "y": 28,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "word": "గురించి",
+      "english": "about",
+      "x": 31,
+      "y": 28,
+      "w": 6,
+      "h": 3
+    },
+    {
+      "word": "స్వేచ్ఛగా",
+      "english": "freely",
+      "x": 38,
+      "y": 28,
+      "w": 6,
+      "h": 3
+    },
+    {
+      "word": "మాట్లాడగలగాలి.",
+      "english": "should be able to speak.",
+      "x": 45,
+      "y": 28,
+      "w": 12,
+      "h": 3
+    },
+    {
+      "word": "చిత్రాల",
+      "english": "pictures'",
+      "x": 13,
+      "y": 31,
+      "w": 5,
+      "h": 3
+    },
+    {
+      "word": "ఆధారంగా",
+      "english": "based on",
+      "x": 19,
+      "y": 31,
+      "w": 8,
+      "h": 3
+    },
+    {
+      "word": "మాట్లాడగలగాలి.",
+      "english": "should be able to speak.",
+      "x": 28,
+      "y": 31,
+      "w": 12,
+      "h": 3
+    },
+    {
+      "word": "అనగా",
+      "english": "that is",
+      "x": 41,
+      "y": 31,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "word": "ఎవరున్నారు?",
+      "english": "who are there?",
+      "x": 46,
+      "y": 31,
+      "w": 9,
+      "h": 3
+    },
+    {
+      "word": "ఏం",
+      "english": "what",
+      "x": 56,
+      "y": 31,
+      "w": 3,
+      "h": 3
+    },
+    {
+      "word": "జరుగుతుంది?",
+      "english": "is happening?",
+      "x": 60,
+      "y": 31,
+      "w": 10,
+      "h": 3
+    },
+    {
+      "word": "ఏం",
+      "english": "what",
+      "x": 71,
+      "y": 31,
+      "w": 3,
+      "h": 3
+    },
+    {
+      "word": "చేస్తున్నారు?",
+      "english": "are they doing?",
+      "x": 75,
+      "y": 31,
+      "w": 9,
+      "h": 3
+    },
+    {
+      "word": "వంటి",
+      "english": "such as",
+      "x": 85,
+      "y": 31,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "word": "అంశాలు",
+      "english": "aspects",
+      "x": 13,
+      "y": 34,
+      "w": 6,
+      "h": 3
+    },
+    {
+      "word": "చెప్పగలగాలి.",
+      "english": "should be able to tell.",
+      "x": 20,
+      "y": 34,
+      "w": 10,
+      "h": 3
+    },
+    {
+      "word": "వర్ణమాల,",
+      "english": "alphabet,",
+      "x": 13,
+      "y": 37,
+      "w": 7,
+      "h": 3
+    },
+    {
+      "word": "సరళపదాలను",
+      "english": "simple words",
+      "x": 21,
+      "y": 37,
+      "w": 10,
+      "h": 3
+    },
+    {
+      "word": "స్పష్టంగా",
+      "english": "clearly",
+      "x": 32,
+      "y": 37,
+      "w": 7,
+      "h": 3
+    },
+    {
+      "word": "పలకగలగాలి.",
+      "english": "should be able to pronounce.",
+      "x": 40,
+      "y": 37,
+      "w": 9,
+      "h": 3
+    },
+    {
+      "word": "II.",
+      "english": "II.",
+      "x": 10,
+      "y": 40,
+      "w": 3,
+      "h": 3
+    },
+    {
+      "word": "చదవండి",
+      "english": "read",
+      "x": 14,
+      "y": 40,
+      "w": 6,
+      "h": 3
+    },
+    {
+      "word": "గేయాలు,",
+      "english": "rhymes,",
+      "x": 13,
+      "y": 43,
+      "w": 7,
+      "h": 3
+    },
+    {
+      "word": "పాటలు",
+      "english": "songs",
+      "x": 21,
+      "y": 43,
+      "w": 6,
+      "h": 3
+    },
+    {
+      "word": "వంటి",
+      "english": "such as",
+      "x": 28,
+      "y": 43,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "word": "వాటిలో",
+      "english": "in them",
+      "x": 33,
+      "y": 43,
+      "w": 6,
+      "h": 3
+    },
+    {
+      "word": "వాక్యాలను",
+      "english": "sentences",
+      "x": 40,
+      "y": 43,
+      "w": 8,
+      "h": 3
+    },
+    {
+      "word": "గుర్తించగలగాలి.",
+      "english": "should be able to identify.",
+      "x": 49,
+      "y": 43,
+      "w": 12,
+      "h": 3
+    },
+    {
+      "word": "ఇచ్చిన",
+      "english": "given",
+      "x": 13,
+      "y": 46,
+      "w": 5,
+      "h": 3
+    },
+    {
+      "word": "అంశంలో",
+      "english": "in the topic",
+      "x": 19,
+      "y": 46,
+      "w": 7,
+      "h": 3
+    },
+    {
+      "word": "కీలకపదాలను,",
+      "english": "key words,",
+      "x": 27,
+      "y": 46,
+      "w": 10,
+      "h": 3
+    },
+    {
+      "word": "వాటిలోని",
+      "english": "in them",
+      "x": 38,
+      "y": 46,
+      "w": 7,
+      "h": 3
+    },
+    {
+      "word": "అక్షరాలను",
+      "english": "letters",
+      "x": 46,
+      "y": 46,
+      "w": 8,
+      "h": 3
+    },
+    {
+      "word": "గుర్తించగలగాలి.",
+      "english": "should be able to identify.",
+      "x": 55,
+      "y": 46,
+      "w": 12,
+      "h": 3
+    },
+    {
+      "word": "పదాలలోని",
+      "english": "in words",
+      "x": 13,
+      "y": 49,
+      "w": 8,
+      "h": 3
+    },
+    {
+      "word": "అక్షరాలను",
+      "english": "letters",
+      "x": 22,
+      "y": 49,
+      "w": 8,
+      "h": 3
+    },
+    {
+      "word": "వర్ణమాల",
+      "english": "alphabet",
+      "x": 31,
+      "y": 49,
+      "w": 7,
+      "h": 3
+    },
+    {
+      "word": "చార్టులో",
+      "english": "in chart",
+      "x": 39,
+      "y": 49,
+      "w": 6,
+      "h": 3
+    },
+    {
+      "word": "గుర్తించగలగాలి.",
+      "english": "should be able to identify.",
+      "x": 46,
+      "y": 49,
+      "w": 12,
+      "h": 3
+    },
+    {
+      "word": "సరళపదాలు,",
+      "english": "simple words,",
+      "x": 13,
+      "y": 51,
+      "w": 9,
+      "h": 3
+    },
+    {
+      "word": "సరళమైన",
+      "english": "simple",
+      "x": 23,
+      "y": 51,
+      "w": 7,
+      "h": 3
+    },
+    {
+      "word": "వాక్యాలను",
+      "english": "sentences",
+      "x": 31,
+      "y": 51,
+      "w": 8,
+      "h": 3
+    },
+    {
+      "word": "ధారాళంగా,",
+      "english": "fluently,",
+      "x": 40,
+      "y": 51,
+      "w": 8,
+      "h": 3
+    },
+    {
+      "word": "తప్పులేకుండా",
+      "english": "without mistakes",
+      "x": 49,
+      "y": 51,
+      "w": 10,
+      "h": 3
+    },
+    {
+      "word": "చదవగలగాలి.",
+      "english": "should be able to read.",
+      "x": 60,
+      "y": 51,
+      "w": 10,
+      "h": 3
+    },
+    {
+      "word": "చదువుతున్న",
+      "english": "reading",
+      "x": 13,
+      "y": 54,
+      "w": 9,
+      "h": 3
+    },
+    {
+      "word": "పదాలలో",
+      "english": "in words",
+      "x": 23,
+      "y": 54,
+      "w": 7,
+      "h": 3
+    },
+    {
+      "word": "కీలక",
+      "english": "key",
+      "x": 31,
+      "y": 54,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "word": "అక్షరాలను",
+      "english": "letters",
+      "x": 36,
+      "y": 54,
+      "w": 8,
+      "h": 3
+    },
+    {
+      "word": "గుర్తించి",
+      "english": "having identified",
+      "x": 45,
+      "y": 54,
+      "w": 6,
+      "h": 3
+    },
+    {
+      "word": "గళ్ళలో",
+      "english": "in grids",
+      "x": 52,
+      "y": 54,
+      "w": 5,
+      "h": 3
+    },
+    {
+      "word": "రాయగలగాలి.",
+      "english": "should be able to write.",
+      "x": 58,
+      "y": 54,
+      "w": 10,
+      "h": 3
+    },
+    {
+      "word": "చిత్రాలతో",
+      "english": "with pictures",
+      "x": 13,
+      "y": 56,
+      "w": 7,
+      "h": 3
+    },
+    {
+      "word": "పదాలను",
+      "english": "words",
+      "x": 21,
+      "y": 56,
+      "w": 7,
+      "h": 3
+    },
+    {
+      "word": "జతచేయగలగాలి.",
+      "english": "should be able to match.",
+      "x": 29,
+      "y": 56,
+      "w": 12,
+      "h": 3
+    },
+    {
+      "word": "III.",
+      "english": "III.",
+      "x": 10,
+      "y": 60,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "word": "రాయండి",
+      "english": "write",
+      "x": 15,
+      "y": 60,
+      "w": 7,
+      "h": 3
+    },
+    {
+      "word": "నేర్చుకున్న",
+      "english": "learned",
+      "x": 13,
+      "y": 63,
+      "w": 8,
+      "h": 3
+    },
+    {
+      "word": "అక్షరాలను",
+      "english": "letters",
+      "x": 22,
+      "y": 63,
+      "w": 8,
+      "h": 3
+    },
+    {
+      "word": "ఉపయోగించి",
+      "english": "using",
+      "x": 31,
+      "y": 63,
+      "w": 10,
+      "h": 3
+    },
+    {
+      "word": "సొంతంగా",
+      "english": "own",
+      "x": 42,
+      "y": 63,
+      "w": 7,
+      "h": 3
+    },
+    {
+      "word": "పదాలను",
+      "english": "words",
+      "x": 50,
+      "y": 63,
+      "w": 7,
+      "h": 3
+    },
+    {
+      "word": "రాయగలగాలి.",
+      "english": "should be able to write.",
+      "x": 58,
+      "y": 63,
+      "w": 10,
+      "h": 3
+    },
+    {
+      "word": "వర్ణమాల",
+      "english": "alphabet",
+      "x": 13,
+      "y": 66,
+      "w": 6,
+      "h": 3
+    },
+    {
+      "word": "ఆధారంగా",
+      "english": "based on",
+      "x": 20,
+      "y": 66,
+      "w": 8,
+      "h": 3
+    },
+    {
+      "word": "సరళపదాలు",
+      "english": "simple words",
+      "x": 29,
+      "y": 66,
+      "w": 9,
+      "h": 3
+    },
+    {
+      "word": "రాయగలగాలి.",
+      "english": "should be able to write.",
+      "x": 39,
+      "y": 66,
+      "w": 10,
+      "h": 3
+    },
+    {
+      "word": "చుక్కలు",
+      "english": "dots",
+      "x": 13,
+      "y": 68,
+      "w": 6,
+      "h": 3
+    },
+    {
+      "word": "కలుపుతూ",
+      "english": "while joining",
+      "x": 20,
+      "y": 68,
+      "w": 7,
+      "h": 3
+    },
+    {
+      "word": "అక్షరాలు",
+      "english": "letters",
+      "x": 28,
+      "y": 68,
+      "w": 6,
+      "h": 3
+    },
+    {
+      "word": "రాసే",
+      "english": "writing",
+      "x": 35,
+      "y": 68,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "word": "క్రమాన్ని",
+      "english": "sequence",
+      "x": 40,
+      "y": 68,
+      "w": 6,
+      "h": 3
+    },
+    {
+      "word": "తెలుసుకోగలగాలి.",
+      "english": "should be able to know.",
+      "x": 47,
+      "y": 68,
+      "w": 13,
+      "h": 3
+    },
+    {
+      "word": "చిత్రం",
+      "english": "picture",
+      "x": 13,
+      "y": 71,
+      "w": 5,
+      "h": 3
+    },
+    {
+      "word": "ఆధారంగా",
+      "english": "based on",
+      "x": 19,
+      "y": 71,
+      "w": 8,
+      "h": 3
+    },
+    {
+      "word": "సరళపదాలను",
+      "english": "simple words",
+      "x": 28,
+      "y": 71,
+      "w": 10,
+      "h": 3
+    },
+    {
+      "word": "రాయగలగాలి.",
+      "english": "should be able to write.",
+      "x": 39,
+      "y": 71,
+      "w": 10,
+      "h": 3
+    },
+    {
+      "word": "తప్పులేకుండా,",
+      "english": "without mistakes,",
+      "x": 13,
+      "y": 74,
+      "w": 10,
+      "h": 3
+    },
+    {
+      "word": "అందంగా",
+      "english": "beautifully",
+      "x": 24,
+      "y": 74,
+      "w": 7,
+      "h": 3
+    },
+    {
+      "word": "రాయగలగాలి.",
+      "english": "should be able to write.",
+      "x": 32,
+      "y": 74,
+      "w": 10,
+      "h": 3
+    },
+    {
+      "word": "ఉక్తలేఖనం",
+      "english": "dictation",
+      "x": 13,
+      "y": 76,
+      "w": 8,
+      "h": 3
+    },
+    {
+      "word": "రాయగలగాలి.",
+      "english": "should be able to write.",
+      "x": 22,
+      "y": 76,
+      "w": 10,
+      "h": 3
+    },
+    {
+      "word": "IV.",
+      "english": "IV.",
+      "x": 10,
+      "y": 80,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "word": "సృజనాత్మకత",
+      "english": "creativity",
+      "x": 15,
+      "y": 80,
+      "w": 10,
+      "h": 3
+    },
+    {
+      "word": "గేయాలను",
+      "english": "rhymes",
+      "x": 13,
+      "y": 83,
+      "w": 8,
+      "h": 3
+    },
+    {
+      "word": "అభినయంతో",
+      "english": "with actions",
+      "x": 22,
+      "y": 83,
+      "w": 9,
+      "h": 3
+    },
+    {
+      "word": "పాడాలి.",
+      "english": "should sing.",
+      "x": 32,
+      "y": 83,
+      "w": 6,
+      "h": 3
+    },
+    {
+      "word": "చిత్రాలు",
+      "english": "pictures",
+      "x": 13,
+      "y": 85,
+      "w": 6,
+      "h": 3
+    },
+    {
+      "word": "గీసి,",
+      "english": "having drawn,",
+      "x": 20,
+      "y": 85,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "word": "రంగులు",
+      "english": "colors",
+      "x": 25,
+      "y": 85,
+      "w": 6,
+      "h": 3
+    },
+    {
+      "word": "వేసి",
+      "english": "having put",
+      "x": 32,
+      "y": 85,
+      "w": 3,
+      "h": 3
+    },
+    {
+      "word": "పదాలు",
+      "english": "words",
+      "x": 36,
+      "y": 85,
+      "w": 5,
+      "h": 3
+    },
+    {
+      "word": "రాయగలగాలి.",
+      "english": "should be able to write.",
+      "x": 42,
+      "y": 85,
+      "w": 10,
+      "h": 3
+    },
+    {
+      "word": "చిత్రం",
+      "english": "picture",
+      "x": 13,
+      "y": 88,
+      "w": 5,
+      "h": 3
+    },
+    {
+      "word": "ఆధారంగా",
+      "english": "based on",
+      "x": 19,
+      "y": 88,
+      "w": 8,
+      "h": 3
+    },
+    {
+      "word": "కథను",
+      "english": "story",
+      "x": 28,
+      "y": 88,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "word": "ఊహించి",
+      "english": "having imagined",
+      "x": 33,
+      "y": 88,
+      "w": 6,
+      "h": 3
+    },
+    {
+      "word": "చెప్పగలగాలి.",
+      "english": "should be able to tell.",
+      "x": 40,
+      "y": 88,
+      "w": 10,
+      "h": 3
+    }
+  ],
+  "pageType": "info",
+  "hasExercise": false
+}

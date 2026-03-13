@@ -1,0 +1,350 @@
+{
+  "words": [
+    {
+      "word": "రాయండి",
+      "english": "Write",
+      "simpleTeluguMeaning": "వ్రాయండి",
+      "x": 20,
+      "y": 7.5,
+      "w": 10,
+      "h": 3
+    },
+    {
+      "word": "గుర్తుల",
+      "english": "Marks",
+      "simpleTeluguMeaning": "చిహ్నాలు",
+      "x": 14.5,
+      "y": 12.5,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "ఆధారంగా",
+      "english": "Based on",
+      "x": 21.5,
+      "y": 12.5,
+      "w": 9.5,
+      "h": 2.5
+    },
+    {
+      "word": "చుక్కలను",
+      "english": "Dots",
+      "x": 31,
+      "y": 12.5,
+      "w": 8,
+      "h": 2.5
+    },
+    {
+      "word": "కలుపుతూ",
+      "english": "Joining",
+      "x": 39,
+      "y": 12.5,
+      "w": 8.5,
+      "h": 2.5
+    },
+    {
+      "word": "అక్షరాలు",
+      "english": "Letters",
+      "x": 15,
+      "y": 15.8,
+      "w": 8,
+      "h": 2.5
+    },
+    {
+      "word": "రాయండి.",
+      "english": "Write.",
+      "simpleTeluguMeaning": "వ్రాయండి.",
+      "x": 23.5,
+      "y": 15.8,
+      "w": 8.5,
+      "h": 2.5
+    },
+    {
+      "word": "చుక్కలు",
+      "english": "Dots",
+      "x": 59.5,
+      "y": 12.5,
+      "w": 6,
+      "h": 2.5
+    },
+    {
+      "word": "కలుపుతూ",
+      "english": "Joining",
+      "x": 65.5,
+      "y": 12.5,
+      "w": 8.5,
+      "h": 2.5
+    },
+    {
+      "word": "గీతల్లో",
+      "english": "In lines",
+      "x": 74.5,
+      "y": 12.5,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "రాయండి.",
+      "english": "Write.",
+      "simpleTeluguMeaning": "వ్రాయండి.",
+      "x": 81,
+      "y": 12.5,
+      "w": 8.5,
+      "h": 2.5
+    },
+    {
+      "word": "గ",
+      "english": "Ga (Telugu letter)",
+      "x": 68,
+      "y": 17.5,
+      "w": 4.5,
+      "h": 3
+    },
+    {
+      "word": "ం",
+      "english": "Am (Telugu letter)",
+      "x": 74.5,
+      "y": 17.5,
+      "w": 3.5,
+      "h": 3
+    },
+    {
+      "word": "ప",
+      "english": "Pa (Telugu letter)",
+      "x": 80.5,
+      "y": 17.5,
+      "w": 4.5,
+      "h": 3
+    },
+    {
+      "word": "గ",
+      "english": "Ga (Telugu letter)",
+      "x": 68,
+      "y": 22.5,
+      "w": 4.5,
+      "h": 3
+    },
+    {
+      "word": "ం",
+      "english": "Am (Telugu letter)",
+      "x": 74.5,
+      "y": 22.5,
+      "w": 3.5,
+      "h": 3
+    },
+    {
+      "word": "ప",
+      "english": "Pa (Telugu letter)",
+      "x": 80.5,
+      "y": 22.5,
+      "w": 4.5,
+      "h": 3
+    },
+    {
+      "word": "గ",
+      "english": "Ga (Telugu letter)",
+      "x": 68,
+      "y": 28,
+      "w": 4.5,
+      "h": 3
+    },
+    {
+      "word": "ం",
+      "english": "Am (Telugu letter)",
+      "x": 74.5,
+      "y": 28,
+      "w": 3.5,
+      "h": 3
+    },
+    {
+      "word": "ప",
+      "english": "Pa (Telugu letter)",
+      "x": 80.5,
+      "y": 28,
+      "w": 4.5,
+      "h": 3
+    },
+    {
+      "word": "కింది",
+      "english": "Below",
+      "x": 14.5,
+      "y": 31,
+      "w": 4.5,
+      "h": 2.5
+    },
+    {
+      "word": "అక్షరాలతో",
+      "english": "With letters",
+      "x": 19.5,
+      "y": 31,
+      "w": 9.5,
+      "h": 2.5
+    },
+    {
+      "word": "ఏర్పడే",
+      "english": "Formed",
+      "x": 29.5,
+      "y": 31,
+      "w": 5.5,
+      "h": 2.5
+    },
+    {
+      "word": "పదాలను",
+      "english": "Words",
+      "x": 35,
+      "y": 31,
+      "w": 8,
+      "h": 2.5
+    },
+    {
+      "word": "రాయండి.",
+      "english": "Write.",
+      "simpleTeluguMeaning": "వ్రాయండి.",
+      "x": 43.5,
+      "y": 31,
+      "w": 8.5,
+      "h": 2.5
+    },
+    {
+      "word": "ప,",
+      "english": "Pa (Telugu letter)",
+      "x": 24.5,
+      "y": 37.5,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "word": "డ,",
+      "english": "Da (Telugu letter)",
+      "x": 30,
+      "y": 37.5,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "word": "వ",
+      "english": "Va (Telugu letter)",
+      "x": 35.5,
+      "y": 37.5,
+      "w": 3.5,
+      "h": 3
+    },
+    {
+      "word": "న,",
+      "english": "Na (Telugu letter)",
+      "x": 24.5,
+      "y": 41.5,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "word": "త,",
+      "english": "Ta (Telugu letter)",
+      "x": 30,
+      "y": 41.5,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "word": "ం",
+      "english": "Am (Telugu letter)",
+      "x": 35.5,
+      "y": 41.5,
+      "w": 3.5,
+      "h": 3
+    },
+    {
+      "word": "స",
+      "english": "Sa (Telugu letter)",
+      "x": 30,
+      "y": 45.5,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "word": "సృజనాత్మకత",
+      "english": "Creativity",
+      "x": 20,
+      "y": 56.5,
+      "w": 12,
+      "h": 3
+    },
+    {
+      "word": "పిల్లలూ!",
+      "english": "Children!",
+      "simpleTeluguMeaning": "బిడ్డలూ!",
+      "x": 9.5,
+      "y": 62,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "చుక్కలు",
+      "english": "Dots",
+      "x": 16.5,
+      "y": 62,
+      "w": 6,
+      "h": 2.5
+    },
+    {
+      "word": "కలుపుతూ",
+      "english": "Joining",
+      "x": 22.5,
+      "y": 62,
+      "w": 8,
+      "h": 2.5
+    },
+    {
+      "word": "చిత్రం",
+      "english": "Picture",
+      "simpleTeluguMeaning": "బొమ్మ",
+      "x": 31,
+      "y": 62,
+      "w": 4.5,
+      "h": 2.5
+    },
+    {
+      "word": "గీయండి.",
+      "english": "Draw.",
+      "x": 36,
+      "y": 62,
+      "w": 7.5,
+      "h": 2.5
+    },
+    {
+      "word": "రంగులు",
+      "english": "Colors",
+      "x": 44,
+      "y": 62,
+      "w": 6,
+      "h": 2.5
+    },
+    {
+      "word": "వేయండి.",
+      "english": "Fill.",
+      "x": 50.5,
+      "y": 62,
+      "w": 7.5,
+      "h": 2.5
+    },
+    {
+      "word": "పేరు",
+      "english": "Name",
+      "x": 58.5,
+      "y": 62,
+      "w": 4,
+      "h": 2.5
+    },
+    {
+      "word": "రాయండి.",
+      "english": "Write.",
+      "simpleTeluguMeaning": "వ్రాయండి.",
+      "x": 63,
+      "y": 62,
+      "w": 8.5,
+      "h": 2.5
+    }
+  ],
+  "pageType": "exercise",
+  "hasExercise": true
+}

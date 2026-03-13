@@ -1,0 +1,150 @@
+{
+  "words": [
+    {
+      "word": "చ",
+      "english": "Cha",
+      "simpleTeluguMeaning": "",
+      "x": 17.58,
+      "y": 8.01,
+      "w": 13,
+      "h": 12
+    },
+    {
+      "word": "చక్రం",
+      "english": "Wheel",
+      "simpleTeluguMeaning": "",
+      "x": 44.92,
+      "y": 18.57,
+      "w": 7.42,
+      "h": 3.75
+    },
+    {
+      "word": "చందమామ",
+      "english": "Moon",
+      "simpleTeluguMeaning": "",
+      "x": 68.36,
+      "y": 18.57,
+      "w": 12.5,
+      "h": 3.47
+    },
+    {
+      "word": "ఛ",
+      "english": "Chha",
+      "simpleTeluguMeaning": "",
+      "x": 17.58,
+      "y": 28.32,
+      "w": 13,
+      "h": 14
+    },
+    {
+      "word": "ఛత్రం",
+      "english": "Umbrella",
+      "simpleTeluguMeaning": "",
+      "x": 44.73,
+      "y": 38.43,
+      "w": 7.42,
+      "h": 3.75
+    },
+    {
+      "word": "పించం",
+      "english": "Feather",
+      "simpleTeluguMeaning": "",
+      "x": 70.31,
+      "y": 38.61,
+      "w": 8.59,
+      "h": 3.47
+    },
+    {
+      "word": "జ",
+      "english": "Ja",
+      "simpleTeluguMeaning": "",
+      "x": 17.58,
+      "y": 51.07,
+      "w": 13,
+      "h": 9
+    },
+    {
+      "word": "జడ",
+      "english": "Braid",
+      "simpleTeluguMeaning": "",
+      "x": 45.9,
+      "y": 58.15,
+      "w": 4.69,
+      "h": 3.29
+    },
+    {
+      "word": "జల్లెడ",
+      "english": "Sieve",
+      "simpleTeluguMeaning": "",
+      "x": 71.29,
+      "y": 58.06,
+      "w": 6.84,
+      "h": 4.17
+    },
+    {
+      "word": "ఝ",
+      "english": "Jha",
+      "simpleTeluguMeaning": "",
+      "x": 13.48,
+      "y": 66.8,
+      "w": 20,
+      "h": 14
+    },
+    {
+      "word": "ఝరి",
+      "english": "Waterfall",
+      "simpleTeluguMeaning": "",
+      "x": 45.12,
+      "y": 78.01,
+      "w": 6.64,
+      "h": 3.84
+    },
+    {
+      "word": "ఝషం",
+      "english": "Fish",
+      "simpleTeluguMeaning": "",
+      "x": 70.51,
+      "y": 78.01,
+      "w": 8.2,
+      "h": 3.56
+    },
+    {
+      "word": "1వ",
+      "english": "1st",
+      "simpleTeluguMeaning": "",
+      "x": 6.05,
+      "y": 92.41,
+      "w": 3.91,
+      "h": 2.59
+    },
+    {
+      "word": "తరగతి",
+      "english": "Class",
+      "simpleTeluguMeaning": "",
+      "x": 10.35,
+      "y": 92.5,
+      "w": 4.69,
+      "h": 2.5
+    },
+    {
+      "word": "-",
+      "english": "-",
+      "simpleTeluguMeaning": "",
+      "x": 15.23,
+      "y": 92.87,
+      "w": 1.17,
+      "h": 0.83
+    },
+    {
+      "word": "తెలుగు",
+      "english": "Telugu",
+      "simpleTeluguMeaning": "",
+      "x": 16.6,
+      "y": 92.5,
+      "w": 5.47,
+      "h": 2.5
+    }
+  ],
+  "pageType": "alphabet",
+  "hasExercise": false
+}

@@ -1,0 +1,179 @@
+{
+  "title": "తాయిలం",
+  "subtitle": null,
+  "lines": [
+    {
+      "words": [
+        {
+          "telugu": "ఆటలు",
+          "english": "Games"
+        },
+        {
+          "telugu": "ఆడి",
+          "english": "Having played"
+        },
+        {
+          "telugu": "పాటలు",
+          "english": "Songs"
+        },
+        {
+          "telugu": "పాడి",
+          "english": "Having sung"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "అలసి",
+          "english": "Having gotten tired",
+          "simpleTeluguMeaning": "బడలికచెంది"
+        },
+        {
+          "telugu": "వస్తానే",
+          "english": "I will come (emphatic)"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "తీయతీయని",
+          "english": "Very sweet"
+        },
+        {
+          "telugu": "తాయిలమేదో",
+          "english": "Some sweet gift"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "తెచ్చి",
+          "english": "Having brought"
+        },
+        {
+          "telugu": "పెడతామా",
+          "english": "Will you give/put? (Assuming 'మెడతామా' is a typo for 'పెడతామా')",
+          "simpleTeluguMeaning": "ఇస్తావా"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "గూటిలోని",
+          "english": "From the shelf/cupboard",
+          "simpleTeluguMeaning": "అల్మారాలోని"
+        },
+        {
+          "telugu": "బెల్లం",
+          "english": "Jaggery"
+        },
+        {
+          "telugu": "ముక్క",
+          "english": "Piece"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "కొంచె",
+          "english": "A little bit",
+          "simpleTeluguMeaning": "కొంచెం"
+        },
+        {
+          "telugu": "మెడతామా",
+          "english": "Will you give/put? (Assuming 'మెడతామా' is a typo for 'పెడతామా')",
+          "simpleTeluguMeaning": "ఇస్తావా"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "చేతిలోని",
+          "english": "In the hand"
+        },
+        {
+          "telugu": "కాజొరికోరూ",
+          "english": "Request a Kajori sweet (Kajori is a type of sweet)"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "దారకు",
+          "english": "For the path/journey",
+          "simpleTeluguMeaning": "దారికి"
+        },
+        {
+          "telugu": "తియ్యనా",
+          "english": "Shall I take out/extract?"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "ఉత్తరాది",
+          "english": "Northern/North Indian"
+        },
+        {
+          "telugu": "అటుకులకుండా",
+          "english": "Without flattened rice"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "అమ్మా",
+          "english": "Mother",
+          "simpleTeluguMeaning": "తల్లి"
+        },
+        {
+          "telugu": "దింపమ్మా",
+          "english": "Please lower (it)/take down (it)"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "తీయతీయని",
+          "english": "Very sweet"
+        },
+        {
+          "telugu": "తాయిలమేదో",
+          "english": "Some sweet gift"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "తీసి",
+          "english": "Having taken out"
+        },
+        {
+          "telugu": "పెడతామా",
+          "english": "Will you give/put?",
+          "simpleTeluguMeaning": "ఇస్తావా"
+        }
+      ]
+    }
+  ],
+  "pageType": "rhyme",
+  "hasExercise": false,
+  "exerciseType": null,
+  "illustrationArea": {
+    "x": 35,
+    "y": 15,
+    "w": 60,
+    "h": 75
+  }
+}

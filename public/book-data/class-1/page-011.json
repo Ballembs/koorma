@@ -1,0 +1,1167 @@
+{
+  "words": [
+    {
+      "word": "విషయసూచిక",
+      "english": "Index",
+      "simpleTeluguMeaning": "జాబితా",
+      "x": 41.5,
+      "y": 6,
+      "w": 16,
+      "h": 3
+    },
+    {
+      "word": "క్ర.సం.",
+      "english": "S.No.",
+      "simpleTeluguMeaning": "",
+      "x": 9.5,
+      "y": 10.5,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "పాఠం",
+      "english": "Lesson",
+      "simpleTeluguMeaning": "పాఠము",
+      "x": 16.5,
+      "y": 10.5,
+      "w": 5,
+      "h": 2.5
+    },
+    {
+      "word": "నేర్చుకోవలసినవి",
+      "english": "Things to learn",
+      "simpleTeluguMeaning": "నేర్చుకోవాలి",
+      "x": 43.5,
+      "y": 10.5,
+      "w": 13.5,
+      "h": 2.5
+    },
+    {
+      "word": "నెల",
+      "english": "Month",
+      "simpleTeluguMeaning": "మాసం",
+      "x": 71,
+      "y": 10.5,
+      "w": 4.5,
+      "h": 2.5
+    },
+    {
+      "word": "పేజి",
+      "english": "Page",
+      "simpleTeluguMeaning": "పుట",
+      "x": 80.5,
+      "y": 10.5,
+      "w": 4.5,
+      "h": 2.5
+    },
+    {
+      "word": "బాలగేయాలు",
+      "english": "Children's songs",
+      "simpleTeluguMeaning": "పిల్లల పాటలు",
+      "x": 15.5,
+      "y": 15.5,
+      "w": 10.5,
+      "h": 2.5
+    },
+    {
+      "word": "అభినయంతో",
+      "english": "With action",
+      "simpleTeluguMeaning": "నటనతో",
+      "x": 43.5,
+      "y": 15.5,
+      "w": 10,
+      "h": 2.5
+    },
+    {
+      "word": "పాడటం",
+      "english": "Singing",
+      "simpleTeluguMeaning": "పాడడం",
+      "x": 54,
+      "y": 15.5,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "అమ్మ",
+      "english": "Mother",
+      "simpleTeluguMeaning": "తల్లి",
+      "x": 15.5,
+      "y": 18.5,
+      "w": 5,
+      "h": 2.5
+    },
+    {
+      "word": "చిత్రం",
+      "english": "Picture",
+      "simpleTeluguMeaning": "బొమ్మ",
+      "x": 21,
+      "y": 18.5,
+      "w": 5,
+      "h": 2.5
+    },
+    {
+      "word": "స్వేచ్ఛగా",
+      "english": "Freely",
+      "simpleTeluguMeaning": "సొంతంగా",
+      "x": 43.5,
+      "y": 18.5,
+      "w": 7,
+      "h": 2.5
+    },
+    {
+      "word": "మాట్లాడటం",
+      "english": "Speaking",
+      "simpleTeluguMeaning": "మాట్లాడడం",
+      "x": 51,
+      "y": 18.5,
+      "w": 9.5,
+      "h": 2.5
+    },
+    {
+      "word": "జూన్",
+      "english": "June",
+      "simpleTeluguMeaning": "",
+      "x": 70,
+      "y": 17.5,
+      "w": 5,
+      "h": 2.5
+    },
+    {
+      "word": "నుండి",
+      "english": "From",
+      "simpleTeluguMeaning": "",
+      "x": 70,
+      "y": 20,
+      "w": 5,
+      "h": 2.5
+    },
+    {
+      "word": "అక్షర",
+      "english": "Letter",
+      "simpleTeluguMeaning": "అక్షరము",
+      "x": 15.5,
+      "y": 21,
+      "w": 4.5,
+      "h": 2.5
+    },
+    {
+      "word": "గేయాలు,",
+      "english": "Songs,",
+      "simpleTeluguMeaning": "పాటలు",
+      "x": 20.5,
+      "y": 21,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "వర్ణమాల",
+      "english": "Alphabet",
+      "simpleTeluguMeaning": "అక్షరమాల",
+      "x": 27.5,
+      "y": 21,
+      "w": 7.5,
+      "h": 2.5
+    },
+    {
+      "word": "వర్ణమాల",
+      "english": "Alphabet",
+      "simpleTeluguMeaning": "అక్షరమాల",
+      "x": 43.5,
+      "y": 21,
+      "w": 7.5,
+      "h": 2.5
+    },
+    {
+      "word": "పరిచయం",
+      "english": "Introduction",
+      "simpleTeluguMeaning": "తెలియజేయడం",
+      "x": 51.5,
+      "y": 21,
+      "w": 8,
+      "h": 2.5
+    },
+    {
+      "word": "అక్షర",
+      "english": "Letter",
+      "simpleTeluguMeaning": "అక్షరము",
+      "x": 15.5,
+      "y": 23.5,
+      "w": 4.5,
+      "h": 2.5
+    },
+    {
+      "word": "పరిచయం",
+      "english": "Introduction",
+      "simpleTeluguMeaning": "తెలియజేయడం",
+      "x": 20.5,
+      "y": 23.5,
+      "w": 8,
+      "h": 2.5
+    },
+    {
+      "word": "చిత్రాలు",
+      "english": "Pictures",
+      "simpleTeluguMeaning": "బొమ్మలు",
+      "x": 29,
+      "y": 23.5,
+      "w": 6,
+      "h": 2.5
+    },
+    {
+      "word": "వర్ణమాల",
+      "english": "Alphabet",
+      "simpleTeluguMeaning": "అక్షరమాల",
+      "x": 43.5,
+      "y": 24,
+      "w": 7.5,
+      "h": 2.5
+    },
+    {
+      "word": "మౌఖిక",
+      "english": "Oral",
+      "simpleTeluguMeaning": "నోటితో",
+      "x": 51.5,
+      "y": 24,
+      "w": 5.5,
+      "h": 2.5
+    },
+    {
+      "word": "పరిచయం",
+      "english": "Introduction",
+      "simpleTeluguMeaning": "తెలియజేయడం",
+      "x": 57.5,
+      "y": 24,
+      "w": 8,
+      "h": 2.5
+    },
+    {
+      "word": "జులై",
+      "english": "July",
+      "simpleTeluguMeaning": "",
+      "x": 70.5,
+      "y": 22.5,
+      "w": 4,
+      "h": 2.5
+    },
+    {
+      "word": "వరకు",
+      "english": "Until",
+      "simpleTeluguMeaning": "దాక",
+      "x": 70,
+      "y": 25.5,
+      "w": 5.5,
+      "h": 2.5
+    },
+    {
+      "word": "ఆడుకుందాం",
+      "english": "Let's play",
+      "simpleTeluguMeaning": "ఆడుకుందాము",
+      "x": 15.5,
+      "y": 26.5,
+      "w": 10,
+      "h": 2.5
+    },
+    {
+      "word": "వర్ణమాల",
+      "english": "Alphabet",
+      "simpleTeluguMeaning": "అక్షరమాల",
+      "x": 28,
+      "y": 26.5,
+      "w": 7.5,
+      "h": 2.5
+    },
+    {
+      "word": "ఆట",
+      "english": "Game",
+      "simpleTeluguMeaning": "ఆట",
+      "x": 36,
+      "y": 26.5,
+      "w": 3.5,
+      "h": 2.5
+    },
+    {
+      "word": "పడవ",
+      "english": "Boat",
+      "simpleTeluguMeaning": "నావ",
+      "x": 17,
+      "y": 30.5,
+      "w": 5,
+      "h": 2.5
+    },
+    {
+      "word": "ప,",
+      "english": "Pa,",
+      "simpleTeluguMeaning": "",
+      "x": 44.5,
+      "y": 30.5,
+      "w": 3,
+      "h": 2.5
+    },
+    {
+      "word": "డ,",
+      "english": "Da,",
+      "simpleTeluguMeaning": "",
+      "x": 48,
+      "y": 30.5,
+      "w": 3,
+      "h": 2.5
+    },
+    {
+      "word": "వ",
+      "english": "Va",
+      "simpleTeluguMeaning": "",
+      "x": 51.5,
+      "y": 30.5,
+      "w": 2.5,
+      "h": 2.5
+    },
+    {
+      "word": "ఆగష్టు",
+      "english": "August",
+      "simpleTeluguMeaning": "",
+      "x": 71,
+      "y": 30.5,
+      "w": 6,
+      "h": 2.5
+    },
+    {
+      "word": "చందమామ",
+      "english": "Moon",
+      "simpleTeluguMeaning": "జాబిల్లి",
+      "x": 17,
+      "y": 33.5,
+      "w": 8.5,
+      "h": 2.5
+    },
+    {
+      "word": "రావె",
+      "english": "Come",
+      "simpleTeluguMeaning": "రా",
+      "x": 26,
+      "y": 33.5,
+      "w": 4,
+      "h": 2.5
+    },
+    {
+      "word": "న,",
+      "english": "Na,",
+      "simpleTeluguMeaning": "",
+      "x": 44.5,
+      "y": 33.5,
+      "w": 3,
+      "h": 2.5
+    },
+    {
+      "word": "స",
+      "english": "Sa",
+      "simpleTeluguMeaning": "",
+      "x": 48,
+      "y": 33.5,
+      "w": 2.5,
+      "h": 2.5
+    },
+    {
+      "word": "మేలుకొలుపు",
+      "english": "Waking up",
+      "simpleTeluguMeaning": "నిద్రలేపడం",
+      "x": 17,
+      "y": 36.5,
+      "w": 9.5,
+      "h": 2.5
+    },
+    {
+      "word": "గ,",
+      "english": "Ga,",
+      "simpleTeluguMeaning": "",
+      "x": 44.5,
+      "y": 36.5,
+      "w": 3,
+      "h": 2.5
+    },
+    {
+      "word": "ం",
+      "english": "Am",
+      "simpleTeluguMeaning": "",
+      "x": 48,
+      "y": 36.5,
+      "w": 2.5,
+      "h": 2.5
+    },
+    {
+      "word": "ఉడత",
+      "english": "Squirrel",
+      "simpleTeluguMeaning": "",
+      "x": 17,
+      "y": 39.5,
+      "w": 5,
+      "h": 2.5
+    },
+    {
+      "word": "ఉడత",
+      "english": "Squirrel",
+      "simpleTeluguMeaning": "",
+      "x": 22.5,
+      "y": 39.5,
+      "w": 5,
+      "h": 2.5
+    },
+    {
+      "word": "హూచ్",
+      "english": "Hooch",
+      "simpleTeluguMeaning": "",
+      "x": 28,
+      "y": 39.5,
+      "w": 5,
+      "h": 2.5
+    },
+    {
+      "word": "ఉ,",
+      "english": "U,",
+      "simpleTeluguMeaning": "",
+      "x": 44.5,
+      "y": 39.5,
+      "w": 3,
+      "h": 2.5
+    },
+    {
+      "word": "త",
+      "english": "Ta",
+      "simpleTeluguMeaning": "",
+      "x": 48,
+      "y": 39.5,
+      "w": 2.5,
+      "h": 2.5
+    },
+    {
+      "word": "సెప్టెంబర్",
+      "english": "September",
+      "simpleTeluguMeaning": "",
+      "x": 70,
+      "y": 39.5,
+      "w": 8,
+      "h": 2.5
+    },
+    {
+      "word": "తకధిమితోం",
+      "english": "Takadhimithom",
+      "simpleTeluguMeaning": "",
+      "x": 17,
+      "y": 42.5,
+      "w": 9.5,
+      "h": 2.5
+    },
+    {
+      "word": "బ,",
+      "english": "Ba,",
+      "simpleTeluguMeaning": "",
+      "x": 44.5,
+      "y": 42.5,
+      "w": 3,
+      "h": 2.5
+    },
+    {
+      "word": "ల",
+      "english": "La",
+      "simpleTeluguMeaning": "",
+      "x": 48,
+      "y": 42.5,
+      "w": 2.5,
+      "h": 2.5
+    },
+    {
+      "word": "అరక",
+      "english": "Plough",
+      "simpleTeluguMeaning": "నాగలి",
+      "x": 17,
+      "y": 46,
+      "w": 4.5,
+      "h": 2.5
+    },
+    {
+      "word": "అ,",
+      "english": "A,",
+      "simpleTeluguMeaning": "",
+      "x": 44.5,
+      "y": 46,
+      "w": 3,
+      "h": 2.5
+    },
+    {
+      "word": "ర,",
+      "english": "Ra,",
+      "simpleTeluguMeaning": "",
+      "x": 48,
+      "y": 46,
+      "w": 3,
+      "h": 2.5
+    },
+    {
+      "word": "క",
+      "english": "Ka",
+      "simpleTeluguMeaning": "",
+      "x": 51.5,
+      "y": 46,
+      "w": 2.5,
+      "h": 2.5
+    },
+    {
+      "word": "ఊహల",
+      "english": "Imaginary",
+      "simpleTeluguMeaning": "కలల",
+      "x": 17,
+      "y": 49.5,
+      "w": 5.5,
+      "h": 2.5
+    },
+    {
+      "word": "ఊయల",
+      "english": "Swing",
+      "simpleTeluguMeaning": "ఉయ్యాల",
+      "x": 23,
+      "y": 49.5,
+      "w": 5.5,
+      "h": 2.5
+    },
+    {
+      "word": "ఊ,",
+      "english": "Uu,",
+      "simpleTeluguMeaning": "",
+      "x": 44.5,
+      "y": 49.5,
+      "w": 3.5,
+      "h": 2.5
+    },
+    {
+      "word": "య",
+      "english": "Ya",
+      "simpleTeluguMeaning": "",
+      "x": 48.5,
+      "y": 49.5,
+      "w": 3,
+      "h": 2.5
+    },
+    {
+      "word": "అక్టోబర్",
+      "english": "October",
+      "simpleTeluguMeaning": "",
+      "x": 70.5,
+      "y": 49,
+      "w": 7,
+      "h": 3
+    },
+    {
+      "word": "బావా",
+      "english": "Brother-in-law",
+      "simpleTeluguMeaning": "",
+      "x": 17,
+      "y": 52.5,
+      "w": 4.5,
+      "h": 2.5
+    },
+    {
+      "word": "బావా",
+      "english": "Brother-in-law",
+      "simpleTeluguMeaning": "",
+      "x": 22,
+      "y": 52.5,
+      "w": 4.5,
+      "h": 2.5
+    },
+    {
+      "word": "పన్నీరు",
+      "english": "Rose water",
+      "simpleTeluguMeaning": "సుగంధ జలం",
+      "x": 27,
+      "y": 52.5,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "మ,",
+      "english": "Ma,",
+      "simpleTeluguMeaning": "",
+      "x": 44.5,
+      "y": 52.5,
+      "w": 3,
+      "h": 2.5
+    },
+    {
+      "word": "చ",
+      "english": "Cha",
+      "simpleTeluguMeaning": "",
+      "x": 48,
+      "y": 52.5,
+      "w": 2.5,
+      "h": 2.5
+    },
+    {
+      "word": "ఆట",
+      "english": "Game",
+      "simpleTeluguMeaning": "ఆడుకోవడం",
+      "x": 17,
+      "y": 55.5,
+      "w": 3.5,
+      "h": 2.5
+    },
+    {
+      "word": "ఆ,",
+      "english": "Aa,",
+      "simpleTeluguMeaning": "",
+      "x": 44.5,
+      "y": 55.5,
+      "w": 3,
+      "h": 2.5
+    },
+    {
+      "word": "ట",
+      "english": "Ta",
+      "simpleTeluguMeaning": "",
+      "x": 48,
+      "y": 55.5,
+      "w": 2.5,
+      "h": 2.5
+    },
+    {
+      "word": "నవంబర్",
+      "english": "November",
+      "simpleTeluguMeaning": "",
+      "x": 70,
+      "y": 55.5,
+      "w": 7.5,
+      "h": 2.5
+    },
+    {
+      "word": "జడ",
+      "english": "Braid",
+      "simpleTeluguMeaning": "వెంట్రుకల అల్లిక",
+      "x": 17,
+      "y": 58.5,
+      "w": 3.5,
+      "h": 2.5
+    },
+    {
+      "word": "దండ",
+      "english": "Garland",
+      "simpleTeluguMeaning": "పూల మాల",
+      "x": 22,
+      "y": 58.5,
+      "w": 4,
+      "h": 2.5
+    },
+    {
+      "word": "జ,",
+      "english": "Ja,",
+      "simpleTeluguMeaning": "",
+      "x": 44.5,
+      "y": 58.5,
+      "w": 3,
+      "h": 2.5
+    },
+    {
+      "word": "ద",
+      "english": "Da",
+      "simpleTeluguMeaning": "",
+      "x": 48,
+      "y": 58.5,
+      "w": 2.5,
+      "h": 2.5
+    },
+    {
+      "word": "ఇల్లు",
+      "english": "House",
+      "simpleTeluguMeaning": "గృహం",
+      "x": 17,
+      "y": 61.5,
+      "w": 4,
+      "h": 2.5
+    },
+    {
+      "word": "ఈగ",
+      "english": "Fly",
+      "simpleTeluguMeaning": "ఈగ",
+      "x": 22.5,
+      "y": 61.5,
+      "w": 3.5,
+      "h": 2.5
+    },
+    {
+      "word": "ఇ,",
+      "english": "I,",
+      "simpleTeluguMeaning": "",
+      "x": 44.5,
+      "y": 61.5,
+      "w": 3,
+      "h": 2.5
+    },
+    {
+      "word": "ఈ",
+      "english": "Ee",
+      "simpleTeluguMeaning": "",
+      "x": 48,
+      "y": 61.5,
+      "w": 2.5,
+      "h": 2.5
+    },
+    {
+      "word": "ఎలుకమ్మ",
+      "english": "Mouse",
+      "simpleTeluguMeaning": "ఎలుక",
+      "x": 17,
+      "y": 64.5,
+      "w": 7.5,
+      "h": 2.5
+    },
+    {
+      "word": "ఎ,",
+      "english": "E,",
+      "simpleTeluguMeaning": "",
+      "x": 44.5,
+      "y": 64.5,
+      "w": 3,
+      "h": 2.5
+    },
+    {
+      "word": "ఏ,",
+      "english": "Ee,",
+      "simpleTeluguMeaning": "",
+      "x": 48,
+      "y": 64.5,
+      "w": 3,
+      "h": 2.5
+    },
+    {
+      "word": "ఐ",
+      "english": "Ai",
+      "simpleTeluguMeaning": "",
+      "x": 51.5,
+      "y": 64.5,
+      "w": 2.5,
+      "h": 2.5
+    },
+    {
+      "word": "డిశంబర్",
+      "english": "December",
+      "simpleTeluguMeaning": "",
+      "x": 70,
+      "y": 64.5,
+      "w": 7.5,
+      "h": 2.5
+    },
+    {
+      "word": "అమ్మ",
+      "english": "Mother",
+      "simpleTeluguMeaning": "తల్లి",
+      "x": 17,
+      "y": 68,
+      "w": 4.5,
+      "h": 2.5
+    },
+    {
+      "word": "ఒడి",
+      "english": "Lap",
+      "simpleTeluguMeaning": "",
+      "x": 22,
+      "y": 68,
+      "w": 3.5,
+      "h": 2.5
+    },
+    {
+      "word": "ఒ,",
+      "english": "O,",
+      "simpleTeluguMeaning": "",
+      "x": 44.5,
+      "y": 68,
+      "w": 3,
+      "h": 2.5
+    },
+    {
+      "word": "ఓ,",
+      "english": "Oo,",
+      "simpleTeluguMeaning": "",
+      "x": 48,
+      "y": 68,
+      "w": 3,
+      "h": 2.5
+    },
+    {
+      "word": "ఔ",
+      "english": "Au",
+      "simpleTeluguMeaning": "",
+      "x": 51.5,
+      "y": 68,
+      "w": 2.5,
+      "h": 2.5
+    },
+    {
+      "word": "మేఘం",
+      "english": "Cloud",
+      "simpleTeluguMeaning": "మబ్బు",
+      "x": 17,
+      "y": 71,
+      "w": 5.5,
+      "h": 2.5
+    },
+    {
+      "word": "ఛత్రం",
+      "english": "Umbrella",
+      "simpleTeluguMeaning": "గొడుగు",
+      "x": 24.5,
+      "y": 71,
+      "w": 5,
+      "h": 2.5
+    },
+    {
+      "word": "ఖ,",
+      "english": "Kha,",
+      "simpleTeluguMeaning": "",
+      "x": 44.5,
+      "y": 71,
+      "w": 3.5,
+      "h": 2.5
+    },
+    {
+      "word": "ఘ,",
+      "english": "Gha,",
+      "simpleTeluguMeaning": "",
+      "x": 48.5,
+      "y": 71,
+      "w": 3.5,
+      "h": 2.5
+    },
+    {
+      "word": "ఛ,",
+      "english": "Cha,",
+      "simpleTeluguMeaning": "",
+      "x": 52.5,
+      "y": 71,
+      "w": 3,
+      "h": 2.5
+    },
+    {
+      "word": "ఝ,",
+      "english": "Jha,",
+      "simpleTeluguMeaning": "",
+      "x": 56,
+      "y": 71,
+      "w": 3.5,
+      "h": 2.5
+    },
+    {
+      "word": "ఋ",
+      "english": "Ru",
+      "simpleTeluguMeaning": "",
+      "x": 60,
+      "y": 71,
+      "w": 3,
+      "h": 2.5
+    },
+    {
+      "word": "పాఠశాల",
+      "english": "School",
+      "simpleTeluguMeaning": "బడి",
+      "x": 17,
+      "y": 73.5,
+      "w": 7.5,
+      "h": 2.5
+    },
+    {
+      "word": "పండుగ",
+      "english": "Festival",
+      "simpleTeluguMeaning": "పండగ",
+      "x": 25,
+      "y": 73.5,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "ఠ,",
+      "english": "Tha,",
+      "simpleTeluguMeaning": "",
+      "x": 44.5,
+      "y": 73.5,
+      "w": 3,
+      "h": 2.5
+    },
+    {
+      "word": "ఢ,",
+      "english": "Dha,",
+      "simpleTeluguMeaning": "",
+      "x": 48,
+      "y": 73.5,
+      "w": 3,
+      "h": 2.5
+    },
+    {
+      "word": "ణ,",
+      "english": "Na,",
+      "simpleTeluguMeaning": "",
+      "x": 51.5,
+      "y": 73.5,
+      "w": 3,
+      "h": 2.5
+    },
+    {
+      "word": "థ,",
+      "english": "Tha,",
+      "simpleTeluguMeaning": "",
+      "x": 55,
+      "y": 73.5,
+      "w": 3,
+      "h": 2.5
+    },
+    {
+      "word": "ధ",
+      "english": "Dha",
+      "simpleTeluguMeaning": "",
+      "x": 58.5,
+      "y": 73.5,
+      "w": 3,
+      "h": 2.5
+    },
+    {
+      "word": "జనవరి",
+      "english": "January",
+      "simpleTeluguMeaning": "",
+      "x": 71,
+      "y": 73.5,
+      "w": 6,
+      "h": 2.5
+    },
+    {
+      "word": "శుభదాయిని",
+      "english": "Auspicious",
+      "simpleTeluguMeaning": "మంచిచేసేది",
+      "x": 17,
+      "y": 76.5,
+      "w": 9.5,
+      "h": 2.5
+    },
+    {
+      "word": "ఫ,",
+      "english": "Pha,",
+      "simpleTeluguMeaning": "",
+      "x": 44.5,
+      "y": 76.5,
+      "w": 3.5,
+      "h": 2.5
+    },
+    {
+      "word": "భ,",
+      "english": "Bha,",
+      "simpleTeluguMeaning": "",
+      "x": 48.5,
+      "y": 76.5,
+      "w": 3,
+      "h": 2.5
+    },
+    {
+      "word": "శ,",
+      "english": "Sha,",
+      "simpleTeluguMeaning": "",
+      "x": 52,
+      "y": 76.5,
+      "w": 3,
+      "h": 2.5
+    },
+    {
+      "word": "ష,",
+      "english": "Sha,",
+      "simpleTeluguMeaning": "",
+      "x": 55.5,
+      "y": 76.5,
+      "w": 3,
+      "h": 2.5
+    },
+    {
+      "word": "హ,",
+      "english": "Ha,",
+      "simpleTeluguMeaning": "",
+      "x": 59,
+      "y": 76.5,
+      "w": 3.5,
+      "h": 2.5
+    },
+    {
+      "word": "ళ,",
+      "english": "La,",
+      "simpleTeluguMeaning": "",
+      "x": 63,
+      "y": 76.5,
+      "w": 3,
+      "h": 2.5
+    },
+    {
+      "word": "క్ష",
+      "english": "Ksha",
+      "simpleTeluguMeaning": "",
+      "x": 66.5,
+      "y": 76.5,
+      "w": 3,
+      "h": 2.5
+    },
+    {
+      "word": "గలగల",
+      "english": "Rustling",
+      "simpleTeluguMeaning": "గడగడ",
+      "x": 17,
+      "y": 80,
+      "w": 5.5,
+      "h": 2.5
+    },
+    {
+      "word": "మాటలు",
+      "english": "Words",
+      "simpleTeluguMeaning": "పలుకులు",
+      "x": 23,
+      "y": 80,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "అక్షరమాల",
+      "english": "Alphabet",
+      "simpleTeluguMeaning": "వర్ణమాల",
+      "x": 44.5,
+      "y": 80,
+      "w": 8,
+      "h": 2.5
+    },
+    {
+      "word": "ఫిబ్రవరి",
+      "english": "February",
+      "simpleTeluguMeaning": "",
+      "x": 71,
+      "y": 80,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "గుణింతాలం",
+      "english": "Guninthalu",
+      "simpleTeluguMeaning": "",
+      "x": 17,
+      "y": 83,
+      "w": 9.5,
+      "h": 2.5
+    },
+    {
+      "word": "గుణింతగుర్తుల",
+      "english": "Gunintha symbols",
+      "simpleTeluguMeaning": "",
+      "x": 44.5,
+      "y": 83,
+      "w": 12,
+      "h": 2.5
+    },
+    {
+      "word": "పరిచయం",
+      "english": "Introduction",
+      "simpleTeluguMeaning": "తెలియజేయడం",
+      "x": 57,
+      "y": 83,
+      "w": 8,
+      "h": 2.5
+    },
+    {
+      "word": "పద్యరత్నాలు",
+      "english": "Poem gems",
+      "simpleTeluguMeaning": "మంచి పద్యాలు",
+      "x": 17,
+      "y": 86,
+      "w": 10,
+      "h": 2.5
+    },
+    {
+      "word": "విలువలు",
+      "english": "Values",
+      "simpleTeluguMeaning": "మంచి గుణాలు",
+      "x": 44.5,
+      "y": 86,
+      "w": 7.5,
+      "h": 2.5
+    },
+    {
+      "word": "సూచన:",
+      "english": "Note:",
+      "simpleTeluguMeaning": "గమనిక:",
+      "x": 17,
+      "y": 89,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "ప్రతి",
+      "english": "Every",
+      "simpleTeluguMeaning": "ప్రతి",
+      "x": 24,
+      "y": 89,
+      "w": 4.5,
+      "h": 2.5
+    },
+    {
+      "word": "రెండు",
+      "english": "Two",
+      "simpleTeluguMeaning": "",
+      "x": 29,
+      "y": 89,
+      "w": 5,
+      "h": 2.5
+    },
+    {
+      "word": "పాఠాలకు",
+      "english": "For lessons",
+      "simpleTeluguMeaning": "పాఠాలకి",
+      "x": 34.5,
+      "y": 89,
+      "w": 8,
+      "h": 2.5
+    },
+    {
+      "word": "ఒక",
+      "english": "One",
+      "simpleTeluguMeaning": "",
+      "x": 43,
+      "y": 89,
+      "w": 3,
+      "h": 2.5
+    },
+    {
+      "word": "పద్యాన్ని",
+      "english": "Poem",
+      "simpleTeluguMeaning": "పద్యం",
+      "x": 46.5,
+      "y": 89,
+      "w": 7,
+      "h": 2.5
+    },
+    {
+      "word": "నేర్పించండి",
+      "english": "Teach",
+      "simpleTeluguMeaning": "నేర్పండి",
+      "x": 54,
+      "y": 89,
+      "w": 9.5,
+      "h": 2.5
+    },
+    {
+      "word": "తెలుగు",
+      "english": "Telugu",
+      "simpleTeluguMeaning": "",
+      "x": 82.5,
+      "y": 92.5,
+      "w": 5.5,
+      "h": 2.5
+    },
+    {
+      "word": "తోట",
+      "english": "Garden",
+      "simpleTeluguMeaning": "తోట",
+      "x": 88.5,
+      "y": 92.5,
+      "w": 4,
+      "h": 2.5
+    }
+  ],
+  "pageType": "info",
+  "hasExercise": false
+}

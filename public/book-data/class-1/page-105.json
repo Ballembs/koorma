@@ -1,0 +1,447 @@
+{
+  "words": [
+    {
+      "word": "నీళ్లలోన",
+      "english": "In water",
+      "simpleTeluguMeaning": "నీటిలో",
+      "x": 14.5,
+      "y": 10,
+      "w": 12,
+      "h": 3.5
+    },
+    {
+      "word": "మొసలి",
+      "english": "Crocodile",
+      "x": 27.5,
+      "y": 10,
+      "w": 9.5,
+      "h": 3
+    },
+    {
+      "word": "నిగిడి",
+      "english": "Standing firm",
+      "x": 38,
+      "y": 10,
+      "w": 7.5,
+      "h": 3
+    },
+    {
+      "word": "ఏనుగుబట్టు",
+      "english": "Catches elephant",
+      "x": 46.5,
+      "y": 10,
+      "w": 14.5,
+      "h": 3.5
+    },
+    {
+      "word": "బయట",
+      "english": "Outside",
+      "x": 14.5,
+      "y": 14,
+      "w": 8,
+      "h": 3
+    },
+    {
+      "word": "కుక్క",
+      "english": "Dog",
+      "x": 23.5,
+      "y": 14,
+      "w": 7,
+      "h": 3.5
+    },
+    {
+      "word": "చేత",
+      "english": "By",
+      "x": 31.5,
+      "y": 14,
+      "w": 6,
+      "h": 3
+    },
+    {
+      "word": "భంగపడును",
+      "english": "Gets defeated",
+      "x": 38.5,
+      "y": 14,
+      "w": 14.5,
+      "h": 3.5
+    },
+    {
+      "word": "స్థానబలిమి",
+      "english": "Strength of place",
+      "x": 14.5,
+      "y": 17.5,
+      "w": 14,
+      "h": 3.5
+    },
+    {
+      "word": "కాని",
+      "english": "But",
+      "x": 29.5,
+      "y": 17.5,
+      "w": 6,
+      "h": 3
+    },
+    {
+      "word": "తన",
+      "english": "Own",
+      "x": 36.5,
+      "y": 17.5,
+      "w": 5,
+      "h": 3
+    },
+    {
+      "word": "బల్మి",
+      "english": "Strength",
+      "x": 42.5,
+      "y": 17.5,
+      "w": 6.5,
+      "h": 3.5
+    },
+    {
+      "word": "గాదయా",
+      "english": "Is it not",
+      "x": 50,
+      "y": 17.5,
+      "w": 10.5,
+      "h": 3
+    },
+    {
+      "word": "విశ్వదాభిరామ",
+      "english": "Praising the creator",
+      "x": 14.5,
+      "y": 21,
+      "w": 18,
+      "h": 3.5
+    },
+    {
+      "word": "వినుర",
+      "english": "Listen",
+      "x": 33.5,
+      "y": 21,
+      "w": 7.5,
+      "h": 3
+    },
+    {
+      "word": "వేమ!",
+      "english": "Vema!",
+      "x": 42,
+      "y": 21,
+      "w": 7,
+      "h": 3
+    },
+    {
+      "word": "అనువుగాని",
+      "english": "Unsuitable",
+      "x": 53,
+      "y": 32,
+      "w": 14,
+      "h": 3
+    },
+    {
+      "word": "చోట",
+      "english": "Place",
+      "x": 68,
+      "y": 32,
+      "w": 6.5,
+      "h": 3
+    },
+    {
+      "word": "నధికులమనరాదు",
+      "english": "Should not say we are superior",
+      "x": 75.5,
+      "y": 32,
+      "w": 19.5,
+      "h": 3
+    },
+    {
+      "word": "కొంచెముండుటెల్ల",
+      "english": "Being little is all",
+      "x": 53,
+      "y": 36,
+      "w": 22,
+      "h": 3.5
+    },
+    {
+      "word": "కొదువ",
+      "english": "Defect/Lacking",
+      "x": 76,
+      "y": 36,
+      "w": 8,
+      "h": 3
+    },
+    {
+      "word": "కాదు",
+      "english": "No",
+      "x": 85,
+      "y": 36,
+      "w": 6.5,
+      "h": 3
+    },
+    {
+      "word": "కొండ",
+      "english": "Mountain",
+      "x": 53,
+      "y": 39.5,
+      "w": 6.5,
+      "h": 3
+    },
+    {
+      "word": "అద్దమందు",
+      "english": "In mirror",
+      "x": 60.5,
+      "y": 39.5,
+      "w": 14,
+      "h": 3.5
+    },
+    {
+      "word": "కొంచమై",
+      "english": "Becoming small",
+      "x": 75.5,
+      "y": 39.5,
+      "w": 10,
+      "h": 3.5
+    },
+    {
+      "word": "ఉండదా!",
+      "english": "Will it not be!",
+      "x": 86.5,
+      "y": 39.5,
+      "w": 9,
+      "h": 3
+    },
+    {
+      "word": "విశ్వదాభిరామ",
+      "english": "Praising the creator",
+      "x": 53,
+      "y": 43.5,
+      "w": 18,
+      "h": 3.5
+    },
+    {
+      "word": "వినురవేమ!",
+      "english": "Listen Vema!",
+      "x": 72,
+      "y": 43.5,
+      "w": 14,
+      "h": 3
+    },
+    {
+      "word": "అన్ని",
+      "english": "All",
+      "x": 13.5,
+      "y": 54,
+      "w": 6,
+      "h": 3.5
+    },
+    {
+      "word": "దానములను",
+      "english": "Charities",
+      "x": 20.5,
+      "y": 54,
+      "w": 14.5,
+      "h": 3
+    },
+    {
+      "word": "నన్నదానమె",
+      "english": "Food donation only",
+      "x": 36,
+      "y": 54,
+      "w": 14.5,
+      "h": 3.5
+    },
+    {
+      "word": "గొప్ప",
+      "english": "Great",
+      "x": 51.5,
+      "y": 54,
+      "w": 7,
+      "h": 3.5
+    },
+    {
+      "word": "కన్నవారి",
+      "english": "Parents",
+      "x": 13.5,
+      "y": 57.5,
+      "w": 10.5,
+      "h": 3.5
+    },
+    {
+      "word": "కంటె",
+      "english": "Than",
+      "x": 25,
+      "y": 57.5,
+      "w": 6.5,
+      "h": 3
+    },
+    {
+      "word": "ఘనులు",
+      "english": "Great people",
+      "x": 32.5,
+      "y": 57.5,
+      "w": 8.5,
+      "h": 3
+    },
+    {
+      "word": "లేరు",
+      "english": "None",
+      "x": 42,
+      "y": 57.5,
+      "w": 6,
+      "h": 3
+    },
+    {
+      "word": "ఎన్న",
+      "english": "To count/consider",
+      "x": 13.5,
+      "y": 61.5,
+      "w": 6,
+      "h": 3.5
+    },
+    {
+      "word": "గురుని",
+      "english": "Teacher",
+      "x": 20.5,
+      "y": 61.5,
+      "w": 7.5,
+      "h": 3
+    },
+    {
+      "word": "కన్న",
+      "english": "Than",
+      "x": 29,
+      "y": 61.5,
+      "w": 5.5,
+      "h": 3.5
+    },
+    {
+      "word": "ఎక్కువ",
+      "english": "More",
+      "x": 35.5,
+      "y": 61.5,
+      "w": 8,
+      "h": 3.5
+    },
+    {
+      "word": "లేరయా",
+      "english": "Are not there",
+      "x": 44.5,
+      "y": 61.5,
+      "w": 9,
+      "h": 3
+    },
+    {
+      "word": "విశ్వదాభిరామ",
+      "english": "Praising the creator",
+      "x": 13.5,
+      "y": 65,
+      "w": 18,
+      "h": 3.5
+    },
+    {
+      "word": "వినుర",
+      "english": "Listen",
+      "x": 32.5,
+      "y": 65,
+      "w": 7.5,
+      "h": 3
+    },
+    {
+      "word": "వేమ!",
+      "english": "Vema!",
+      "x": 41,
+      "y": 65,
+      "w": 7,
+      "h": 3
+    },
+    {
+      "word": "అంతరంగమందు",
+      "english": "Inside the heart",
+      "x": 46.5,
+      "y": 75,
+      "w": 19.5,
+      "h": 3
+    },
+    {
+      "word": "నపరాధములు",
+      "english": "Mistakes/Sins",
+      "x": 67,
+      "y": 75,
+      "w": 16,
+      "h": 3.5
+    },
+    {
+      "word": "చేసి",
+      "english": "Having done",
+      "x": 84,
+      "y": 75,
+      "w": 5.5,
+      "h": 3
+    },
+    {
+      "word": "మంచివాని",
+      "english": "Good person",
+      "x": 46.5,
+      "y": 79,
+      "w": 13.5,
+      "h": 3
+    },
+    {
+      "word": "వలెనె",
+      "english": "Like",
+      "x": 61,
+      "y": 79,
+      "w": 7.5,
+      "h": 3
+    },
+    {
+      "word": "మనుజుడుండు",
+      "english": "Human exists",
+      "x": 69.5,
+      "y": 79,
+      "w": 16,
+      "h": 3
+    },
+    {
+      "word": "నితరు",
+      "english": "Others",
+      "x": 46.5,
+      "y": 82.5,
+      "w": 7.5,
+      "h": 3
+    },
+    {
+      "word": "లెరుగకున్న",
+      "english": "Not knowing",
+      "x": 55,
+      "y": 82.5,
+      "w": 13.5,
+      "h": 3.5
+    },
+    {
+      "word": "నీశ్వరుడెరుగడా",
+      "english": "God knows, doesn't he",
+      "x": 69.5,
+      "y": 82.5,
+      "w": 18,
+      "h": 3.5
+    },
+    {
+      "word": "విశ్వదాభిరామ",
+      "english": "Praising the creator",
+      "x": 46.5,
+      "y": 86.5,
+      "w": 18,
+      "h": 3.5
+    },
+    {
+      "word": "వినురవేమ!",
+      "english": "Listen Vema!",
+      "x": 65.5,
+      "y": 86.5,
+      "w": 14,
+      "h": 3
+    }
+  ],
+  "pageType": "rhyme",
+  "hasExercise": false
+}

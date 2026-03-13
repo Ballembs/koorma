@@ -1,0 +1,312 @@
+{
+  "words": [
+    {
+      "word": "జడ",
+      "english": "Braid",
+      "simpleTeluguMeaning": "తలకట్టు",
+      "x": 34.21,
+      "y": 7.02,
+      "w": 9.21,
+      "h": 5.43
+    },
+    {
+      "word": "-",
+      "english": "-",
+      "simpleTeluguMeaning": "-",
+      "x": 43.42,
+      "y": 7.02,
+      "w": 3.68,
+      "h": 5.43
+    },
+    {
+      "word": "దండ",
+      "english": "Garland",
+      "simpleTeluguMeaning": "పూలదండ",
+      "x": 47.11,
+      "y": 7.02,
+      "w": 12.63,
+      "h": 5.43
+    },
+    {
+      "word": "జ,",
+      "english": "Letter Ja,",
+      "simpleTeluguMeaning": "-",
+      "x": 78.16,
+      "y": 11.66,
+      "w": 5.26,
+      "h": 3.98
+    },
+    {
+      "word": "ద",
+      "english": "Letter Da",
+      "simpleTeluguMeaning": "-",
+      "x": 83.68,
+      "y": 11.66,
+      "w": 3.68,
+      "h": 3.98
+    },
+    {
+      "word": "సీతమ్మ",
+      "english": "Goddess Sita",
+      "simpleTeluguMeaning": "సీత",
+      "x": 7.11,
+      "y": 18.06,
+      "w": 7.37,
+      "h": 3.01
+    },
+    {
+      "word": "వాకిట",
+      "english": "in the courtyard",
+      "simpleTeluguMeaning": "ముంగిట",
+      "x": 14.74,
+      "y": 18.06,
+      "w": 5.53,
+      "h": 3.01
+    },
+    {
+      "word": "సిరిమల్లె",
+      "english": "Sirimalle flower",
+      "simpleTeluguMeaning": "మల్లెపువ్వు",
+      "x": 20.79,
+      "y": 18.06,
+      "w": 7.89,
+      "h": 3.01
+    },
+    {
+      "word": "చెట్టు",
+      "english": "tree",
+      "simpleTeluguMeaning": "మొక్క",
+      "x": 29.21,
+      "y": 18.06,
+      "w": 6.32,
+      "h": 3.01
+    },
+    {
+      "word": "సిరిమల్లె",
+      "english": "Sirimalle flower",
+      "simpleTeluguMeaning": "మల్లెపువ్వు",
+      "x": 7.11,
+      "y": 21.65,
+      "w": 7.89,
+      "h": 3.01
+    },
+    {
+      "word": "చెట్టేమో",
+      "english": "The tree indeed",
+      "simpleTeluguMeaning": "చెట్టు ఏమో",
+      "x": 15.53,
+      "y": 21.65,
+      "w": 8.68,
+      "h": 3.01
+    },
+    {
+      "word": "విరగబూసింది",
+      "english": "bloomed abundantly",
+      "simpleTeluguMeaning": "బాగా పూసింది",
+      "x": 24.21,
+      "y": 21.65,
+      "w": 13.95,
+      "h": 3.01
+    },
+    {
+      "word": "చెట్టు",
+      "english": "tree",
+      "simpleTeluguMeaning": "మొక్క",
+      "x": 7.11,
+      "y": 25.15,
+      "w": 4.74,
+      "h": 3.01
+    },
+    {
+      "word": "వంచకుండా",
+      "english": "without bending",
+      "simpleTeluguMeaning": "వంచకుండా",
+      "x": 12.37,
+      "y": 25.15,
+      "w": 10.26,
+      "h": 3.01
+    },
+    {
+      "word": "కొమ్మ",
+      "english": "branch",
+      "simpleTeluguMeaning": "కొమ్మ",
+      "x": 23.16,
+      "y": 25.15,
+      "w": 5.26,
+      "h": 3.01
+    },
+    {
+      "word": "వంచండి",
+      "english": "bend",
+      "simpleTeluguMeaning": "వంచండి",
+      "x": 28.95,
+      "y": 25.15,
+      "w": 11.58,
+      "h": 3.01
+    },
+    {
+      "word": "కొమ్మ",
+      "english": "branch",
+      "simpleTeluguMeaning": "కొమ్మ",
+      "x": 7.11,
+      "y": 28.64,
+      "w": 5.26,
+      "h": 3.01
+    },
+    {
+      "word": "విరగకుండా",
+      "english": "without breaking",
+      "simpleTeluguMeaning": "విరగకుండా",
+      "x": 12.89,
+      "y": 28.64,
+      "w": 12.11,
+      "h": 3.01
+    },
+    {
+      "word": "పూలు",
+      "english": "flowers",
+      "simpleTeluguMeaning": "పువ్వులు",
+      "x": 25.53,
+      "y": 28.64,
+      "w": 5.26,
+      "h": 3.01
+    },
+    {
+      "word": "కోయండి",
+      "english": "pluck",
+      "simpleTeluguMeaning": "కోయండి",
+      "x": 31.32,
+      "y": 28.64,
+      "w": 10.26,
+      "h": 3.01
+    },
+    {
+      "word": "కోసిన",
+      "english": "plucked",
+      "simpleTeluguMeaning": "కోసిన",
+      "x": 7.11,
+      "y": 32.14,
+      "w": 5.26,
+      "h": 3.01
+    },
+    {
+      "word": "పూలన్నీ",
+      "english": "all flowers",
+      "simpleTeluguMeaning": "పూలన్నీ",
+      "x": 12.89,
+      "y": 32.14,
+      "w": 7.37,
+      "h": 3.01
+    },
+    {
+      "word": "దండ",
+      "english": "garland",
+      "simpleTeluguMeaning": "పూలదండ",
+      "x": 20.79,
+      "y": 32.14,
+      "w": 4.21,
+      "h": 3.01
+    },
+    {
+      "word": "గుచ్చండి",
+      "english": "string together",
+      "simpleTeluguMeaning": "కట్టండి",
+      "x": 25.53,
+      "y": 32.14,
+      "w": 11.58,
+      "h": 3.01
+    },
+    {
+      "word": "దండ",
+      "english": "garland",
+      "simpleTeluguMeaning": "పూలదండ",
+      "x": 7.11,
+      "y": 35.63,
+      "w": 4.21,
+      "h": 3.01
+    },
+    {
+      "word": "తీసుకువెళ్ళి",
+      "english": "take and go",
+      "simpleTeluguMeaning": "పట్టుకెళ్ళి",
+      "x": 11.84,
+      "y": 35.63,
+      "w": 11.58,
+      "h": 3.01
+    },
+    {
+      "word": "సీతకివ్వండి",
+      "english": "give to Sita",
+      "simpleTeluguMeaning": "సీతకు ఇవ్వండి",
+      "x": 23.95,
+      "y": 35.63,
+      "w": 12.11,
+      "h": 3.01
+    },
+    {
+      "word": "రాముడంపాదమ్మ",
+      "english": "Ramudampadamma",
+      "simpleTeluguMeaning": "-",
+      "x": 7.11,
+      "y": 39.13,
+      "w": 16.84,
+      "h": 3.01
+    },
+    {
+      "word": "సిరిమల్లె",
+      "english": "Sirimalle flower",
+      "simpleTeluguMeaning": "మల్లెపువ్వు",
+      "x": 24.47,
+      "y": 39.13,
+      "w": 7.89,
+      "h": 3.01
+    },
+    {
+      "word": "దండ",
+      "english": "garland",
+      "simpleTeluguMeaning": "పూలదండ",
+      "x": 32.89,
+      "y": 39.13,
+      "w": 5.79,
+      "h": 3.01
+    },
+    {
+      "word": "ముడుచుకో",
+      "english": "wear in hair",
+      "simpleTeluguMeaning": "పెట్టుకో",
+      "x": 7.11,
+      "y": 42.62,
+      "w": 11.05,
+      "h": 3.01
+    },
+    {
+      "word": "సీతమ్మ",
+      "english": "Goddess Sita",
+      "simpleTeluguMeaning": "సీత",
+      "x": 18.68,
+      "y": 42.62,
+      "w": 7.37,
+      "h": 3.01
+    },
+    {
+      "word": "ముచ్చటగ",
+      "english": "beautifully",
+      "simpleTeluguMeaning": "అందంగా",
+      "x": 26.58,
+      "y": 42.62,
+      "w": 8.95,
+      "h": 3.01
+    },
+    {
+      "word": "జడనిండ",
+      "english": "full on the braid",
+      "simpleTeluguMeaning": "జడ నిండా",
+      "x": 36.05,
+      "y": 42.62,
+      "w": 8.16,
+      "h": 3.01
+    }
+  ],
+  "pageType": "rhyme",
+  "hasExercise": false
+}

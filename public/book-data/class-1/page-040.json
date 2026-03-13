@@ -1,0 +1,293 @@
+{
+  "words": [
+    {
+      "word": "మేలుకొలుపు",
+      "english": "Awakening",
+      "simpleTeluguMeaning": "నిద్రలేవడం",
+      "x": 40.5,
+      "y": 6.5,
+      "w": 32.5,
+      "h": 6
+    },
+    {
+      "word": "గ, o",
+      "english": "Letters Ga, O",
+      "x": 73,
+      "y": 14,
+      "w": 10,
+      "h": 3.5
+    },
+    {
+      "word": "చిన్నారి",
+      "english": "Little",
+      "simpleTeluguMeaning": "చిన్న",
+      "x": 30.5,
+      "y": 15.5,
+      "w": 7.5,
+      "h": 3
+    },
+    {
+      "word": "పొన్నారి",
+      "english": "Cute",
+      "simpleTeluguMeaning": "ముద్దుగా",
+      "x": 39,
+      "y": 15.5,
+      "w": 8,
+      "h": 3
+    },
+    {
+      "word": "చిట్టి",
+      "english": "Little",
+      "simpleTeluguMeaning": "చిన్న",
+      "x": 48,
+      "y": 15.5,
+      "w": 4.5,
+      "h": 3
+    },
+    {
+      "word": "నాతల్లి!",
+      "english": "My mother/child!",
+      "x": 53.5,
+      "y": 15.5,
+      "w": 6.5,
+      "h": 3
+    },
+    {
+      "word": "చుక్కల్లో",
+      "english": "In the stars",
+      "simpleTeluguMeaning": "నక్షత్రాలలో",
+      "x": 30.5,
+      "y": 18.5,
+      "w": 7.5,
+      "h": 3.5
+    },
+    {
+      "word": "చంద్రుడూ",
+      "english": "Moon",
+      "simpleTeluguMeaning": "చందమామ",
+      "x": 39,
+      "y": 18.5,
+      "w": 9.5,
+      "h": 3
+    },
+    {
+      "word": "చూడొచ్చాడు",
+      "english": "Came to see",
+      "simpleTeluguMeaning": "చూడటానికి వచ్చాడు",
+      "x": 49.5,
+      "y": 18.5,
+      "w": 13,
+      "h": 3.5
+    },
+    {
+      "word": "తెల్లవారొచ్చింది",
+      "english": "Dawn came",
+      "simpleTeluguMeaning": "ఉదయం అయ్యింది",
+      "x": 30.5,
+      "y": 21.5,
+      "w": 14.5,
+      "h": 3.5
+    },
+    {
+      "word": "కోడి",
+      "english": "Hen/Rooster",
+      "x": 46,
+      "y": 21.5,
+      "w": 5,
+      "h": 3
+    },
+    {
+      "word": "కూసింది",
+      "english": "Crowed",
+      "simpleTeluguMeaning": "అరిచింది",
+      "x": 52,
+      "y": 21.5,
+      "w": 8,
+      "h": 3
+    },
+    {
+      "word": "చూచేటి",
+      "english": "Looking",
+      "simpleTeluguMeaning": "చూసే",
+      "x": 30.5,
+      "y": 24.5,
+      "w": 7,
+      "h": 3
+    },
+    {
+      "word": "అక్కల్లు",
+      "english": "Elder sisters",
+      "simpleTeluguMeaning": "అక్కలు",
+      "x": 38.5,
+      "y": 24.5,
+      "w": 7,
+      "h": 3.5
+    },
+    {
+      "word": "చూడరారమ్మ",
+      "english": "Come see",
+      "simpleTeluguMeaning": "వచ్చి చూడండి",
+      "x": 46.5,
+      "y": 24.5,
+      "w": 12.5,
+      "h": 3.5
+    },
+    {
+      "word": "గంప",
+      "english": "Basket",
+      "simpleTeluguMeaning": "బుట్ట",
+      "x": 30.5,
+      "y": 27.5,
+      "w": 5,
+      "h": 3
+    },
+    {
+      "word": "కిందాకోడి",
+      "english": "Hen below",
+      "simpleTeluguMeaning": "కింద ఉన్న కోడి",
+      "x": 36.5,
+      "y": 27.5,
+      "w": 10,
+      "h": 3
+    },
+    {
+      "word": "గుడ్డుపెట్టింది",
+      "english": "Laid an egg",
+      "x": 47.5,
+      "y": 27.5,
+      "w": 12,
+      "h": 3.5
+    },
+    {
+      "word": "ఆడేటి",
+      "english": "Playing",
+      "simpleTeluguMeaning": "ఆడుకునే",
+      "x": 30.5,
+      "y": 30.5,
+      "w": 5.5,
+      "h": 3
+    },
+    {
+      "word": "పిల్లల్లు",
+      "english": "Children",
+      "simpleTeluguMeaning": "పిల్లలు",
+      "x": 37,
+      "y": 30.5,
+      "w": 6.5,
+      "h": 3.5
+    },
+    {
+      "word": "చూడరారమ్మ",
+      "english": "Come see",
+      "simpleTeluguMeaning": "వచ్చి చూడండి",
+      "x": 44.5,
+      "y": 30.5,
+      "w": 12,
+      "h": 3.5
+    },
+    {
+      "word": "ఏడేటి",
+      "english": "Crying",
+      "simpleTeluguMeaning": "ఏడ్చే",
+      "x": 30.5,
+      "y": 33.5,
+      "w": 6,
+      "h": 3
+    },
+    {
+      "word": "వారికి",
+      "english": "For them",
+      "simpleTeluguMeaning": "వాళ్ళకు",
+      "x": 37.5,
+      "y": 33.5,
+      "w": 5.5,
+      "h": 3
+    },
+    {
+      "word": "అచ్చావు",
+      "english": "Cow",
+      "simpleTeluguMeaning": "ఆవు",
+      "x": 44,
+      "y": 33.5,
+      "w": 7.5,
+      "h": 3.5
+    },
+    {
+      "word": "పాలు",
+      "english": "Milk",
+      "x": 52.5,
+      "y": 33.5,
+      "w": 4.5,
+      "h": 3
+    },
+    {
+      "word": "పాడేటి",
+      "english": "Singing",
+      "simpleTeluguMeaning": "పాడే",
+      "x": 30.5,
+      "y": 36.5,
+      "w": 6,
+      "h": 3
+    },
+    {
+      "word": "వారికి",
+      "english": "For them",
+      "simpleTeluguMeaning": "వాళ్ళకు",
+      "x": 37.5,
+      "y": 36.5,
+      "w": 5.5,
+      "h": 3
+    },
+    {
+      "word": "పాల",
+      "english": "Milk",
+      "x": 44,
+      "y": 36.5,
+      "w": 4.5,
+      "h": 3
+    },
+    {
+      "word": "మీగడలు",
+      "english": "Cream",
+      "x": 49.5,
+      "y": 36.5,
+      "w": 8.5,
+      "h": 3
+    },
+    {
+      "word": "1వ",
+      "english": "1st",
+      "x": 6,
+      "y": 92.5,
+      "w": 4,
+      "h": 3
+    },
+    {
+      "word": "తరగతి",
+      "english": "Class",
+      "simpleTeluguMeaning": "క్లాస్",
+      "x": 10.5,
+      "y": 92.5,
+      "w": 6,
+      "h": 3
+    },
+    {
+      "word": "-",
+      "english": "-",
+      "x": 17,
+      "y": 92.5,
+      "w": 1.5,
+      "h": 3
+    },
+    {
+      "word": "తెలుగు",
+      "english": "Telugu",
+      "x": 19,
+      "y": 92.5,
+      "w": 6,
+      "h": 3
+    }
+  ],
+  "pageType": "rhyme",
+  "hasExercise": false
+}

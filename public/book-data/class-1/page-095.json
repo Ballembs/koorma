@@ -1,0 +1,339 @@
+{
+  "words": [
+    {
+      "word": "రాయండి",
+      "english": "Write",
+      "simpleTeluguMeaning": "రాయడం",
+      "x": 23.3,
+      "y": 8.7,
+      "w": 11,
+      "h": 2.7
+    },
+    {
+      "word": "(అ)",
+      "english": "(a)",
+      "simpleTeluguMeaning": "",
+      "x": 12,
+      "y": 15.3,
+      "w": 4.1,
+      "h": 2.5
+    },
+    {
+      "word": "కింది",
+      "english": "Below",
+      "simpleTeluguMeaning": "కింద",
+      "x": 17.5,
+      "y": 15.3,
+      "w": 5.2,
+      "h": 2.5
+    },
+    {
+      "word": "అక్షరాలు",
+      "english": "Letters",
+      "simpleTeluguMeaning": "",
+      "x": 22.4,
+      "y": 15.5,
+      "w": 9.4,
+      "h": 3
+    },
+    {
+      "word": "కలుపుతూ",
+      "english": "Joining",
+      "simpleTeluguMeaning": "కలుపుతూ",
+      "x": 30.2,
+      "y": 15.4,
+      "w": 9.5,
+      "h": 2.6
+    },
+    {
+      "word": "పదాలు",
+      "english": "Words",
+      "simpleTeluguMeaning": "",
+      "x": 39,
+      "y": 15.6,
+      "w": 7.4,
+      "h": 2.4
+    },
+    {
+      "word": "రాయండి.",
+      "english": "Write.",
+      "simpleTeluguMeaning": "",
+      "x": 45.8,
+      "y": 15.5,
+      "w": 9.4,
+      "h": 2.2
+    },
+    {
+      "word": "గ",
+      "english": "Ga",
+      "simpleTeluguMeaning": "",
+      "x": 12.2,
+      "y": 20.3,
+      "w": 3.4,
+      "h": 2.7
+    },
+    {
+      "word": "కం",
+      "english": "Kam",
+      "simpleTeluguMeaning": "",
+      "x": 23.4,
+      "y": 24.3,
+      "w": 3.9,
+      "h": 2.5
+    },
+    {
+      "word": "ద",
+      "english": "Da",
+      "simpleTeluguMeaning": "",
+      "x": 12.2,
+      "y": 28.1,
+      "w": 3.5,
+      "h": 2.6
+    },
+    {
+      "word": "ల",
+      "english": "La",
+      "simpleTeluguMeaning": "",
+      "x": 53.8,
+      "y": 20.4,
+      "w": 2.6,
+      "h": 2
+    },
+    {
+      "word": "క్షం",
+      "english": "Ksham",
+      "simpleTeluguMeaning": "",
+      "x": 65.5,
+      "y": 24,
+      "w": 3.7,
+      "h": 2.7
+    },
+    {
+      "word": "ర",
+      "english": "Ra",
+      "simpleTeluguMeaning": "",
+      "x": 53.6,
+      "y": 27.9,
+      "w": 3.2,
+      "h": 2.4
+    },
+    {
+      "word": "(ఆ)",
+      "english": "(aa)",
+      "simpleTeluguMeaning": "",
+      "x": 11.7,
+      "y": 34.3,
+      "w": 4.5,
+      "h": 2.3
+    },
+    {
+      "word": "చుక్కలు",
+      "english": "Dots",
+      "simpleTeluguMeaning": "",
+      "x": 17.3,
+      "y": 34.5,
+      "w": 7.3,
+      "h": 2.8
+    },
+    {
+      "word": "కలుపుతూ",
+      "english": "Joining",
+      "simpleTeluguMeaning": "",
+      "x": 23.9,
+      "y": 34.4,
+      "w": 9.4,
+      "h": 2.6
+    },
+    {
+      "word": "గీతల్లో",
+      "english": "In lines",
+      "simpleTeluguMeaning": "గీతలలో",
+      "x": 33.1,
+      "y": 34.2,
+      "w": 5.9,
+      "h": 2.9
+    },
+    {
+      "word": "రాయండి.",
+      "english": "Write.",
+      "simpleTeluguMeaning": "",
+      "x": 38.9,
+      "y": 34.4,
+      "w": 9.1,
+      "h": 2.2
+    },
+    {
+      "word": "ఫ",
+      "english": "Pha",
+      "simpleTeluguMeaning": "",
+      "x": 15.3,
+      "y": 37.9,
+      "w": 4.1,
+      "h": 2.9
+    },
+    {
+      "word": "ల",
+      "english": "La",
+      "simpleTeluguMeaning": "",
+      "x": 21,
+      "y": 38.3,
+      "w": 3.5,
+      "h": 2.1
+    },
+    {
+      "word": "కం",
+      "english": "Kam",
+      "simpleTeluguMeaning": "",
+      "x": 26.2,
+      "y": 38.2,
+      "w": 5.7,
+      "h": 2.3
+    },
+    {
+      "word": "భ",
+      "english": "Bha",
+      "simpleTeluguMeaning": "",
+      "x": 44.3,
+      "y": 37.9,
+      "w": 4,
+      "h": 3.1
+    },
+    {
+      "word": "ర",
+      "english": "Ra",
+      "simpleTeluguMeaning": "",
+      "x": 50.4,
+      "y": 38.2,
+      "w": 3.7,
+      "h": 2.3
+    },
+    {
+      "word": "ణం",
+      "english": "Nam",
+      "simpleTeluguMeaning": "",
+      "x": 55.7,
+      "y": 38.3,
+      "w": 5.9,
+      "h": 2.3
+    },
+    {
+      "word": "హ",
+      "english": "Ha",
+      "simpleTeluguMeaning": "",
+      "x": 72.3,
+      "y": 37.9,
+      "w": 5.6,
+      "h": 2.6
+    },
+    {
+      "word": "ల",
+      "english": "La",
+      "simpleTeluguMeaning": "",
+      "x": 79.5,
+      "y": 38.3,
+      "w": 3.6,
+      "h": 2.2
+    },
+    {
+      "word": "ం",
+      "english": "m",
+      "simpleTeluguMeaning": "",
+      "x": 84.4,
+      "y": 38.4,
+      "w": 3.1,
+      "h": 2
+    },
+    {
+      "word": "సృజనాత్మకత",
+      "english": "Creativity",
+      "simpleTeluguMeaning": "",
+      "x": 21.3,
+      "y": 57,
+      "w": 13.9,
+      "h": 3
+    },
+    {
+      "word": "పిల్లలూ!",
+      "english": "Children!",
+      "simpleTeluguMeaning": "పిల్లలు!",
+      "x": 12,
+      "y": 63.6,
+      "w": 7.4,
+      "h": 2.9
+    },
+    {
+      "word": "చుక్కలు",
+      "english": "Dots",
+      "simpleTeluguMeaning": "",
+      "x": 19.4,
+      "y": 63.7,
+      "w": 7.1,
+      "h": 2.7
+    },
+    {
+      "word": "కలుపుతూ",
+      "english": "Joining",
+      "simpleTeluguMeaning": "",
+      "x": 26.2,
+      "y": 63.6,
+      "w": 9.3,
+      "h": 2.5
+    },
+    {
+      "word": "చిత్రం",
+      "english": "Picture",
+      "simpleTeluguMeaning": "బొమ్మ",
+      "x": 35.2,
+      "y": 63.7,
+      "w": 5.4,
+      "h": 2.6
+    },
+    {
+      "word": "గీయండి.",
+      "english": "Draw.",
+      "simpleTeluguMeaning": "",
+      "x": 40.8,
+      "y": 63.5,
+      "w": 7.9,
+      "h": 2.6
+    },
+    {
+      "word": "రంగులు",
+      "english": "Colours",
+      "simpleTeluguMeaning": "",
+      "x": 49.1,
+      "y": 63.6,
+      "w": 7.3,
+      "h": 2.2
+    },
+    {
+      "word": "వేయండి.",
+      "english": "Fill.",
+      "simpleTeluguMeaning": "",
+      "x": 56.6,
+      "y": 63.5,
+      "w": 8.5,
+      "h": 2.3
+    },
+    {
+      "word": "తెలుగు",
+      "english": "Telugu",
+      "simpleTeluguMeaning": "",
+      "x": 82.5,
+      "y": 93.3,
+      "w": 6.3,
+      "h": 2.1
+    },
+    {
+      "word": "తోట",
+      "english": "Garden",
+      "simpleTeluguMeaning": "",
+      "x": 88.3,
+      "y": 93.3,
+      "w": 3.9,
+      "h": 2.2
+    }
+  ],
+  "pageType": "exercise",
+  "hasExercise": true
+}

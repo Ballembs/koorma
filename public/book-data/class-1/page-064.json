@@ -1,0 +1,281 @@
+{
+  "words": [
+    {
+      "word": "ఆట",
+      "english": "Play",
+      "x": 44,
+      "y": 6,
+      "w": 12,
+      "h": 7
+    },
+    {
+      "word": "ఆ,",
+      "english": "Letter Aa",
+      "x": 65,
+      "y": 7,
+      "w": 6,
+      "h": 6
+    },
+    {
+      "word": "ట",
+      "english": "Letter Ta",
+      "x": 71,
+      "y": 7,
+      "w": 6,
+      "h": 6
+    },
+    {
+      "word": "ఆటలంటే",
+      "english": "Games",
+      "x": 13,
+      "y": 72.5,
+      "w": 15,
+      "h": 4
+    },
+    {
+      "word": "మాకిష్టం",
+      "english": "We like",
+      "simpleTeluguMeaning": "మాకు ఇష్టం",
+      "x": 29,
+      "y": 72.5,
+      "w": 13,
+      "h": 4
+    },
+    {
+      "word": "పాటలంటే",
+      "english": "Songs",
+      "x": 13,
+      "y": 75.5,
+      "w": 14,
+      "h": 4
+    },
+    {
+      "word": "మాకిష్టం",
+      "english": "We like",
+      "simpleTeluguMeaning": "మాకు ఇష్టం",
+      "x": 28,
+      "y": 75.5,
+      "w": 13,
+      "h": 4
+    },
+    {
+      "word": "ఆటలకన్నా",
+      "english": "More than games",
+      "x": 13,
+      "y": 78.5,
+      "w": 16,
+      "h": 4
+    },
+    {
+      "word": "పాటలకన్నా",
+      "english": "More than songs",
+      "x": 30,
+      "y": 78.5,
+      "w": 17,
+      "h": 4
+    },
+    {
+      "word": "అల్లరిపనులే",
+      "english": "Mischief",
+      "x": 13,
+      "y": 81.5,
+      "w": 18,
+      "h": 4
+    },
+    {
+      "word": "మాకిష్టం",
+      "english": "We like",
+      "simpleTeluguMeaning": "మాకు ఇష్టం",
+      "x": 32,
+      "y": 81.5,
+      "w": 13,
+      "h": 4
+    },
+    {
+      "word": "కొత్తదుస్తులు",
+      "english": "New clothes",
+      "x": 13,
+      "y": 84.5,
+      "w": 18,
+      "h": 4
+    },
+    {
+      "word": "మాకిష్టం",
+      "english": "We like",
+      "simpleTeluguMeaning": "మాకు ఇష్టం",
+      "x": 32,
+      "y": 84.5,
+      "w": 13,
+      "h": 4
+    },
+    {
+      "word": "పౌడరు",
+      "english": "Powder",
+      "x": 13,
+      "y": 87.5,
+      "w": 10,
+      "h": 4
+    },
+    {
+      "word": "తిలకం",
+      "english": "Bindi",
+      "simpleTeluguMeaning": "బొట్టు",
+      "x": 24,
+      "y": 87.5,
+      "w": 10,
+      "h": 4
+    },
+    {
+      "word": "మాకిష్టం",
+      "english": "We like",
+      "simpleTeluguMeaning": "మాకు ఇష్టం",
+      "x": 35,
+      "y": 87.5,
+      "w": 13,
+      "h": 4
+    },
+    {
+      "word": "దుస్తులుకన్నా",
+      "english": "More than clothes",
+      "x": 50,
+      "y": 72.5,
+      "w": 18,
+      "h": 4
+    },
+    {
+      "word": "పౌడరుకన్నా",
+      "english": "More than powder",
+      "x": 69,
+      "y": 72.5,
+      "w": 16,
+      "h": 4
+    },
+    {
+      "word": "మట్టిలో",
+      "english": "In mud",
+      "x": 50,
+      "y": 75.5,
+      "w": 10,
+      "h": 4
+    },
+    {
+      "word": "ఆటలు",
+      "english": "Games",
+      "x": 61,
+      "y": 75.5,
+      "w": 10,
+      "h": 4
+    },
+    {
+      "word": "మాకిష్టం",
+      "english": "We like",
+      "simpleTeluguMeaning": "మాకు ఇష్టం",
+      "x": 72,
+      "y": 75.5,
+      "w": 13,
+      "h": 4
+    },
+    {
+      "word": "వెన్నెలంటే",
+      "english": "Moonlight",
+      "x": 50,
+      "y": 78.5,
+      "w": 14,
+      "h": 4
+    },
+    {
+      "word": "మాకిష్టం",
+      "english": "We like",
+      "simpleTeluguMeaning": "మాకు ఇష్టం",
+      "x": 65,
+      "y": 78.5,
+      "w": 13,
+      "h": 4
+    },
+    {
+      "word": "వానలంటే",
+      "english": "Rain",
+      "x": 50,
+      "y": 81.5,
+      "w": 14,
+      "h": 4
+    },
+    {
+      "word": "మాకిష్టం",
+      "english": "We like",
+      "simpleTeluguMeaning": "మాకు ఇష్టం",
+      "x": 65,
+      "y": 81.5,
+      "w": 13,
+      "h": 4
+    },
+    {
+      "word": "వెన్నెలకన్నా",
+      "english": "More than moonlight",
+      "x": 50,
+      "y": 84.5,
+      "w": 17,
+      "h": 4
+    },
+    {
+      "word": "వానలకన్నా",
+      "english": "More than rain",
+      "x": 68,
+      "y": 84.5,
+      "w": 15,
+      "h": 4
+    },
+    {
+      "word": "అమ్మ",
+      "english": "Mother",
+      "simpleTeluguMeaning": "మమ్మీ",
+      "x": 50,
+      "y": 87.5,
+      "w": 8,
+      "h": 4
+    },
+    {
+      "word": "ముద్దులే",
+      "english": "Kisses",
+      "x": 59,
+      "y": 87.5,
+      "w": 11,
+      "h": 4
+    },
+    {
+      "word": "మాకిష్టం",
+      "english": "We like",
+      "simpleTeluguMeaning": "మాకు ఇష్టం",
+      "x": 71,
+      "y": 87.5,
+      "w": 13,
+      "h": 4
+    },
+    {
+      "word": "1వ",
+      "english": "First",
+      "x": 5,
+      "y": 92.5,
+      "w": 5,
+      "h": 3
+    },
+    {
+      "word": "తరగతి",
+      "english": "Class",
+      "x": 10,
+      "y": 92.5,
+      "w": 8,
+      "h": 3
+    },
+    {
+      "word": "తెలుగు",
+      "english": "Telugu",
+      "x": 19,
+      "y": 92.5,
+      "w": 8,
+      "h": 3
+    }
+  ],
+  "pageType": "rhyme",
+  "hasExercise": false
+}

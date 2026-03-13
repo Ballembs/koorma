@@ -1,0 +1,54 @@
+{
+  "title": null,
+  "subtitle": null,
+  "lines": [
+    {
+      "words": [
+        {
+          "telugu": "సమగ్ర",
+          "english": "Integrated"
+        },
+        {
+          "telugu": "శిక్ష,",
+          "english": "Education,"
+        },
+        {
+          "telugu": "పాఠశాల",
+          "english": "School"
+        },
+        {
+          "telugu": "విద్యాశాఖ,",
+          "english": "Education Department,"
+        }
+      ]
+    },
+    {
+      "words": [
+        {
+          "telugu": "ఆంధ్రప్రదేశ్",
+          "english": "Andhra Pradesh"
+        },
+        {
+          "telugu": "ప్రభుత్వం",
+          "english": "Government"
+        },
+        {
+          "telugu": "వారిచే",
+          "english": "By them"
+        },
+        {
+          "telugu": "ఉచిత",
+          "english": "Free"
+        },
+        {
+          "telugu": "పంపిణీ",
+          "english": "Distribution"
+        }
+      ]
+    }
+  ],
+  "pageType": "info",
+  "hasExercise": false,
+  "exerciseType": null,
+  "illustrationArea": null
+}

@@ -1,0 +1,266 @@
+{
+  "words": [
+    {
+      "word": "శుభదాయిని",
+      "english": "Giver of good",
+      "simpleTeluguMeaning": "మంచి చేసేది",
+      "x": 37.5,
+      "y": 8,
+      "w": 25,
+      "h": 5
+    },
+    {
+      "word": "ఫ",
+      "english": "Letter Pha",
+      "x": 74,
+      "y": 8.5,
+      "w": 4.5,
+      "h": 4
+    },
+    {
+      "word": "భ",
+      "english": "Letter Bha",
+      "x": 80,
+      "y": 8.5,
+      "w": 4.5,
+      "h": 4
+    },
+    {
+      "word": "శ",
+      "english": "Letter Sha",
+      "x": 73,
+      "y": 12,
+      "w": 4.5,
+      "h": 4
+    },
+    {
+      "word": "ష",
+      "english": "Letter Shha",
+      "x": 78.5,
+      "y": 12,
+      "w": 4.5,
+      "h": 4
+    },
+    {
+      "word": "హ",
+      "english": "Letter Ha",
+      "x": 73,
+      "y": 15.5,
+      "w": 4.5,
+      "h": 4
+    },
+    {
+      "word": "ళ",
+      "english": "Letter Lla",
+      "x": 80,
+      "y": 15.5,
+      "w": 4.5,
+      "h": 4
+    },
+    {
+      "word": "క్ష",
+      "english": "Letter Ksha",
+      "x": 76,
+      "y": 19.5,
+      "w": 5,
+      "h": 4
+    },
+    {
+      "word": "సిరులనిచ్చే",
+      "english": "Giving wealth",
+      "simpleTeluguMeaning": "సంపదలు ఇచ్చే",
+      "x": 8,
+      "y": 19.5,
+      "w": 13,
+      "h": 3
+    },
+    {
+      "word": "కన్నతల్లీ",
+      "english": "Mother",
+      "simpleTeluguMeaning": "అమ్మ",
+      "x": 21.5,
+      "y": 19.5,
+      "w": 9.5,
+      "h": 3
+    },
+    {
+      "word": "శుభము",
+      "english": "Goodness",
+      "simpleTeluguMeaning": "మంచి",
+      "x": 8,
+      "y": 22.5,
+      "w": 8,
+      "h": 3
+    },
+    {
+      "word": "గూర్చే",
+      "english": "Gathering",
+      "x": 16.5,
+      "y": 22.5,
+      "w": 8,
+      "h": 3.5
+    },
+    {
+      "word": "కల్పవల్లీ",
+      "english": "Wish-fulfilling creeper",
+      "x": 25,
+      "y": 22.5,
+      "w": 10.5,
+      "h": 3.5
+    },
+    {
+      "word": "ఎల్లవేళల",
+      "english": "Always",
+      "simpleTeluguMeaning": "ఎప్పుడూ",
+      "x": 8,
+      "y": 25.5,
+      "w": 10,
+      "h": 3
+    },
+    {
+      "word": "నీదు",
+      "english": "Your",
+      "simpleTeluguMeaning": "నీ",
+      "x": 18.5,
+      "y": 25.5,
+      "w": 5,
+      "h": 3
+    },
+    {
+      "word": "కృప",
+      "english": "Grace",
+      "simpleTeluguMeaning": "దయ",
+      "x": 24,
+      "y": 25.5,
+      "w": 5.5,
+      "h": 3
+    },
+    {
+      "word": "వెద",
+      "english": "Search/Spread",
+      "x": 30,
+      "y": 25.5,
+      "w": 5,
+      "h": 3
+    },
+    {
+      "word": "జల్లి",
+      "english": "Sprinkling",
+      "x": 8,
+      "y": 28.5,
+      "w": 5,
+      "h": 3.5
+    },
+    {
+      "word": "బ్రోవవె",
+      "english": "Protect",
+      "simpleTeluguMeaning": "కాపాడు",
+      "x": 13.5,
+      "y": 28.5,
+      "w": 8,
+      "h": 3.5
+    },
+    {
+      "word": "పాలవెల్లి",
+      "english": "Milky way",
+      "x": 22,
+      "y": 28.5,
+      "w": 10,
+      "h": 3.5
+    },
+    {
+      "word": "పౌరుషముతో",
+      "english": "With valor",
+      "simpleTeluguMeaning": "ధైర్యంతో",
+      "x": 8,
+      "y": 34,
+      "w": 14.5,
+      "h": 3
+    },
+    {
+      "word": "తెలుగు",
+      "english": "Telugu",
+      "x": 23,
+      "y": 34,
+      "w": 9,
+      "h": 3
+    },
+    {
+      "word": "వీరుల",
+      "english": "Heroes",
+      "x": 32.5,
+      "y": 34,
+      "w": 7.5,
+      "h": 3
+    },
+    {
+      "word": "తీర్చిదిద్దిన",
+      "english": "Molded/Shaped",
+      "x": 8,
+      "y": 37,
+      "w": 12,
+      "h": 3.5
+    },
+    {
+      "word": "తల్లివమ్మా",
+      "english": "You are the mother",
+      "simpleTeluguMeaning": "నువ్వే అమ్మవి",
+      "x": 20.5,
+      "y": 37,
+      "w": 11.5,
+      "h": 3.5
+    },
+    {
+      "word": "మోక్ష",
+      "english": "Salvation",
+      "x": 8,
+      "y": 40,
+      "w": 6.5,
+      "h": 3.5
+    },
+    {
+      "word": "పదమిల",
+      "english": "Path here",
+      "x": 15,
+      "y": 40,
+      "w": 8,
+      "h": 3
+    },
+    {
+      "word": "చూపవే",
+      "english": "Show us",
+      "simpleTeluguMeaning": "చూపించు",
+      "x": 23.5,
+      "y": 40,
+      "w": 9,
+      "h": 3
+    },
+    {
+      "word": "వనజాక్షి",
+      "english": "Lotus-eyed one",
+      "x": 8,
+      "y": 43,
+      "w": 9,
+      "h": 3.5
+    },
+    {
+      "word": "మా",
+      "english": "Our",
+      "x": 17.5,
+      "y": 43,
+      "w": 5,
+      "h": 3
+    },
+    {
+      "word": "అమ్మరో",
+      "english": "Mother",
+      "simpleTeluguMeaning": "అమ్మా",
+      "x": 23,
+      "y": 43,
+      "w": 9.5,
+      "h": 3.5
+    }
+  ],
+  "pageType": "rhyme",
+  "hasExercise": false
+}

@@ -1,0 +1,58 @@
+{
+  "title": "బాల గేయాలు",
+  "subtitle": "జేజేలు",
+  "lines": [
+    {
+      "words": [
+        {"telugu": "అమ్మకు", "english": "To mother", "simpleTeluguMeaning": "మమ్మీకి"},
+        {"telugu": "జేజే", "english": "Salutation"}
+      ]
+    },
+    {
+      "words": [
+        {"telugu": "నాన్నకు", "english": "To father", "simpleTeluguMeaning": "డాడీకి"},
+        {"telugu": "జేజే", "english": "Salutation"}
+      ]
+    },
+    {
+      "words": [
+        {"telugu": "బంగారు", "english": "Golden"},
+        {"telugu": "భారత", "english": "India"}
+      ]
+    },
+    {
+      "words": [
+        {"telugu": "భూమికి", "english": "To the land"},
+        {"telugu": "జేజే", "english": "Salutation"}
+      ]
+    },
+    {
+      "words": [
+        {"telugu": "చదువులు", "english": "Studies"},
+        {"telugu": "నేర్పే", "english": "That teaches"}
+      ]
+    },
+    {
+      "words": [
+        {"telugu": "గురువుకు", "english": "To the teacher", "simpleTeluguMeaning": "టీచర్‌కి"},
+        {"telugu": "జేజే", "english": "Salutation"}
+      ]
+    },
+    {
+      "words": [
+        {"telugu": "అన్నం", "english": "Food/Rice"},
+        {"telugu": "పెట్టే", "english": "That gives"}
+      ]
+    },
+    {
+      "words": [
+        {"telugu": "రైతుకు", "english": "To the farmer"},
+        {"telugu": "జేజే", "english": "Salutation"}
+      ]
+    }
+  ],
+  "pageType": "rhyme",
+  "hasExercise": false,
+  "exerciseType": null,
+  "illustrationArea": {"x": 0, "y": 35, "w": 100, "h": 60}
+}

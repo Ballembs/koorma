@@ -1,0 +1,357 @@
+{
+  "words": [
+    {
+      "word": "అమ్మ",
+      "english": "Mother",
+      "simpleTeluguMeaning": "తల్లి",
+      "x": 44.5,
+      "y": 6,
+      "w": 12,
+      "h": 5
+    },
+    {
+      "word": "ఒడి",
+      "english": "Lap",
+      "simpleTeluguMeaning": "ఒడి",
+      "x": 57.5,
+      "y": 6.5,
+      "w": 9.5,
+      "h": 4.5
+    },
+    {
+      "word": "ఒ,",
+      "english": "Letter O",
+      "simpleTeluguMeaning": "అక్షరం ఒ",
+      "x": 69.5,
+      "y": 16.5,
+      "w": 4.5,
+      "h": 4
+    },
+    {
+      "word": "ఓ,",
+      "english": "Letter Oo",
+      "simpleTeluguMeaning": "అక్షరం ఓ",
+      "x": 75,
+      "y": 16.5,
+      "w": 4,
+      "h": 4
+    },
+    {
+      "word": "ఔ",
+      "english": "Letter Au",
+      "simpleTeluguMeaning": "అక్షరం ఔ",
+      "x": 80.5,
+      "y": 16.5,
+      "w": 4,
+      "h": 4
+    },
+    {
+      "word": "ఇది",
+      "english": "This",
+      "simpleTeluguMeaning": "ఈ",
+      "x": 12,
+      "y": 67.5,
+      "w": 4,
+      "h": 2.5
+    },
+    {
+      "word": "మా",
+      "english": "Our",
+      "simpleTeluguMeaning": "మన",
+      "x": 16.5,
+      "y": 67.5,
+      "w": 4,
+      "h": 2.5
+    },
+    {
+      "word": "బడి",
+      "english": "School",
+      "simpleTeluguMeaning": "పాఠశాల",
+      "x": 21,
+      "y": 67.5,
+      "w": 4.5,
+      "h": 2.5
+    },
+    {
+      "word": "మా",
+      "english": "Our",
+      "simpleTeluguMeaning": "మన",
+      "x": 49.5,
+      "y": 67,
+      "w": 4,
+      "h": 2.5
+    },
+    {
+      "word": "మనసులకు",
+      "english": "To our hearts",
+      "simpleTeluguMeaning": "మనస్సుకు",
+      "x": 54,
+      "y": 67,
+      "w": 11.5,
+      "h": 2.5
+    },
+    {
+      "word": "వెలుగిస్తుంది",
+      "english": "Gives light",
+      "simpleTeluguMeaning": "కాంతినిస్తుంది",
+      "x": 66,
+      "y": 67,
+      "w": 12,
+      "h": 3
+    },
+    {
+      "word": "ఇది",
+      "english": "This",
+      "simpleTeluguMeaning": "ఈ",
+      "x": 12,
+      "y": 71,
+      "w": 4,
+      "h": 2.5
+    },
+    {
+      "word": "మా",
+      "english": "Our",
+      "simpleTeluguMeaning": "మన",
+      "x": 16.5,
+      "y": 71,
+      "w": 4,
+      "h": 2.5
+    },
+    {
+      "word": "గుడి",
+      "english": "Temple",
+      "simpleTeluguMeaning": "దేవాలయం",
+      "x": 21,
+      "y": 71,
+      "w": 4.5,
+      "h": 2.5
+    },
+    {
+      "word": "మా",
+      "english": "Our",
+      "simpleTeluguMeaning": "మన",
+      "x": 49.5,
+      "y": 70.5,
+      "w": 4,
+      "h": 2.5
+    },
+    {
+      "word": "భవితకు",
+      "english": "To our future",
+      "simpleTeluguMeaning": "భవిష్యత్తుకు",
+      "x": 54,
+      "y": 70.5,
+      "w": 9,
+      "h": 2.5
+    },
+    {
+      "word": "నవతను",
+      "english": "Newness",
+      "simpleTeluguMeaning": "కొత్తదనం",
+      "x": 63.5,
+      "y": 70.5,
+      "w": 8.5,
+      "h": 2.5
+    },
+    {
+      "word": "తెస్తుంది",
+      "english": "Brings",
+      "simpleTeluguMeaning": "తీసుకువస్తుంది",
+      "x": 72.5,
+      "y": 70.5,
+      "w": 7.5,
+      "h": 3
+    },
+    {
+      "word": "ఇది",
+      "english": "This",
+      "simpleTeluguMeaning": "ఈ",
+      "x": 12,
+      "y": 74.5,
+      "w": 4,
+      "h": 2.5
+    },
+    {
+      "word": "మా",
+      "english": "Our",
+      "simpleTeluguMeaning": "మన",
+      "x": 16.5,
+      "y": 74.5,
+      "w": 4,
+      "h": 2.5
+    },
+    {
+      "word": "అమ్మ",
+      "english": "Mother",
+      "simpleTeluguMeaning": "తల్లి",
+      "x": 21,
+      "y": 74.5,
+      "w": 6,
+      "h": 3
+    },
+    {
+      "word": "ఒడి",
+      "english": "Lap",
+      "simpleTeluguMeaning": "ఒడి",
+      "x": 27.5,
+      "y": 74.5,
+      "w": 4,
+      "h": 2.5
+    },
+    {
+      "word": "ఇది",
+      "english": "This",
+      "simpleTeluguMeaning": "ఈ",
+      "x": 49.5,
+      "y": 74,
+      "w": 4,
+      "h": 2.5
+    },
+    {
+      "word": "మా",
+      "english": "Our",
+      "simpleTeluguMeaning": "మన",
+      "x": 54,
+      "y": 74,
+      "w": 4,
+      "h": 2.5
+    },
+    {
+      "word": "బడి",
+      "english": "School",
+      "simpleTeluguMeaning": "పాఠశాల",
+      "x": 58.5,
+      "y": 74,
+      "w": 4.5,
+      "h": 2.5
+    },
+    {
+      "word": "ఓరిమితో",
+      "english": "With patience",
+      "simpleTeluguMeaning": "ఓపికగా",
+      "x": 12,
+      "y": 78,
+      "w": 9,
+      "h": 2.5
+    },
+    {
+      "word": "మరి",
+      "english": "And",
+      "simpleTeluguMeaning": "ఇంకా",
+      "x": 21.5,
+      "y": 78,
+      "w": 4.5,
+      "h": 2.5
+    },
+    {
+      "word": "నేరిమితో",
+      "english": "With skill",
+      "simpleTeluguMeaning": "నేర్పుగా",
+      "x": 26.5,
+      "y": 78,
+      "w": 9,
+      "h": 2.5
+    },
+    {
+      "word": "ఇది",
+      "english": "This",
+      "simpleTeluguMeaning": "ఈ",
+      "x": 49.5,
+      "y": 77.5,
+      "w": 4,
+      "h": 2.5
+    },
+    {
+      "word": "మా",
+      "english": "Our",
+      "simpleTeluguMeaning": "మన",
+      "x": 54,
+      "y": 77.5,
+      "w": 4,
+      "h": 2.5
+    },
+    {
+      "word": "గుడి",
+      "english": "Temple",
+      "simpleTeluguMeaning": "దేవాలయం",
+      "x": 58.5,
+      "y": 77.5,
+      "w": 4.5,
+      "h": 2.5
+    },
+    {
+      "word": "బతుకును",
+      "english": "Life",
+      "simpleTeluguMeaning": "జీవితాన్ని",
+      "x": 12,
+      "y": 81.5,
+      "w": 9.5,
+      "h": 2.5
+    },
+    {
+      "word": "దిద్దే",
+      "english": "Corrects/Shapes",
+      "simpleTeluguMeaning": "బాగుచేసే",
+      "x": 22,
+      "y": 81.5,
+      "w": 5,
+      "h": 3
+    },
+    {
+      "word": "అమ్మ",
+      "english": "Mother",
+      "simpleTeluguMeaning": "తల్లి",
+      "x": 27.5,
+      "y": 81.5,
+      "w": 5.5,
+      "h": 3
+    },
+    {
+      "word": "ఒడి",
+      "english": "Lap",
+      "simpleTeluguMeaning": "ఒడి",
+      "x": 33.5,
+      "y": 81.5,
+      "w": 4,
+      "h": 2.5
+    },
+    {
+      "word": "ఇది",
+      "english": "This",
+      "simpleTeluguMeaning": "ఈ",
+      "x": 49.5,
+      "y": 81,
+      "w": 4,
+      "h": 2.5
+    },
+    {
+      "word": "మా",
+      "english": "Our",
+      "simpleTeluguMeaning": "మన",
+      "x": 54,
+      "y": 81,
+      "w": 4,
+      "h": 2.5
+    },
+    {
+      "word": "అమ్మ",
+      "english": "Mother",
+      "simpleTeluguMeaning": "తల్లి",
+      "x": 58.5,
+      "y": 81,
+      "w": 6,
+      "h": 3
+    },
+    {
+      "word": "ఒడి.",
+      "english": "Lap.",
+      "simpleTeluguMeaning": "ఒడి.",
+      "x": 65,
+      "y": 81,
+      "w": 4.5,
+      "h": 2.5
+    }
+  ],
+  "pageType": "rhyme",
+  "hasExercise": false
+}

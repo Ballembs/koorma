@@ -111,6 +111,13 @@ interface KoormaState {
     }[];
   };
 
+  // AP Textbook Progress
+  apProgress: Record<string, {
+    completed: boolean;
+    score: number;
+    starsEarned: number;
+  }>;
+
   // V2 Activity Tracking
   weeklyActivity: WeeklyActivity;
   trackActivity: (type: keyof Omit<WeeklyActivity, 'weekStart'>, value: any) => void;
@@ -172,6 +179,7 @@ interface KoormaState {
   updateSentenceProgress: (progress: Partial<KoormaState["sentenceProgress"]>) => void;
   updateStoryProgress: (progress: Partial<KoormaState["storyProgress"]>) => void;
   saveMagicStory: (story: GeneratedStory) => void;
+  updateAPProgress: (key: string, data: { completed: boolean; score: number }) => void;
 
   // Settings actions
   setAudioEnabled: (enabled: boolean) => void;
@@ -284,6 +292,9 @@ export const useKoormaStore = create<KoormaState>()(
         totalStoriesRead: 0,
         savedMagicStories: [],
       },
+
+      // AP Textbook Progress
+      apProgress: {},
 
       // V2 Activity Tracking
       weeklyActivity: {
@@ -521,6 +532,26 @@ export const useKoormaStore = create<KoormaState>()(
           }
         }));
       },
+      updateAPProgress: (key, data) => {
+        set((state) => {
+          let starsEarned = 0;
+          if (data.score > 0) {
+            if (data.score <= 50) starsEarned = 1;
+            else if (data.score <= 80) starsEarned = 2;
+            else starsEarned = 3;
+          }
+          return {
+            apProgress: {
+              ...state.apProgress,
+              [key]: {
+                ...state.apProgress[key],
+                ...data,
+                starsEarned: Math.max(starsEarned, state.apProgress[key]?.starsEarned || 0)
+              }
+            }
+          };
+        });
+      },
 
       trackActivity: (type, value) => {
         const state = get();
@@ -578,6 +609,7 @@ export const useKoormaStore = create<KoormaState>()(
           wordProgress: { categoriesCompleted: [], currentCategory: null, wordsLearned: [], totalWordsLearned: 0 },
           sentenceProgress: { currentLevel: 1, sentencesRead: 0, sentencesBuilt: 0 },
           storyProgress: { tier1: {}, tier2Generated: 0, totalStoriesRead: 0, savedMagicStories: [] },
+          apProgress: {},
           weeklyActivity: {
             weekStart: getWeekStart(),
             lettersLearned: [],
@@ -619,6 +651,7 @@ export const useKoormaStore = create<KoormaState>()(
           wordProgress: { categoriesCompleted: [], currentCategory: null, wordsLearned: [], totalWordsLearned: 0 },
           sentenceProgress: { currentLevel: 1, sentencesRead: 0, sentencesBuilt: 0 },
           storyProgress: { tier1: {}, tier2Generated: 0, totalStoriesRead: 0, savedMagicStories: [] },
+          apProgress: {},
           weeklyActivity: {
             weekStart: getWeekStart(),
             lettersLearned: [],

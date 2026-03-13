@@ -1,0 +1,502 @@
+{
+  "words": [
+    {
+      "word": "గలగల",
+      "english": "sound of flowing water/babbling",
+      "x": 52.5,
+      "y": 9.2,
+      "w": 12,
+      "h": 4.5
+    },
+    {
+      "word": "మాటలు",
+      "english": "words/talk",
+      "x": 65.5,
+      "y": 9.2,
+      "w": 16.5,
+      "h": 4.5
+    },
+    {
+      "word": "వర్ణమాల",
+      "english": "alphabet",
+      "x": 61,
+      "y": 18.5,
+      "w": 10,
+      "h": 3
+    },
+    {
+      "word": "క్రమం",
+      "english": "order/sequence",
+      "x": 71.5,
+      "y": 18.5,
+      "w": 6.5,
+      "h": 3
+    },
+    {
+      "word": "గలగల",
+      "english": "sound of flowing water",
+      "x": 55,
+      "y": 35.5,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "గలగల",
+      "english": "sound of flowing water",
+      "x": 62.5,
+      "y": 35.5,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "సవ్వడితో",
+      "english": "with noise",
+      "x": 69.5,
+      "y": 35.5,
+      "w": 9,
+      "h": 2.5
+    },
+    {
+      "word": "కిలకిల,",
+      "english": "giggling sound",
+      "x": 55,
+      "y": 38.5,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "కిలకిల",
+      "english": "giggling sound",
+      "x": 62.5,
+      "y": 38.5,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "నవ్వులతో",
+      "english": "with laughter",
+      "x": 69.5,
+      "y": 38.5,
+      "w": 10,
+      "h": 2.5
+    },
+    {
+      "word": "బిరబిర",
+      "english": "quickly",
+      "x": 55,
+      "y": 42,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "బిరబిర",
+      "english": "quickly",
+      "x": 62.5,
+      "y": 42,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "నడిచాము",
+      "english": "we walked",
+      "x": 69.5,
+      "y": 42,
+      "w": 9.5,
+      "h": 2.5
+    },
+    {
+      "word": "గబగబ",
+      "english": "hurriedly",
+      "x": 55,
+      "y": 45.2,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "గబగబ",
+      "english": "hurriedly",
+      "x": 62.5,
+      "y": 45.2,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "పోయాము",
+      "english": "we went",
+      "x": 69.5,
+      "y": 45.2,
+      "w": 10,
+      "h": 2.5
+    },
+    {
+      "word": "డమడమ",
+      "english": "drumbeat sound",
+      "x": 55,
+      "y": 48.5,
+      "w": 7.5,
+      "h": 2.5
+    },
+    {
+      "word": "డమడమ",
+      "english": "drumbeat sound",
+      "x": 63.5,
+      "y": 48.5,
+      "w": 7.5,
+      "h": 2.5
+    },
+    {
+      "word": "ఢమరులు",
+      "english": "small drums",
+      "x": 72.5,
+      "y": 48.5,
+      "w": 9,
+      "h": 2.5
+    },
+    {
+      "word": "మోగెను",
+      "english": "sounded",
+      "x": 82,
+      "y": 48.5,
+      "w": 8,
+      "h": 2.5
+    },
+    {
+      "word": "సుడివడి",
+      "english": "swirling",
+      "x": 55,
+      "y": 51.5,
+      "w": 7,
+      "h": 2.5
+    },
+    {
+      "word": "సుడివడి",
+      "english": "swirling",
+      "x": 62.5,
+      "y": 51.5,
+      "w": 7,
+      "h": 2.5
+    },
+    {
+      "word": "గాలులు",
+      "english": "winds",
+      "x": 70,
+      "y": 51.5,
+      "w": 7.5,
+      "h": 2.5
+    },
+    {
+      "word": "వీచెను",
+      "english": "blew",
+      "x": 78.5,
+      "y": 51.5,
+      "w": 6,
+      "h": 2.5
+    },
+    {
+      "word": "పెళపెళ",
+      "english": "crackling sound",
+      "x": 55,
+      "y": 55,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "పెళపెళ",
+      "english": "crackling sound",
+      "x": 62.5,
+      "y": 55,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "ఉరుములు",
+      "english": "thunders",
+      "x": 70,
+      "y": 55,
+      "w": 10,
+      "h": 2.5
+    },
+    {
+      "word": "ఉరిమెను",
+      "english": "thundered",
+      "x": 81,
+      "y": 55,
+      "w": 9,
+      "h": 2.5
+    },
+    {
+      "word": "తళతళ",
+      "english": "shining sound",
+      "x": 55,
+      "y": 58,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "తళతళ",
+      "english": "shining sound",
+      "x": 62.5,
+      "y": 58,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "మెరుపులు",
+      "english": "lightnings",
+      "x": 70,
+      "y": 58,
+      "w": 9.5,
+      "h": 2.5
+    },
+    {
+      "word": "మెరిసెను",
+      "english": "flashed",
+      "x": 80,
+      "y": 58,
+      "w": 8.5,
+      "h": 2.5
+    },
+    {
+      "word": "చిటపట",
+      "english": "pitter-patter",
+      "x": 55,
+      "y": 61.5,
+      "w": 7,
+      "h": 2.5
+    },
+    {
+      "word": "చిటపట",
+      "english": "pitter-patter",
+      "x": 62.5,
+      "y": 61.5,
+      "w": 7,
+      "h": 2.5
+    },
+    {
+      "word": "చినుకులు",
+      "english": "raindrops",
+      "x": 70.5,
+      "y": 61.5,
+      "w": 9.5,
+      "h": 2.5
+    },
+    {
+      "word": "కురిసెను",
+      "english": "rained",
+      "x": 80.5,
+      "y": 61.5,
+      "w": 8.5,
+      "h": 2.5
+    },
+    {
+      "word": "జలజల",
+      "english": "flowing sound",
+      "x": 55,
+      "y": 64.8,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "జలజల",
+      "english": "flowing sound",
+      "x": 62.5,
+      "y": 64.8,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "ఏరులు",
+      "english": "streams",
+      "x": 70,
+      "y": 64.8,
+      "w": 7,
+      "h": 2.5
+    },
+    {
+      "word": "పారెను",
+      "english": "flowed",
+      "x": 77.5,
+      "y": 64.8,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "కలకల",
+      "english": "cheerful sound",
+      "x": 55,
+      "y": 68,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "కలకల",
+      "english": "cheerful sound",
+      "x": 62,
+      "y": 68,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "పూవులు",
+      "english": "flowers",
+      "x": 69.5,
+      "y": 68,
+      "w": 7.5,
+      "h": 2.5
+    },
+    {
+      "word": "విరిసెను",
+      "english": "bloomed",
+      "x": 78,
+      "y": 68,
+      "w": 7.5,
+      "h": 2.5
+    },
+    {
+      "word": "వడివడి",
+      "english": "swiftly",
+      "x": 55,
+      "y": 71.5,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "వడివడి",
+      "english": "swiftly",
+      "x": 62,
+      "y": 71.5,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "పూలు",
+      "english": "flowers",
+      "x": 69,
+      "y": 71.5,
+      "w": 5,
+      "h": 2.5
+    },
+    {
+      "word": "కోసుకొని",
+      "english": "having plucked",
+      "x": 75,
+      "y": 71.5,
+      "w": 10,
+      "h": 2.5
+    },
+    {
+      "word": "చకచక",
+      "english": "quickly",
+      "x": 55,
+      "y": 74.8,
+      "w": 6,
+      "h": 2.5
+    },
+    {
+      "word": "చకచక",
+      "english": "quickly",
+      "x": 61.5,
+      "y": 74.8,
+      "w": 6,
+      "h": 2.5
+    },
+    {
+      "word": "మాలలు",
+      "english": "garlands",
+      "x": 68,
+      "y": 74.8,
+      "w": 7.5,
+      "h": 2.5
+    },
+    {
+      "word": "కట్టీ",
+      "english": "having tied",
+      "x": 76.5,
+      "y": 74.8,
+      "w": 4.5,
+      "h": 2.5
+    },
+    {
+      "word": "బిలబిల",
+      "english": "swarming",
+      "x": 55,
+      "y": 78,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "బిలబిల",
+      "english": "swarming",
+      "x": 62.5,
+      "y": 78,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "గుడికి",
+      "english": "to temple",
+      "x": 69.5,
+      "y": 78,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "చేరుకొని",
+      "english": "having reached",
+      "x": 77,
+      "y": 78,
+      "w": 8,
+      "h": 2.5
+    },
+    {
+      "word": "దేవుని",
+      "english": "God's",
+      "x": 55,
+      "y": 81.2,
+      "w": 6,
+      "h": 2.5
+    },
+    {
+      "word": "మెడలో",
+      "english": "in neck",
+      "x": 62,
+      "y": 81.2,
+      "w": 6.5,
+      "h": 2.5
+    },
+    {
+      "word": "దండలు",
+      "english": "garlands",
+      "x": 69.5,
+      "y": 81.2,
+      "w": 7.5,
+      "h": 2.5
+    },
+    {
+      "word": "వేసి",
+      "english": "having put",
+      "x": 78,
+      "y": 81.2,
+      "w": 4.5,
+      "h": 2.5
+    },
+    {
+      "word": "దీవెనలిమ్మని",
+      "english": "blessings to give",
+      "x": 55,
+      "y": 84.5,
+      "w": 11.5,
+      "h": 2.5
+    },
+    {
+      "word": "మొక్కితిమి",
+      "english": "we bowed/prayed",
+      "x": 67.5,
+      "y": 84.5,
+      "w": 9.5,
+      "h": 2.5
+    }
+  ],
+  "pageType": "rhyme",
+  "hasExercise": false
+}
