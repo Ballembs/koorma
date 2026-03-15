@@ -14,12 +14,12 @@ export async function POST(req: Request) {
       input: { text },
       voice: {
         languageCode: 'te-IN',
-        name: 'te-IN-Standard-A',
+        name: 'te-IN-Standard-B', // Using male standard voice or Wavenet if you configure it.
       },
       audioConfig: {
         audioEncoding: 'MP3',
-        speakingRate: 0.75,
-        pitch: 1.5,
+        speakingRate: 0.85, 
+        pitch: 1.1,         
       },
     });
 

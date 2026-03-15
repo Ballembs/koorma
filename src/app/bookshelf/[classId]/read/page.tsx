@@ -1,7 +1,8 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import { use, useState, useEffect } from "react";
+import { use, useState } from "react";
+import { NativeBookRenderer } from "@/components/book/NativeBookRenderer";
 import { DigitalBookReader } from "@/components/ap-content/DigitalBookReader";
 import { BOOK_PAGE_COUNTS, BOOK_TOC } from "@/content/ap-textbooks/book-metadata";
 
@@ -14,6 +15,7 @@ export default function ReadBookPage({ params }: { params: Promise<{ classId: st
   const totalPages = BOOK_PAGE_COUNTS[classId] || 0;
   const pageParam = searchParams.get("page");
   const [startPage, setStartPage] = useState<number | null>(pageParam ? parseInt(pageParam, 10) : null);
+  const [readerMode, setReaderMode] = useState<"native" | "classic">("native");
   const toc = BOOK_TOC[classId] || [];
 
   if (totalPages === 0) {
@@ -30,6 +32,16 @@ export default function ReadBookPage({ params }: { params: Promise<{ classId: st
 
   // If a start page was selected, open the reader
   if (startPage !== null) {
+    if (readerMode === "native") {
+      return (
+        <NativeBookRenderer
+          classId={classId}
+          totalPages={totalPages}
+          startPage={startPage}
+          onClose={() => setStartPage(null)}
+        />
+      );
+    }
     return (
       <DigitalBookReader
         classId={classId}
@@ -77,6 +89,39 @@ export default function ReadBookPage({ params }: { params: Promise<{ classId: st
       </div>
 
       <div style={{ maxWidth: 800, margin: "0 auto", padding: "30px 20px" }}>
+        {/* Reader mode selector */}
+        <div style={{
+          display: "flex", gap: 8, marginBottom: 20,
+          background: "#f5f5f5", borderRadius: 16, padding: 4,
+        }}>
+          <button
+            onClick={() => setReaderMode("native")}
+            style={{
+              flex: 1, padding: "10px 16px", borderRadius: 12, border: "none",
+              background: readerMode === "native" ? "white" : "transparent",
+              boxShadow: readerMode === "native" ? "0 2px 8px rgba(0,0,0,0.08)" : "none",
+              fontWeight: 800, fontSize: 14, cursor: "pointer",
+              color: readerMode === "native" ? "#2D8B4E" : "#aaa",
+              fontFamily: "'Nunito', sans-serif",
+            }}
+          >
+            ✨ Interactive
+          </button>
+          <button
+            onClick={() => setReaderMode("classic")}
+            style={{
+              flex: 1, padding: "10px 16px", borderRadius: 12, border: "none",
+              background: readerMode === "classic" ? "white" : "transparent",
+              boxShadow: readerMode === "classic" ? "0 2px 8px rgba(0,0,0,0.08)" : "none",
+              fontWeight: 800, fontSize: 14, cursor: "pointer",
+              color: readerMode === "classic" ? "#D4940C" : "#aaa",
+              fontFamily: "'Nunito', sans-serif",
+            }}
+          >
+            📄 Original Pages
+          </button>
+        </div>
+
         {/* Read from beginning button */}
         <button
           onClick={() => setStartPage(1)}

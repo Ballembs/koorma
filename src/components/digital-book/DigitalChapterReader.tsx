@@ -1,0 +1,1900 @@
+"use client";
+
+import React, { useState, useRef, useCallback, useEffect } from "react";
+import { BoatAnimation } from "./BoatAnimation";
+import { VaanaAnimation } from "./VaanaAnimation";
+import { ChandamamaAnimation } from "./ChandamamaAnimation";
+import { UdathaAnimation } from "./UdathaAnimation";
+import type { ChapterData, PoemStanza } from "@/content/digital-book/chapter-1";
+import KoormaTracing from "@/components/lesson/KoormaTracing";
+import { useKoormaStore } from "@/lib/store";
+
+// ====== Types ======
+export type PageType = "title" | "poem" | "exercise-listen-speak" | "exercise-find" | "exercise-identify" | "exercise-match" | "exercise-vocab" | "exercise-build" | "exercise-letters" | "exercise-creative" | "complete";
+interface Page {
+  type: PageType;
+}
+
+interface Props {
+  chapter: ChapterData;
+  startPage?: PageType;
+  onClose?: () => void;
+  onNextChapter?: () => void;
+}
+
+// ====== Colors ======
+const C = {
+  bg: "#F0F7FF",
+  card: "rgba(255,255,255,0.95)",
+  dark: "#1E3A5F",
+  accent: "#2563EB",
+  gold: "#D4940C",
+  green: "#16A34A",
+  softBlue: "#DBEAFE",
+};
+
+// ====== Main Component ======
+export function DigitalChapterReader({ chapter, startPage, onClose, onNextChapter }: Props) {
+  // Compute pages dynamically based on what exercises are authored
+  const pages: Page[] = [
+    { type: "title" },
+    { type: "poem" }
+  ];
+
+  if (chapter.exercises.listenAndSpeak) pages.push({ type: "exercise-listen-speak" });
+  
+  pages.push({ type: "exercise-find" });
+
+  if (chapter.exercises.identifyLetter) pages.push({ type: "exercise-identify" });
+  if (chapter.exercises.matchWord) pages.push({ type: "exercise-match" });
+  if (chapter.exercises.vocabWords) pages.push({ type: "exercise-vocab" });
+  if (chapter.exercises.buildWords) pages.push({ type: "exercise-build" });
+  
+  pages.push({ type: "exercise-letters" });
+
+  if (chapter.exercises.creative) pages.push({ type: "exercise-creative" });
+
+  pages.push({ type: "complete" });
+
+  const initialIdx = startPage ? pages.findIndex(p => p.type === startPage) : 0;
+  const [currentPage, setCurrentPage] = useState(initialIdx >= 0 ? initialIdx : 0);
+  const [direction, setDirection] = useState<"left" | "right">("right");
+  const [transitioning, setTransitioning] = useState(false);
+  const touchStartX = useRef<number | null>(null);
+  const total = pages.length;
+
+  // Navigation
+  const goTo = useCallback((idx: number) => {
+    if (idx < 0 || idx >= total || transitioning) return;
+    setDirection(idx > currentPage ? "right" : "left");
+    setTransitioning(true);
+    setTimeout(() => {
+      setCurrentPage(idx);
+      setTransitioning(false);
+    }, 300);
+  }, [currentPage, total, transitioning]);
+
+  const next = () => goTo(currentPage + 1);
+  const prev = () => goTo(currentPage - 1);
+
+  // Keyboard
+  useEffect(() => {
+    const h = (e: KeyboardEvent) => {
+      if (e.key === "ArrowRight" || e.key === " ") { e.preventDefault(); next(); }
+      else if (e.key === "ArrowLeft") { e.preventDefault(); prev(); }
+      else if (e.key === "Escape") onClose?.();
+    };
+    window.addEventListener("keydown", h);
+    return () => window.removeEventListener("keydown", h);
+  });
+
+  // Touch
+  const onTouchStart = (e: React.TouchEvent) => { touchStartX.current = e.touches[0].clientX; };
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const dx = e.changedTouches[0].clientX - touchStartX.current;
+    if (Math.abs(dx) > 50) { dx < 0 ? next() : prev(); }
+    touchStartX.current = null;
+  };
+
+  const page = pages[currentPage];
+  const progress = ((currentPage) / (total - 1)) * 100;
+
+  const { updateAPProgress, addXP, trackActivity } = useKoormaStore();
+  const [hasSavedCompletion, setHasSavedCompletion] = useState(false);
+
+  useEffect(() => {
+    if (page.type === "complete" && !hasSavedCompletion) {
+        // Save progress using the textbook format: c{classNumber}-{chapterId}-{type}
+        updateAPProgress(`c1-${chapter.id}-interactive`, { completed: true, score: 100 });
+        addXP(100);
+        trackActivity('storiesRead', 1);
+        setHasSavedCompletion(true);
+    }
+  }, [page.type, chapter.id, hasSavedCompletion, updateAPProgress, addXP, trackActivity]);
+
+  return (
+    <div
+      onTouchStart={onTouchStart}
+      onTouchEnd={onTouchEnd}
+      style={{
+        width: "100%", height: "100dvh", display: "flex", flexDirection: "column",
+        background: C.bg, fontFamily: "'Nunito', 'Noto Sans Telugu', sans-serif", overflow: "hidden",
+      }}
+    >
+      {/* Header */}
+      <div style={{
+        display: "flex", alignItems: "center", justifyContent: "space-between",
+        padding: "8px 16px", background: "white", borderBottom: "1px solid rgba(0,0,0,0.06)",
+        flexShrink: 0, zIndex: 10,
+      }}>
+        <button onClick={onClose} style={{
+          background: "transparent", border: "none", cursor: "pointer", fontSize: 20, padding: "6px 10px",
+          borderRadius: 10, display: "flex", alignItems: "center",
+        }}>✕</button>
+        <span style={{
+          fontFamily: "'Noto Sans Telugu', sans-serif", fontWeight: 800, fontSize: 15, color: C.dark,
+        }}>
+          {chapter.number}. {chapter.title.te}
+        </span>
+        <span style={{ fontSize: 12, color: "#999", fontWeight: 700, width: 40, textAlign: "right" }}>
+          {currentPage + 1}/{total}
+        </span>
+      </div>
+
+      {/* Progress */}
+      <div style={{ height: 3, background: "#E5E7EB", flexShrink: 0 }}>
+        <div style={{
+          height: "100%", width: `${progress}%`, borderRadius: "0 2px 2px 0",
+          background: `linear-gradient(90deg, ${C.accent}, ${C.green})`, transition: "width 0.4s ease",
+        }} />
+      </div>
+
+      {/* Content */}
+      <div style={{ flex: 1, overflow: "auto", position: "relative" }}>
+        <div style={{
+          opacity: transitioning ? 0 : 1,
+          transform: transitioning
+            ? `translateX(${direction === "right" ? "-20px" : "20px"})`
+            : "translateX(0)",
+          transition: "opacity 0.3s ease, transform 0.3s ease",
+          minHeight: "100%",
+          display: "flex",
+          flexDirection: "column",
+        }}>
+          {page.type === "title" && <TitlePage chapter={chapter} onStart={next} />}
+          {page.type === "poem" && <PoemPage chapter={chapter} />}
+          {page.type === "exercise-listen-speak" && <ListenSpeakExercise chapter={chapter} onComplete={next} />}
+          {page.type === "exercise-find" && <FindWordExercise chapter={chapter} onComplete={next} />}
+          {page.type === "exercise-identify" && <IdentifyLetterExercise chapter={chapter} onComplete={next} />}
+          {page.type === "exercise-match" && <MatchWordExercise chapter={chapter} onComplete={next} />}
+          {page.type === "exercise-vocab" && <VocabWordsExercise chapter={chapter} onComplete={next} />}
+          {page.type === "exercise-build" && <BuildWordsExercise chapter={chapter} onComplete={next} />}
+          {page.type === "exercise-letters" && <LetterExercise chapter={chapter} onComplete={next} />}
+          {page.type === "exercise-creative" && <CreativeExercise chapter={chapter} onComplete={next} />}
+          {page.type === "complete" && <CompletePage chapter={chapter} onNextChapter={onNextChapter} onRestart={() => goTo(0)} />}
+        </div>
+      </div>
+
+      {/* Bottom Nav */}
+      <div style={{
+        display: "flex", alignItems: "center", justifyContent: "space-between",
+        padding: "10px 16px", background: "white", borderTop: "1px solid rgba(0,0,0,0.06)",
+        flexShrink: 0,
+      }}>
+        <div style={{ flex: 1, display: "flex", justifyContent: "flex-start" }}>
+          <button onClick={prev} disabled={currentPage <= 0} style={{
+            background: currentPage <= 0 ? "#f5f5f5" : "linear-gradient(135deg, #E0E7FF, #C7D2FE)",
+            border: "none", borderRadius: 14, padding: "10px 20px", cursor: currentPage <= 0 ? "default" : "pointer",
+            fontSize: 15, fontWeight: 800, color: currentPage <= 0 ? "#ccc" : C.accent,
+            opacity: currentPage <= 0 ? 0.5 : 1,
+            visibility: currentPage <= 0 ? "hidden" : "visible",
+          }}>◀ Back</button>
+        </div>
+
+        {/* Page dots */}
+        <div style={{ display: "flex", gap: 5, flex: 1, justifyContent: "center" }}>
+          {pages.map((_, i) => (
+            <div key={i} onClick={() => goTo(i)} style={{
+              width: i === currentPage ? 18 : 7, height: 7, borderRadius: 4, cursor: "pointer",
+              background: i === currentPage ? C.accent : i < currentPage ? C.green : "#D1D5DB",
+              transition: "all 0.3s ease",
+            }} />
+          ))}
+        </div>
+
+        <div style={{ flex: 1, display: "flex", justifyContent: "flex-end" }}>
+          {!page.type.startsWith("exercise") && page.type !== "complete" && (
+            <button onClick={next} disabled={currentPage >= total - 1} style={{
+              background: currentPage >= total - 1 ? "#f5f5f5" : `linear-gradient(135deg, ${C.accent}, #3B82F6)`,
+              border: "none", borderRadius: 14, padding: "10px 20px",
+              cursor: currentPage >= total - 1 ? "default" : "pointer",
+              fontSize: 15, fontWeight: 800, color: currentPage >= total - 1 ? "#ccc" : "white",
+              opacity: currentPage >= total - 1 ? 0.5 : 1,
+              boxShadow: currentPage >= total - 1 ? "none" : "0 2px 10px rgba(37,99,235,0.3)",
+            }}>Next ▶</button>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ====================================================================
+// PAGE: Title
+// ====================================================================
+function TitlePage({ chapter, onStart }: { chapter: ChapterData; onStart: () => void }) {
+  return (
+    <div style={{
+      flex: 1, display: "flex", flexDirection: "column", alignItems: "center",
+      justifyContent: "center", padding: "24px 20px", textAlign: "center",
+      background: chapter.themeGradient, position: "relative", overflow: "hidden",
+    }}>
+      {/* Decorative circles */}
+      <div style={{ position: "absolute", top: -40, right: -40, width: 160, height: 160, borderRadius: "50%", background: "rgba(255,255,255,0.08)" }} />
+      <div style={{ position: "absolute", bottom: -60, left: -60, width: 200, height: 200, borderRadius: "50%", background: "rgba(255,255,255,0.05)" }} />
+
+      {/* Chapter badge */}
+      <div style={{
+        width: 64, height: 64, borderRadius: "50%", background: "rgba(255,255,255,0.2)",
+        display: "flex", alignItems: "center", justifyContent: "center",
+        fontSize: 28, fontWeight: 900, color: "white", marginBottom: 16,
+        border: "3px solid rgba(255,255,255,0.3)",
+      }}>
+        {chapter.number}
+      </div>
+
+      {/* Title */}
+      <h1 style={{
+        fontFamily: "'Noto Sans Telugu', sans-serif", fontSize: "clamp(42px, 10vw, 64px)",
+        fontWeight: 900, color: "white", margin: "0 0 8px", textShadow: "0 4px 20px rgba(0,0,0,0.2)",
+        letterSpacing: 2,
+      }}>
+        {chapter.title.te}
+      </h1>
+      <p style={{
+        fontSize: "clamp(18px, 4vw, 24px)", color: "rgba(255,255,255,0.8)",
+        fontWeight: 700, margin: "0 0 28px",
+      }}>
+        {chapter.title.en}
+      </p>
+
+      {/* Letters introduced */}
+      <div style={{
+        display: "flex", gap: 12, marginBottom: 32,
+      }}>
+        {chapter.letters.map((l, i) => (
+          <div key={i} style={{
+            width: 56, height: 56, borderRadius: 16, background: "rgba(255,255,255,0.2)",
+            backdropFilter: "blur(10px)", display: "flex", alignItems: "center", justifyContent: "center",
+            fontFamily: "'Noto Sans Telugu', sans-serif", fontSize: 28, fontWeight: 900, color: "white",
+            border: "2px solid rgba(255,255,255,0.3)",
+          }}>
+            {l.letter}
+          </div>
+        ))}
+      </div>
+
+      {/* Illustration preview (small circle) */}
+      <div style={{
+        width: 140, height: 140, borderRadius: "50%", overflow: "hidden",
+        border: "4px solid rgba(255,255,255,0.4)", marginBottom: 28,
+        boxShadow: "0 8px 32px rgba(0,0,0,0.2)",
+      }}>
+        <img
+          src={chapter.illustration}
+          alt={chapter.title.en}
+          style={{ width: "100%", height: "100%", objectFit: "cover" }}
+        />
+      </div>
+
+      {/* Start button */}
+      <button onClick={onStart} style={{
+        background: "white", border: "none", borderRadius: 20,
+        padding: "14px 36px", cursor: "pointer", fontSize: 18, fontWeight: 800,
+        color: C.accent, boxShadow: "0 4px 20px rgba(0,0,0,0.15)",
+        display: "flex", alignItems: "center", gap: 8,
+        animation: "bounceIn 0.6s ease",
+      }}>
+        <span style={{ fontFamily: "'Noto Sans Telugu', sans-serif" }}>చదవడం ప్రారంభించు</span>
+        <span>📖</span>
+      </button>
+      <p style={{ color: "rgba(255,255,255,0.6)", fontSize: 13, marginTop: 12, fontWeight: 600 }}>
+        Start Reading
+      </p>
+
+      <style>{`
+        @keyframes bounceIn {
+          0% { transform: scale(0.8); opacity: 0; }
+          60% { transform: scale(1.05); }
+          100% { transform: scale(1); opacity: 1; }
+        }
+      `}</style>
+    </div>
+  );
+}
+
+// ====================================================================
+// PAGE: Poem
+// ====================================================================
+function PoemPage({ chapter }: { chapter: ChapterData }) {
+  const [selectedWord, setSelectedWord] = useState<{ te: string; en: string; teSimple?: string } | null>(null);
+  const [showTranslations, setShowTranslations] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [highlightedWordIdx, setHighlightedWordIdx] = useState<number | null>(null);
+
+  const audioContextRef = useRef<{ audio: HTMLAudioElement | null, active: boolean, inter: NodeJS.Timeout | null }>({ audio: null, active: false, inter: null });
+
+  // Stop audio when leaving the page
+  useEffect(() => {
+    return () => {
+      audioContextRef.current.active = false;
+      if (audioContextRef.current.audio) audioContextRef.current.audio.pause();
+      if (audioContextRef.current.inter) clearInterval(audioContextRef.current.inter);
+    };
+  }, []);
+
+  const togglePlay = async () => {
+    if (isPlaying) {
+      audioContextRef.current.active = false;
+      if (audioContextRef.current.audio) audioContextRef.current.audio.pause();
+      if (audioContextRef.current.inter) clearInterval(audioContextRef.current.inter);
+      setIsPlaying(false);
+      setHighlightedWordIdx(null);
+      return;
+    }
+
+    setIsPlaying(true);
+    audioContextRef.current.active = true;
+    setHighlightedWordIdx(null);
+
+    const lines: { text: string; wordIds: number[] }[] = [];
+    let globalWIdx = 0;
+    chapter.poem.stanzas.forEach(s => {
+      s.lines.forEach(l => {
+        const text = l.words.map(w => w.te).join(' ');
+        const wordIds = l.words.map(() => globalWIdx++);
+        lines.push({ text, wordIds });
+      });
+    });
+
+    for (let i = 0; i < lines.length; i++) {
+        if (!audioContextRef.current.active) break;
+
+        const lineObj = lines[i];
+        try {
+            const res = await fetch('/api/speak-telugu', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ text: lineObj.text })
+            });
+
+            if (!res.ok) {
+                // FALLBACK TO NATIVE BROWSER TTS if Cloud TTS is unconfigured/fails
+                console.warn("Cloud TTS failed, falling back to native browser speech");
+                await new Promise<void>((resolve) => {
+                    if (!audioContextRef.current.active) return resolve();
+                    const utterance = new SpeechSynthesisUtterance(lineObj.text);
+                    utterance.lang = "te-IN";
+                    utterance.rate = 0.8;
+                    utterance.pitch = 1.1;
+                    
+                    const timePerWord = 800; // rough estimate
+                    let currentWordIdx = 0;
+                    setHighlightedWordIdx(lineObj.wordIds[currentWordIdx]);
+                    
+                    audioContextRef.current.inter = setInterval(() => {
+                        currentWordIdx++;
+                        if (currentWordIdx < lineObj.wordIds.length) {
+                            setHighlightedWordIdx(lineObj.wordIds[currentWordIdx]);
+                        }
+                    }, timePerWord);
+
+                    utterance.onend = () => {
+                        if (audioContextRef.current.inter) clearInterval(audioContextRef.current.inter);
+                        resolve();
+                    };
+                    utterance.onerror = () => {
+                        if (audioContextRef.current.inter) clearInterval(audioContextRef.current.inter);
+                        resolve();
+                    };
+
+                    window.speechSynthesis.speak(utterance);
+                });
+                await new Promise(r => setTimeout(r, 250));
+                continue;
+            }
+
+            const blob = await res.blob();
+            const url = URL.createObjectURL(blob);
+            
+            if (!audioContextRef.current.active) break;
+
+            const audio = new Audio(url);
+            audioContextRef.current.audio = audio;
+
+            await new Promise((resolve) => {
+                audio.addEventListener('canplaythrough', () => resolve(true), { once: true });
+                audio.addEventListener('error', () => resolve(true), { once: true });
+                setTimeout(() => resolve(true), 500); // safety fallback
+            });
+            
+            if (!audioContextRef.current.active) break;
+
+            audio.play().catch(e => console.error(e));
+            
+            let d = audio.duration;
+            // Chrome bug fallback for Blob URLs
+            if (!isFinite(d) || d <= 0) {
+                d = lineObj.wordIds.length * 0.7; // ~700ms per word
+            }
+            const durationMs = d * 1000;
+            const timePerWord = durationMs / lineObj.wordIds.length;
+            
+            let currentWordIdx = 0;
+            setHighlightedWordIdx(lineObj.wordIds[currentWordIdx]);
+            
+            audioContextRef.current.inter = setInterval(() => {
+                currentWordIdx++;
+                if (currentWordIdx < lineObj.wordIds.length) {
+                    setHighlightedWordIdx(lineObj.wordIds[currentWordIdx]);
+                }
+            }, timePerWord);
+
+            await new Promise((resolve) => {
+                audio.addEventListener('ended', () => resolve(true), { once: true });
+                const checkStop = setInterval(() => {
+                    if (!audioContextRef.current.active) {
+                        clearInterval(checkStop);
+                        resolve(true);
+                    }
+                }, 100);
+                audio.addEventListener('ended', () => clearInterval(checkStop));
+            });
+
+            if (audioContextRef.current.inter) clearInterval(audioContextRef.current.inter);
+            if (url) URL.revokeObjectURL(url);
+            
+            if (!audioContextRef.current.active) break;
+            
+            // tiny natural pause between lines
+            await new Promise(r => setTimeout(r, 250));
+
+        } catch (error) {
+            console.error("Line audio error:", error);
+            if (audioContextRef.current.inter) clearInterval(audioContextRef.current.inter);
+        }
+    }
+
+    if (audioContextRef.current.active) {
+        setIsPlaying(false);
+        setHighlightedWordIdx(null);
+        audioContextRef.current.active = false;
+    }
+  };
+
+  let globalWordCounter = 0;
+
+  return (
+    <div style={{
+      flex: 1, padding: "0",
+      background: "linear-gradient(180deg, #F0F7FF 0%, #FEFCE8 100%)",
+      display: "flex", flexDirection: "column",
+    }}>
+      <style>{`
+        @media (min-width: 768px) {
+          .poem-layout {
+            flex-direction: row !important;
+            padding: 24px !important;
+            align-items: center;
+          }
+          .poem-image-container {
+            flex: 1;
+            margin-right: 24px;
+            max-width: 50%;
+          }
+          .poem-text-container {
+            flex: 1;
+            padding: 0 20px !important;
+          }
+        }
+        @keyframes fadeSlideUp {
+          from { opacity: 0; transform: translateY(12px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes popIn {
+          from { opacity: 0; transform: translateX(-50%) scale(0.9); }
+          to { opacity: 1; transform: translateX(-50%) scale(1); }
+        }
+      `}</style>
+
+      <div className="poem-layout" style={{
+        flex: 1, display: "flex", flexDirection: "column", padding: "16px 0",
+      }}>
+        {/* Illustration + Animation */}
+        <div className="poem-image-container" style={{ padding: "0 16px 16px" }}>
+          {chapter.id === "vaana" ? (
+            <VaanaAnimation illustrationSrc={chapter.illustration} />
+          ) : chapter.id === "chandamama" ? (
+            <ChandamamaAnimation illustrationSrc={chapter.illustration} />
+          ) : chapter.id === "udatha" ? (
+            <UdathaAnimation illustrationSrc={chapter.illustration} />
+          ) : (
+            <BoatAnimation illustrationSrc={chapter.illustration} />
+          )}
+        </div>
+
+        {/* Poem content */}
+        <div className="poem-text-container" style={{
+          padding: "0 20px", maxWidth: 500, margin: "0 auto", width: "100%",
+        }}>
+          {/* Controls: Play & Translation toggle */}
+          <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 16 }}>
+            <button onClick={togglePlay} style={{
+              background: isPlaying ? "#FECACA" : "#D1FAE5",
+              border: isPlaying ? "2px solid #EF4444" : "2px solid #10B981",
+              borderRadius: 12, padding: "6px 16px", fontSize: 13, fontWeight: 800,
+              cursor: "pointer", color: isPlaying ? "#B91C1C" : "#065F46",
+              display: "flex", alignItems: "center", gap: 6,
+              boxShadow: "0 2px 8px rgba(0,0,0,0.05)"
+            }}>
+              {isPlaying ? "⏹️ Stop Reading" : "🔊 Read to Me"}
+            </button>
+            <button onClick={() => setShowTranslations(!showTranslations)} style={{
+              background: showTranslations ? "#DBEAFE" : "#F1F5F9",
+              border: showTranslations ? "2px solid #3B82F6" : "1px solid #E2E8F0",
+              borderRadius: 12, padding: "6px 16px", fontSize: 13, fontWeight: 700,
+              cursor: "pointer", color: showTranslations ? "#1D4ED8" : "#94A3B8",
+            }}>
+              {showTranslations ? "🌐 English ON" : "🌐 English"}
+            </button>
+          </div>
+
+          <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+            {chapter.poem.stanzas.map((stanza, sIdx) => (
+              <div key={sIdx}>
+                {stanza.lines.map((line, lineIdx) => (
+                  <div key={lineIdx} style={{
+                    marginBottom: 12,
+                    animation: `fadeSlideUp 0.5s ease ${(sIdx * 4 + lineIdx) * 0.1}s both`,
+                  }}>
+                    {/* Telugu line */}
+                    <div style={{
+                      display: "flex", flexWrap: "wrap", gap: "4px 6px",
+                      justifyContent: "center",
+                    }}>
+                      {line.words.map((word, wIdx) => {
+                        const currentGlobalIdx = globalWordCounter++;
+                        const isSpeakingThis = highlightedWordIdx === currentGlobalIdx;
+                        const isSelected = selectedWord?.te === word.te;
+                        
+                        return (
+                          <span
+                            key={wIdx}
+                            onClick={() => setSelectedWord(isSelected ? null : word)}
+                            style={{
+                              fontFamily: "'Noto Sans Telugu', sans-serif",
+                              fontSize: "clamp(20px, 4vw, 26px)",
+                              fontWeight: 700,
+                              color: isSelected ? C.accent : isSpeakingThis ? "#D97706" : "#2C1810",
+                              cursor: "pointer",
+                              padding: "2px 6px",
+                              borderRadius: 8,
+                              background: isSelected ? "#DBEAFE" : isSpeakingThis ? "#FEF3C7" : "transparent",
+                              transition: "all 0.2s ease",
+                              borderBottom: `2px solid ${isSelected ? C.accent : isSpeakingThis ? "#F59E0B" : "transparent"}`,
+                              lineHeight: 1.6,
+                              transform: isSpeakingThis ? "scale(1.05)" : "scale(1)",
+                            }}
+                          >
+                            {word.te}
+                          </span>
+                        );
+                      })}
+                    </div>
+
+                    {/* English translation */}
+                    {showTranslations && (
+                      <div style={{
+                        textAlign: "center", fontSize: 13, color: "#64748B",
+                        fontStyle: "italic", marginTop: 2, fontWeight: 600,
+                      }}>
+                        {line.translation}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+
+          {/* Word meaning popup */}
+          {selectedWord && (
+            <div style={{
+              position: "fixed", bottom: 80, left: "50%", transform: "translateX(-50%)",
+              background: "white", borderRadius: 20, padding: "16px 24px",
+              boxShadow: "0 8px 40px rgba(0,0,0,0.15)", zIndex: 100,
+              animation: "popIn 0.3s ease", maxWidth: 320, width: "90%",
+              border: `2px solid ${C.softBlue}`,
+            }}>
+              <div style={{
+                fontFamily: "'Noto Sans Telugu', sans-serif", fontSize: 28, fontWeight: 900,
+                color: C.accent, textAlign: "center", marginBottom: 8,
+              }}>
+                {selectedWord.te}
+              </div>
+              <div style={{
+                fontSize: 16, fontWeight: 700, color: C.dark, textAlign: "center",
+              }}>
+                {selectedWord.en}
+              </div>
+              {selectedWord.teSimple && (
+                <div style={{
+                  fontFamily: "'Noto Sans Telugu', sans-serif", fontSize: 14,
+                  color: "#64748B", textAlign: "center", marginTop: 4,
+                }}>
+                  ({selectedWord.teSimple})
+                </div>
+              )}
+              <button onClick={() => setSelectedWord(null)} style={{
+                position: "absolute", top: 8, right: 12, background: "none",
+                border: "none", fontSize: 18, cursor: "pointer", color: "#94A3B8",
+              }}>✕</button>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ====================================================================
+// PAGE: Listen and Speak (వినండి, మాట్లాడండి)
+// ====================================================================
+function ListenSpeakExercise({ chapter, onComplete }: { chapter: ChapterData; onComplete?: () => void }) {
+  const ex = chapter.exercises.listenAndSpeak;
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [highlightedIdx, setHighlightedIdx] = useState<number | null>(null);
+
+  const audioContextRef = useRef<{ audio: HTMLAudioElement | null, active: boolean, inter: NodeJS.Timeout | null }>({ audio: null, active: false, inter: null });
+
+  useEffect(() => {
+    return () => {
+      audioContextRef.current.active = false;
+      if (audioContextRef.current.audio) audioContextRef.current.audio.pause();
+      if (audioContextRef.current.inter) clearInterval(audioContextRef.current.inter);
+    };
+  }, []);
+
+  const togglePlay = async () => {
+    if (isPlaying) {
+      audioContextRef.current.active = false;
+      if (audioContextRef.current.audio) audioContextRef.current.audio.pause();
+      if (audioContextRef.current.inter) clearInterval(audioContextRef.current.inter);
+      setIsPlaying(false);
+      setHighlightedIdx(null);
+      return;
+    }
+
+    setIsPlaying(true);
+    audioContextRef.current.active = true;
+    setHighlightedIdx(null);
+
+    if (!ex) return;
+
+    const items = [
+      { id: -1, text: ex.instruction.te },
+      ...ex.prompts.map((p, i) => ({ id: i, text: p.te }))
+    ];
+
+    for (let i = 0; i < items.length; i++) {
+        if (!audioContextRef.current.active) break;
+
+        const item = items[i];
+        try {
+            const res = await fetch('/api/speak-telugu', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ text: item.text })
+            });
+
+            if (!res.ok) {
+                await new Promise<void>((resolve) => {
+                    if (!audioContextRef.current.active) return resolve();
+                    setHighlightedIdx(item.id);
+                    const utterance = new SpeechSynthesisUtterance(item.text);
+                    utterance.lang = "te-IN";
+                    utterance.rate = 0.8;
+                    utterance.pitch = 1.1;
+                    utterance.onend = () => resolve();
+                    utterance.onerror = () => resolve();
+                    window.speechSynthesis.speak(utterance);
+                });
+                await new Promise(r => setTimeout(r, 400));
+                continue;
+            }
+
+            const blob = await res.blob();
+            const url = URL.createObjectURL(blob);
+            
+            if (!audioContextRef.current.active) break;
+
+            const audio = new Audio(url);
+            audioContextRef.current.audio = audio;
+
+            await new Promise((resolve) => {
+                audio.addEventListener('canplaythrough', () => resolve(true), { once: true });
+                audio.addEventListener('error', () => resolve(true), { once: true });
+                setTimeout(() => resolve(true), 500); 
+            });
+            
+            if (!audioContextRef.current.active) break;
+
+            setHighlightedIdx(item.id);
+            audio.play().catch(e => console.error(e));
+
+            await new Promise((resolve) => {
+                audio.addEventListener('ended', () => resolve(true), { once: true });
+                const checkStop = setInterval(() => {
+                    if (!audioContextRef.current.active) {
+                        clearInterval(checkStop);
+                        resolve(true);
+                    }
+                }, 100);
+                audio.addEventListener('ended', () => clearInterval(checkStop));
+            });
+
+            if (url) URL.revokeObjectURL(url);
+            
+            if (!audioContextRef.current.active) break;
+            await new Promise(r => setTimeout(r, 600));
+
+        } catch (error) {
+            console.error("Audio error:", error);
+        }
+    }
+
+    if (audioContextRef.current.active) {
+        setIsPlaying(false);
+        setHighlightedIdx(null);
+        audioContextRef.current.active = false;
+    }
+  };
+
+  if (!ex) return null;
+
+  return (
+    <div style={{ display: "flex", flex: 1, minHeight: 0, flexDirection: "row", background: "#F8FAFC" }}>
+      <div style={{
+        flex: 1, minHeight: 0, overflow: "hidden", position: "relative",
+        background: chapter.themeColor || C.accent,
+      }}>
+        {chapter.id === "padava" ? <BoatAnimation illustrationSrc={chapter.illustration} /> :
+         chapter.id === "vaana" ? <VaanaAnimation illustrationSrc={chapter.illustration} /> :
+         chapter.id === "chandamama" ? <ChandamamaAnimation illustrationSrc={chapter.illustration} /> :
+         chapter.id === "udatha" ? <UdathaAnimation illustrationSrc={chapter.illustration} /> :
+         <img src={chapter.illustration} alt="Chapter Illustration" style={{ width: "100%", height: "100%", objectFit: "cover" }} />}
+      </div>
+
+      <div style={{ padding: "40px 32px", display: "flex", flexDirection: "column", flex: 1, overflowY: "auto" }}>
+        
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 32 }}>
+            <h2 style={{ 
+              fontFamily: "'Noto Sans Telugu', sans-serif", fontSize: "clamp(26px, 5vw, 32px)", color: C.accent, margin: 0,
+              background: highlightedIdx === -1 ? "#FEF3C7" : "transparent",
+              transition: "background 0.3s ease", borderRadius: 8, padding: "4px 8px"
+            }}>
+              {ex.instruction.te}
+              <div style={{ color: "#64748B", fontSize: "clamp(16px, 3vw, 20px)", marginTop: 8 }}>{ex.instruction.en}</div>
+            </h2>
+            <button onClick={togglePlay} style={{
+              background: isPlaying ? "#FECACA" : "#E0F2FE", border: isPlaying ? "2px solid #EF4444" : "2px solid #38BDF8",
+              borderRadius: 12, padding: "8px 16px", cursor: "pointer", fontSize: 14, fontWeight: 800,
+              color: isPlaying ? "#B91C1C" : "#0369A1", flexShrink: 0, display: "flex", alignItems: "center", gap: 6,
+              boxShadow: "0 2px 8px rgba(0,0,0,0.05)"
+            }}>
+              {isPlaying ? "⏹️ Stop" : "🔊 Read to Me"}
+            </button>
+        </div>
+        
+        <div style={{ display: "flex", flexDirection: "column", gap: 24, flex: 1 }}>
+          {ex.prompts.map((prompt, idx) => {
+            const isSpeakingThis = highlightedIdx === idx;
+            return (
+              <div key={idx} style={{ 
+                background: "white", padding: "24px", borderRadius: 16, border: "1px solid #E2E8F0",
+                boxShadow: isSpeakingThis ? "0 4px 16px rgba(245,158,11,0.2)" : "0 4px 12px rgba(0,0,0,0.03)",
+                transform: isSpeakingThis ? "scale(1.02)" : "scale(1)",
+                transition: "all 0.3s ease"
+              }}>
+                <p style={{ 
+                  fontFamily: "'Noto Sans Telugu', sans-serif", fontSize: "clamp(20px, 4vw, 24px)", 
+                  color: "#1E293B", fontWeight: 700, margin: "0 0 12px 0", lineHeight: 1.4,
+                  background: isSpeakingThis ? "#FEF3C7" : "transparent", padding: "4px 8px", borderRadius: 8
+                }}>
+                  <span style={{ color: C.accent, marginRight: 12 }}>{idx + 1}.</span>
+                  {prompt.te}
+                </p>
+                <p style={{ color: "#64748B", fontSize: "clamp(16px, 2.5vw, 18px)", margin: "0 0 0 8px" }}>
+                  {prompt.en}
+                </p>
+              </div>
+            );
+          })}
+        </div>
+
+        <button onClick={onComplete} style={{
+          background: "linear-gradient(135deg, #10B981, #059669)", border: "none", borderRadius: 16,
+          padding: "16px 32px", cursor: "pointer", fontSize: 18, fontWeight: 800, color: "white",
+          boxShadow: "0 8px 20px rgba(16,185,129,0.2)", alignSelf: "flex-end", marginTop: 40,
+        }}>
+          మేము మాట్లాడాము (We talked about it!) ➔
+        </button>
+      </div>
+    </div>
+  );
+}
+
+// ====================================================================
+// EXERCISE: Find the Word
+// ====================================================================
+function FindWordExercise({ chapter, onComplete }: { chapter: ChapterData; onComplete?: () => void }) {
+  const { findWord } = chapter.exercises;
+  const [found, setFound] = useState<Set<string>>(new Set());
+  const [wrongTap, setWrongTap] = useState<string | null>(null);
+  const totalTargets = findWord.sentences.reduce((sum, s) => sum + s.targetPositions.length, 0);
+  const isComplete = found.size >= totalTargets;
+
+  useEffect(() => {
+    if (isComplete) {
+      setTimeout(() => {
+        document.getElementById("find-word-success")?.scrollIntoView({ behavior: "smooth", block: "end" });
+      }, 150);
+    }
+  }, [isComplete]);
+
+  const handleWordTap = (sentenceIdx: number, wordStart: number, word: string) => {
+    const key = `${sentenceIdx}-${wordStart}`;
+    if (word.includes(findWord.targetWord)) {
+      setFound(prev => new Set([...prev, key]));
+    } else {
+      setWrongTap(key);
+      setTimeout(() => setWrongTap(null), 500);
+    }
+  };
+
+  return (
+    <div style={{
+      flex: 1, padding: "24px 20px", display: "flex", flexDirection: "column",
+      background: "linear-gradient(180deg, #FFF7ED 0%, #FFFBEB 100%)",
+    }}>
+      {/* Exercise header */}
+      <div style={{ textAlign: "center", marginBottom: 24 }}>
+        <div style={{
+          display: "inline-flex", alignItems: "center", gap: 8,
+          background: "#FEF3C7", padding: "8px 20px", borderRadius: 30,
+          marginBottom: 12,
+        }}>
+          <span style={{ fontSize: 22 }}>🔍</span>
+          <span style={{ fontWeight: 800, fontSize: 14, color: "#92400E" }}>Exercise</span>
+        </div>
+        <h2 style={{
+          fontFamily: "'Noto Sans Telugu', sans-serif", fontSize: "clamp(18px, 4vw, 22px)",
+          fontWeight: 800, color: "#92400E", margin: "0 0 4px",
+        }}>
+          {findWord.instruction.te}
+        </h2>
+        <p style={{ fontSize: 13, color: "#A16207", fontWeight: 600, margin: 0 }}>
+          {findWord.instruction.en}
+        </p>
+      </div>
+
+      {/* Target word display */}
+      <div style={{
+        textAlign: "center", marginBottom: 24,
+      }}>
+        <span style={{
+          fontFamily: "'Noto Sans Telugu', sans-serif", fontSize: 36, fontWeight: 900,
+          color: "#D97706", background: "#FEF3C7", padding: "8px 24px", borderRadius: 16,
+          border: "3px solid #F59E0B",
+        }}>
+          {findWord.targetWord}
+        </span>
+      </div>
+
+      {/* Score */}
+      <div style={{
+        textAlign: "center", marginBottom: 20,
+        fontSize: 14, fontWeight: 700, color: "#92400E",
+      }}>
+        Found: {found.size} / {totalTargets} {isComplete && "🎉"}
+      </div>
+
+      {/* Sentences */}
+      <div style={{ maxWidth: 500, margin: "0 auto", display: "flex", flexDirection: "column", gap: 12 }}>
+        {findWord.sentences.map((sentence, sIdx) => {
+          // Split the sentence into parts safely instead of manual targetPositions
+          const parts: { text: string; isTarget: boolean; start: number }[] = [];
+          let currentStart = 0;
+          
+          const chunks = sentence.text.split(findWord.targetWord);
+          chunks.forEach((chunk, i) => {
+            if (chunk.length > 0) {
+              parts.push({ text: chunk, isTarget: false, start: currentStart });
+              currentStart += chunk.length;
+            }
+            
+            if (i < chunks.length - 1) {
+              parts.push({ text: findWord.targetWord, isTarget: true, start: currentStart });
+              currentStart += findWord.targetWord.length;
+            }
+          });
+
+          return (
+            <div key={sIdx} style={{
+              background: "white", borderRadius: 16, padding: "16px 20px",
+              boxShadow: "0 2px 8px rgba(0,0,0,0.04)",
+              border: "1px solid rgba(0,0,0,0.06)",
+            }}>
+              <div style={{
+                fontFamily: "'Noto Sans Telugu', sans-serif",
+                fontSize: "clamp(20px, 4.5vw, 26px)",
+                lineHeight: 1.8,
+                wordBreak: "break-word",
+              }}>
+                {parts.map((part, pIdx) => {
+                  const key = `${sIdx}-${part.start}`;
+                  const isFound = found.has(key);
+                  const isWrong = wrongTap === key;
+
+                  if (!part.isTarget) {
+                    return (
+                      <span key={pIdx} onClick={() => handleWordTap(sIdx, part.start, part.text)} style={{
+                        cursor: "pointer", fontWeight: 600, color: "#4B5563",
+                        display: "inline",
+                        margin: "0 2px",
+                        animation: isWrong ? "shake 0.3s ease" : "none",
+                      }}>
+                        {part.text}
+                      </span>
+                    );
+                  }
+
+                  return (
+                    <span
+                      key={pIdx}
+                      onClick={() => handleWordTap(sIdx, part.start, part.text)}
+                      style={{
+                        cursor: "pointer", fontWeight: 800,
+                        padding: "2px 4px", borderRadius: 8,
+                        background: isFound ? "#D1FAE5" : "transparent",
+                        color: isFound ? "#059669" : "#4B5563",
+                        display: "inline-block",
+                        margin: "0 4px",
+                        border: isFound ? "2px solid #34D399" : "2px solid transparent",
+                        transition: "all 0.3s ease",
+                        animation: isFound ? "correctPop 0.4s ease" : "none",
+                      }}
+                    >
+                      {part.text}
+                      {isFound && <span style={{ fontSize: 14, marginLeft: 4 }}>✓</span>}
+                    </span>
+                  );
+                })}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Completion message */}
+      {isComplete && (
+        <div id="find-word-success" style={{
+          textAlign: "center", marginTop: 28, padding: "20px",
+          background: "#D1FAE5", borderRadius: 20, maxWidth: 400, margin: "28px auto 0",
+          animation: "popIn 0.5s ease",
+        }}>
+          <div style={{ fontSize: 48, marginBottom: 8 }}>🌟</div>
+          <div style={{
+            fontFamily: "'Noto Sans Telugu', sans-serif", fontSize: 22, fontWeight: 900,
+            color: "#059669",
+          }}>
+            బాగా చేశారు!
+          </div>
+          <div style={{ fontSize: 14, color: "#065F46", fontWeight: 700, marginTop: 4, marginBottom: 16 }}>
+            Well done! You found all the words!
+          </div>
+          <button
+            onClick={onComplete}
+            style={{
+              background: "linear-gradient(135deg, #059669, #10B981)",
+              border: "none", borderRadius: 12, padding: "12px 24px",
+              cursor: "pointer", fontSize: 16, fontWeight: 800, color: "white",
+              boxShadow: "0 4px 12px rgba(5,150,105,0.3)",
+              animation: "bounceIn 0.5s ease 0.3s both",
+            }}
+          >
+            Continue ➔
+          </button>
+        </div>
+      )}
+
+      <style>{`
+        @keyframes shake {
+          0%, 100% { transform: translateX(0); }
+          25% { transform: translateX(-4px); }
+          75% { transform: translateX(4px); }
+        }
+        @keyframes correctPop {
+          0% { transform: scale(1); }
+          50% { transform: scale(1.15); }
+          100% { transform: scale(1); }
+        }
+        @keyframes popIn {
+          from { opacity: 0; transform: scale(0.9); }
+          to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes bounceIn {
+          0% { transform: scale(0.8); opacity: 0; }
+          60% { transform: scale(1.05); }
+          100% { transform: scale(1); opacity: 1; }
+        }
+      `}</style>
+    </div>
+  );
+}
+
+// ====================================================================
+// EXERCISE: Letter Practice
+// ====================================================================
+function LetterExercise({ chapter, onComplete }: { chapter: ChapterData; onComplete?: () => void }) {
+  const [activeLetter, setActiveLetter] = useState(0);
+  const [practiced, setPracticed] = useState<Set<number>>(new Set());
+  const letter = chapter.letters[activeLetter];
+  
+  const isComplete = practiced.size === chapter.letters.length;
+  
+  useEffect(() => {
+    if (isComplete) {
+      setTimeout(() => {
+        document.getElementById("letter-practice-success")?.scrollIntoView({ behavior: "smooth", block: "end" });
+      }, 150);
+    }
+  }, [isComplete]);
+
+  const markPracticed = (idx: number) => {
+    setPracticed(prev => new Set([...prev, idx]));
+  };
+
+  return (
+    <div style={{
+      flex: 1, padding: "12px 16px", display: "flex", flexDirection: "column",
+      background: "linear-gradient(180deg, #F0FDF4 0%, #ECFDF5 100%)",
+      overflow: "hidden"
+    }}>
+      <style>{`
+        .letter-exercise-layout {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+          flex: 1;
+          minHeight: 0;
+        }
+        @media (min-width: 768px) {
+          .letter-exercise-layout {
+            flex-direction: row;
+            align-items: stretch;
+            padding: 0 16px;
+          }
+          .letter-left-pane {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          }
+          .letter-right-pane {
+            flex: 1.2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 24px;
+          }
+        }
+        @keyframes fadeSlideUp {
+          from { opacity: 0; transform: translateY(12px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
+
+      {/* Header */}
+      <div style={{ textAlign: "center", marginBottom: 16 }}>
+        <div style={{
+          display: "inline-flex", alignItems: "center", gap: 6,
+          background: "#D1FAE5", padding: "4px 16px", borderRadius: 30,
+          marginBottom: 8,
+        }}>
+          <span style={{ fontSize: 18 }}>✍️</span>
+          <span style={{ fontWeight: 800, fontSize: 12, color: "#065F46" }}>Letter Practice</span>
+        </div>
+        <h2 style={{
+          fontFamily: "'Noto Sans Telugu', sans-serif", fontSize: "clamp(16px, 3vw, 20px)",
+          fontWeight: 800, color: "#065F46", margin: "0 0 2px",
+        }}>
+          అక్షరాలు నేర్చుకుందాం!
+        </h2>
+        <p style={{ fontSize: 12, color: "#047857", fontWeight: 600, margin: 0 }}>
+          Let's learn the letters! Tap each letter to explore.
+        </p>
+      </div>
+
+      <div className="letter-exercise-layout">
+        <div className="letter-left-pane">
+          {/* Letter selector tabs */}
+          <div style={{ display: "flex", justifyContent: "center", gap: 8, marginBottom: 12 }}>
+            {chapter.letters.map((l, i) => (
+              <button
+                key={i}
+                onClick={() => setActiveLetter(i)}
+                style={{
+                  width: 52, height: 52, borderRadius: 12,
+                  background: i === activeLetter
+                    ? "linear-gradient(135deg, #059669, #10B981)"
+                    : practiced.has(i) ? "#D1FAE5" : "white",
+                  border: i === activeLetter ? "none" : "2px solid #D1FAE5",
+                  fontFamily: "'Noto Sans Telugu', sans-serif",
+                  fontSize: 26, fontWeight: 900, cursor: "pointer",
+                  color: i === activeLetter ? "white" : practiced.has(i) ? "#059669" : "#6B7280",
+                  boxShadow: i === activeLetter ? "0 4px 16px rgba(5,150,105,0.3)" : "none",
+                  transition: "all 0.3s ease",
+                  position: "relative",
+                }}
+              >
+                {l.letter}
+                {practiced.has(i) && i !== activeLetter && (
+                  <span style={{ position: "absolute", top: -4, right: -4, fontSize: 14 }}>⭐</span>
+                )}
+              </button>
+            ))}
+          </div>
+
+          {/* Active letter display */}
+          <div style={{
+            background: "white", borderRadius: 20, padding: "16px",
+            maxWidth: 400, margin: "0 auto", textAlign: "center", width: "100%",
+            boxShadow: "0 4px 16px rgba(0,0,0,0.06)",
+            animation: "fadeSlideUp 0.4s ease",
+            overflowY: "auto",
+          }}>
+            {/* Large letter */}
+            <div style={{
+              fontFamily: "'Noto Sans Telugu', sans-serif", fontSize: 72, fontWeight: 900,
+              color: "#059669", lineHeight: 1, marginBottom: 8,
+              textShadow: "2px 4px 8px rgba(5,150,105,0.15)",
+            }}>
+              {letter.letter}
+            </div>
+
+            {/* Pronunciation */}
+            <div style={{
+              display: "inline-block", background: "#F0FDF4", borderRadius: 10,
+              padding: "4px 16px", marginBottom: 12,
+            }}>
+              <span style={{ fontSize: 16, fontWeight: 800, color: "#065F46" }}>
+                "{letter.pronunciation}"
+              </span>
+            </div>
+
+            {/* Example word */}
+            <div style={{
+              background: "#F0FDF4", borderRadius: 12, padding: "12px",
+              marginBottom: 12, border: "1px solid #D1FAE5",
+            }}>
+              <div style={{
+                fontFamily: "'Noto Sans Telugu', sans-serif", fontSize: 22, fontWeight: 800,
+                color: "#065F46", marginBottom: 2,
+              }}>
+                {letter.exampleWord}
+              </div>
+              <div style={{ fontSize: 13, color: "#047857", fontWeight: 700 }}>
+                {letter.exampleMeaning}
+              </div>
+            </div>
+
+            {/* Stroke guide */}
+            <div style={{
+              fontSize: 13, color: "#6B7280", fontWeight: 600, fontStyle: "italic",
+              marginBottom: 0,
+            }}>
+              ✏️ {letter.strokeDescription}
+            </div>
+          </div>
+        </div>
+
+        <div className="letter-right-pane">
+          {/* Practice area - Tracing component */}
+          <div style={{
+            marginBottom: 12, flex: 1, minHeight: 140,
+            display: "flex", alignItems: "center", justifyContent: "center",
+          }}>
+            {letter.letter && (
+              <KoormaTracing
+                key={`tracing-${activeLetter}`}
+                initialLetter={letter.letter}
+                initialStep="write"
+                onMastery={() => markPracticed(activeLetter)}
+                embedded={true}
+              />
+            )}
+          </div>
+
+          {/* Mark practiced and Continue */}
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 12, paddingBottom: 8 }}>
+            <button
+              onClick={() => markPracticed(activeLetter)}
+              style={{
+                background: practiced.has(activeLetter)
+                  ? "#D1FAE5"
+                  : "linear-gradient(135deg, #059669, #10B981)",
+                border: "none", borderRadius: 12, padding: "12px 24px",
+                cursor: "pointer", fontSize: 15, fontWeight: 800,
+                color: practiced.has(activeLetter) ? "#059669" : "white",
+                boxShadow: practiced.has(activeLetter) ? "none" : "0 4px 12px rgba(5,150,105,0.3)",
+                transition: "all 0.3s ease",
+              }}
+            >
+              {practiced.has(activeLetter) ? "⭐ Practiced!" : "✅ I practiced this letter!"}
+            </button>
+
+            {/* Show big Continue button if ALL letters are practiced */}
+            {isComplete && (
+              <button
+                id="letter-practice-success"
+                onClick={onComplete}
+                style={{
+                  background: "linear-gradient(135deg, #2563EB, #3B82F6)",
+                  border: "none", borderRadius: 12, padding: "12px 28px",
+                  cursor: "pointer", fontSize: 16, fontWeight: 800, color: "white",
+                  boxShadow: "0 4px 16px rgba(37,99,235,0.3)",
+                  animation: "bounceIn 0.5s ease",
+                }}
+              >
+                Continue ➔
+              </button>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ====================================================================
+// PAGE: Complete
+// ====================================================================
+function CompletePage({ chapter, onNextChapter, onRestart }: {
+  chapter: ChapterData; onNextChapter?: () => void; onRestart: () => void;
+}) {
+  const [showConfetti, setShowConfetti] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowConfetti(false), 4000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <div style={{
+      flex: 1, display: "flex", flexDirection: "column",
+      alignItems: "center", justifyContent: "center", padding: "32px 24px",
+      background: "linear-gradient(180deg, #FEF9C3 0%, #FEF3C7 50%, #FFFBEB 100%)",
+      textAlign: "center", position: "relative", overflow: "hidden",
+    }}>
+      {/* Confetti */}
+      {showConfetti && Array.from({ length: 20 }).map((_, i) => (
+        <div key={i} style={{
+          position: "absolute",
+          top: "-10%",
+          left: `${(i * 5) % 100}%`,
+          width: 8, height: 8,
+          background: ["#EF4444", "#F59E0B", "#10B981", "#3B82F6", "#8B5CF6"][i % 5],
+          borderRadius: i % 2 === 0 ? "50%" : "2px",
+          animation: `confettiFall ${2 + (i % 3)}s ease-in forwards`,
+          animationDelay: `${i * 0.15}s`,
+        }} />
+      ))}
+
+      {/* Trophy */}
+      <div style={{
+        fontSize: 72, marginBottom: 16,
+        animation: "bounceIn 0.6s ease",
+      }}>
+        🏆
+      </div>
+
+      {/* Title */}
+      <h1 style={{
+        fontFamily: "'Noto Sans Telugu', sans-serif", fontSize: "clamp(28px, 6vw, 40px)",
+        fontWeight: 900, color: "#92400E", margin: "0 0 8px",
+      }}>
+        అద్భుతం!
+      </h1>
+      <p style={{ fontSize: 18, color: "#A16207", fontWeight: 700, margin: "0 0 24px" }}>
+        Amazing! You completed Chapter {chapter.number}!
+      </p>
+
+      {/* Stats */}
+      <div style={{
+        display: "flex", gap: 16, marginBottom: 32,
+      }}>
+        {[
+          { icon: "📖", label: "Poem", done: true },
+          { icon: "🔍", label: "Find Words", done: true },
+          { icon: "✍️", label: "Letters", done: true },
+        ].map((stat, i) => (
+          <div key={i} style={{
+            background: "white", borderRadius: 16, padding: "12px 16px",
+            boxShadow: "0 2px 8px rgba(0,0,0,0.06)", textAlign: "center",
+          }}>
+            <div style={{ fontSize: 24, marginBottom: 4 }}>{stat.icon}</div>
+            <div style={{ fontSize: 11, fontWeight: 700, color: stat.done ? "#059669" : "#9CA3AF" }}>
+              {stat.label} ✓
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Stars earned */}
+      <div style={{
+        display: "flex", gap: 4, marginBottom: 32,
+      }}>
+        {[1, 2, 3].map(i => (
+          <span key={i} style={{
+            fontSize: 36,
+            animation: `starPop 0.4s ease ${0.3 + i * 0.2}s both`,
+          }}>⭐</span>
+        ))}
+      </div>
+
+      {/* Buttons */}
+      <div style={{ display: "flex", flexDirection: "column", gap: 12, width: "100%", maxWidth: 300 }}>
+        <button onClick={onRestart} style={{
+          background: "white", border: "2px solid #F59E0B", borderRadius: 16,
+          padding: "14px 24px", cursor: "pointer", fontSize: 16, fontWeight: 800,
+          color: "#92400E",
+        }}>
+          🔄 Read Again
+        </button>
+        {onNextChapter && (
+          <button onClick={onNextChapter} style={{
+            background: "linear-gradient(135deg, #F59E0B, #EAB308)", border: "none", borderRadius: 16,
+            padding: "14px 24px", cursor: "pointer", fontSize: 16, fontWeight: 800,
+            color: "white", boxShadow: "0 4px 16px rgba(245,158,11,0.3)",
+          }}>
+            Next Chapter ▶
+          </button>
+        )}
+      </div>
+
+      <style>{`
+        @keyframes confettiFall {
+          0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+          100% { transform: translateY(calc(100dvh + 50px)) rotate(720deg); opacity: 0; }
+        }
+        @keyframes bounceIn {
+          0% { transform: scale(0); }
+          60% { transform: scale(1.2); }
+          100% { transform: scale(1); }
+        }
+        @keyframes starPop {
+          0% { transform: scale(0) rotate(-30deg); opacity: 0; }
+          60% { transform: scale(1.3) rotate(10deg); }
+          100% { transform: scale(1) rotate(0deg); opacity: 1; }
+        }
+      `}</style>
+    </div>
+  );
+}
+
+// ====================================================================
+// PAGE: Identify Letter
+// ====================================================================
+function IdentifyLetterExercise({ chapter, onComplete }: { chapter: ChapterData; onComplete: () => void }) {
+  const ex = chapter.exercises.identifyLetter;
+  if (!ex) return null;
+
+  const [tapped, setTapped] = useState<Set<string>>(new Set());
+
+  // Wait for interaction logic (just a simple completion button for now if they click any 3)
+  const isComplete = tapped.size >= ex.targetLetters.length;
+
+  useEffect(() => {
+    if (isComplete) {
+      setTimeout(() => {
+        document.getElementById("identify-letter-success")?.scrollIntoView({ behavior: "smooth", block: "end" });
+      }, 150);
+    }
+  }, [isComplete]);
+
+  const handleTap = (word: string, letterIdx: number) => {
+    setTapped(prev => new Set([...prev, `${word}-${letterIdx}`]));
+  };
+
+  return (
+    <div style={{ padding: "40px 20px", display: "flex", flexDirection: "column", gap: 32, flex: 1, background: "white" }}>
+      <div style={{ textAlign: "center", maxWidth: 600, margin: "0 auto" }}>
+        <h2 style={{ fontFamily: "'Noto Sans Telugu', sans-serif", fontSize: "clamp(24px, 6vw, 28px)", color: "#1E293B", marginBottom: 12 }}>
+          {ex.instruction.te}
+        </h2>
+        <p style={{ color: "#64748B", fontSize: "clamp(14px, 3vw, 16px)", fontWeight: 600, margin: 0 }}>
+          {ex.instruction.en}
+        </p>
+      </div>
+
+      <div style={{
+        display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 20, maxWidth: 600, margin: "0 auto",
+      }}>
+        {ex.words.map((word, wIdx) => {
+          return (
+            <div key={wIdx} style={{
+              background: "#F8FAFC", padding: "16px 24px", borderRadius: 20,
+              boxShadow: "0 4px 12px rgba(0,0,0,0.03)", fontFamily: "'Noto Sans Telugu', sans-serif",
+              fontSize: 32, fontWeight: 800, color: "#1E293B", display: "flex", gap: 4,
+            }}>
+              {Array.from(new Intl.Segmenter("te-IN", { granularity: "grapheme" }).segment(word)).map((s, charIdx) => {
+                const char = s.segment;
+                const key = `${word}-${charIdx}`;
+                const isTarget = ex.targetLetters.some(t => char.includes(t));
+                const isFound = tapped.has(key);
+
+                return (
+                  <span
+                    key={charIdx}
+                    onClick={() => { if (isTarget) handleTap(word, charIdx); }}
+                    style={{
+                      cursor: "pointer",
+                      color: isFound ? "#FFF" : "#1E293B",
+                      background: isFound ? C.green : "transparent",
+                      borderRadius: 8, padding: "2px 8px",
+                      transition: "all 0.3s ease",
+                      border: "2px solid transparent",
+                    }}
+                  >
+                    {char}
+                  </span>
+                );
+              })}
+            </div>
+          );
+        })}
+      </div>
+
+      {isComplete && (
+        <div id="identify-letter-success" style={{
+          textAlign: "center", marginTop: 28, padding: "20px",
+          background: "#D1FAE5", borderRadius: 20, maxWidth: 400, margin: "28px auto 0",
+          animation: "popIn 0.5s ease",
+        }}>
+          <div style={{ fontSize: 40, marginBottom: 8, animation: "bounceIn 1s ease" }}>🌟</div>
+          <h3 style={{ margin: "0 0 16px 0", color: "#065F46", fontFamily: "'Noto Sans Telugu', sans-serif" }}>
+            బాగా చేశారు! (Well done!)
+          </h3>
+          <button onClick={onComplete} style={{
+            background: "linear-gradient(135deg, #10B981, #059669)", border: "none", borderRadius: 14,
+            padding: "12px 28px", cursor: "pointer", fontSize: 16, fontWeight: 800, color: "white",
+            boxShadow: "0 4px 16px rgba(16,185,129,0.3)",
+          }}>
+            Continue ➔
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ====================================================================
+// PAGE: Match Word
+// ====================================================================
+function MatchWordExercise({ chapter, onComplete }: { chapter: ChapterData; onComplete: () => void }) {
+  const ex = chapter.exercises.matchWord;
+  if (!ex) return null;
+
+  const [selectedWord, setSelectedWord] = useState<string | null>(null);
+  const [matchedPairs, setMatchedPairs] = useState<Set<string>>(new Set());
+  const [isComplete, setIsComplete] = useState(false);
+
+  useEffect(() => {
+    if (matchedPairs.size === ex.pairs.length) {
+      setIsComplete(true);
+      setTimeout(() => {
+        document.getElementById("match-word-success")?.scrollIntoView({ behavior: "smooth", block: "end" });
+      }, 150);
+    }
+  }, [matchedPairs.size, ex.pairs.length]);
+
+  const handleWordTap = (word: string) => {
+    if (matchedPairs.has(word)) return;
+    setSelectedWord(selectedWord === word ? null : word);
+  };
+
+  const handlePictureTap = (word: string) => {
+    if (selectedWord === word) {
+      setMatchedPairs(prev => new Set([...prev, word]));
+      setSelectedWord(null);
+    } else {
+      setSelectedWord(null); // Wrong match, reset 
+    }
+  };
+
+  // Shuffle pictures only once
+  const [shuffledPairs] = useState(() => [...ex.pairs].sort(() => Math.random() - 0.5));
+
+  return (
+    <div style={{ padding: "40px 20px", display: "flex", flexDirection: "column", gap: 32, flex: 1, background: "white" }}>
+      <div style={{ textAlign: "center", maxWidth: 600, margin: "0 auto" }}>
+        <h2 style={{ fontFamily: "'Noto Sans Telugu', sans-serif", fontSize: "clamp(24px, 6vw, 28px)", color: "#1E293B", marginBottom: 12 }}>
+          {ex.instruction.te}
+        </h2>
+        <p style={{ color: "#64748B", fontSize: "clamp(14px, 3vw, 16px)", fontWeight: 600, margin: 0 }}>
+          {ex.instruction.en}
+        </p>
+      </div>
+
+      <div style={{
+        display: "flex", justifyContent: "space-between", maxWidth: 600, margin: "0 auto", gap: 20, width: "100%"
+      }}>
+        {/* Words Column */}
+        <div style={{ display: "flex", flexDirection: "column", gap: 16, flex: 1 }}>
+          {ex.pairs.map((pair, idx) => {
+            const isMatched = matchedPairs.has(pair.word);
+            const isSelected = selectedWord === pair.word;
+
+            return (
+              <div
+                key={`w-${idx}`}
+                onClick={() => handleWordTap(pair.word)}
+                style={{
+                  background: isMatched ? "#D1FAE5" : isSelected ? "#DBEAFE" : "#F8FAFC",
+                  border: `2px solid ${isMatched ? "#10B981" : isSelected ? "#3B82F6" : "transparent"}`,
+                  padding: "20px", borderRadius: 16, textAlign: "center",
+                  cursor: isMatched ? "default" : "pointer",
+                  transition: "all 0.2s", opacity: isMatched ? 0.6 : 1,
+                }}
+              >
+                <div style={{ fontFamily: "'Noto Sans Telugu', sans-serif", fontSize: 24, fontWeight: 800 }}>
+                  {pair.word}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Pictures Column */}
+        <div style={{ display: "flex", flexDirection: "column", gap: 16, flex: 1 }}>
+          {shuffledPairs.map((pair, idx) => {
+            const isMatched = matchedPairs.has(pair.word);
+
+            return (
+              <div
+                key={`p-${idx}`}
+                onClick={() => { if (!isMatched && selectedWord) handlePictureTap(pair.word); }}
+                style={{
+                  background: isMatched ? "#D1FAE5" : "#F8FAFC",
+                  border: `2px solid ${isMatched ? "#10B981" : "transparent"}`,
+                  padding: "20px", borderRadius: 16, textAlign: "center",
+                  cursor: isMatched ? "default" : selectedWord ? "pointer" : "default",
+                  transition: "all 0.2s", opacity: isMatched ? 0.6 : 1,
+                  fontSize: 32,
+                }}
+              >
+                {pair.emoji}
+                <div style={{ fontSize: 11, color: "#94A3B8", marginTop: 4, fontWeight: 700 }}>{pair.meaning}</div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {isComplete && (
+        <div id="match-word-success" style={{
+          textAlign: "center", marginTop: 28, padding: "20px",
+          background: "#D1FAE5", borderRadius: 20, maxWidth: 400, margin: "28px auto 0",
+          animation: "popIn 0.5s ease",
+        }}>
+          <div style={{ fontSize: 40, marginBottom: 8, animation: "bounceIn 1s ease" }}>🌟</div>
+          <h3 style={{ margin: "0 0 16px 0", color: "#065F46", fontFamily: "'Noto Sans Telugu', sans-serif" }}>
+            బాగా చేశారు! (Well done!)
+          </h3>
+          <button onClick={onComplete} style={{
+            background: "linear-gradient(135deg, #10B981, #059669)", border: "none", borderRadius: 14,
+            padding: "12px 28px", cursor: "pointer", fontSize: 16, fontWeight: 800, color: "white",
+            boxShadow: "0 4px 16px rgba(16,185,129,0.3)",
+          }}>
+            Continue ➔
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ====================================================================
+// PAGE: Vocab Words (Starting Letter Preview)
+// ====================================================================
+function VocabWordsExercise({ chapter, onComplete }: { chapter: ChapterData; onComplete: () => void }) {
+  const ex = chapter.exercises.vocabWords;
+  if (!ex) return null;
+
+  const [spoken, setSpoken] = useState<Set<number>>(new Set());
+  const isComplete = spoken.size >= ex.words.length;
+
+  useEffect(() => {
+    if (isComplete) {
+      setTimeout(() => {
+        document.getElementById("vocab-words-success")?.scrollIntoView({ behavior: "smooth", block: "end" });
+      }, 150);
+    }
+  }, [isComplete]);
+
+  const speak = (idx: number, word: string) => {
+    if ("speechSynthesis" in window) {
+      window.speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(word);
+      u.lang = "te-IN";
+      window.speechSynthesis.speak(u);
+    }
+    setSpoken(prev => new Set([...prev, idx]));
+  };
+
+  return (
+    <div style={{ padding: "40px 20px", display: "flex", flexDirection: "column", gap: 32, flex: 1, background: "white" }}>
+      <div style={{ textAlign: "center", maxWidth: 600, margin: "0 auto" }}>
+        <h2 style={{ fontFamily: "'Noto Sans Telugu', sans-serif", fontSize: "clamp(24px, 6vw, 28px)", color: "#1E293B", marginBottom: 12 }}>
+          {ex.instruction.te}
+        </h2>
+        <p style={{ color: "#64748B", fontSize: "clamp(14px, 3vw, 16px)", fontWeight: 600, margin: 0 }}>
+          {ex.instruction.en}
+        </p>
+      </div>
+
+      <div style={{
+        display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: 20, maxWidth: 600, margin: "0 auto", width: "100%"
+      }}>
+        {ex.words.map((w, idx) => {
+          const isSpoken = spoken.has(idx);
+          const parts = w.word.split(w.startingLetter);
+
+          return (
+            <div
+              key={idx}
+              onClick={() => speak(idx, w.word)}
+              style={{
+                background: isSpoken ? "#EFF6FF" : "#F8FAFC",
+                border: `2px solid ${isSpoken ? "#3B82F6" : "transparent"}`,
+                borderRadius: 20, padding: 20, textAlign: "center", cursor: "pointer",
+                transition: "all 0.2s ease",
+              }}
+            >
+              <div style={{ fontSize: 50, marginBottom: 12 }}>{w.emoji}</div>
+              <div style={{ fontFamily: "'Noto Sans Telugu', sans-serif", fontSize: 24, fontWeight: 800, color: "#1E293B" }}>
+                <span style={{ color: C.accent }}>{w.startingLetter}</span>
+                {parts.slice(1).join(w.startingLetter)}
+              </div>
+              <div style={{ fontSize: 13, color: "#64748B", marginTop: 4, fontWeight: 700 }}>{w.meaning}</div>
+            </div>
+          );
+        })}
+      </div>
+
+      {isComplete && (
+        <div id="vocab-words-success" style={{
+          textAlign: "center", marginTop: 28, padding: "20px",
+          background: "#D1FAE5", borderRadius: 20, maxWidth: 400, margin: "28px auto 0",
+          animation: "popIn 0.5s ease",
+        }}>
+          <div style={{ fontSize: 40, marginBottom: 8, animation: "bounceIn 1s ease" }}>🌟</div>
+          <h3 style={{ margin: "0 0 16px 0", color: "#065F46", fontFamily: "'Noto Sans Telugu', sans-serif" }}>
+            బాగా చేశారు! (Well done!)
+          </h3>
+          <button onClick={onComplete} style={{
+            background: "linear-gradient(135deg, #10B981, #059669)", border: "none", borderRadius: 14,
+            padding: "12px 28px", cursor: "pointer", fontSize: 16, fontWeight: 800, color: "white",
+            boxShadow: "0 4px 16px rgba(16,185,129,0.3)",
+          }}>
+            Continue ➔
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ====================================================================
+// PAGE: Build Word (Make words from target letters)
+// ====================================================================
+function BuildWordsExercise({ chapter, onComplete }: { chapter: ChapterData; onComplete: () => void }) {
+  const ex = chapter.exercises.buildWords;
+  if (!ex) return null;
+
+  const [currentWordIdx, setCurrentWordIdx] = useState(0);
+  const [filledChars, setFilledChars] = useState<string[]>([]);
+
+  const targetWord = ex.targetWords[currentWordIdx];
+  const isFinished = currentWordIdx >= ex.targetWords.length;
+
+  const getWordParts = (word: string, availableLetters: string[]) => {
+    // Sort letters by length descending to match longest first (e.g. "బా" before "బ")
+    const sortedLetters = [...availableLetters].sort((a, b) => b.length - a.length);
+    const parts: string[] = [];
+    let remaining = word;
+    while(remaining.length > 0) {
+      const match = sortedLetters.find(l => remaining.startsWith(l));
+      if (match) {
+        parts.push(match);
+        remaining = remaining.substring(match.length);
+      } else {
+        parts.push(remaining[0]);
+        remaining = remaining.substring(1);
+      }
+    }
+    return parts;
+  };
+
+  const expectedParts = targetWord ? getWordParts(targetWord.word, ex.letters) : [];
+
+  const handleLetterTap = (letter: string) => {
+    if (!targetWord || isFinished) return;
+    
+    // Check if the typed letter matches the next expected letter piece
+    const expectedLetter = expectedParts[filledChars.length];
+    if (expectedLetter === letter) {
+      setFilledChars([...filledChars, letter]);
+      if (filledChars.length + 1 === expectedParts.length) {
+        // Word complete
+        if (currentWordIdx === ex.targetWords.length - 1) {
+          setTimeout(() => {
+            document.getElementById("build-words-success")?.scrollIntoView({ behavior: "smooth", block: "end" });
+          }, 150);
+        }
+        setTimeout(() => {
+          setCurrentWordIdx(prev => prev + 1);
+          setFilledChars([]);
+        }, 800);
+      }
+    }
+  };
+
+  return (
+    <div style={{ padding: "40px 20px", display: "flex", flexDirection: "column", gap: 32, flex: 1, background: "white" }}>
+      <div style={{ textAlign: "center", maxWidth: 600, margin: "0 auto" }}>
+        <h2 style={{ fontFamily: "'Noto Sans Telugu', sans-serif", fontSize: "clamp(24px, 6vw, 28px)", color: "#1E293B", marginBottom: 12 }}>
+          {ex.instruction.te}
+        </h2>
+        <p style={{ color: "#64748B", fontSize: "clamp(14px, 3vw, 16px)", fontWeight: 600, margin: 0 }}>
+          {ex.instruction.en}
+        </p>
+      </div>
+
+      {!isFinished && targetWord && (
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 40, marginTop: 20 }}>
+          
+          {/* Answer Slots */}
+          <div style={{ display: "flex", gap: 12 }}>
+            {expectedParts.map((c, i) => (
+              <div key={i} style={{
+                width: 60, height: 70, borderBottom: "4px solid #CBD5E1",
+                display: "flex", alignItems: "center", justifyContent: "center",
+                fontFamily: "'Noto Sans Telugu', sans-serif", fontSize: 40, fontWeight: 800, color: "#1E293B",
+              }}>
+                {filledChars[i] || ""}
+              </div>
+            ))}
+          </div>
+          <div style={{ color: "#64748B", fontWeight: 700, fontSize: 18 }}>Meaning: {targetWord.meaning}</div>
+
+          {/* Letter Bank */}
+          <div style={{
+            display: "flex", gap: 20, background: "#F1F5F9", padding: "20px 40px", borderRadius: 40,
+            boxShadow: "inset 0 4px 12px rgba(0,0,0,0.05)"
+          }}>
+            {ex.letters.map((c, i) => (
+              <button
+                key={i}
+                onClick={() => handleLetterTap(c)}
+                style={{
+                  width: 60, height: 60, borderRadius: "50%", border: "none",
+                  background: "white", boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+                  fontFamily: "'Noto Sans Telugu', sans-serif", fontSize: 32, fontWeight: 800,
+                  color: C.accent, cursor: "pointer", transition: "transform 0.1s",
+                }}
+                onPointerDown={(e) => (e.currentTarget.style.transform = "scale(0.9)")}
+                onPointerUp={(e) => (e.currentTarget.style.transform = "scale(1)")}
+              >
+                {c}
+              </button>
+            ))}
+          </div>
+
+        </div>
+      )}
+
+      {isFinished && (
+        <div id="build-words-success" style={{
+          textAlign: "center", marginTop: 28, padding: "20px",
+          background: "#D1FAE5", borderRadius: 20, maxWidth: 400, margin: "28px auto 0",
+          animation: "popIn 0.5s ease",
+        }}>
+          <div style={{ fontSize: 40, marginBottom: 8, animation: "bounceIn 1s ease" }}>🌟</div>
+          <h3 style={{ margin: "0 0 16px 0", color: "#065F46", fontFamily: "'Noto Sans Telugu', sans-serif" }}>
+            బాగా చేశారు! (Well done!)
+          </h3>
+          <button onClick={onComplete} style={{
+            background: "linear-gradient(135deg, #10B981, #059669)", border: "none", borderRadius: 14,
+            padding: "12px 28px", cursor: "pointer", fontSize: 16, fontWeight: 800, color: "white",
+            boxShadow: "0 4px 16px rgba(16,185,129,0.3)",
+          }}>
+            Continue ➔
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ====================================================================
+// PAGE: Creative Exercise (Origami / Drawing)
+// ====================================================================
+function CreativeExercise({ chapter, onComplete }: { chapter: ChapterData; onComplete: () => void }) {
+  const ex = chapter.exercises.creative;
+  if (!ex) return null;
+
+  return (
+    <div style={{ padding: "40px 20px", display: "flex", flexDirection: "column", gap: 32, flex: 1, background: "white", alignItems: "center" }}>
+      <div style={{ textAlign: "center", maxWidth: 600, width: "100%" }}>
+        <h2 style={{ fontFamily: "'Noto Sans Telugu', sans-serif", fontSize: "clamp(24px, 6vw, 28px)", color: "#1E293B", marginBottom: 12 }}>
+          సృజనాత్మకత (Creativity)
+        </h2>
+        <p style={{ color: C.accent, fontSize: "clamp(16px, 4vw, 20px)", fontWeight: 800, margin: 0, fontFamily: "'Noto Sans Telugu', sans-serif" }}>
+          {ex.instruction.te}
+        </p>
+        <p style={{ color: "#64748B", fontSize: "clamp(14px, 3vw, 16px)", fontWeight: 600, margin: "8px 0 0 0" }}>
+          {ex.instruction.en}
+        </p>
+      </div>
+
+      <div style={{
+        width: "100%", maxWidth: 640, aspectRatio: "16/9", background: "#0F172A",
+        borderRadius: 24, overflow: "hidden", boxShadow: "0 12px 32px rgba(0,0,0,0.15)",
+        position: "relative"
+      }}>
+        {ex.mediaSource.includes("youtube.com") ? (
+          <iframe
+            width="100%" height="100%"
+            src={ex.mediaSource}
+            title={ex.caption}
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        ) : (
+          <img src={ex.mediaSource} alt={ex.caption} style={{ width: "100%", height: "100%", objectFit: "contain", background: "white" }} />
+        )}
+      </div>
+
+      <div style={{ fontWeight: 800, fontSize: 20, color: "#1E293B", marginTop: 8 }}>
+        {ex.caption}
+      </div>
+
+      <div style={{ marginTop: "auto", paddingBottom: 20 }}>
+         <button onClick={onComplete} style={{
+            background: "linear-gradient(135deg, #10B981, #059669)", border: "none", borderRadius: 16,
+            padding: "16px 40px", cursor: "pointer", fontSize: 18, fontWeight: 800, color: "white",
+            boxShadow: "0 8px 24px rgba(16,185,129,0.3)", transition: "transform 0.2s"
+          }}
+          onPointerDown={(e) => (e.currentTarget.style.transform = "scale(0.95)")}
+          onPointerUp={(e) => (e.currentTarget.style.transform = "scale(1)")}
+         >
+            I made it! (నేను చేశాను) ➔
+          </button>
+      </div>
+    </div>
+  );
+}

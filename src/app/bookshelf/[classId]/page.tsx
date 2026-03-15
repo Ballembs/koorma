@@ -24,8 +24,8 @@ export default function ClassContentPage({ params }: { params: Promise<{ classId
   return (
     <div style={{ width: "100%", minHeight: "100vh", background: "#FFF8F0", fontFamily: "'Nunito', sans-serif" }}>
       {/* Header */}
-      <div style={{ padding: "20px 32px", display: "flex", alignItems: "center", gap: 20, background: "white", boxShadow: "0 4px 20px rgba(0,0,0,0.05)", position: "sticky", top: 0, zIndex: 10 }}>
-        <button onClick={() => router.push("/bookshelf")} style={{ background: "transparent", border: "none", cursor: "pointer", fontSize: 24, padding: "8px 12px", borderRadius: 12 }}>
+      <div style={{ padding: "16px 20px", display: "flex", alignItems: "center", gap: 16, background: "white", boxShadow: "0 4px 20px rgba(0,0,0,0.05)", position: "sticky", top: 0, zIndex: 10 }}>
+        <button onClick={() => router.push("/bookshelf")} style={{ background: "transparent", border: "none", cursor: "pointer", fontSize: 24, padding: "8px", borderRadius: 12 }}>
           ◀
         </button>
         <div>
@@ -42,94 +42,616 @@ export default function ClassContentPage({ params }: { params: Promise<{ classId
 
       <div style={{ maxWidth: 800, margin: "0 auto", padding: "30px 20px" }}>
         
-        {/* Hero: Read the Textbook */}
-        {totalPages > 0 && (
-          <div
-            onClick={() => router.push(`/bookshelf/${classId}/read`)}
-            style={{
-              background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-              borderRadius: 24, padding: "32px", cursor: "pointer", marginBottom: 32,
-              boxShadow: "0 12px 40px rgba(102,126,234,0.35)",
-              position: "relative", overflow: "hidden",
-            }}
-          >
-            {/* Decorative elements */}
-            <div style={{ position: "absolute", top: -20, right: -20, width: 120, height: 120, borderRadius: "50%", background: "rgba(255,255,255,0.1)" }} />
-            <div style={{ position: "absolute", bottom: -30, left: -30, width: 100, height: 100, borderRadius: "50%", background: "rgba(255,255,255,0.05)" }} />
-            
-            <div style={{ position: "relative", zIndex: 1 }}>
-              <div style={{ fontSize: 48, marginBottom: 12 }}>📚</div>
-              <h2 style={{ color: "white", fontSize: 26, fontWeight: 800, margin: "0 0 8px 0", fontFamily: "'Noto Sans Telugu', sans-serif" }}>
-                పాఠ్యపుస్తకం చదవండి
-              </h2>
-              <p style={{ color: "rgba(255,255,255,0.85)", fontSize: 16, fontWeight: 600, margin: "0 0 16px 0" }}>
-                Read the full AP Telugu Textbook — {totalPages} pages with beautiful illustrations
-              </p>
-              <div style={{
-                display: "inline-flex", alignItems: "center", gap: 8,
-                background: "rgba(255,255,255,0.2)", padding: "10px 20px",
-                borderRadius: 12, color: "white", fontWeight: 700, fontSize: 15,
-              }}>
-                📖 Open Book →
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Quick Access Sections from TOC */}
-        {toc.length > 0 && (
+        {/* NEW: Digital Book Experience */}
+        {classId === 1 && (
           <div style={{ marginBottom: 32 }}>
-            <h2 style={{ fontSize: 20, color: "#1A1A2E", fontWeight: 800, marginBottom: 16, display: "flex", alignItems: "center", gap: 8 }}>
-              <span style={{ fontFamily: "'Noto Sans Telugu', sans-serif" }}>అధ్యాయాలు</span> (Chapters)
+            <h2 style={{ fontSize: 20, fontWeight: 800, color: "#1A1A2E", margin: "0 0 16px 0", paddingLeft: 8 }}>
+              ✨ Interactive Books
             </h2>
-
-            {/* Group by type */}
-            {["rhyme", "story", "alphabet", "exercise"].map(type => {
-              const sections = toc.filter(s => s.type === type);
-              if (sections.length === 0) return null;
-
-              const typeConfig: Record<string, { label: string; labelTe: string; color: string; emoji: string }> = {
-                rhyme: { label: "Rhymes", labelTe: "గేయాలు", color: "#D81B60", emoji: "🎵" },
-                story: { label: "Stories", labelTe: "కథలు", color: "#1565C0", emoji: "📖" },
-                alphabet: { label: "Letters", labelTe: "అక్షరాలు", color: "#2E7D32", emoji: "అ" },
-                exercise: { label: "Exercises", labelTe: "అభ్యాసాలు", color: "#D4940C", emoji: "📝" },
-              };
-              const cfg = typeConfig[type] || { label: type, labelTe: type, color: "#666", emoji: "📄" };
-
-              return (
-                <div key={type} style={{ marginBottom: 24 }}>
-                  <h3 style={{ fontSize: 16, color: cfg.color, fontWeight: 800, marginBottom: 10, display: "flex", alignItems: "center", gap: 6 }}>
-                    <span>{cfg.emoji}</span>
-                    <span style={{ fontFamily: "'Noto Sans Telugu', sans-serif" }}>{cfg.labelTe}</span>
-                    <span style={{ color: "#999", fontWeight: 600 }}>({cfg.label})</span>
-                  </h3>
-                  <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-                    {sections.map((section, i) => (
-                      <div
-                        key={i}
-                        onClick={() => router.push(`/bookshelf/${classId}/read?page=${section.startPage}`)}
-                        style={{
-                          background: "white", padding: "14px 18px", borderRadius: 14,
-                          boxShadow: "0 2px 8px rgba(0,0,0,0.04)", cursor: "pointer",
-                          display: "flex", justifyContent: "space-between", alignItems: "center",
-                          borderLeft: `4px solid ${cfg.color}`,
-                        }}
-                      >
-                        <div>
-                          <div style={{ fontFamily: "'Noto Sans Telugu', sans-serif", fontWeight: 700, fontSize: 17, color: "#1A1A2E" }}>
-                            {section.title.te}
-                          </div>
-                          <div style={{ fontSize: 13, color: "#888", fontWeight: 600 }}>{section.title.en}</div>
-                        </div>
-                        <div style={{ fontSize: 12, color: "#BBB", fontWeight: 700, whiteSpace: "nowrap" }}>
-                          p.{section.startPage}
-                        </div>
-                      </div>
-                    ))}
+            <div style={{
+              display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 16
+            }}>
+              {/* Chapter 1: Padava */}
+              <div
+                onClick={() => router.push(`/bookshelf/${classId}/chapter/padava`)}
+                style={{
+                  background: "linear-gradient(135deg, #1E3A5F 0%, #2563EB 50%, #60A5FA 100%)",
+                  borderRadius: 24, padding: "24px", cursor: "pointer",
+                  boxShadow: "0 8px 32px rgba(37,99,235,0.25)",
+                  position: "relative", overflow: "hidden", display: "flex", flexDirection: "column"
+                }}
+              >
+                <div style={{ position: "absolute", top: -20, right: -20, width: 100, height: 100, borderRadius: "50%", background: "rgba(255,255,255,0.08)" }} />
+                <div style={{ position: "absolute", bottom: -30, left: -30, width: 80, height: 80, borderRadius: "50%", background: "rgba(255,255,255,0.05)" }} />
+                <div style={{ position: "relative", zIndex: 1, flex: 1 }}>
+                  <div style={{ fontSize: 36, marginBottom: 8 }}>⛵</div>
+                  <h2 style={{ color: "white", fontSize: 22, fontWeight: 800, margin: "0 0 4px 0", fontFamily: "'Noto Sans Telugu', sans-serif" }}>
+                    1. పడవ
+                  </h2>
+                  <p style={{ color: "rgba(255,255,255,0.85)", fontSize: 14, fontWeight: 600, margin: "0 0 16px 0" }}>
+                    Boat (Letters: ప, డ, వ)
+                  </p>
+                  <div style={{
+                    display: "inline-flex", alignItems: "center", gap: 6,
+                    background: "rgba(255,255,255,0.2)", padding: "8px 16px",
+                    borderRadius: 12, color: "white", fontWeight: 700, fontSize: 13,
+                  }}>
+                    📖 Start Reading →
                   </div>
                 </div>
-              );
-            })}
+              </div>
+
+              {/* Chapter 2: Vaana */}
+              <div
+                onClick={() => router.push(`/bookshelf/${classId}/chapter/vaana`)}
+                style={{
+                  background: "linear-gradient(135deg, #0C4A6E 0%, #0EA5E9 50%, #7DD3FC 100%)",
+                  borderRadius: 24, padding: "24px", cursor: "pointer",
+                  boxShadow: "0 8px 32px rgba(14,165,233,0.25)",
+                  position: "relative", overflow: "hidden", display: "flex", flexDirection: "column"
+                }}
+              >
+                <div style={{ position: "absolute", top: -20, right: -20, width: 100, height: 100, borderRadius: "50%", background: "rgba(255,255,255,0.08)" }} />
+                <div style={{ position: "absolute", bottom: -30, left: -30, width: 80, height: 80, borderRadius: "50%", background: "rgba(255,255,255,0.05)" }} />
+                <div style={{ position: "relative", zIndex: 1, flex: 1 }}>
+                  <div style={{ fontSize: 36, marginBottom: 8 }}>🌧️</div>
+                  <h2 style={{ color: "white", fontSize: 22, fontWeight: 800, margin: "0 0 4px 0", fontFamily: "'Noto Sans Telugu', sans-serif" }}>
+                    2. వాన
+                  </h2>
+                  <p style={{ color: "rgba(255,255,255,0.85)", fontSize: 14, fontWeight: 600, margin: "0 0 16px 0" }}>
+                    Rain (Letters: ల, న, చ)
+                  </p>
+                  <div style={{
+                    display: "inline-flex", alignItems: "center", gap: 6,
+                    background: "rgba(255,255,255,0.2)", padding: "8px 16px",
+                    borderRadius: 12, color: "white", fontWeight: 700, fontSize: 13,
+                  }}>
+                    📖 Start Reading →
+                  </div>
+                </div>
+              </div>
+
+              {/* Chapter 3: Chandamama */}
+              <div
+                onClick={() => router.push(`/bookshelf/${classId}/chapter/chandamama`)}
+                style={{
+                  background: "linear-gradient(135deg, #2E1065 0%, #4C1D95 50%, #8B5CF6 100%)",
+                  borderRadius: 24, padding: "24px", cursor: "pointer",
+                  boxShadow: "0 8px 32px rgba(139,92,246,0.25)",
+                  position: "relative", overflow: "hidden", display: "flex", flexDirection: "column"
+                }}
+              >
+                <div style={{ position: "absolute", top: -20, right: -20, width: 100, height: 100, borderRadius: "50%", background: "rgba(255,255,255,0.08)" }} />
+                <div style={{ position: "absolute", bottom: -30, left: -30, width: 80, height: 80, borderRadius: "50%", background: "rgba(255,255,255,0.05)" }} />
+                <div style={{ position: "relative", zIndex: 1, flex: 1 }}>
+                  <div style={{ fontSize: 36, marginBottom: 8 }}>🌙</div>
+                  <h2 style={{ color: "white", fontSize: 22, fontWeight: 800, margin: "0 0 4px 0", fontFamily: "'Noto Sans Telugu', sans-serif" }}>
+                    3. చందమామ రావే
+                  </h2>
+                  <p style={{ color: "rgba(255,255,255,0.85)", fontSize: 14, fontWeight: 600, margin: "0 0 16px 0" }}>
+                    Moon (Letters: న, స)
+                  </p>
+                  <div style={{
+                    display: "inline-flex", alignItems: "center", gap: 6,
+                    background: "rgba(255,255,255,0.2)", padding: "8px 16px",
+                    borderRadius: 12, color: "white", fontWeight: 700, fontSize: 13,
+                  }}>
+                    📖 Start Reading →
+                  </div>
+                </div>
+              </div>
+
+              {/* Chapter 4: Udatha */}
+              <div
+                onClick={() => router.push(`/bookshelf/${classId}/chapter/udatha`)}
+                style={{
+                  background: "linear-gradient(135deg, #064E3B 0%, #059669 50%, #34D399 100%)",
+                  borderRadius: 24, padding: "24px", cursor: "pointer",
+                  boxShadow: "0 8px 32px rgba(16,185,129,0.25)",
+                  position: "relative", overflow: "hidden", display: "flex", flexDirection: "column"
+                }}
+              >
+                <div style={{ position: "absolute", top: -20, right: -20, width: 100, height: 100, borderRadius: "50%", background: "rgba(255,255,255,0.08)" }} />
+                <div style={{ position: "absolute", bottom: -30, left: -30, width: 80, height: 80, borderRadius: "50%", background: "rgba(255,255,255,0.05)" }} />
+                <div style={{ position: "relative", zIndex: 1, flex: 1 }}>
+                  <div style={{ fontSize: 36, marginBottom: 8 }}>🐿️</div>
+                  <h2 style={{ color: "white", fontSize: 22, fontWeight: 800, margin: "0 0 4px 0", fontFamily: "'Noto Sans Telugu', sans-serif" }}>
+                    ఉడత (Udatha)
+                  </h2>
+                  <p style={{ color: "rgba(255,255,255,0.85)", fontSize: 14, fontWeight: 600, margin: "0 0 16px 0" }}>
+                    Squirrel (Letters: ఉ, త)
+                  </p>
+                  <div style={{
+                    display: "inline-flex", alignItems: "center", gap: 6,
+                    background: "rgba(255,255,255,0.2)", padding: "8px 16px",
+                    borderRadius: 12, color: "white", fontWeight: 700, fontSize: 13,
+                  }}>
+                    📖 Start Reading →
+                  </div>
+                </div>
+              </div>
+
+              {/* Chapter Melukolupu */}
+              <div
+                onClick={() => router.push(`/bookshelf/${classId}/chapter/melukolupu`)}
+                style={{
+                  background: "linear-gradient(135deg, #FF8C00 0%, #FFA500 50%, #FFD700 100%)",
+                  borderRadius: 24, padding: "24px", cursor: "pointer",
+                  boxShadow: "0 8px 32px rgba(255,140,0,0.25)",
+                  position: "relative", overflow: "hidden", display: "flex", flexDirection: "column"
+                }}
+              >
+                <div style={{ position: "absolute", top: -20, right: -20, width: 100, height: 100, borderRadius: "50%", background: "rgba(255,255,255,0.08)" }} />
+                <div style={{ position: "absolute", bottom: -30, left: -30, width: 80, height: 80, borderRadius: "50%", background: "rgba(255,255,255,0.05)" }} />
+                <div style={{ position: "relative", zIndex: 1, flex: 1 }}>
+                  <div style={{ fontSize: 36, marginBottom: 8 }}>🌅</div>
+                  <h2 style={{ color: "white", fontSize: 22, fontWeight: 800, margin: "0 0 4px 0", fontFamily: "'Noto Sans Telugu', sans-serif" }}>
+                    మేలుకొలుపు
+                  </h2>
+                  <p style={{ color: "rgba(255,255,255,0.85)", fontSize: 14, fontWeight: 600, margin: "0 0 16px 0" }}>
+                    Awakening (Letters: గ, ం)
+                  </p>
+                  <div style={{
+                    display: "inline-flex", alignItems: "center", gap: 6,
+                    background: "rgba(255,255,255,0.2)", padding: "8px 16px",
+                    borderRadius: 12, color: "white", fontWeight: 700, fontSize: 13,
+                  }}>
+                    📖 Start Reading →
+                  </div>
+                </div>
+              </div>
+
+              {/* Chapter Ooyala */}
+              <div
+                onClick={() => router.push(`/bookshelf/${classId}/chapter/ooyala`)}
+                style={{
+                  background: "linear-gradient(135deg, #6D28D9 0%, #8B5CF6 50%, #C4B5FD 100%)",
+                  borderRadius: 24, padding: "24px", cursor: "pointer",
+                  boxShadow: "0 8px 32px rgba(139,92,246,0.25)",
+                  position: "relative", overflow: "hidden", display: "flex", flexDirection: "column"
+                }}
+              >
+                <div style={{ position: "absolute", top: -20, right: -20, width: 100, height: 100, borderRadius: "50%", background: "rgba(255,255,255,0.08)" }} />
+                <div style={{ position: "absolute", bottom: -30, left: -30, width: 80, height: 80, borderRadius: "50%", background: "rgba(255,255,255,0.05)" }} />
+                <div style={{ position: "relative", zIndex: 1, flex: 1 }}>
+                  <div style={{ fontSize: 36, marginBottom: 8 }}>🚼</div>
+                  <h2 style={{ color: "white", fontSize: 22, fontWeight: 800, margin: "0 0 4px 0", fontFamily: "'Noto Sans Telugu', sans-serif" }}>
+                    ఊహల ఊయల
+                  </h2>
+                  <p style={{ color: "rgba(255,255,255,0.85)", fontSize: 14, fontWeight: 600, margin: "0 0 16px 0" }}>
+                    Cradle (Letters: ఊ, య)
+                  </p>
+                  <div style={{
+                    display: "inline-flex", alignItems: "center", gap: 6,
+                    background: "rgba(255,255,255,0.2)", padding: "8px 16px",
+                    borderRadius: 12, color: "white", fontWeight: 700, fontSize: 13,
+                  }}>
+                    📖 Start Reading →
+                  </div>
+                </div>
+              </div>
+
+              {/* Chapter Takadhimi */}
+              <div
+                onClick={() => router.push(`/bookshelf/${classId}/chapter/takadhimi`)}
+                style={{
+                  background: "linear-gradient(135deg, #1E1B4B 0%, #4338CA 50%, #818CF8 100%)",
+                  borderRadius: 24, padding: "24px", cursor: "pointer",
+                  boxShadow: "0 8px 32px rgba(67,56,202,0.25)",
+                  position: "relative", overflow: "hidden", display: "flex", flexDirection: "column"
+                }}
+              >
+                <div style={{ position: "absolute", top: -20, right: -20, width: 100, height: 100, borderRadius: "50%", background: "rgba(255,255,255,0.08)" }} />
+                <div style={{ position: "absolute", bottom: -30, left: -30, width: 80, height: 80, borderRadius: "50%", background: "rgba(255,255,255,0.05)" }} />
+                <div style={{ position: "relative", zIndex: 1, flex: 1 }}>
+                  <div style={{ fontSize: 36, marginBottom: 8 }}>🥁</div>
+                  <h2 style={{ color: "white", fontSize: 22, fontWeight: 800, margin: "0 0 4px 0", fontFamily: "'Noto Sans Telugu', sans-serif" }}>
+                    తకధిమితోం
+                  </h2>
+                  <p style={{ color: "rgba(255,255,255,0.85)", fontSize: 14, fontWeight: 600, margin: "0 0 16px 0" }}>
+                    Rhythm (Letters: బ, ల)
+                  </p>
+                  <div style={{
+                    display: "inline-flex", alignItems: "center", gap: 6,
+                    background: "rgba(255,255,255,0.2)", padding: "8px 16px",
+                    borderRadius: 12, color: "white", fontWeight: 700, fontSize: 13,
+                  }}>
+                    📖 Start Reading →
+                  </div>
+                </div>
+              </div>
+
+              {/* Chapter Araka */}
+              <div
+                onClick={() => router.push(`/bookshelf/${classId}/chapter/araka`)}
+                style={{
+                  background: "linear-gradient(135deg, #14532D 0%, #16A34A 50%, #4ADE80 100%)",
+                  borderRadius: 24, padding: "24px", cursor: "pointer",
+                  boxShadow: "0 8px 32px rgba(22,163,74,0.25)",
+                  position: "relative", overflow: "hidden", display: "flex", flexDirection: "column"
+                }}
+              >
+                <div style={{ position: "absolute", top: -20, right: -20, width: 100, height: 100, borderRadius: "50%", background: "rgba(255,255,255,0.08)" }} />
+                <div style={{ position: "absolute", bottom: -30, left: -30, width: 80, height: 80, borderRadius: "50%", background: "rgba(255,255,255,0.05)" }} />
+                <div style={{ position: "relative", zIndex: 1, flex: 1 }}>
+                  <div style={{ fontSize: 36, marginBottom: 8 }}>🪚</div>
+                  <h2 style={{ color: "white", fontSize: 22, fontWeight: 800, margin: "0 0 4px 0", fontFamily: "'Noto Sans Telugu', sans-serif" }}>
+                    అరక
+                  </h2>
+                  <p style={{ color: "rgba(255,255,255,0.85)", fontSize: 14, fontWeight: 600, margin: "0 0 16px 0" }}>
+                    Plow (Letters: అ, ర, క)
+                  </p>
+                  <div style={{
+                    display: "inline-flex", alignItems: "center", gap: 6,
+                    background: "rgba(255,255,255,0.2)", padding: "8px 16px",
+                    borderRadius: 12, color: "white", fontWeight: 700, fontSize: 13,
+                  }}>
+                    📖 Start Reading →
+                  </div>
+                </div>
+              </div>
+
+              {/* Chapter Baava Panneeru */}
+              <div
+                onClick={() => router.push(`/bookshelf/${classId}/chapter/baava_panneeru`)}
+                style={{
+                  background: "linear-gradient(135deg, #075985 0%, #0284C7 50%, #38BDF8 100%)",
+                  borderRadius: 24, padding: "24px", cursor: "pointer",
+                  boxShadow: "0 8px 32px rgba(2,132,199,0.25)",
+                  position: "relative", overflow: "hidden", display: "flex", flexDirection: "column"
+                }}
+              >
+                <div style={{ position: "absolute", top: -20, right: -20, width: 100, height: 100, borderRadius: "50%", background: "rgba(255,255,255,0.08)" }} />
+                <div style={{ position: "absolute", bottom: -30, left: -30, width: 80, height: 80, borderRadius: "50%", background: "rgba(255,255,255,0.05)" }} />
+                <div style={{ position: "relative", zIndex: 1, flex: 1 }}>
+                  <div style={{ fontSize: 36, marginBottom: 8 }}>🏵️</div>
+                  <h2 style={{ color: "white", fontSize: 22, fontWeight: 800, margin: "0 0 4px 0", fontFamily: "'Noto Sans Telugu', sans-serif" }}>
+                    బావా బావా పన్నీరు
+                  </h2>
+                  <p style={{ color: "rgba(255,255,255,0.85)", fontSize: 14, fontWeight: 600, margin: "0 0 16px 0" }}>
+                    Baava (Letters: మ, చ)
+                  </p>
+                  <div style={{
+                    display: "inline-flex", alignItems: "center", gap: 6,
+                    background: "rgba(255,255,255,0.2)", padding: "8px 16px",
+                    borderRadius: 12, color: "white", fontWeight: 700, fontSize: 13,
+                  }}>
+                    📖 Start Reading →
+                  </div>
+                </div>
+              </div>
+
+            {/* Chapter Aata */}
+            <div
+              onClick={() => router.push(`/bookshelf/${classId}/chapter/aata`)}
+              style={{
+                background: "linear-gradient(135deg, #CA8A04 0%, #EAB308 50%, #FDE047 100%)",
+                borderRadius: 24, padding: "24px", cursor: "pointer",
+                boxShadow: "0 8px 32px rgba(202,138,4,0.25)",
+                position: "relative", overflow: "hidden", display: "flex", flexDirection: "column"
+              }}
+            >
+              <div style={{ position: "absolute", top: -20, right: -20, width: 100, height: 100, borderRadius: "50%", background: "rgba(255,255,255,0.08)" }} />
+              <div style={{ position: "absolute", bottom: -30, left: -30, width: 80, height: 80, borderRadius: "50%", background: "rgba(255,255,255,0.05)" }} />
+              <div style={{ position: "relative", zIndex: 1, flex: 1 }}>
+                <div style={{ fontSize: 36, marginBottom: 8 }}>⚽</div>
+                <h2 style={{ color: "white", fontSize: 22, fontWeight: 800, margin: "0 0 4px 0", fontFamily: "'Noto Sans Telugu', sans-serif" }}>
+                  ఆట
+                </h2>
+                <p style={{ color: "rgba(255,255,255,0.85)", fontSize: 14, fontWeight: 600, margin: "0 0 16px 0" }}>
+                  Play/Game (Letters: ఆ, ట)
+                </p>
+                <div style={{
+                  display: "inline-flex", alignItems: "center", gap: 6,
+                  background: "rgba(255,255,255,0.2)", padding: "8px 16px",
+                  borderRadius: 12, color: "white", fontWeight: 700, fontSize: 13,
+                }}>
+                  📖 Start Reading →
+                </div>
+              </div>
+            </div>
+
+            {/* Chapter Jada Danda */}
+            <div
+              onClick={() => router.push(`/bookshelf/${classId}/chapter/jada_danda`)}
+              style={{
+                background: "linear-gradient(135deg, #BE185D 0%, #EC4899 50%, #F9A8D4 100%)",
+                borderRadius: 24, padding: "24px", cursor: "pointer",
+                boxShadow: "0 8px 32px rgba(236,72,153,0.25)",
+                position: "relative", overflow: "hidden", display: "flex", flexDirection: "column"
+              }}
+            >
+              <div style={{ position: "absolute", top: -20, right: -20, width: 100, height: 100, borderRadius: "50%", background: "rgba(255,255,255,0.08)" }} />
+              <div style={{ position: "absolute", bottom: -30, left: -30, width: 80, height: 80, borderRadius: "50%", background: "rgba(255,255,255,0.05)" }} />
+              <div style={{ position: "relative", zIndex: 1, flex: 1 }}>
+                <div style={{ fontSize: 36, marginBottom: 8 }}>📿</div>
+                <h2 style={{ color: "white", fontSize: 22, fontWeight: 800, margin: "0 0 4px 0", fontFamily: "'Noto Sans Telugu', sans-serif" }}>
+                  జడ - దండ
+                </h2>
+                <p style={{ color: "rgba(255,255,255,0.85)", fontSize: 14, fontWeight: 600, margin: "0 0 16px 0" }}>
+                  Braid - Garland (Letters: జ, ద)
+                </p>
+                <div style={{
+                  display: "inline-flex", alignItems: "center", gap: 6,
+                  background: "rgba(255,255,255,0.2)", padding: "8px 16px",
+                  borderRadius: 12, color: "white", fontWeight: 700, fontSize: 13,
+                }}>
+                  📖 Start Reading →
+                </div>
+              </div>
+            </div>
+
+            {/* Chapter Illu Eega */}
+            <div
+              onClick={() => router.push(`/bookshelf/${classId}/chapter/illu_eega`)}
+              style={{
+                background: "linear-gradient(135deg, #0284C7 0%, #0EA5E9 50%, #7DD3FC 100%)",
+                borderRadius: 24, padding: "24px", cursor: "pointer",
+                boxShadow: "0 8px 32px rgba(14,165,233,0.25)",
+                position: "relative", overflow: "hidden", display: "flex", flexDirection: "column"
+              }}
+            >
+              <div style={{ position: "absolute", top: -20, right: -20, width: 100, height: 100, borderRadius: "50%", background: "rgba(255,255,255,0.08)" }} />
+              <div style={{ position: "absolute", bottom: -30, left: -30, width: 80, height: 80, borderRadius: "50%", background: "rgba(255,255,255,0.05)" }} />
+              <div style={{ position: "relative", zIndex: 1, flex: 1 }}>
+                <div style={{ fontSize: 36, marginBottom: 8 }}>🏠</div>
+                <h2 style={{ color: "white", fontSize: 22, fontWeight: 800, margin: "0 0 4px 0", fontFamily: "'Noto Sans Telugu', sans-serif" }}>
+                  ఇల్లు - ఈగ
+                </h2>
+                <p style={{ color: "rgba(255,255,255,0.85)", fontSize: 14, fontWeight: 600, margin: "0 0 16px 0" }}>
+                  House - Fly (Letters: ఇ, ఈ)
+                </p>
+                <div style={{
+                  display: "inline-flex", alignItems: "center", gap: 6,
+                  background: "rgba(255,255,255,0.2)", padding: "8px 16px",
+                  borderRadius: 12, color: "white", fontWeight: 700, fontSize: 13,
+                }}>
+                  📖 Start Reading →
+                </div>
+              </div>
+            </div>
+
+            {/* Chapter Elukamma */}
+            <div
+              onClick={() => router.push(`/bookshelf/${classId}/chapter/elukamma`)}
+              style={{
+                background: "linear-gradient(135deg, #65A30D 0%, #84CC16 50%, #A3E635 100%)",
+                borderRadius: 24, padding: "24px", cursor: "pointer",
+                boxShadow: "0 8px 32px rgba(132,204,22,0.25)",
+                position: "relative", overflow: "hidden", display: "flex", flexDirection: "column"
+              }}
+            >
+              <div style={{ position: "absolute", top: -20, right: -20, width: 100, height: 100, borderRadius: "50%", background: "rgba(255,255,255,0.08)" }} />
+              <div style={{ position: "absolute", bottom: -30, left: -30, width: 80, height: 80, borderRadius: "50%", background: "rgba(255,255,255,0.05)" }} />
+              <div style={{ position: "relative", zIndex: 1, flex: 1 }}>
+                <div style={{ fontSize: 36, marginBottom: 8 }}>🐭</div>
+                <h2 style={{ color: "white", fontSize: 22, fontWeight: 800, margin: "0 0 4px 0", fontFamily: "'Noto Sans Telugu', sans-serif" }}>
+                  ఎలుకమ్మ
+                </h2>
+                <p style={{ color: "rgba(255,255,255,0.85)", fontSize: 14, fontWeight: 600, margin: "0 0 16px 0" }}>
+                  Mouse (Letters: ఎ, ఏ, ఐ)
+                </p>
+                <div style={{
+                  display: "inline-flex", alignItems: "center", gap: 6,
+                  background: "rgba(255,255,255,0.2)", padding: "8px 16px",
+                  borderRadius: 12, color: "white", fontWeight: 700, fontSize: 13,
+                }}>
+                  📖 Start Reading →
+                </div>
+              </div>
+            </div>
+
+            {/* Chapter Amma Odi */}
+            <div
+              onClick={() => router.push(`/bookshelf/${classId}/chapter/amma_odi`)}
+              style={{
+                background: "linear-gradient(135deg, #C026D3 0%, #D946EF 50%, #E879F9 100%)",
+                borderRadius: 24, padding: "24px", cursor: "pointer",
+                boxShadow: "0 8px 32px rgba(217,70,239,0.25)",
+                position: "relative", overflow: "hidden", display: "flex", flexDirection: "column"
+              }}
+            >
+              <div style={{ position: "absolute", top: -20, right: -20, width: 100, height: 100, borderRadius: "50%", background: "rgba(255,255,255,0.08)" }} />
+              <div style={{ position: "absolute", bottom: -30, left: -30, width: 80, height: 80, borderRadius: "50%", background: "rgba(255,255,255,0.05)" }} />
+              <div style={{ position: "relative", zIndex: 1, flex: 1 }}>
+                <div style={{ fontSize: 36, marginBottom: 8 }}>👩‍👧</div>
+                <h2 style={{ color: "white", fontSize: 22, fontWeight: 800, margin: "0 0 4px 0", fontFamily: "'Noto Sans Telugu', sans-serif" }}>
+                  అమ్మ ఒడి
+                </h2>
+                <p style={{ color: "rgba(255,255,255,0.85)", fontSize: 14, fontWeight: 600, margin: "0 0 16px 0" }}>
+                  Mother's Lap (Letters: ఒ, ఓ, ఔ)
+                </p>
+                <div style={{
+                  display: "inline-flex", alignItems: "center", gap: 6,
+                  background: "rgba(255,255,255,0.2)", padding: "8px 16px",
+                  borderRadius: 12, color: "white", fontWeight: 700, fontSize: 13,
+                }}>
+                  📖 Start Reading →
+                </div>
+              </div>
+            </div>
+
+            {/* Chapter Megham Chatram */}
+            <div
+              onClick={() => router.push(`/bookshelf/${classId}/chapter/megham_chatram`)}
+              style={{
+                background: "linear-gradient(135deg, #7C3AED 0%, #8B5CF6 50%, #A78BFA 100%)",
+                borderRadius: 24, padding: "24px", cursor: "pointer",
+                boxShadow: "0 8px 32px rgba(139,92,246,0.25)",
+                position: "relative", overflow: "hidden", display: "flex", flexDirection: "column"
+              }}
+            >
+              <div style={{ position: "absolute", top: -20, right: -20, width: 100, height: 100, borderRadius: "50%", background: "rgba(255,255,255,0.08)" }} />
+              <div style={{ position: "absolute", bottom: -30, left: -30, width: 80, height: 80, borderRadius: "50%", background: "rgba(255,255,255,0.05)" }} />
+              <div style={{ position: "relative", zIndex: 1, flex: 1 }}>
+                <div style={{ fontSize: 36, marginBottom: 8 }}>☂️</div>
+                <h2 style={{ color: "white", fontSize: 22, fontWeight: 800, margin: "0 0 4px 0", fontFamily: "'Noto Sans Telugu', sans-serif" }}>
+                  మేఘం - ఛత్రం
+                </h2>
+                <p style={{ color: "rgba(255,255,255,0.85)", fontSize: 14, fontWeight: 600, margin: "0 0 16px 0" }}>
+                  Cloud - Umbrella (Letters: ఖ, ఘ, ఛ, ఝ, ఋ)
+                </p>
+                <div style={{
+                  display: "inline-flex", alignItems: "center", gap: 6,
+                  background: "rgba(255,255,255,0.2)", padding: "8px 16px",
+                  borderRadius: 12, color: "white", fontWeight: 700, fontSize: 13,
+                }}>
+                  📖 Start Reading →
+                </div>
+              </div>
+            </div>
+
+            {/* Chapter Pathasala Panduga */}
+            <div
+              onClick={() => router.push(`/bookshelf/${classId}/chapter/pathasala_panduga`)}
+              style={{
+                background: "linear-gradient(135deg, #D97706 0%, #F59E0B 50%, #FBBF24 100%)",
+                borderRadius: 24, padding: "24px", cursor: "pointer",
+                boxShadow: "0 8px 32px rgba(245,158,11,0.25)",
+                position: "relative", overflow: "hidden", display: "flex", flexDirection: "column"
+              }}
+            >
+              <div style={{ position: "absolute", top: -20, right: -20, width: 100, height: 100, borderRadius: "50%", background: "rgba(255,255,255,0.08)" }} />
+              <div style={{ position: "absolute", bottom: -30, left: -30, width: 80, height: 80, borderRadius: "50%", background: "rgba(255,255,255,0.05)" }} />
+              <div style={{ position: "relative", zIndex: 1, flex: 1 }}>
+                <div style={{ fontSize: 36, marginBottom: 8 }}>🏫</div>
+                <h2 style={{ color: "white", fontSize: 22, fontWeight: 800, margin: "0 0 4px 0", fontFamily: "'Noto Sans Telugu', sans-serif" }}>
+                  పాఠశాల పండుగ
+                </h2>
+                <p style={{ color: "rgba(255,255,255,0.85)", fontSize: 14, fontWeight: 600, margin: "0 0 16px 0" }}>
+                  School Festival (Letters: ఠ, ఢ, ణ, థ, ధ)
+                </p>
+                <div style={{
+                  display: "inline-flex", alignItems: "center", gap: 6,
+                  background: "rgba(255,255,255,0.2)", padding: "8px 16px",
+                  borderRadius: 12, color: "white", fontWeight: 700, fontSize: 13,
+                }}>
+                  📖 Start Reading →
+                </div>
+              </div>
+            </div>
+
+            {/* Chapter Subhadayini */}
+            <div
+              onClick={() => router.push(`/bookshelf/${classId}/chapter/subhadayini`)}
+              style={{
+                background: "linear-gradient(135deg, #DB2777 0%, #EC4899 50%, #F472B6 100%)",
+                borderRadius: 24, padding: "24px", cursor: "pointer",
+                boxShadow: "0 8px 32px rgba(236,72,153,0.25)",
+                position: "relative", overflow: "hidden", display: "flex", flexDirection: "column"
+              }}
+            >
+              <div style={{ position: "absolute", top: -20, right: -20, width: 100, height: 100, borderRadius: "50%", background: "rgba(255,255,255,0.08)" }} />
+              <div style={{ position: "absolute", bottom: -30, left: -30, width: 80, height: 80, borderRadius: "50%", background: "rgba(255,255,255,0.05)" }} />
+              <div style={{ position: "relative", zIndex: 1, flex: 1 }}>
+                <div style={{ fontSize: 36, marginBottom: 8 }}>🙏</div>
+                <h2 style={{ color: "white", fontSize: 22, fontWeight: 800, margin: "0 0 4px 0", fontFamily: "'Noto Sans Telugu', sans-serif" }}>
+                  శుభదాయిని
+                </h2>
+                <p style={{ color: "rgba(255,255,255,0.85)", fontSize: 14, fontWeight: 600, margin: "0 0 16px 0" }}>
+                  Subhadayini (Letters: ఫ, భ, శ, ష, హ, ళ, క్ష)
+                </p>
+                <div style={{
+                  display: "inline-flex", alignItems: "center", gap: 6,
+                  background: "rgba(255,255,255,0.2)", padding: "8px 16px",
+                  borderRadius: 12, color: "white", fontWeight: 700, fontSize: 13,
+                }}>
+                  📖 Start Reading →
+                </div>
+              </div>
+            </div>
+
+            {/* Chapter Galagala Matalu */}
+            <div
+              onClick={() => router.push(`/bookshelf/${classId}/chapter/galagala_matalu`)}
+              style={{
+                background: "linear-gradient(135deg, #047857 0%, #059669 50%, #10B981 100%)",
+                borderRadius: 24, padding: "24px", cursor: "pointer",
+                boxShadow: "0 8px 32px rgba(5,150,105,0.25)",
+                position: "relative", overflow: "hidden", display: "flex", flexDirection: "column"
+              }}
+            >
+              <div style={{ position: "absolute", top: -20, right: -20, width: 100, height: 100, borderRadius: "50%", background: "rgba(255,255,255,0.08)" }} />
+              <div style={{ position: "absolute", bottom: -30, left: -30, width: 80, height: 80, borderRadius: "50%", background: "rgba(255,255,255,0.05)" }} />
+              <div style={{ position: "relative", zIndex: 1, flex: 1 }}>
+                <div style={{ fontSize: 36, marginBottom: 8 }}>🌧️</div>
+                <h2 style={{ color: "white", fontSize: 22, fontWeight: 800, margin: "0 0 4px 0", fontFamily: "'Noto Sans Telugu', sans-serif" }}>
+                  గలగల మాటలు
+                </h2>
+                <p style={{ color: "rgba(255,255,255,0.85)", fontSize: 14, fontWeight: 600, margin: "0 0 16px 0" }}>
+                  Galagala Matalu (Rain & Sounds)
+                </p>
+                <div style={{
+                  display: "inline-flex", alignItems: "center", gap: 6,
+                  background: "rgba(255,255,255,0.2)", padding: "8px 16px",
+                  borderRadius: 12, color: "white", fontWeight: 700, fontSize: 13,
+                }}>
+                  📖 Start Reading →
+                </div>
+              </div>
+            </div>
+
+            {/* Chapter Guninthalam */}
+            <div
+              onClick={() => router.push(`/bookshelf/${classId}/chapter/guninthalam`)}
+              style={{
+                background: "linear-gradient(135deg, #7C3AED 0%, #8B5CF6 50%, #A78BFA 100%)",
+                borderRadius: 24, padding: "24px", cursor: "pointer",
+                boxShadow: "0 8px 32px rgba(139,92,246,0.25)",
+                position: "relative", overflow: "hidden", display: "flex", flexDirection: "column"
+              }}
+            >
+              <div style={{ position: "absolute", top: -20, right: -20, width: 100, height: 100, borderRadius: "50%", background: "rgba(255,255,255,0.08)" }} />
+              <div style={{ position: "absolute", bottom: -30, left: -30, width: 80, height: 80, borderRadius: "50%", background: "rgba(255,255,255,0.05)" }} />
+              <div style={{ position: "relative", zIndex: 1, flex: 1 }}>
+                <div style={{ fontSize: 36, marginBottom: 8 }}>✨</div>
+                <h2 style={{ color: "white", fontSize: 22, fontWeight: 800, margin: "0 0 4px 0", fontFamily: "'Noto Sans Telugu', sans-serif" }}>
+                  గుణింతాలం
+                </h2>
+                <p style={{ color: "rgba(255,255,255,0.85)", fontSize: 14, fontWeight: 600, margin: "0 0 16px 0" }}>
+                  Guninthalam (Vowel Signs)
+                </p>
+                <div style={{
+                  display: "inline-flex", alignItems: "center", gap: 6,
+                  background: "rgba(255,255,255,0.2)", padding: "8px 16px",
+                  borderRadius: 12, color: "white", fontWeight: 700, fontSize: 13,
+                }}>
+                  📖 Start Reading →
+                </div>
+              </div>
+            </div>
+
+            {/* Chapter Padya Ratnalu */}
+            <div
+              onClick={() => router.push(`/bookshelf/${classId}/chapter/padya_ratnalu`)}
+              style={{
+                background: "linear-gradient(135deg, #A16207 0%, #CA8A04 50%, #EAB308 100%)",
+                borderRadius: 24, padding: "24px", cursor: "pointer",
+                boxShadow: "0 8px 32px rgba(202,138,4,0.25)",
+                position: "relative", overflow: "hidden", display: "flex", flexDirection: "column"
+              }}
+            >
+              <div style={{ position: "absolute", top: -20, right: -20, width: 100, height: 100, borderRadius: "50%", background: "rgba(255,255,255,0.08)" }} />
+              <div style={{ position: "absolute", bottom: -30, left: -30, width: 80, height: 80, borderRadius: "50%", background: "rgba(255,255,255,0.05)" }} />
+              <div style={{ position: "relative", zIndex: 1, flex: 1 }}>
+                <div style={{ fontSize: 36, marginBottom: 8 }}>📜</div>
+                <h2 style={{ color: "white", fontSize: 22, fontWeight: 800, margin: "0 0 4px 0", fontFamily: "'Noto Sans Telugu', sans-serif" }}>
+                  పద్య రత్నాలు
+                </h2>
+                <p style={{ color: "rgba(255,255,255,0.85)", fontSize: 14, fontWeight: 600, margin: "0 0 16px 0" }}>
+                  Padya Ratnalu (Wisdom Poems)
+                </p>
+                <div style={{
+                  display: "inline-flex", alignItems: "center", gap: 6,
+                  background: "rgba(255,255,255,0.2)", padding: "8px 16px",
+                  borderRadius: 12, color: "white", fontWeight: 700, fontSize: 13,
+                }}>
+                  📖 Start Reading →
+                </div>
+              </div>
+            </div>
+
+          </div>
           </div>
         )}
 
@@ -156,6 +678,7 @@ export default function ClassContentPage({ params }: { params: Promise<{ classId
             <div style={{ fontSize: 24, opacity: 0.5 }}>▶️</div>
           </div>
         </div>
+
       </div>
     </div>
   );

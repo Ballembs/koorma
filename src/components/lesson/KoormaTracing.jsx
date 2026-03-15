@@ -1133,7 +1133,7 @@ export { ALL_LETTERS };
 
 export default function KoormaTracing({ initialLetter, initialStep, onMastery, onStepComplete, embedded } = {}) {
   const resolvedIdx = initialLetter
-    ? Math.max(0, ALL_LETTERS.findIndex((l) => l.trans === initialLetter))
+    ? Math.max(0, ALL_LETTERS.findIndex((l) => l.trans === initialLetter || l.letter === initialLetter))
     : 0;
   const [idx, setIdx] = useState(resolvedIdx);
   const [step, setStep] = useState(initialStep || "watch");

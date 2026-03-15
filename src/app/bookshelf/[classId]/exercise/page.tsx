@@ -3,36 +3,57 @@
 import { useRouter } from "next/navigation";
 import { use } from "react";
 import { useKoormaStore } from "@/lib/store";
-import { AP_CLASS_1_EXERCISES } from "@/content/ap-textbooks/class-1";
-import { AP_CLASS_1_STORIES } from "@/content/ap-textbooks/class-1";
-import { AP_CLASS_2_EXERCISES } from "@/content/ap-textbooks/class-2";
-import { AP_CLASS_2_STORIES } from "@/content/ap-textbooks/class-2";
+import { DIGITAL_CHAPTERS } from "@/content/digital-book/registry";
 
-// Collect all exercises: standalone + story-embedded + rhyme-embedded
+// Extract minigames from interactive chapters
 function getAllExercises(classId: number) {
-  const standalone = classId === 1 ? [...AP_CLASS_1_EXERCISES] : classId === 2 ? [...AP_CLASS_2_EXERCISES] : [];
-  const stories = classId === 1 ? AP_CLASS_1_STORIES : classId === 2 ? AP_CLASS_2_STORIES : [];
+  const exercises: any[] = [];
+  const chaptersMap = DIGITAL_CHAPTERS[classId.toString()] || {};
+  
+  // Need to process unique chapters (keys might have dupes like "1" and "padava")
+  const processedChapters = new Set<string>();
 
-  // Add story-embedded exercises
-  const storyExercises: any[] = [];
-  stories.forEach((story: any) => {
-    if (story.exercises && story.exercises.length > 0) {
-      story.exercises.forEach((ex: any) => {
-        storyExercises.push({
-          ...ex,
-          chapter: `${story.title.en} (${story.title.te})`,
-          chapterId: story.id,
-        });
+  Object.values(chaptersMap).forEach((chapter: any) => {
+    if (!chapter || processedChapters.has(chapter.id)) return;
+    processedChapters.add(chapter.id);
+
+    // Map each exercise type from the chapter
+    if (chapter.exercises?.findWord) {
+      exercises.push({
+        id: `${chapter.id}-findWord`,
+        type: "find-word",
+        title: { te: "పదాన్ని కనుగొనండి", en: "Find the Word" },
+        chapter: `${chapter.title.te} (${chapter.title.en})`,
+        chapterId: chapter.id,
+      });
+    }
+    if (chapter.exercises?.matchWord) {
+      exercises.push({
+        id: `${chapter.id}-matchWord`,
+        type: "match",
+        title: { te: "జతపరచండి", en: "Match Pairs" },
+        chapter: `${chapter.title.te} (${chapter.title.en})`,
+        chapterId: chapter.id,
+      });
+    }
+    if (chapter.exercises?.buildWords) {
+      exercises.push({
+        id: `${chapter.id}-buildWords`,
+        type: "build-words",
+        title: { te: "పదాలు రాయండి", en: "Build Words" },
+        chapter: `${chapter.title.te} (${chapter.title.en})`,
+        chapterId: chapter.id,
       });
     }
   });
 
-  return [...standalone, ...storyExercises];
+  return exercises;
 }
 
 function getExerciseIcon(type: string) {
   switch (type) {
-    case "fill-blank": return "📝";
+    case "find-word": return "🔍";
+    case "build-words": return "🏗️";
     case "match": return "🔗";
     case "ordering": return "🔢";
     case "comprehension": case "comprehension-mcq": return "❓";
@@ -43,7 +64,8 @@ function getExerciseIcon(type: string) {
 
 function getExerciseTypeName(type: string) {
   switch (type) {
-    case "fill-blank": return "Fill the Blank";
+    case "find-word": return "Find the Word";
+    case "build-words": return "Build Words";
     case "match": return "Match Pairs";
     case "ordering": return "Order Items";
     case "comprehension": case "comprehension-mcq": return "Comprehension";

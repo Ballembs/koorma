@@ -17,59 +17,29 @@ export function BookshelfGrid() {
 
   return (
     <div style={{
-      maxWidth: 900, margin: "0 auto",
-      display: "flex", flexDirection: "column", gap: 40
+      maxWidth: 900, margin: "0 auto", padding: "20px"
     }}>
-      {/* Top Shelf */}
-      <div style={{ position: "relative", paddingTop: 20 }}>
-        <div style={{
-          display: "flex", justifyContent: "center", gap: 40, alignItems: "flex-end",
-          paddingBottom: 20, position: "relative", zIndex: 1
-        }}>
-          {books.slice(0, 3).map((book) => (
+      <div style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fit, minmax(130px, max-content))",
+        justifyContent: "center",
+        gap: "40px",
+        paddingBottom: 20
+      }}>
+        {books.map((book) => (
+          <div key={book.id} style={{ position: "relative" }}>
             <BookCover 
-              key={book.id} 
               {...book} 
               onClick={() => !book.locked && router.push(`/bookshelf/${book.id}`)}
             />
-          ))}
-        </div>
-        {/* Shelf wood */}
-        <div style={{
-          height: 24, background: "linear-gradient(to bottom, #8B4513, #5C2E0B)",
-          borderRadius: 8, boxShadow: "0 10px 20px rgba(0,0,0,0.15)",
-          position: "relative", zIndex: 2
-        }} />
-        <div style={{
-          height: 12, background: "#5C2E0B",
-          marginLeft: 12, marginRight: 12, borderBottomLeftRadius: 10, borderBottomRightRadius: 10
-        }} />
-      </div>
-
-      {/* Bottom Shelf */}
-      <div style={{ position: "relative", paddingTop: 20 }}>
-        <div style={{
-          display: "flex", justifyContent: "center", gap: 40, alignItems: "flex-end",
-          paddingBottom: 20, position: "relative", zIndex: 1
-        }}>
-          {books.slice(3, 5).map((book) => (
-            <BookCover 
-              key={book.id} 
-              {...book} 
-              onClick={() => !book.locked && router.push(`/bookshelf/${book.id}`)}
-            />
-          ))}
-        </div>
-        {/* Shelf wood */}
-        <div style={{
-          height: 24, background: "linear-gradient(to bottom, #8B4513, #5C2E0B)",
-          borderRadius: 8, boxShadow: "0 10px 20px rgba(0,0,0,0.15)",
-          position: "relative", zIndex: 2
-        }} />
-        <div style={{
-          height: 12, background: "#5C2E0B",
-          marginLeft: 12, marginRight: 12, borderBottomLeftRadius: 10, borderBottomRightRadius: 10
-        }} />
+            {/* Indiviudal shelf wood underneath each book (or shared if grid makes it flush) */}
+            <div style={{
+              position: "absolute", bottom: -12, left: -20, right: -20,
+              height: 16, background: "linear-gradient(to bottom, #8B4513, #5C2E0B)",
+              borderRadius: 6, boxShadow: "0 10px 20px rgba(0,0,0,0.15)", zIndex: 0
+            }} />
+          </div>
+        ))}
       </div>
     </div>
   );

@@ -55,22 +55,25 @@
 /* ──────────────────────────────────────────────
    Base body — landscape full-screen
    ────────────────────────────────────────────── */
+/* Base body — allow vertical scrolling by default but prevent horizontal */
 html, body {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-nunito), Arial, Helvetica, sans-serif;
 }
 
-/* Full-screen landscape app root */
+/* Full-screen landscape app root (for lessons that need rigid 100vh) */
 .landscape-app {
   width: 100vw;
   height: 100dvh;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
 }
