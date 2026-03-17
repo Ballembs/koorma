@@ -44,10 +44,13 @@ export interface ChapterData {
   number: number;
   title: { te: string; en: string };
   letters: LetterData[];
+  lettersIntroduced?: string[];
   theme: string;
   themeColor: string;
   themeGradient: string;
   illustration: string;
+  sceneTemplate?: string;
+  sceneParticle?: string;
   poem: {
     stanzas: PoemStanza[];
   };

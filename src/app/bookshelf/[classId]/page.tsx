@@ -1,8 +1,17 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { use } from "react";
+import { use, useState, useEffect } from "react";
 import { BOOK_PAGE_COUNTS, BOOK_TOC } from "@/content/ap-textbooks/book-metadata";
+import { createClient } from "@/utils/supabase/client";
+
+interface DbChapter {
+  id: string;
+  sequence: number;
+  title_te: string;
+  title_en: string;
+  chapter_data: any;
+}
 
 const CLASS_TITLES: Record<number, { te: string; en: string }> = {
   1: { te: "తెలుగు తోట 1", en: "Telugu Garden 1" },
@@ -16,10 +25,59 @@ export default function ClassContentPage({ params }: { params: Promise<{ classId
   const router = useRouter();
   const resolvedParams = use(params);
   const classId = parseInt(resolvedParams.classId, 10);
-  
+  const supabase = createClient();
+
   const totalPages = BOOK_PAGE_COUNTS[classId] || 0;
   const bookTitle = CLASS_TITLES[classId] || { te: `${classId}వ తరగతి`, en: `Class ${classId}` };
   const toc = BOOK_TOC[classId] || [];
+
+  // Fetch published chapters from the database
+  const [dbChapters, setDbChapters] = useState<DbChapter[]>([]);
+  
+  useEffect(() => {
+    const fetchDbChapters = async () => {
+      const { data: books } = await supabase
+        .from("digital_books")
+        .select("id")
+        .eq("class_level", classId);
+      
+      if (books && books.length > 0) {
+        const bookIds = books.map(b => b.id);
+        const { data: chapters } = await supabase
+          .from("digital_chapters")
+          .select("id, sequence, title_te, title_en, chapter_data")
+          .in("book_id", bookIds)
+          .eq("status", "published")
+          .order("sequence");
+        setDbChapters(chapters || []);
+      }
+    };
+    fetchDbChapters();
+  }, [classId]);
+
+  // Color palette for dynamic chapter cards
+  const CARD_GRADIENTS = [
+    "linear-gradient(135deg, #1E3A5F, #2563EB, #60A5FA)",
+    "linear-gradient(135deg, #0C4A6E, #0EA5E9, #7DD3FC)",
+    "linear-gradient(135deg, #2E1065, #4C1D95, #8B5CF6)",
+    "linear-gradient(135deg, #064E3B, #059669, #34D399)",
+    "linear-gradient(135deg, #FF8C00, #FFA500, #FFD700)",
+    "linear-gradient(135deg, #6D28D9, #8B5CF6, #C4B5FD)",
+    "linear-gradient(135deg, #1E1B4B, #4338CA, #818CF8)",
+    "linear-gradient(135deg, #14532D, #16A34A, #4ADE80)",
+    "linear-gradient(135deg, #075985, #0284C7, #38BDF8)",
+    "linear-gradient(135deg, #CA8A04, #EAB308, #FDE047)",
+    "linear-gradient(135deg, #BE185D, #EC4899, #F9A8D4)",
+    "linear-gradient(135deg, #C026D3, #D946EF, #E879F9)",
+    "linear-gradient(135deg, #7C3AED, #8B5CF6, #A78BFA)",
+    "linear-gradient(135deg, #D97706, #F59E0B, #FBBF24)",
+    "linear-gradient(135deg, #DB2777, #EC4899, #F472B6)",
+    "linear-gradient(135deg, #047857, #059669, #10B981)",
+    "linear-gradient(135deg, #65A30D, #84CC16, #A3E635)",
+    "linear-gradient(135deg, #0284C7, #0EA5E9, #7DD3FC)",
+    "linear-gradient(135deg, #A16207, #CA8A04, #EAB308)",
+  ];
+  const CHAPTER_EMOJIS = ["📖", "🌙", "🌅", "🐿️", "🥁", "⛵", "🌧️", "🪚", "🏵️", "⚽", "📿", "🏠", "🐭", "👩‍👧", "☂️", "🏫", "🙏", "🌧️", "📜"];
 
   return (
     <div style={{ width: "100%", minHeight: "100vh", background: "#FFF8F0", fontFamily: "'Nunito', sans-serif" }}>
@@ -652,6 +710,58 @@ export default function ClassContentPage({ params }: { params: Promise<{ classId
             </div>
 
           </div>
+          </div>
+        )}
+
+        {/* Dynamic chapters from database (published via admin ingest) */}
+        {dbChapters.length > 0 && (
+          <div style={{ marginBottom: 32 }}>
+            <h2 style={{ fontSize: 20, fontWeight: 800, color: "#1A1A2E", margin: "0 0 16px 0", paddingLeft: 8 }}>
+              {classId === 1 ? "" : "✨ "}Interactive Chapters
+              <span style={{ fontSize: 13, fontWeight: 600, color: "#64748B", marginLeft: 8 }}>
+                ({dbChapters.length} chapters)
+              </span>
+            </h2>
+            <div style={{
+              display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 16
+            }}>
+              {dbChapters.map((ch, idx) => {
+                const gradient = ch.chapter_data?.themeGradient || CARD_GRADIENTS[idx % CARD_GRADIENTS.length];
+                const emoji = CHAPTER_EMOJIS[idx % CHAPTER_EMOJIS.length];
+                const slug = ch.chapter_data?.id || ch.sequence.toString();
+                return (
+                  <div
+                    key={ch.id}
+                    onClick={() => router.push(`/bookshelf/${classId}/chapter/${slug}`)}
+                    style={{
+                      background: gradient,
+                      borderRadius: 24, padding: "24px", cursor: "pointer",
+                      boxShadow: "0 8px 32px rgba(0,0,0,0.15)",
+                      position: "relative", overflow: "hidden", display: "flex", flexDirection: "column"
+                    }}
+                  >
+                    <div style={{ position: "absolute", top: -20, right: -20, width: 100, height: 100, borderRadius: "50%", background: "rgba(255,255,255,0.08)" }} />
+                    <div style={{ position: "absolute", bottom: -30, left: -30, width: 80, height: 80, borderRadius: "50%", background: "rgba(255,255,255,0.05)" }} />
+                    <div style={{ position: "relative", zIndex: 1, flex: 1 }}>
+                      <div style={{ fontSize: 36, marginBottom: 8 }}>{emoji}</div>
+                      <h2 style={{ color: "white", fontSize: 22, fontWeight: 800, margin: "0 0 4px 0", fontFamily: "'Noto Sans Telugu', sans-serif" }}>
+                        {ch.sequence}. {ch.title_te}
+                      </h2>
+                      <p style={{ color: "rgba(255,255,255,0.85)", fontSize: 14, fontWeight: 600, margin: "0 0 16px 0" }}>
+                        {ch.title_en}
+                      </p>
+                      <div style={{
+                        display: "inline-flex", alignItems: "center", gap: 6,
+                        background: "rgba(255,255,255,0.2)", padding: "8px 16px",
+                        borderRadius: 12, color: "white", fontWeight: 700, fontSize: 13,
+                      }}>
+                        📖 Start Reading →
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         )}
 

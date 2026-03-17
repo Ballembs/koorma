@@ -2,8 +2,13 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactCompiler: true,
-  // PWA configuration would be added here when using next-pwa
-  // For now, basic config for the app
+  // Allow large PDF uploads for admin textbook ingestion (67-143MB)
+  serverExternalPackages: ['pdf-lib'],
+  experimental: {
+    serverActions: {
+      bodySizeLimit: '200mb',
+    },
+  },
 };
 
 export default nextConfig;

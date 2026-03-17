@@ -1,8 +1,11 @@
 "use client";
 
-import { use } from "react";
+import { use, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { DigitalChapterReader } from "@/components/digital-book/DigitalChapterReader";
+import { createClient } from "@/utils/supabase/client";
+
+// Static chapter imports for Class 1 (existing hand-crafted content)
 import { CHAPTER_1 } from "@/content/digital-book/chapter-1";
 import { CHAPTER_MELUKOLUPU } from "@/content/digital-book/chapter-melukolupu";
 import { CHAPTER_2 } from "@/content/digital-book/chapter-2";
@@ -24,11 +27,11 @@ import { CHAPTER_GALAGALA_MATALU } from "@/content/digital-book/chapter-galagala
 import { CHAPTER_GUNINTHALAM } from "@/content/digital-book/chapter-guninthalam";
 import { CHAPTER_PADYA_RATNALU } from "@/content/digital-book/chapter-padya-ratnalu";
 
-// Chapter registry — will grow as we add more chapters
-const CHAPTERS: Record<string, Record<string, typeof CHAPTER_1>> = {
+// Static chapter registry for Class 1 (hand-crafted)
+const STATIC_CHAPTERS: Record<string, Record<string, typeof CHAPTER_1>> = {
   "1": {
     "padava": CHAPTER_1,
-    "1": CHAPTER_1, // Also accessible by number
+    "1": CHAPTER_1,
     "melukolupu": CHAPTER_MELUKOLUPU,
     "2": CHAPTER_MELUKOLUPU,
     "vaana": CHAPTER_2,
@@ -72,10 +75,95 @@ const CHAPTERS: Record<string, Record<string, typeof CHAPTER_1>> = {
 export default function ChapterPage({ params }: { params: Promise<{ classId: string; chapterId: string }> }) {
   const router = useRouter();
   const { classId, chapterId } = use(params);
+  const supabase = createClient();
 
-  const chapter = CHAPTERS[classId]?.[chapterId];
+  // Try static chapters first (Class 1 hand-crafted content)
+  const staticChapter = STATIC_CHAPTERS[classId]?.[chapterId];
 
-  if (!chapter) {
+  // State for DB-fetched chapter
+  const [dbChapter, setDbChapter] = useState<any>(null);
+  const [loading, setLoading] = useState(!staticChapter);
+  const [notFound, setNotFound] = useState(false);
+
+  useEffect(() => {
+    // If we have a static chapter, no need to fetch from DB
+    if (staticChapter) return;
+
+    // Try to fetch from digital_chapters table
+    const fetchChapter = async () => {
+      setLoading(true);
+      
+      // Find ALL books for this class level
+      const { data: books } = await supabase
+        .from("digital_books")
+        .select("id")
+        .eq("class_level", parseInt(classId));
+
+      if (!books || books.length === 0) {
+        setNotFound(true);
+        setLoading(false);
+        return;
+      }
+
+      const bookIds = books.map(b => b.id);
+
+      // Fetch all published chapters across all books for this class
+      const { data: allChapters } = await supabase
+        .from("digital_chapters")
+        .select("*")
+        .in("book_id", bookIds)
+        .eq("status", "published");
+
+      if (!allChapters || allChapters.length === 0) {
+        setNotFound(true);
+        setLoading(false);
+        return;
+      }
+
+      // Try matching by: sequence number, chapter_data.id slug, or title
+      let chapter = null;
+      const seqNum = parseInt(chapterId);
+
+      if (!isNaN(seqNum)) {
+        chapter = allChapters.find(ch => ch.sequence === seqNum);
+      }
+
+      if (!chapter) {
+        chapter = allChapters.find(ch => {
+          const cd = ch.chapter_data;
+          return cd?.id === chapterId || 
+                 ch.title_en?.toLowerCase().replace(/\s+/g, '_') === chapterId;
+        });
+      }
+
+      if (chapter?.chapter_data) {
+        setDbChapter(chapter.chapter_data);
+      } else {
+        setNotFound(true);
+      }
+      setLoading(false);
+    };
+
+    fetchChapter();
+  }, [classId, chapterId, staticChapter]);
+
+  // Loading state
+  if (loading) {
+    return (
+      <div style={{
+        width: "100%", height: "100dvh", display: "flex", flexDirection: "column",
+        alignItems: "center", justifyContent: "center", background: "#F0F7FF",
+        fontFamily: "'Nunito', sans-serif",
+      }}>
+        <div style={{ fontSize: 48, marginBottom: 16, animation: "pulse 1.5s infinite" }}>📚</div>
+        <p style={{ fontSize: 16, fontWeight: 700, color: "#475569" }}>Loading chapter...</p>
+      </div>
+    );
+  }
+
+  const chapter = staticChapter || dbChapter;
+
+  if (!chapter || notFound) {
     return (
       <div style={{
         width: "100%", height: "100dvh", display: "flex", flexDirection: "column",
